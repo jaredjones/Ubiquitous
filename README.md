@@ -1,2 +1,2 @@
 # Ubiquitous
-A repository for our iOS Development course.
+A repository for our iOS Development course
