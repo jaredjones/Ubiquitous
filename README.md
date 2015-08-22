@@ -1,5 +1,7 @@
 # Ubiquitous Computing
 
+Build Status: [![Build Status](https://magnum.travis-ci.com/jaredjones/Ubiquitous.svg?token=nCFa8t7vy2HwWwhyBzNF)](https://magnum.travis-ci.com/jaredjones/Ubiquitous)
+
 ## Introduction
 
 A repository for our UH Fall 2015 Ubiquitous Course.
