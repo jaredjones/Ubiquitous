@@ -27,6 +27,7 @@ public:
     }
     
     void setQuantity(uint32_t);
+    uint32_t getQuantity();
     std::string getName();
     std::string getISBN();
 };

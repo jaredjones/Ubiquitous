@@ -63,7 +63,12 @@ Student* Library::getStudentByID(std::string studentID)
     return nullptr;
 }
 
-void Library::checkedInBook(Book *book, Student *student)
+void Library::checkInBook(Book *book, Student *student)
 {
-    
+    book->setQuantity(book->getQuantity() + 1);
+}
+
+void Library::checkOutBook(Book *book, Student *student)
+{
+    book->setQuantity(book->getQuantity() - 1);
 }

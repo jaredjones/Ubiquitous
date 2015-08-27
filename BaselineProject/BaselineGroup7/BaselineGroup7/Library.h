@@ -25,7 +25,8 @@ public:
     void ImportStudent(Student *student);
     void displayAllBooksInSystem();
     bool studentExists(uint32_t id);
-    void checkedInBook(Book *book, Student *student);
+    void checkInBook(Book *book, Student *student);
+    void checkOutBook(Book *book, Student *student);
     Book* getBookByISBN(std::string isbn);
     Student* getStudentByID(std::string studentID);
     

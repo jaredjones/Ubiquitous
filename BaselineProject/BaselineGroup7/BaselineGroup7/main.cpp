@@ -68,8 +68,7 @@ int main(int argc, const char * argv[])
                 std::cin >> tmpISBN;
                 
                 //TODO: Should check if ISBN IS VALID
-                Book *b = library->getBookByISBN(tmpISBN);
-                library->checkedInBook(b, library->getStudentByID(studentID));
+                library->checkInBook(library->getBookByISBN(tmpISBN), library->getStudentByID(studentID));
                 
                 std::cout << "The book has been checked in!" << std::endl;
                 

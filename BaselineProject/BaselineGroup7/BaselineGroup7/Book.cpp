@@ -22,3 +22,8 @@ std::string Book::getISBN()
 {
     return this->isbn;
 }
+
+std::uint32_t Book::getQuantity()
+{
+    return this->quantity;
+}
