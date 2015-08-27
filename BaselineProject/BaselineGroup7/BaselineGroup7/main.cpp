@@ -42,6 +42,8 @@ int main(int argc, const char * argv[])
         
         std::cin >> option;
         
+        std::string studentID;
+        std::string tmpISBN;
         switch (option)
         {
             case 0:
@@ -50,7 +52,7 @@ int main(int argc, const char * argv[])
                 library->displayAllBooksInSystem();
                 break;
             case 2:
-                std::string studentID;
+                
                 std::cout << std::endl << "Please Enter Your Student ID:";
                 std::cin >> studentID;
                 
@@ -63,11 +65,13 @@ int main(int argc, const char * argv[])
                 library->displayAllBooksInSystem();
                 std::cout << std::endl << "Enter the ISBN To Check In a Book:";
                 
-                std::string tmpISBN;
                 std::cin >> tmpISBN;
                 
-                library->checkedInBook(library->getBookByISBN(tmpISBN), library->getStudentByID(studentID));
+                //TODO: Should check if ISBN IS VALID
+                Book *b = library->getBookByISBN(tmpISBN);
+                library->checkedInBook(b, library->getStudentByID(studentID));
                 
+                std::cout << "The book has been checked in!" << std::endl;
                 
                 break;
             case 3:
