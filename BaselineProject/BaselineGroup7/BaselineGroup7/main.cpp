@@ -44,6 +44,9 @@ int main(int argc, const char * argv[])
         
         std::string studentID;
         std::string tmpISBN;
+        std::list<Student *>::const_iterator iterator;
+        Book *b;
+        
         switch (option)
         {
             case 0:
@@ -68,16 +71,56 @@ int main(int argc, const char * argv[])
                 std::cin >> tmpISBN;
                 
                 //TODO: Should check if ISBN IS VALID
+                
+                b = library->getBookByISBN(tmpISBN);
+                if (!library->getStudentByID(studentID)->hasBook(b))
+                {
+                    printf("The student does not have this book!\n");
+                    break;
+                }
+                
                 library->checkInBook(library->getBookByISBN(tmpISBN), library->getStudentByID(studentID));
                 
                 std::cout << "The book has been checked in!" << std::endl;
                 
                 break;
             case 3:
+                std::cout << std::endl << "Please Enter Your Student ID:";
+                std::cin >> studentID;
+                
+                if (!library->studentExists(std::stoi(studentID)))
+                {
+                    std::cout << "The student you entered doesn't exist!" << std::endl;
+                    break;
+                }
+                
+                library->displayAllBooksInSystem();
+                std::cout << std::endl << "Enter the ISBN To Check out a Book:";
+                std::cin >> tmpISBN;
+                
+                b = library->getBookByISBN(tmpISBN);
+                if (b->quantity == 0)
+                {
+                    printf("This book is out of stock!\n");
+                    break;
+                }
+                
+                //TODO: Should check if ISBN IS VALID
+                library->checkOutBook(b, library->getStudentByID(studentID));
+                
+                std::cout << "The book has been checked out!" << std::endl;
                 break;
             case 4:
+                
+                for (iterator = library->studentList->begin(); iterator != library->studentList->end(); ++iterator) {
+                    
+                    (*(iterator))->printBookList();
+                }
+                
+                
+                
                 break;
-            case 5:
+            default:
                 break;
         }
         

@@ -65,10 +65,12 @@ Student* Library::getStudentByID(std::string studentID)
 
 void Library::checkInBook(Book *book, Student *student)
 {
+    student->removeBook(book);
     book->setQuantity(book->getQuantity() + 1);
 }
 
 void Library::checkOutBook(Book *book, Student *student)
 {
+    student->addBook(book);
     book->setQuantity(book->getQuantity() - 1);
 }

@@ -17,10 +17,10 @@
 
 class Library
 {
-private:
+public:
     std::list<Book *> *bookList;
     std::list<Student *> *studentList;
-public:
+    
     void ImportBook(Book *book);
     void ImportStudent(Student *student);
     void displayAllBooksInSystem();

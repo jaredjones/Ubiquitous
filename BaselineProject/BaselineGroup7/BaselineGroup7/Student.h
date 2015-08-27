@@ -11,13 +11,17 @@
 
 #include <stdio.h>
 #include <string>
+#include <list>
+
+#include "Book.h"
 
 class Student
 {
 private:
     std::string uid;
-    std::string name;
+    std::list<Book*> bookList;
 public:
+    std::string name;
     Student(std::string uid, std::string fullName)
     {
         this->uid = uid;
@@ -33,6 +37,12 @@ public:
     {
         return this->uid;
     }
+    
+    void addBook(Book *b);
+    void removeBook(Book *b);
+    void printBookList();
+    
+    bool hasBook(Book *b);
 };
 
 

@@ -17,8 +17,10 @@ class Book
 private:
     std::string isbn;
     std::string bookName;
-    uint32_t    quantity;
+    
 public:
+    uint32_t    quantity;
+    
     Book(std::string isbn, std::string bookName, uint32_t quantity)
     {
         this->isbn = isbn;
