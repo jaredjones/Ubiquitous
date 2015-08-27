@@ -1,0 +1,10 @@
+978-0321942050,iOS Programming: The Big Nerd Ranch Guide,3
+978-0321942067,Objective-C Programming: The Big Nerd Ranch Guide,3
+978-0262514279,Seeing: The Computational Approach to Biological Vision,3
+978-0521149709,The Phonological Mind,3
+978-0553418026,The Martian,3
+978-0393350395,Origins: Fourteen Billion Years of Cosmic Evolution,3
+978-0956372857,Information Theory: A Tutorial Introduction,3
+978-1405191470,Fundamentals of Psycholinguistics,3
+978-0781760034,Neuroscience: Exploring the Brain,3
+978-0321644688,Calculus For Biology and Medicine,3
