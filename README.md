@@ -35,3 +35,4 @@ All work is of private reservation until the course ends, then the LGPL license 
 + Faysal Sharif
 + Timothy Dickson
 + Stefan Theard
++ Aidaly Santamaria
