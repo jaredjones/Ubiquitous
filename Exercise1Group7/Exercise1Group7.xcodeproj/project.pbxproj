@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90DA81A41B98F91F00632065 /* QuizObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA81A31B98F91F00632065 /* QuizObject.m */; };
+		90DA81A71B98FAAA00632065 /* QuizManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA81A61B98FAAA00632065 /* QuizManager.m */; };
 		CE2A689D1B98F65A003E11BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A689C1B98F65A003E11BB /* main.m */; };
 		CE2A68A01B98F65A003E11BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A689F1B98F65A003E11BB /* AppDelegate.m */; };
 		CE2A68A31B98F65A003E11BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A68A21B98F65A003E11BB /* ViewController.m */; };
@@ -27,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90DA81A21B98F91F00632065 /* QuizObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizObject.h; sourceTree = "<group>"; };
+		90DA81A31B98F91F00632065 /* QuizObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizObject.m; sourceTree = "<group>"; };
+		90DA81A51B98FAAA00632065 /* QuizManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizManager.h; sourceTree = "<group>"; };
+		90DA81A61B98FAAA00632065 /* QuizManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizManager.m; sourceTree = "<group>"; };
 		CE2A68971B98F65A003E11BB /* Exercise1Group7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise1Group7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2A689B1B98F65A003E11BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE2A689C1B98F65A003E11BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +92,10 @@
 				CE2A68A11B98F65A003E11BB /* ViewController.h */,
 				CE2A68A21B98F65A003E11BB /* ViewController.m */,
 				CE2A68A41B98F65A003E11BB /* Main.storyboard */,
+				90DA81A51B98FAAA00632065 /* QuizManager.h */,
+				90DA81A61B98FAAA00632065 /* QuizManager.m */,
+				90DA81A21B98F91F00632065 /* QuizObject.h */,
+				90DA81A31B98F91F00632065 /* QuizObject.m */,
 				CE2A68A71B98F65A003E11BB /* Images.xcassets */,
 				CE2A68A91B98F65A003E11BB /* LaunchScreen.xib */,
 				CE2A689A1B98F65A003E11BB /* Supporting Files */,
@@ -221,7 +231,9 @@
 			files = (
 				CE2A68A31B98F65A003E11BB /* ViewController.m in Sources */,
 				CE2A68A01B98F65A003E11BB /* AppDelegate.m in Sources */,
+				90DA81A71B98FAAA00632065 /* QuizManager.m in Sources */,
 				CE2A689D1B98F65A003E11BB /* main.m in Sources */,
+				90DA81A41B98F91F00632065 /* QuizObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +428,7 @@
 				CE2A68BC1B98F65B003E11BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE2A68BD1B98F65B003E11BB /* Build configuration list for PBXNativeTarget "Exercise1Group7Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +437,7 @@
 				CE2A68BF1B98F65B003E11BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
