@@ -11,7 +11,6 @@
 		C026EECD1BA2333F00B883F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C026EECC1BA2333F00B883F6 /* AppDelegate.m */; };
 		C026EED31BA2333F00B883F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C026EED11BA2333F00B883F6 /* Main.storyboard */; };
 		C026EED51BA2333F00B883F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C026EED41BA2333F00B883F6 /* Assets.xcassets */; };
-		C026EED81BA2333F00B883F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C026EED61BA2333F00B883F6 /* LaunchScreen.storyboard */; };
 		C026EEE11BA2339A00B883F6 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = C026EEE01BA2339A00B883F6 /* Book.m */; };
 		C026EEE41BA2356300B883F6 /* BookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C026EEE31BA2356300B883F6 /* BookTableViewController.m */; };
 		C026EEE61BA2367B00B883F6 /* books.txt in Resources */ = {isa = PBXBuildFile; fileRef = C026EEE51BA2367B00B883F6 /* books.txt */; };
@@ -25,7 +24,6 @@
 		C026EECC1BA2333F00B883F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C026EED21BA2333F00B883F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C026EED41BA2333F00B883F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C026EED71BA2333F00B883F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C026EED91BA2333F00B883F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C026EEDF1BA2339A00B883F6 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		C026EEE01BA2339A00B883F6 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				C0386EA31BA2420A006F4AD8 /* BookDisplayViewController.h */,
 				C0386EA41BA2420A006F4AD8 /* BookDisplayViewController.m */,
 				C026EED41BA2333F00B883F6 /* Assets.xcassets */,
-				C026EED61BA2333F00B883F6 /* LaunchScreen.storyboard */,
 				C026EED91BA2333F00B883F6 /* Info.plist */,
 				C026EEC81BA2333F00B883F6 /* Supporting Files */,
 				C026EEDF1BA2339A00B883F6 /* Book.h */,
@@ -149,7 +146,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C026EED81BA2333F00B883F6 /* LaunchScreen.storyboard in Resources */,
 				C026EEE61BA2367B00B883F6 /* books.txt in Resources */,
 				C026EED51BA2333F00B883F6 /* Assets.xcassets in Resources */,
 				C026EED31BA2333F00B883F6 /* Main.storyboard in Resources */,
@@ -180,14 +176,6 @@
 				C026EED21BA2333F00B883F6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C026EED61BA2333F00B883F6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C026EED71BA2333F00B883F6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
