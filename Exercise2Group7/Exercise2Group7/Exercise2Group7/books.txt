@@ -1,0 +1,17 @@
+978-0321942050,iOS Programming: The Big Nerd Ranch Guide,Joe Conway;Aaron Hillegass,programming
+978-0321942067,Objective-C Programming: The Big Nerd Ranch Guide,Aaron Hillegass;Mikey Ward,programming
+978-0262514279,Seeing: The Computational Approach to Biological Vision,John P. Frisby;James V. Stone,science
+978-0521149709,The Phonological Mind,Iris Berent,science
+978-0553418026,The Martian,Andy Weir,fiction
+978-0393350395,Origins: Fourteen Billion Years of Cosmic Evolution,Neil deGrasse Tyson;Donald Goldsmith,science
+978-0956372857,Information Theory: A Tutorial Introduction,James V Stone,science
+978-1405191470,Fundamentals of Psycholinguistics,Eva M. Fernandez;Helen Smith Cairns,science
+978-0781760034,Neuroscience: Exploring the Brain,Mark F. Bear;Barry W. Connors,science
+978-0321644688,Calculus For Biology and Medicine,Claudia Neuhauser,math
+978-0071809252,Java: A Beginner's Guide Sixth Edition,Herbert Schildt,programming
+978-0201633610,Design Patterns: Elements of Reusable Object-Oriented Software,Erich Gamma;Richard Helm;Ralph Johnson ;John Vlissides,programming
+078-5342616224,The Pragmatic Programmer: From Journeyman to Master,Andrew Hunt;David Thomas,programming
+978-0321804334,Android Programming: The Big Nerd Ranch Guide,Bill Phillips;Brian Hardy,programming
+978-0399163845,X (A Kinsey Millhone Novel),Sue Grafton,fiction
+860-1200464207,HTML and CSS: Design and Build Websites,Jon Duckett,programming
+860-1200643879,Python Programming: An Introduction to Computer Science,John Zelle,programming
