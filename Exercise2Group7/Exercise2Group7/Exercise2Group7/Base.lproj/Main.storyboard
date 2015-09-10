@@ -17,8 +17,8 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="72"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team 7 Book List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uN-og-tq5">
-                                    <rect key="frame" x="235" y="25" width="131" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 7 Book List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uN-og-tq5">
+                                    <rect key="frame" x="234" y="25" width="131" height="21"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -27,6 +27,10 @@
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" red="0.51105087624559209" green="0.60570446583124993" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="5uN-og-tq5" firstAttribute="centerY" secondItem="Hlg-qU-YaE" secondAttribute="centerY" id="YzK-FX-Psz"/>
+                                <constraint firstItem="5uN-og-tq5" firstAttribute="centerX" secondItem="Hlg-qU-YaE" secondAttribute="centerX" id="smK-oa-f3z"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="gv9-S9-Ed1">
