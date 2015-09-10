@@ -8,10 +8,12 @@
 
 #import "BookTableViewController.h"
 #import "Book.h"
+#import "BookDisplayViewController.h"
 
 @interface BookTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *bookArray;
+@property (nonatomic, strong) Book *currentBook;
 
 @end
 
@@ -82,6 +84,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -95,10 +102,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_bookArray count];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
 }
 
 
@@ -152,14 +155,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Book *b = [_bookArray objectAtIndex:indexPath.row];
+    _currentBook = b;
+    [self performSegueWithIdentifier:@"bookContentsSegue" sender:self];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    BookDisplayViewController *bookDispVC = [segue destinationViewController];
+    bookDispVC.bookData = _currentBook;
 }
-*/
+
 
 @end

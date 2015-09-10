@@ -16,5 +16,5 @@
 @property (nonatomic, strong) NSNumber *category;
 
 - (instancetype) initWithStuff: (NSString *)isbn withTitle: (NSString *)title withAuthors: (NSString *)authors withCategory: (NSNumber *)category;
-
++ (NSString *)getCategoryGivenID: (NSUInteger)num;
 @end

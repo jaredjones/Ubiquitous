@@ -15,6 +15,7 @@
 		C026EEE11BA2339A00B883F6 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = C026EEE01BA2339A00B883F6 /* Book.m */; };
 		C026EEE41BA2356300B883F6 /* BookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C026EEE31BA2356300B883F6 /* BookTableViewController.m */; };
 		C026EEE61BA2367B00B883F6 /* books.txt in Resources */ = {isa = PBXBuildFile; fileRef = C026EEE51BA2367B00B883F6 /* books.txt */; };
+		C0386EA51BA2420A006F4AD8 /* BookDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0386EA41BA2420A006F4AD8 /* BookDisplayViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		C026EEE21BA2356300B883F6 /* BookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewController.h; sourceTree = "<group>"; };
 		C026EEE31BA2356300B883F6 /* BookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewController.m; sourceTree = "<group>"; };
 		C026EEE51BA2367B00B883F6 /* books.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = books.txt; sourceTree = "<group>"; };
+		C0386EA31BA2420A006F4AD8 /* BookDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDisplayViewController.h; sourceTree = "<group>"; };
+		C0386EA41BA2420A006F4AD8 /* BookDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDisplayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				C026EECB1BA2333F00B883F6 /* AppDelegate.h */,
 				C026EECC1BA2333F00B883F6 /* AppDelegate.m */,
 				C026EED11BA2333F00B883F6 /* Main.storyboard */,
+				C0386EA31BA2420A006F4AD8 /* BookDisplayViewController.h */,
+				C0386EA41BA2420A006F4AD8 /* BookDisplayViewController.m */,
 				C026EED41BA2333F00B883F6 /* Assets.xcassets */,
 				C026EED61BA2333F00B883F6 /* LaunchScreen.storyboard */,
 				C026EED91BA2333F00B883F6 /* Info.plist */,
@@ -161,6 +166,7 @@
 				C026EEE11BA2339A00B883F6 /* Book.m in Sources */,
 				C026EECD1BA2333F00B883F6 /* AppDelegate.m in Sources */,
 				C026EEE41BA2356300B883F6 /* BookTableViewController.m in Sources */,
+				C0386EA51BA2420A006F4AD8 /* BookDisplayViewController.m in Sources */,
 				C026EECA1BA2333F00B883F6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +314,7 @@
 				C026EEDE1BA2333F00B883F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

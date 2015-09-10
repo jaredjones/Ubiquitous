@@ -27,4 +27,18 @@
     return nil;
 }
 
++ (NSString *)getCategoryGivenID: (NSUInteger)num
+{
+    if (num == 0)
+        return @"programming";
+    if (num == 1)
+        return @"science";
+    if (num == 2)
+        return @"math";
+    if (num == 3)
+        return @"fiction";
+
+    return @"BAD BOY";
+}
+
 @end
