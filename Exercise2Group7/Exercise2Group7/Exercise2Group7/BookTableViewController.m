@@ -97,16 +97,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_bookArray count];
+    
+    NSUInteger counter = 0;
+    for (Book *b in _bookArray){
+        if ( [[b category] integerValue] == section)
+            counter++;
+    }
+    
+    return counter;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"bookCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -114,12 +122,21 @@
         cell.textLabel.numberOfLines = 0;
     }
     
-    Book *b = [_bookArray objectAtIndex:indexPath.row];
+    NSMutableArray *books = [[NSMutableArray alloc]init];
+    for (Book *b in _bookArray){
+        if ( [[b category] integerValue] == indexPath.section)
+            [books addObject:b];
+    }
+    
+    Book *b = [books objectAtIndex:indexPath.row];
     cell.textLabel.text = [b title];
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [Book getCategoryGivenID:section];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -159,7 +176,14 @@
 #pragma mark - Navigation
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Book *b = [_bookArray objectAtIndex:indexPath.row];
+    
+    NSMutableArray *books = [[NSMutableArray alloc]init];
+    for (Book *b in _bookArray){
+        if ( [[b category] integerValue] == indexPath.section)
+            [books addObject:b];
+    }
+    
+    Book *b = [books objectAtIndex:indexPath.row];
     _currentBook = b;
     [self performSegueWithIdentifier:@"bookContentsSegue" sender:self];
 }
