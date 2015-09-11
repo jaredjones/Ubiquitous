@@ -30,13 +30,13 @@
 + (NSString *)getCategoryGivenID: (NSUInteger)num
 {
     if (num == 0)
-        return @"programming";
+        return @"Programming";
     if (num == 1)
-        return @"science";
+        return @"Science";
     if (num == 2)
-        return @"math";
+        return @"Math";
     if (num == 3)
-        return @"fiction";
+        return @"Fiction";
 
     return @"BAD BOY";
 }
