@@ -11,5 +11,6 @@
 @interface NSString (StringVerification)
 
 - (BOOL)containsUpperCaseCharacter;
+- (BOOL)isValidEmail;
 
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -61,6 +62,7 @@
                         <outlet property="emailTextField" destination="dwn-77-qpz" id="f6s-G0-3HG"/>
                         <outlet property="passwordButton" destination="mfq-Xc-qdY" id="ulT-cc-6bd"/>
                         <outlet property="passwordTextField" destination="yOb-2N-E62" id="DPG-jX-eBx"/>
+                        <segue destination="77d-jK-dBv" kind="show" identifier="loggedInSegue" id="TDe-I0-6AK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLJ-45-WQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,8 +81,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEMP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-kw-3X2">
-                                <rect key="frame" x="276" y="289" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-kw-3X2">
+                                <rect key="frame" x="20" y="289" width="560" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -89,11 +91,20 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aX2-kw-3X2" firstAttribute="leading" secondItem="g2G-vn-fPX" secondAttribute="leadingMargin" id="AWA-DL-CB7"/>
+                            <constraint firstItem="aX2-kw-3X2" firstAttribute="trailing" secondItem="g2G-vn-fPX" secondAttribute="trailingMargin" id="Hai-xs-gZ2"/>
+                            <constraint firstItem="aX2-kw-3X2" firstAttribute="centerY" secondItem="g2G-vn-fPX" secondAttribute="centerY" id="W4k-6j-fv1"/>
+                            <constraint firstItem="aX2-kw-3X2" firstAttribute="centerX" secondItem="g2G-vn-fPX" secondAttribute="centerX" id="nHp-PC-WrV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="aX2-kw-3X2" id="s53-3t-kXe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nkp-Vt-NwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="945"/>
+            <point key="canvasLocation" x="1117" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ren-1E-ZVd">
@@ -106,7 +117,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="fDx-yt-hsI" kind="relationship" relationship="rootViewController" id="G9x-nV-4P3"/>
-                        <segue destination="77d-jK-dBv" kind="show" identifier="loggedInSegue" id="ZfD-M4-H1H"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03s-Se-0cm" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,7 @@
 #import "LoggedInViewController.h"
 
 @interface LoggedInViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
 @end
 
@@ -22,6 +23,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:NO];
+    [_emailLabel setText:_loggedInEmail];
 }
 
 /*

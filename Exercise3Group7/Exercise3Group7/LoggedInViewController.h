@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LoggedInViewController : UIViewController
-
+@property (nonatomic, strong) NSString *loggedInEmail;
 @end
