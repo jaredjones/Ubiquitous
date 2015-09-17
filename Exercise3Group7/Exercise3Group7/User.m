@@ -39,7 +39,7 @@
 }
 
 - (BOOL)doesUserExist: (NSString *) user{
-    
+    return false;
 }
 
 

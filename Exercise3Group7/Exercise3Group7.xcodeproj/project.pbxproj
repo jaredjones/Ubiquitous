@@ -13,7 +13,6 @@
 		C0051CFB1BAB6D6C0040E7F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0051CF91BAB6D6C0040E7F0 /* Main.storyboard */; };
 		C0051CFE1BAB6D6C0040E7F0 /* Exercise3Group7.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0051CFC1BAB6D6C0040E7F0 /* Exercise3Group7.xcdatamodeld */; };
 		C0051D001BAB6D6C0040E7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0051CFF1BAB6D6C0040E7F0 /* Assets.xcassets */; };
-		C0051D031BAB6D6C0040E7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0051D011BAB6D6C0040E7F0 /* LaunchScreen.storyboard */; };
 		C0051D0E1BAB6D6C0040E7F0 /* Exercise3Group7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D0D1BAB6D6C0040E7F0 /* Exercise3Group7Tests.m */; };
 		C0051D1A1BAB6F3B0040E7F0 /* LoggedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D191BAB6F3B0040E7F0 /* LoggedInViewController.m */; };
 		C0051D1D1BAB6F7C0040E7F0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D1C1BAB6F7C0040E7F0 /* User.m */; };
@@ -40,7 +39,6 @@
 		C0051CFA1BAB6D6C0040E7F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0051CFD1BAB6D6C0040E7F0 /* Exercise3Group7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Exercise3Group7.xcdatamodel; sourceTree = "<group>"; };
 		C0051CFF1BAB6D6C0040E7F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C0051D021BAB6D6C0040E7F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0051D041BAB6D6C0040E7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0051D091BAB6D6C0040E7F0 /* Exercise3Group7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Exercise3Group7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0051D0D1BAB6D6C0040E7F0 /* Exercise3Group7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Exercise3Group7Tests.m; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				C0051D1E1BAB72870040E7F0 /* NSString+StringVerification.h */,
 				C0051D1F1BAB72870040E7F0 /* NSString+StringVerification.m */,
 				C0051CFF1BAB6D6C0040E7F0 /* Assets.xcassets */,
-				C0051D011BAB6D6C0040E7F0 /* LaunchScreen.storyboard */,
 				C0051D041BAB6D6C0040E7F0 /* Info.plist */,
 				C0051CFC1BAB6D6C0040E7F0 /* Exercise3Group7.xcdatamodeld */,
 				C0051CF01BAB6D6C0040E7F0 /* Supporting Files */,
@@ -209,7 +206,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0051D031BAB6D6C0040E7F0 /* LaunchScreen.storyboard in Resources */,
 				C0051D001BAB6D6C0040E7F0 /* Assets.xcassets in Resources */,
 				C0051CFB1BAB6D6C0040E7F0 /* Main.storyboard in Resources */,
 			);
@@ -264,14 +260,6 @@
 				C0051CFA1BAB6D6C0040E7F0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C0051D011BAB6D6C0040E7F0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0051D021BAB6D6C0040E7F0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -386,6 +374,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Exercise3Group7Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = team7.Exercise3Group7Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -398,6 +387,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Exercise3Group7Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = team7.Exercise3Group7Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,6 +414,7 @@
 				C0051D141BAB6D6C0040E7F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0051D151BAB6D6C0040E7F0 /* Build configuration list for PBXNativeTarget "Exercise3Group7Tests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +423,7 @@
 				C0051D171BAB6D6C0040E7F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
