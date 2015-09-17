@@ -38,12 +38,17 @@
     // code for other attribute(s)
 }
 
-- (BOOL)doesUserExist: (NSString *) user{
-    return false;
++ (BOOL)doesEmailExist: (NSString *) email{
+    NSArray *userArray = [User retrieveDataFromNSUserDefaults];
+    for (User *u in userArray){
+        if ([[u email] isEqualToString:email]){
+            return YES;
+        }
+    }
+    return NO;
 }
 
-
-- (NSArray*) retrieveDataFromNSUserDefaults {
++ (NSArray *)retrieveDataFromNSUserDefaults {
     NSMutableArray *objectArray = [NSMutableArray new];
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
     NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"savedArray"];
@@ -59,7 +64,7 @@
     return objectArray;
 }
 
-- (void)storeDataInNSUserDefaults:(User *)userToStore
++ (void)storeDataInNSUserDefaults:(User *)userToStore
 {
     NSMutableArray *objectArray = [NSMutableArray arrayWithArray:[self retrieveDataFromNSUserDefaults]];
     [objectArray addObject:userToStore];

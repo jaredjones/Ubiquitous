@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "User.h"
+#import "NSString+StringVerification.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -33,6 +34,28 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
+    BOOL emailExist = [User doesEmailExist: [_emailTextField text]];
+    UIAlertView *msg;
+    BOOL hasErrorOccured = NO;
+    NSString *errorTitle;
+    NSString *errorMsg;
     
+    
+    
+    if (!emailExist){
+        User *u = [[User alloc]initWithUser:[_emailTextField text] withPassword:[_passwordTextField text]];
+        [User storeDataInNSUserDefaults:u];
+    }
+    
+    
+    if (hasErrorOccured){
+        msg = [[UIAlertView alloc]initWithTitle:errorTitle
+                                        message:errorMsg
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil, nil];
+        [msg show];
+        return;
+    }
 }
 @end
