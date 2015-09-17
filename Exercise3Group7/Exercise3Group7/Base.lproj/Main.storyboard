@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwn-77-qpz">
-                                <rect key="frame" x="165" y="261" width="251" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwn-77-qpz">
+                                <rect key="frame" x="175" y="261" width="251" height="20"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="251" id="BRv-fV-aY3"/>
@@ -27,8 +27,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-2N-E62">
-                                <rect key="frame" x="165" y="317" width="251" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-2N-E62">
+                                <rect key="frame" x="175" y="307" width="251" height="20"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="251" id="MZx-Xc-YNE"/>
@@ -55,8 +55,8 @@
                                     <constraint firstItem="dqY-ZE-Tas" firstAttribute="centerY" secondItem="YWt-1x-e2K" secondAttribute="centerY" id="qlo-t0-df1"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfq-Xc-qdY">
-                                <rect key="frame" x="278" y="550" width="45" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfq-Xc-qdY">
+                                <rect key="frame" x="280" y="550" width="41" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Login"/>
@@ -73,6 +73,8 @@
                             <constraint firstItem="YWt-1x-e2K" firstAttribute="top" secondItem="IZ2-vP-q0t" secondAttribute="bottom" id="XS4-6t-1Lc"/>
                             <constraint firstItem="YWt-1x-e2K" firstAttribute="leading" secondItem="Hkj-ei-Cbz" secondAttribute="leadingMargin" constant="-20" id="c1N-Sb-8HK"/>
                             <constraint firstItem="yOb-2N-E62" firstAttribute="top" secondItem="dwn-77-qpz" secondAttribute="bottom" constant="26" id="foE-8Y-0Pv"/>
+                            <constraint firstItem="mfq-Xc-qdY" firstAttribute="centerX" secondItem="Hkj-ei-Cbz" secondAttribute="centerX" id="h0R-ws-bLk"/>
+                            <constraint firstItem="CrS-wC-Tha" firstAttribute="top" secondItem="mfq-Xc-qdY" secondAttribute="bottom" constant="20" id="jGE-A0-1I1"/>
                             <constraint firstItem="dwn-77-qpz" firstAttribute="top" secondItem="YWt-1x-e2K" secondAttribute="bottom" constant="98" id="ngD-S6-Qxl"/>
                             <constraint firstItem="dwn-77-qpz" firstAttribute="centerX" secondItem="Hkj-ei-Cbz" secondAttribute="centerX" id="sJB-IS-B9y"/>
                         </constraints>
