@@ -47,8 +47,8 @@
 		C0051D191BAB6F3B0040E7F0 /* LoggedInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggedInViewController.m; sourceTree = "<group>"; };
 		C0051D1B1BAB6F7C0040E7F0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		C0051D1C1BAB6F7C0040E7F0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		C0051D1E1BAB72870040E7F0 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
 		C0051D1F1BAB72870040E7F0 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
+		C0B5C78A1BAB86AF0068C057 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StringVerification.h"; path = "../NSString+StringVerification.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 				C0051D181BAB6F3B0040E7F0 /* LoggedInViewController.h */,
 				C0051D191BAB6F3B0040E7F0 /* LoggedInViewController.m */,
 				C0051CF91BAB6D6C0040E7F0 /* Main.storyboard */,
-				C0051D1E1BAB72870040E7F0 /* NSString+StringVerification.h */,
+				C0B5C78A1BAB86AF0068C057 /* NSString+StringVerification.h */,
 				C0051D1F1BAB72870040E7F0 /* NSString+StringVerification.m */,
 				C0051CFF1BAB6D6C0040E7F0 /* Assets.xcassets */,
 				C0051D041BAB6D6C0040E7F0 /* Info.plist */,

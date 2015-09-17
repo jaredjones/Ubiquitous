@@ -10,34 +10,34 @@
 
 @implementation NSString (StringVerification)
 
-- (BOOL)containsNumber : (NSString*) passedString {
+- (BOOL)containsNumber {
     BOOL isNumeric = NO;
-    for(int i = 0; i<[passedString length]; i++) {
+    for(int i = 0; i<[self length]; i++) {
         
-        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[passedString characterAtIndex:i]]) {
+        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[self characterAtIndex:i]]) {
             isNumeric = YES;
         }
     }
     return isNumeric;
 }
 
-- (BOOL)containsUpperCaseCharacter : (NSString*) passedString {
+- (BOOL)containsUpperCaseCharacter{
     BOOL isUpper = NO;
-    for(int i = 0; i<[passedString length]; i++) {
+    for(int i = 0; i<[self length]; i++) {
         
-        if ([[NSCharacterSet uppercaseLetterCharacterSet] characterIsMember:[passedString characterAtIndex:i]]) {
+        if ([[NSCharacterSet uppercaseLetterCharacterSet] characterIsMember:[self characterAtIndex:i]]) {
             isUpper = YES;
         }
     }
     return isUpper;
 }
 
--(BOOL) hasPunctuation : (NSString*) passedString {
+-(BOOL) hasPunctuation {
     NSRange range = [self rangeOfCharacterFromSet:[NSCharacterSet
                                                    punctuationCharacterSet]];
     return range.location != NSNotFound;
 }
-- (BOOL)isValidEmail : (NSString*) passedString {
+- (BOOL)isValidEmail{
     NSString *expression = @"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[AZa-z]{2,4}$";
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression
