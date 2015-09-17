@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NSString+StringVerification.h"
 
 @interface Exercise3Group7Tests : XCTestCase
 
@@ -28,6 +29,11 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     XCTAssertTrue(true);
+}
+
+- (void)testStringHasAnUpperCaseLetter {
+    NSString* testString = @"hEllo";
+    XCTAssertTrue([testString containsUpperCaseCharacter], @"The String did not have an upper case character");
 }
 
 - (void)testPerformanceExample {

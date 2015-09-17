@@ -10,4 +10,6 @@
 
 @interface NSString (StringVerification)
 
+- (BOOL)containsUpperCaseCharacter;
+
 @end
