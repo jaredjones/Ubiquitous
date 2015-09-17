@@ -33,36 +33,36 @@
 
 - (void)testStringHasAnUpperCaseLetter {
     NSString* testString = @"hEllo";
-    XCTAssertTrue([testString containsUpperCaseCharacter:testString]);
+    XCTAssertTrue([testString containsUpperCaseCharacter]);
 }
 
 - (void)testStringDoesNotHaveAnUpperCaseLetter {
     NSString* testString = @"hello";
-    XCTAssertFalse([testString containsUpperCaseCharacter:testString]);
+    XCTAssertFalse([testString containsUpperCaseCharacter]);
 }
 
 - (void)testStringHasANumber {
     NSString* testString = @"hEl3lo";
-    XCTAssertTrue([testString containsNumber:testString]);
+    XCTAssertTrue([testString containsNumber]);
 }
 
 - (void)testPassedStringIsAnEmail {
     NSString* passedString = @"faysal@email.com";
-    XCTAssertTrue([passedString isValidEmail:passedString]);
+    XCTAssertTrue([passedString isValidEmail]);
 }
 - (void)testPassedStringIsNotAnEmail {
     NSString* passedString = @"faysal";
-    XCTAssertFalse([passedString isValidEmail:passedString]);
+    XCTAssertFalse([passedString isValidEmail]);
 }
 
 - (void)testPassedStringHasPunctuation {
     NSString* passedString = @"faysal@email.com";
-    XCTAssertTrue([passedString hasPunctuation:passedString]);
+    XCTAssertTrue([passedString hasPunctuation]);
 }
 
 - (void)testPassedStringHasNoPunctuation {
     NSString* passedString = @"faysal";
-    XCTAssertFalse([passedString hasPunctuation:passedString]);
+    XCTAssertFalse([passedString hasPunctuation]);
 }
 
 - (void)testPerformanceExample {
