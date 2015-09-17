@@ -15,6 +15,9 @@
 		C0051D001BAB6D6C0040E7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0051CFF1BAB6D6C0040E7F0 /* Assets.xcassets */; };
 		C0051D031BAB6D6C0040E7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0051D011BAB6D6C0040E7F0 /* LaunchScreen.storyboard */; };
 		C0051D0E1BAB6D6C0040E7F0 /* Exercise3Group7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D0D1BAB6D6C0040E7F0 /* Exercise3Group7Tests.m */; };
+		C0051D1A1BAB6F3B0040E7F0 /* LoggedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D191BAB6F3B0040E7F0 /* LoggedInViewController.m */; };
+		C0051D1D1BAB6F7C0040E7F0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D1C1BAB6F7C0040E7F0 /* User.m */; };
+		C0051D201BAB72870040E7F0 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = C0051D1F1BAB72870040E7F0 /* NSString+StringVerification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,12 @@
 		C0051D091BAB6D6C0040E7F0 /* Exercise3Group7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Exercise3Group7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0051D0D1BAB6D6C0040E7F0 /* Exercise3Group7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Exercise3Group7Tests.m; sourceTree = "<group>"; };
 		C0051D0F1BAB6D6C0040E7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0051D181BAB6F3B0040E7F0 /* LoggedInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggedInViewController.h; sourceTree = "<group>"; };
+		C0051D191BAB6F3B0040E7F0 /* LoggedInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggedInViewController.m; sourceTree = "<group>"; };
+		C0051D1B1BAB6F7C0040E7F0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C0051D1C1BAB6F7C0040E7F0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C0051D1E1BAB72870040E7F0 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
+		C0051D1F1BAB72870040E7F0 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +96,18 @@
 				C0051CF41BAB6D6C0040E7F0 /* AppDelegate.m */,
 				C0051CF61BAB6D6C0040E7F0 /* ViewController.h */,
 				C0051CF71BAB6D6C0040E7F0 /* ViewController.m */,
+				C0051D181BAB6F3B0040E7F0 /* LoggedInViewController.h */,
+				C0051D191BAB6F3B0040E7F0 /* LoggedInViewController.m */,
 				C0051CF91BAB6D6C0040E7F0 /* Main.storyboard */,
+				C0051D1E1BAB72870040E7F0 /* NSString+StringVerification.h */,
+				C0051D1F1BAB72870040E7F0 /* NSString+StringVerification.m */,
 				C0051CFF1BAB6D6C0040E7F0 /* Assets.xcassets */,
 				C0051D011BAB6D6C0040E7F0 /* LaunchScreen.storyboard */,
 				C0051D041BAB6D6C0040E7F0 /* Info.plist */,
 				C0051CFC1BAB6D6C0040E7F0 /* Exercise3Group7.xcdatamodeld */,
 				C0051CF01BAB6D6C0040E7F0 /* Supporting Files */,
+				C0051D1B1BAB6F7C0040E7F0 /* User.h */,
+				C0051D1C1BAB6F7C0040E7F0 /* User.m */,
 			);
 			path = Exercise3Group7;
 			sourceTree = "<group>";
@@ -216,8 +231,11 @@
 			files = (
 				C0051CF81BAB6D6C0040E7F0 /* ViewController.m in Sources */,
 				C0051CF51BAB6D6C0040E7F0 /* AppDelegate.m in Sources */,
+				C0051D1D1BAB6F7C0040E7F0 /* User.m in Sources */,
+				C0051D1A1BAB6F3B0040E7F0 /* LoggedInViewController.m in Sources */,
 				C0051CF21BAB6D6C0040E7F0 /* main.m in Sources */,
 				C0051CFE1BAB6D6C0040E7F0 /* Exercise3Group7.xcdatamodeld in Sources */,
+				C0051D201BAB72870040E7F0 /* NSString+StringVerification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
