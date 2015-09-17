@@ -10,6 +10,10 @@
 
 @interface NSString (StringVerification)
 
-- (BOOL)containsUpperCaseCharacter;
+- (BOOL)containsUpperCaseCharacter : (NSString*) passedString;
+- (BOOL)containsNumber : (NSString*) passedString;
+- (BOOL)isValidEmail : (NSString*) passedString;
+- (BOOL)hasPunctuation : (NSString*) passedString;
+
 
 @end

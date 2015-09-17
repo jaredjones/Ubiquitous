@@ -10,20 +10,34 @@
 
 @implementation NSString (StringVerification)
 
-- (BOOL)containsNumber {
-    return false;
+- (BOOL)containsNumber : (NSString*) passedString {
+    BOOL isNumeric = NO;
+    for(int i = 0; i<[passedString length]; i++) {
+        
+        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[passedString characterAtIndex:i]]) {
+            isNumeric = YES;
+        }
+    }
+    return isNumeric;
 }
 
-- (BOOL)containsUpperCaseCharacter {
-    return false;
+- (BOOL)containsUpperCaseCharacter : (NSString*) passedString {
+    BOOL isUpper = NO;
+    for(int i = 0; i<[passedString length]; i++) {
+        
+        if ([[NSCharacterSet uppercaseLetterCharacterSet] characterIsMember:[passedString characterAtIndex:i]]) {
+            isUpper = YES;
+        }
+    }
+    return isUpper;
 }
 
--(BOOL) hasPunctuation {
+-(BOOL) hasPunctuation : (NSString*) passedString {
     NSRange range = [self rangeOfCharacterFromSet:[NSCharacterSet
                                                    punctuationCharacterSet]];
     return range.location != NSNotFound;
 }
-- (BOOL)isValidEmail {
+- (BOOL)isValidEmail : (NSString*) passedString {
     NSString *expression = @"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[AZa-z]{2,4}$";
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression
