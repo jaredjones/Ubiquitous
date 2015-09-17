@@ -8,7 +8,7 @@
 
 #import "User.h"
 
-@implementation User 
+@implementation User
 
 - (instancetype)init{
     NSLog(@"Please instantiate with initWithUser:");
@@ -36,6 +36,35 @@
     [aCoder encodeObject:_email forKey:@"email"];
     [aCoder encodeObject:_password forKey:@"password"];
     // code for other attribute(s)
+}
+
+- (BOOL)doesUserExist: (NSString *) user{
+    
+}
+
+
+- (NSArray*) retrieveDataFromNSUserDefaults {
+    NSMutableArray *objectArray = [NSMutableArray new];
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"savedArray"];
+    
+    if (dataRepresentingSavedArray != nil)
+    {
+        NSArray *oldSavedArray = [NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray];
+        if (oldSavedArray != nil)
+            objectArray = [[NSMutableArray alloc] initWithArray:oldSavedArray];
+        else
+            objectArray = [[NSMutableArray alloc] init];
+    }
+    return objectArray;
+}
+
+- (void)storeDataInNSUserDefaults:(User *)userToStore
+{
+    NSMutableArray *objectArray = [NSMutableArray arrayWithArray:[self retrieveDataFromNSUserDefaults]];
+    [objectArray addObject:userToStore];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:objectArray] forKey:@"savedArray"];
 }
 
 @end

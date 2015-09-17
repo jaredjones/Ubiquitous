@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *password;
 
+- (BOOL)doesUserExist: (NSString*) user;
+
 @end

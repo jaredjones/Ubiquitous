@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "User.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
