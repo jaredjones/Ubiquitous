@@ -48,6 +48,18 @@
     return NO;
 }
 
++ (BOOL)emailCredentialsValid: (NSString *)email withPassword: (NSString *)password{
+    NSArray *userArray = [User retrieveDataFromNSUserDefaults];
+    for (User *u in userArray){
+        if ([[u email] isEqualToString:email]){
+            if ([[u password] isEqualToString:password]){
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 + (NSArray *)retrieveDataFromNSUserDefaults {
     NSMutableArray *objectArray = [NSMutableArray new];
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];

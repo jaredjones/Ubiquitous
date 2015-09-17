@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *password;
 - (instancetype)initWithUser: (NSString *)user withPassword: (NSString *)password;
 + (BOOL)doesEmailExist: (NSString*) email;
++ (BOOL)emailCredentialsValid: (NSString *)email withPassword: (NSString *)password;
 + (NSArray*) retrieveDataFromNSUserDefaults;
 + (void)storeDataInNSUserDefaults:(User *)userToStore;
 @end
