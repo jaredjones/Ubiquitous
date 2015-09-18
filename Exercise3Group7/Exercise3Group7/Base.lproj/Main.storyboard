@@ -64,10 +64,22 @@
                                     <action selector="loginButtonPressed:" destination="fDx-yt-hsI" eventType="touchUpInside" id="hiP-1h-UYM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength: Empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-db-PK1">
+                                <rect key="frame" x="219" y="347" width="162" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="838-ph-iF6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bXJ-db-PK1" firstAttribute="top" secondItem="yOb-2N-E62" secondAttribute="bottom" constant="20" id="5dR-ra-zon"/>
+                            <constraint firstItem="bXJ-db-PK1" firstAttribute="centerX" secondItem="Hkj-ei-Cbz" secondAttribute="centerX" id="9kd-Yz-Ml4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YWt-1x-e2K" secondAttribute="trailing" constant="-20" id="CCi-Ct-H4d"/>
                             <constraint firstItem="yOb-2N-E62" firstAttribute="centerX" secondItem="Hkj-ei-Cbz" secondAttribute="centerX" id="G3f-Tc-gvz"/>
                             <constraint firstItem="YWt-1x-e2K" firstAttribute="top" secondItem="IZ2-vP-q0t" secondAttribute="bottom" id="XS4-6t-1Lc"/>
@@ -84,6 +96,7 @@
                         <outlet property="emailTextField" destination="dwn-77-qpz" id="f6s-G0-3HG"/>
                         <outlet property="passwordButton" destination="mfq-Xc-qdY" id="ulT-cc-6bd"/>
                         <outlet property="passwordTextField" destination="yOb-2N-E62" id="DPG-jX-eBx"/>
+                        <outlet property="strengthLabel" destination="bXJ-db-PK1" id="gjJ-10-PBX"/>
                         <segue destination="77d-jK-dBv" kind="show" identifier="loggedInSegue" id="TDe-I0-6AK"/>
                     </connections>
                 </viewController>

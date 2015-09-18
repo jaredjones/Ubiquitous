@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *passwordButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *strengthLabel;
 @end
 
 @implementation ViewController
@@ -24,6 +25,9 @@
     [super viewDidLoad];
     [_passwordTextField setSecureTextEntry:YES];
     [self setTitle:@"Logout"];
+    
+    _passwordTextField.delegate = self;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -35,6 +39,47 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_emailTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *pass = [_passwordTextField text];
+    BOOL containsNumber = [pass containsNumber];
+    BOOL containsPunc = [pass hasPunctuation];
+    BOOL containsUpp = [pass containsUpperCaseCharacter];
+    
+    NSUInteger size = 0;
+    if (containsNumber)
+        size++;
+    if (containsPunc)
+        size++;
+    if (containsUpp)
+        size++;
+    
+    switch (size){
+        case 0:
+            [_strengthLabel setText:@"Strength: Weak"];
+            break;
+        case 1:
+            [_strengthLabel setText:@"Strength: Okay"];
+            break;
+        case 2:
+            [_strengthLabel setText:@"Strength: Great"];
+            break;
+        case 3:
+            [_strengthLabel setText:@"Strength: Strong"];
+            break;
+        default:
+            [_strengthLabel setText:@"Strength: Weak"];
+            break;
+    }
+    
+    return YES;
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
