@@ -44,6 +44,16 @@
     // code for other attribute(s)
 }
 
++ (BOOL)doesCarAlreadyExist: (Car *)c{
+    NSArray *carList = [Car retrieveDataFromNSUserDefaults];
+    for (Car *tmp in carList){
+        if ([[tmp vin] isEqualToString:[c vin]]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 + (NSArray *)retrieveDataFromNSUserDefaults {
     NSMutableArray *objectArray = [NSMutableArray new];
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];

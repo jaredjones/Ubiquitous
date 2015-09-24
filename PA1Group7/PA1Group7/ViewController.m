@@ -76,12 +76,22 @@
         return;
     }
     
+    _vinTextField.text = [_vinTextField.text uppercaseString];
+    
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
 
-    //TODO: CHECK FOR DUPLICATES!!!!!!!!!!!!!!!!!
-
+    
     Car *u = [[Car alloc]initWithInformation:[f numberFromString:_yearTextField.text] withVIN:[_vinTextField text] withMake:[_makeTextField text] withModel:[_modelTextField text]];
+    if ([Car doesCarAlreadyExist:u]){
+        alert = [[UIAlertView alloc]initWithTitle:@"Car Already Exists"
+                                          message:@"The car you are trying to create already exists!"
+                                         delegate:nil
+                                cancelButtonTitle:@"OK"
+                                otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
     [Car storeDataInNSUserDefaults:u];
     
     alert = [[UIAlertView alloc]initWithTitle:@"Car Added Successfully!"

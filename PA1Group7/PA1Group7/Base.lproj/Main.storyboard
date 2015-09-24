@@ -207,6 +207,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="makeLabel" destination="Ke0-HJ-KHi" id="USa-xe-kXY"/>
+                        <outlet property="modelLabel" destination="TXt-4X-Q6H" id="V8q-r0-egP"/>
+                        <outlet property="vinLabel" destination="bkr-ye-PWN" id="ldR-eU-T1a"/>
+                        <outlet property="yearLabel" destination="doH-ka-Jpc" id="dsk-Lu-ULh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFJ-d1-dNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
