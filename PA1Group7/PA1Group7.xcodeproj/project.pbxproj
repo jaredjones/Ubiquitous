@@ -15,6 +15,8 @@
 		C0E500251BB49D3C002E0A46 /* PA1Group7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500241BB49D3C002E0A46 /* PA1Group7Tests.m */; };
 		C0E500311BB49D98002E0A46 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500301BB49D98002E0A46 /* NSString+Validation.m */; settings = {ASSET_TAGS = (); }; };
 		C0E500351BB4A065002E0A46 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500341BB4A065002E0A46 /* Car.m */; settings = {ASSET_TAGS = (); }; };
+		C0E500381BB4B037002E0A46 /* CarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500371BB4B037002E0A46 /* CarTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C0E5003B1BB4B3D0002E0A46 /* CarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		C0E500301BB49D98002E0A46 /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
 		C0E500331BB4A065002E0A46 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		C0E500341BB4A065002E0A46 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		C0E500361BB4B037002E0A46 /* CarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTableViewController.h; sourceTree = "<group>"; };
+		C0E500371BB4B037002E0A46 /* CarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTableViewController.m; sourceTree = "<group>"; };
+		C0E500391BB4B3D0002E0A46 /* CarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailViewController.h; sourceTree = "<group>"; };
+		C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,11 @@
 				C0E5000E1BB49D3C002E0A46 /* AppDelegate.m */,
 				C0E500101BB49D3C002E0A46 /* ViewController.h */,
 				C0E500111BB49D3C002E0A46 /* ViewController.m */,
+				C0E500361BB4B037002E0A46 /* CarTableViewController.h */,
+				C0E500371BB4B037002E0A46 /* CarTableViewController.m */,
 				C0E500131BB49D3C002E0A46 /* Main.storyboard */,
+				C0E500391BB4B3D0002E0A46 /* CarDetailViewController.h */,
+				C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */,
 				C0E500161BB49D3C002E0A46 /* Assets.xcassets */,
 				C0E5001B1BB49D3C002E0A46 /* Info.plist */,
 				C0E5000A1BB49D3C002E0A46 /* Supporting Files */,
@@ -219,9 +229,11 @@
 			files = (
 				C0E500351BB4A065002E0A46 /* Car.m in Sources */,
 				C0E500121BB49D3C002E0A46 /* ViewController.m in Sources */,
+				C0E500381BB4B037002E0A46 /* CarTableViewController.m in Sources */,
 				C0E5000F1BB49D3C002E0A46 /* AppDelegate.m in Sources */,
 				C0E500311BB49D98002E0A46 /* NSString+Validation.m in Sources */,
 				C0E5000C1BB49D3C002E0A46 /* main.m in Sources */,
+				C0E5003B1BB4B3D0002E0A46 /* CarDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
