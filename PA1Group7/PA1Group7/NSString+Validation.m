@@ -10,15 +10,15 @@
 
 @implementation NSString (Validation)
 
-- (BOOL)isValidYear: (NSNumber *)num{
-    NSUInteger year = [num unsignedIntegerValue];
+- (BOOL)isValidYear{
+    NSUInteger year = [self integerValue];
     if (year < 1886 || year > 2016)
         return NO;
     return YES;
 }
 
-- (BOOL)isValidVINNumber: (NSString *)vin{
-    NSString *tmp = [vin copy];
+- (BOOL)isValidVINNumber{
+    NSString *tmp = [self copy];
     tmp = [tmp uppercaseString];
     
     if ( [tmp length] != 17 )

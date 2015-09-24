@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Validation)
-- (BOOL)isValidYear: (NSNumber *)num;
-- (BOOL)isValidVINNumber: (NSString *)vin;
+- (BOOL)isValidYear;
+- (BOOL)isValidVINNumber;
 @end
