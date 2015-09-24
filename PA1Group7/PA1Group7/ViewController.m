@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "NSString+Validation.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *makeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *modelTextField;
+@property (weak, nonatomic) IBOutlet UITextField *yearTextField;
+@property (weak, nonatomic) IBOutlet UITextField *vinTextField;
 
 @end
 
@@ -22,6 +28,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addVehicleButtonTapped:(id)sender {
+}
+
+- (IBAction)showVehicleListButtonTapped:(id)sender {
 }
 
 @end

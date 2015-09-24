@@ -62,12 +62,29 @@
                                 <rect key="frame" x="259" y="240" width="83" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Add Vehicle"/>
+                                <connections>
+                                    <action selector="addVehicleButtonTapped:" destination="jho-gT-IDn" eventType="touchUpInside" id="xPM-o3-MiB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEw-69-ECB">
+                                <rect key="frame" x="250" y="269" width="99" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Show Vehicles"/>
+                                <connections>
+                                    <action selector="showVehicleListButtonTapped:" destination="jho-gT-IDn" eventType="touchUpInside" id="hTV-NN-t96"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Car Entry" id="NRz-uy-Yd5"/>
+                    <connections>
+                        <outlet property="makeTextField" destination="p7d-t1-em4" id="NMk-Tc-xce"/>
+                        <outlet property="modelTextField" destination="4fV-QC-JnS" id="xAq-Rj-1Zo"/>
+                        <outlet property="vinTextField" destination="Iqi-3N-AWo" id="1XI-DZ-iRq"/>
+                        <outlet property="yearTextField" destination="Wao-2L-y5e" id="sFb-1h-RvH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcA-Kb-jEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
