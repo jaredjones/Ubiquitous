@@ -10,6 +10,9 @@
 
 @interface Car : NSObject
 
-@property (nonatomic, strong) 
+@property (nonatomic, strong) NSNumber *year;
+@property (nonatomic, strong) NSString *vin;
+@property (nonatomic, strong) NSString *make;
+@property (nonatomic, strong) NSString *model;
 
 @end
