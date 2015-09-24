@@ -10,4 +10,16 @@
 
 @implementation Car
 
+- (instancetype) init{
+    NSLog(@"Must use designated init.");
+    return nil;
+}
+
+- (instancetype) initWithInformation: (NSNumber *)year withVIN: (NSString *)vin withMake: (NSString *)make withModel: (NSString *)model{
+    if (self = [super init]){
+        return self;
+    }
+    return nil;
+}
+
 @end
