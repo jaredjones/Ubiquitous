@@ -14,6 +14,7 @@
 		C0E500171BB49D3C002E0A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E500161BB49D3C002E0A46 /* Assets.xcassets */; };
 		C0E5001A1BB49D3C002E0A46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E500181BB49D3C002E0A46 /* LaunchScreen.storyboard */; };
 		C0E500251BB49D3C002E0A46 /* PA1Group7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500241BB49D3C002E0A46 /* PA1Group7Tests.m */; };
+		C0E500311BB49D98002E0A46 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500301BB49D98002E0A46 /* NSString+Validation.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		C0E500201BB49D3C002E0A46 /* PA1Group7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PA1Group7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E500241BB49D3C002E0A46 /* PA1Group7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PA1Group7Tests.m; sourceTree = "<group>"; };
 		C0E500261BB49D3C002E0A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E5002F1BB49D98002E0A46 /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
+		C0E500301BB49D98002E0A46 /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 				C0E500181BB49D3C002E0A46 /* LaunchScreen.storyboard */,
 				C0E5001B1BB49D3C002E0A46 /* Info.plist */,
 				C0E5000A1BB49D3C002E0A46 /* Supporting Files */,
+				C0E5002F1BB49D98002E0A46 /* NSString+Validation.h */,
+				C0E500301BB49D98002E0A46 /* NSString+Validation.m */,
 			);
 			path = PA1Group7;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			files = (
 				C0E500121BB49D3C002E0A46 /* ViewController.m in Sources */,
 				C0E5000F1BB49D3C002E0A46 /* AppDelegate.m in Sources */,
+				C0E500311BB49D98002E0A46 /* NSString+Validation.m in Sources */,
 				C0E5000C1BB49D3C002E0A46 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
