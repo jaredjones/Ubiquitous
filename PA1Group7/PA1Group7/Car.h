@@ -10,4 +10,6 @@
 
 @interface Car : NSObject
 
+@property (nonatomic, strong) 
+
 @end
