@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903D91BE1BB4BFA8004898B5 /* media-6362-15239.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 903D91BD1BB4BFA8004898B5 /* media-6362-15239.jpg */; };
 		C0E5000C1BB49D3C002E0A46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5000B1BB49D3C002E0A46 /* main.m */; };
 		C0E5000F1BB49D3C002E0A46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5000E1BB49D3C002E0A46 /* AppDelegate.m */; };
 		C0E500121BB49D3C002E0A46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500111BB49D3C002E0A46 /* ViewController.m */; };
 		C0E500151BB49D3C002E0A46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E500131BB49D3C002E0A46 /* Main.storyboard */; };
 		C0E500171BB49D3C002E0A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E500161BB49D3C002E0A46 /* Assets.xcassets */; };
 		C0E500251BB49D3C002E0A46 /* PA1Group7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500241BB49D3C002E0A46 /* PA1Group7Tests.m */; };
-		C0E500311BB49D98002E0A46 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500301BB49D98002E0A46 /* NSString+Validation.m */; settings = {ASSET_TAGS = (); }; };
-		C0E500351BB4A065002E0A46 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500341BB4A065002E0A46 /* Car.m */; settings = {ASSET_TAGS = (); }; };
-		C0E500381BB4B037002E0A46 /* CarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500371BB4B037002E0A46 /* CarTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C0E5003B1BB4B3D0002E0A46 /* CarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C0E5003D1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5003C1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png */; settings = {ASSET_TAGS = (); }; };
+		C0E500311BB49D98002E0A46 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500301BB49D98002E0A46 /* NSString+Validation.m */; };
+		C0E500351BB4A065002E0A46 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500341BB4A065002E0A46 /* Car.m */; };
+		C0E500381BB4B037002E0A46 /* CarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500371BB4B037002E0A46 /* CarTableViewController.m */; };
+		C0E5003B1BB4B3D0002E0A46 /* CarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */; };
+		C0E5003D1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5003C1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		903D91BD1BB4BFA8004898B5 /* media-6362-15239.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "media-6362-15239.jpg"; sourceTree = "<group>"; };
 		C0E500071BB49D3C002E0A46 /* PA1Group7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PA1Group7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E5000B1BB49D3C002E0A46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0E5000D1BB49D3C002E0A46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				C0E500331BB4A065002E0A46 /* Car.h */,
 				C0E500341BB4A065002E0A46 /* Car.m */,
 				C0E5003C1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png */,
+				903D91BD1BB4BFA8004898B5 /* media-6362-15239.jpg */,
 			);
 			path = PA1Group7;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				C0E5003D1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png in Resources */,
 				C0E500171BB49D3C002E0A46 /* Assets.xcassets in Resources */,
+				903D91BE1BB4BFA8004898B5 /* media-6362-15239.jpg in Resources */,
 				C0E500151BB49D3C002E0A46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +422,7 @@
 				C0E5002B1BB49D3C002E0A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0E5002C1BB49D3C002E0A46 /* Build configuration list for PBXNativeTarget "PA1Group7Tests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				C0E5002E1BB49D3C002E0A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
