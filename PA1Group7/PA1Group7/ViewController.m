@@ -107,6 +107,13 @@
     [_makeTextField setText:@""];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 - (IBAction)showVehicleListButtonTapped:(id)sender {
     [self performSegueWithIdentifier:@"tableSegue" sender:self];
 }
