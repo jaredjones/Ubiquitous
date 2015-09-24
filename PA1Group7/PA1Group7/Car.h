@@ -17,5 +17,5 @@
 
 + (void)storeDataInNSUserDefaults:(Car *)carToStore;
 + (NSArray *)retrieveDataFromNSUserDefaults;
-
+- (instancetype) initWithInformation: (NSNumber *)year withVIN: (NSString *)vin withMake: (NSString *)make withModel: (NSString *)model;
 @end

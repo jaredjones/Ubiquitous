@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NSString+Validation.h"
+#import "Car.h"
 
 @interface ViewController ()
 
@@ -75,6 +76,25 @@
         return;
     }
     
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+
+    //TODO: CHECK FOR DUPLICATES!!!!!!!!!!!!!!!!!
+
+    Car *u = [[Car alloc]initWithInformation:[f numberFromString:_yearTextField.text] withVIN:[_vinTextField text] withMake:[_makeTextField text] withModel:[_modelTextField text]];
+    [Car storeDataInNSUserDefaults:u];
+    
+    alert = [[UIAlertView alloc]initWithTitle:@"Car Added Successfully!"
+                                      message:@"The car you have specified has met all requirements and has been added into our chopshop database successfully!"
+                                     delegate:nil
+                            cancelButtonTitle:@"OK"
+                            otherButtonTitles:nil, nil];
+    [alert show];
+    
+    [_modelTextField setText:@""];
+    [_yearTextField setText:@""];
+    [_vinTextField setText:@""];
+    [_makeTextField setText:@""];
 }
 
 - (IBAction)showVehicleListButtonTapped:(id)sender {
