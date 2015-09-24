@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NSString+Validation.h"
 
 @interface PA1Group7Tests : XCTestCase
 
@@ -24,9 +25,34 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testValidYearPositive {
+    NSNumber *testNumber = @2012;
+    NSString *numConverted = [testNumber stringValue];
+    BOOL b = [numConverted isValidYear:testNumber];
+    
+    XCTAssertTrue(b);
+}
+
+- (void)testValidYearNegative {
+    NSNumber *testNumber = @2018;
+    NSString *numConverted = [testNumber stringValue];
+    BOOL b = [numConverted isValidYear:testNumber];
+    
+    XCTAssertFalse(b);
+}
+
+- (void)testValidVinNegative{
+    NSString *testVin = @"8675309";
+    BOOL b = [testVin isValidVINNumber:testVin];
+    
+    XCTAssertFalse(b);
+}
+
+- (void)testValidVinPositive{
+    NSString *testVin = @"8675309AAAAAAAAZZ";
+    BOOL b = [testVin isValidVINNumber:testVin];
+    
+    XCTAssertTrue(b);
 }
 
 - (void)testPerformanceExample {
