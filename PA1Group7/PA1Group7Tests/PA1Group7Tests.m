@@ -28,7 +28,7 @@
 - (void)testValidYearPositive {
     NSNumber *testNumber = @2012;
     NSString *numConverted = [testNumber stringValue];
-    BOOL b = [numConverted isValidYear:testNumber];
+    BOOL b = [numConverted isValidYear];
     
     XCTAssertTrue(b);
 }
@@ -36,21 +36,21 @@
 - (void)testValidYearNegative {
     NSNumber *testNumber = @2018;
     NSString *numConverted = [testNumber stringValue];
-    BOOL b = [numConverted isValidYear:testNumber];
+    BOOL b = [numConverted isValidYear];
     
     XCTAssertFalse(b);
 }
 
 - (void)testValidVinNegative{
     NSString *testVin = @"8675309";
-    BOOL b = [testVin isValidVINNumber:testVin];
+    BOOL b = [testVin isValidVINNumber];
     
     XCTAssertFalse(b);
 }
 
 - (void)testValidVinPositive{
     NSString *testVin = @"8675309AAAAAAAAZZ";
-    BOOL b = [testVin isValidVINNumber:testVin];
+    BOOL b = [testVin isValidVINNumber];
     
     XCTAssertTrue(b);
 }
