@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Car : NSObject
+@interface Car : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSNumber *year;
 @property (nonatomic, strong) NSString *vin;
 @property (nonatomic, strong) NSString *make;
 @property (nonatomic, strong) NSString *model;
+
++ (void)storeDataInNSUserDefaults:(Car *)carToStore;
++ (NSArray *)retrieveDataFromNSUserDefaults;
 
 @end
