@@ -17,6 +17,7 @@
 		C0E500351BB4A065002E0A46 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500341BB4A065002E0A46 /* Car.m */; settings = {ASSET_TAGS = (); }; };
 		C0E500381BB4B037002E0A46 /* CarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E500371BB4B037002E0A46 /* CarTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C0E5003B1BB4B3D0002E0A46 /* CarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C0E5003D1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5003C1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C0E500371BB4B037002E0A46 /* CarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTableViewController.m; sourceTree = "<group>"; };
 		C0E500391BB4B3D0002E0A46 /* CarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailViewController.h; sourceTree = "<group>"; };
 		C0E5003A1BB4B3D0002E0A46 /* CarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailViewController.m; sourceTree = "<group>"; };
+		C0E5003C1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chicago-chop-shop-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				C0E500301BB49D98002E0A46 /* NSString+Validation.m */,
 				C0E500331BB4A065002E0A46 /* Car.h */,
 				C0E500341BB4A065002E0A46 /* Car.m */,
+				C0E5003C1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png */,
 			);
 			path = PA1Group7;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E5003D1BB4BA8C002E0A46 /* chicago-chop-shop-logo.png in Resources */,
 				C0E500171BB49D3C002E0A46 /* Assets.xcassets in Resources */,
 				C0E500151BB49D3C002E0A46 /* Main.storyboard in Resources */,
 			);
