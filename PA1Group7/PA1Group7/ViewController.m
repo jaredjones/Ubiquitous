@@ -23,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _makeTextField.delegate = self;
+    _modelTextField.delegate = self;
+    _yearTextField.delegate = self;
+    _vinTextField.delegate = self;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
