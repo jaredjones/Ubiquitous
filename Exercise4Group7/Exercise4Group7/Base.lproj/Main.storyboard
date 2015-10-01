@@ -47,6 +47,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YUC-iG-R04"/>
                     <connections>
+                        <outlet property="showTableButton" destination="MDg-lh-NVk" id="wzb-4l-5Ou"/>
                         <segue destination="ZJQ-1U-3QI" kind="show" identifier="showTableSegue" id="cJj-9f-IRh"/>
                     </connections>
                 </viewController>
@@ -58,7 +59,7 @@
         <scene sceneID="WJr-ce-WAT">
             <objects>
                 <tableViewController id="ZJQ-1U-3QI" customClass="UserTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="147" sectionHeaderHeight="28" sectionFooterHeight="28" id="IB3-f4-0Pu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="158" sectionHeaderHeight="28" sectionFooterHeight="28" id="IB3-f4-0Pu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -70,61 +71,67 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="147" id="U77-qL-iom" customClass="UserTableViewCell">
-                                <rect key="frame" x="0.0" y="136" width="600" height="147"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="158" id="U77-qL-iom" customClass="UserTableViewCell">
+                                <rect key="frame" x="0.0" y="136" width="600" height="158"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U77-qL-iom" id="rr6-Pp-UET">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="146"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jf-sj-sqH">
-                                            <rect key="frame" x="44" y="1" width="289" height="21"/>
+                                            <rect key="frame" x="44" y="10" width="289" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+1 (555) 555 5555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-Wl-2k9">
-                                            <rect key="frame" x="44" y="34" width="144" height="21"/>
+                                            <rect key="frame" x="44" y="43" width="144" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-1U-Kfc">
-                                            <rect key="frame" x="44" y="71" width="134" height="21"/>
+                                            <rect key="frame" x="44" y="80" width="134" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123 W. Blumming St. Austin, TX 78705" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DX-6U-14e">
-                                            <rect key="frame" x="44" y="111" width="294" height="21"/>
+                                            <rect key="frame" x="44" y="120" width="294" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="male-sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="52n-ET-Wzs">
-                                            <rect key="frame" x="14" y="-1" width="22" height="22"/>
+                                            <rect key="frame" x="14" y="8" width="22" height="22"/>
                                             <animations/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="5jL-r2-ydg">
-                                            <rect key="frame" x="14" y="34" width="22" height="22"/>
+                                            <rect key="frame" x="14" y="43" width="22" height="22"/>
                                             <animations/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contact.png" translatesAutoresizingMaskIntoConstraints="NO" id="b10-U4-LwI">
-                                            <rect key="frame" x="14" y="70" width="22" height="22"/>
+                                            <rect key="frame" x="14" y="79" width="22" height="22"/>
                                             <animations/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="55V-I8-my2">
-                                            <rect key="frame" x="14" y="110" width="22" height="22"/>
+                                            <rect key="frame" x="14" y="119" width="22" height="22"/>
                                             <animations/>
                                         </imageView>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="addressLabel" destination="7DX-6U-14e" id="hQ5-Og-JGL"/>
+                                    <outlet property="emailLabel" destination="rJh-1U-Kfc" id="DB0-da-ihS"/>
+                                    <outlet property="nameLabel" destination="4jf-sj-sqH" id="ugg-rN-lmX"/>
+                                    <outlet property="phoneLabel" destination="KVv-Wl-2k9" id="bJt-Xd-MS5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
