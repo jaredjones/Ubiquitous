@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_showTableButton setEnabled:NO];
+    [_showTableButton setUserInteractionEnabled:NO];
     
     
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
@@ -42,9 +42,8 @@
             tmp.idValue = [[JSONarray objectAtIndex:i]objectForKey:@"_id"];
             [User storeDataInNSUserDefaults:tmp];
             
-            NSLog(@"%lu %lu", (unsigned long)i+1, (unsigned long)[JSONarray count]);
             if ((i + 1) == [JSONarray count]){
-                [_showTableButton setEnabled:YES];
+                [_showTableButton setUserInteractionEnabled:YES];
             }
         }
     }];

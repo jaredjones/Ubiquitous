@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B22c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Qu-Gc-ijG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -78,57 +79,110 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jf-sj-sqH">
-                                            <rect key="frame" x="44" y="10" width="289" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jf-sj-sqH">
+                                            <rect key="frame" x="44" y="10" width="471" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+1 (555) 555 5555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-Wl-2k9">
-                                            <rect key="frame" x="44" y="43" width="144" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 (555) 555 5555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-Wl-2k9">
+                                            <rect key="frame" x="44" y="43" width="548" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-1U-Kfc">
-                                            <rect key="frame" x="44" y="80" width="134" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-1U-Kfc">
+                                            <rect key="frame" x="44" y="80" width="548" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123 W. Blumming St. Austin, TX 78705" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DX-6U-14e">
-                                            <rect key="frame" x="44" y="120" width="294" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DX-6U-14e">
+                                            <rect key="frame" x="44" y="120" width="548" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="male-sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="52n-ET-Wzs">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male-sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="52n-ET-Wzs">
                                             <rect key="frame" x="14" y="8" width="22" height="22"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="mtT-ia-2NQ"/>
+                                                <constraint firstAttribute="width" constant="22" id="sSM-eS-A2N"/>
+                                            </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="5jL-r2-ydg">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="5jL-r2-ydg">
                                             <rect key="frame" x="14" y="43" width="22" height="22"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="6EN-e9-tjq"/>
+                                                <constraint firstAttribute="width" constant="22" id="crx-af-2Xf"/>
+                                            </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contact.png" translatesAutoresizingMaskIntoConstraints="NO" id="b10-U4-LwI">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contact.png" translatesAutoresizingMaskIntoConstraints="NO" id="b10-U4-LwI">
                                             <rect key="frame" x="14" y="79" width="22" height="22"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="qwX-jj-M3k"/>
+                                                <constraint firstAttribute="height" constant="22" id="trL-YA-D6J"/>
+                                            </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="55V-I8-my2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="55V-I8-my2">
                                             <rect key="frame" x="14" y="119" width="22" height="22"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="84u-2d-f2x"/>
+                                                <constraint firstAttribute="height" constant="22" id="J8t-uO-VSd"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLD-dD-036">
+                                            <rect key="frame" x="523" y="10" width="69" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="56d-ge-U9z"/>
+                                                <constraint firstAttribute="width" constant="69" id="yOg-yY-mV6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="hLD-dD-036" firstAttribute="top" secondItem="rr6-Pp-UET" secondAttribute="topMargin" constant="2" id="3Xo-jL-XKK"/>
+                                        <constraint firstItem="b10-U4-LwI" firstAttribute="leading" secondItem="rr6-Pp-UET" secondAttribute="leadingMargin" constant="6" id="4Bp-P9-vK2"/>
+                                        <constraint firstItem="55V-I8-my2" firstAttribute="top" secondItem="b10-U4-LwI" secondAttribute="bottom" constant="18" id="4WO-4O-jvw"/>
+                                        <constraint firstItem="52n-ET-Wzs" firstAttribute="top" secondItem="rr6-Pp-UET" secondAttribute="topMargin" id="7gz-ia-gDV"/>
+                                        <constraint firstItem="KVv-Wl-2k9" firstAttribute="top" secondItem="hLD-dD-036" secondAttribute="bottom" constant="12" id="DFe-hb-nmz"/>
+                                        <constraint firstItem="KVv-Wl-2k9" firstAttribute="trailing" secondItem="rr6-Pp-UET" secondAttribute="trailingMargin" id="GYo-jF-c97"/>
+                                        <constraint firstItem="4jf-sj-sqH" firstAttribute="leading" secondItem="52n-ET-Wzs" secondAttribute="trailing" constant="8" id="HIM-dz-JGj"/>
+                                        <constraint firstItem="7DX-6U-14e" firstAttribute="leading" secondItem="55V-I8-my2" secondAttribute="trailing" constant="8" id="JKS-uy-jpn"/>
+                                        <constraint firstItem="7DX-6U-14e" firstAttribute="top" secondItem="rJh-1U-Kfc" secondAttribute="bottom" constant="19" id="JXj-OJ-jUU"/>
+                                        <constraint firstItem="5jL-r2-ydg" firstAttribute="leading" secondItem="rr6-Pp-UET" secondAttribute="leadingMargin" constant="6" id="Klo-fe-k6r"/>
+                                        <constraint firstItem="rJh-1U-Kfc" firstAttribute="trailing" secondItem="rr6-Pp-UET" secondAttribute="trailingMargin" id="MUp-ge-d8N"/>
+                                        <constraint firstItem="b10-U4-LwI" firstAttribute="top" secondItem="5jL-r2-ydg" secondAttribute="bottom" constant="14" id="NCe-rC-NwV"/>
+                                        <constraint firstItem="5jL-r2-ydg" firstAttribute="top" secondItem="52n-ET-Wzs" secondAttribute="bottom" constant="13" id="NHK-eP-9NM"/>
+                                        <constraint firstItem="KVv-Wl-2k9" firstAttribute="leading" secondItem="5jL-r2-ydg" secondAttribute="trailing" constant="8" id="U0L-tu-dPW"/>
+                                        <constraint firstItem="hLD-dD-036" firstAttribute="leading" secondItem="4jf-sj-sqH" secondAttribute="trailing" constant="8" id="bJe-Pj-Uoa"/>
+                                        <constraint firstItem="hLD-dD-036" firstAttribute="trailing" secondItem="rr6-Pp-UET" secondAttribute="trailingMargin" id="eRH-hE-eAL"/>
+                                        <constraint firstItem="52n-ET-Wzs" firstAttribute="leading" secondItem="rr6-Pp-UET" secondAttribute="leadingMargin" constant="6" id="jWi-cb-DFe"/>
+                                        <constraint firstItem="rJh-1U-Kfc" firstAttribute="leading" secondItem="b10-U4-LwI" secondAttribute="trailing" constant="8" id="lob-Ub-sEe"/>
+                                        <constraint firstItem="7DX-6U-14e" firstAttribute="trailing" secondItem="rr6-Pp-UET" secondAttribute="trailingMargin" id="ogy-p5-Qpd"/>
+                                        <constraint firstItem="55V-I8-my2" firstAttribute="leading" secondItem="rr6-Pp-UET" secondAttribute="leadingMargin" constant="6" id="rSD-BN-L0L"/>
+                                        <constraint firstItem="rJh-1U-Kfc" firstAttribute="top" secondItem="KVv-Wl-2k9" secondAttribute="bottom" constant="16" id="vK6-E4-7x7"/>
+                                        <constraint firstItem="4jf-sj-sqH" firstAttribute="top" secondItem="rr6-Pp-UET" secondAttribute="topMargin" constant="2" id="yxM-hq-OLC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
                                     <outlet property="addressLabel" destination="7DX-6U-14e" id="hQ5-Og-JGL"/>
+                                    <outlet property="ageLabel" destination="hLD-dD-036" id="HDf-ta-Okv"/>
                                     <outlet property="emailLabel" destination="rJh-1U-Kfc" id="DB0-da-ihS"/>
+                                    <outlet property="genderImageView" destination="52n-ET-Wzs" id="mB7-7h-Lgr"/>
                                     <outlet property="nameLabel" destination="4jf-sj-sqH" id="ugg-rN-lmX"/>
                                     <outlet property="phoneLabel" destination="KVv-Wl-2k9" id="bJt-Xd-MS5"/>
                                 </connections>
@@ -139,6 +193,9 @@
                             <outlet property="delegate" destination="ZJQ-1U-3QI" id="5aO-64-J8e"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="favoriteFruitSearchBar" destination="Kdg-3W-tyz" id="0jH-eK-lTY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2y-Gx-hV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +205,7 @@
     <resources>
         <image name="contact.png" width="128" height="128"/>
         <image name="location.png" width="128" height="128"/>
-        <image name="male-sign.png" width="43" height="43"/>
+        <image name="male-sign.png" width="75" height="75"/>
         <image name="phone.png" width="128" height="128"/>
     </resources>
 </document>
