@@ -22,6 +22,11 @@ BOOL isSearching = false;
     _favoriteFruitSearchBar.delegate = self;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    [self.view endEditing:YES];
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText.length != 0)
         isSearching = true;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserTableViewController : UITableViewController <UISearchBarDelegate>
+@interface UserTableViewController : UITableViewController <UISearchBarDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *favoriteFruitSearchBar;
 
 @end
