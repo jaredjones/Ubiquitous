@@ -9,6 +9,7 @@
 #import "UserTableViewController.h"
 #import "UserTableViewCell.h"
 #import "User.h"
+#import "MapViewController.h"
 
 @interface UserTableViewController ()
 
@@ -54,6 +55,14 @@ BOOL isSearching = false;
     return [newUserArray count];
 }
 
+User *u;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *userArray = [User retrieveDataFromNSUserDefaults];
+    u = [userArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"mapSegue" sender:self];
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userCell" forIndexPath:indexPath];
     if (cell == nil){
@@ -91,4 +100,10 @@ BOOL isSearching = false;
     cell.textLabel.hidden = YES;
     return cell;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    MapViewController *mapDispVC = [segue destinationViewController];
+    mapDispVC.user = u;
+}
+
 @end
