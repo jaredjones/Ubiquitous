@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface UserTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *genderImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 
 @end
