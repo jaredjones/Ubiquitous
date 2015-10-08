@@ -1,8 +1,8 @@
 //
 //  ViewController.m
-//  Exercise5Group7
+//  Exercise4Group7
 //
-//  Created by Jared Jones on 10/8/15.
+//  Created by Jared Jones on 10/1/15.
 //  Copyright © 2015 team7. All rights reserved.
 //
 
@@ -22,6 +22,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showTablePressed:(id)sender {
+    [self performSegueWithIdentifier:@"showTableSegue" sender:self];
 }
 
 @end

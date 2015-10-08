@@ -1,8 +1,8 @@
 //
 //  main.m
-//  Exercise5Group7
+//  Exercise4Group7
 //
-//  Created by Jared Jones on 10/8/15.
+//  Created by Jared Jones on 10/1/15.
 //  Copyright © 2015 team7. All rights reserved.
 //
 

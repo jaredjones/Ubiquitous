@@ -1,18 +1,18 @@
 //
-//  Exercise5Group7Tests.m
-//  Exercise5Group7Tests
+//  Exercise4Group7Tests.m
+//  Exercise4Group7Tests
 //
-//  Created by Jared Jones on 10/8/15.
+//  Created by Jared Jones on 10/1/15.
 //  Copyright © 2015 team7. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface Exercise5Group7Tests : XCTestCase
+@interface Exercise4Group7Tests : XCTestCase
 
 @end
 
-@implementation Exercise5Group7Tests
+@implementation Exercise4Group7Tests
 
 - (void)setUp {
     [super setUp];
