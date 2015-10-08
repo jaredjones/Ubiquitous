@@ -18,12 +18,11 @@
 		C0BFA42B1BBDDFCF008A7ADD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BFA42A1BBDDFCF008A7ADD /* User.m */; settings = {ASSET_TAGS = (); }; };
 		C0BFA4321BBDE570008A7ADD /* addressbook.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA42C1BBDE570008A7ADD /* addressbook.png */; settings = {ASSET_TAGS = (); }; };
 		C0BFA4331BBDE570008A7ADD /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA42D1BBDE570008A7ADD /* contact.png */; settings = {ASSET_TAGS = (); }; };
+		C0BFA4341BBDE570008A7ADD /* female-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA42E1BBDE570008A7ADD /* female-sign.png */; settings = {ASSET_TAGS = (); }; };
 		C0BFA4351BBDE570008A7ADD /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA42F1BBDE570008A7ADD /* location.png */; settings = {ASSET_TAGS = (); }; };
+		C0BFA4361BBDE570008A7ADD /* male-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA4301BBDE570008A7ADD /* male-sign.png */; settings = {ASSET_TAGS = (); }; };
 		C0BFA4371BBDE570008A7ADD /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA4311BBDE570008A7ADD /* phone.png */; settings = {ASSET_TAGS = (); }; };
 		C0BFA43A1BBDE735008A7ADD /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BFA4391BBDE735008A7ADD /* UserTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		C0BFA43D1BBDF67E008A7ADD /* female-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA43B1BBDF67E008A7ADD /* female-sign.png */; settings = {ASSET_TAGS = (); }; };
-		C0BFA43E1BBDF67E008A7ADD /* male-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BFA43C1BBDF67E008A7ADD /* male-sign.png */; settings = {ASSET_TAGS = (); }; };
-		F22FF9E11BBDF9D50091B5D1 /* black-literature-256.png in Resources */ = {isa = PBXBuildFile; fileRef = F22FF9E01BBDF9D50091B5D1 /* black-literature-256.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +55,12 @@
 		C0BFA42A1BBDDFCF008A7ADD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		C0BFA42C1BBDE570008A7ADD /* addressbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressbook.png; sourceTree = "<group>"; };
 		C0BFA42D1BBDE570008A7ADD /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
+		C0BFA42E1BBDE570008A7ADD /* female-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female-sign.png"; sourceTree = "<group>"; };
 		C0BFA42F1BBDE570008A7ADD /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		C0BFA4301BBDE570008A7ADD /* male-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "male-sign.png"; sourceTree = "<group>"; };
 		C0BFA4311BBDE570008A7ADD /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		C0BFA4381BBDE735008A7ADD /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
 		C0BFA4391BBDE735008A7ADD /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
-		C0BFA43B1BBDF67E008A7ADD /* female-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female-sign.png"; sourceTree = "<group>"; };
-		C0BFA43C1BBDF67E008A7ADD /* male-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "male-sign.png"; sourceTree = "<group>"; };
-		F22FF9E01BBDF9D50091B5D1 /* black-literature-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-literature-256.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,12 +124,11 @@
 		C0BFA4011BBDDE77008A7ADD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F22FF9E01BBDF9D50091B5D1 /* black-literature-256.png */,
-				C0BFA43B1BBDF67E008A7ADD /* female-sign.png */,
-				C0BFA43C1BBDF67E008A7ADD /* male-sign.png */,
 				C0BFA42C1BBDE570008A7ADD /* addressbook.png */,
 				C0BFA42D1BBDE570008A7ADD /* contact.png */,
+				C0BFA42E1BBDE570008A7ADD /* female-sign.png */,
 				C0BFA42F1BBDE570008A7ADD /* location.png */,
+				C0BFA4301BBDE570008A7ADD /* male-sign.png */,
 				C0BFA4311BBDE570008A7ADD /* phone.png */,
 				C0BFA4021BBDDE77008A7ADD /* main.m */,
 			);
@@ -229,14 +226,13 @@
 			files = (
 				C0BFA4111BBDDE77008A7ADD /* LaunchScreen.storyboard in Resources */,
 				C0BFA4331BBDE570008A7ADD /* contact.png in Resources */,
-				C0BFA43D1BBDF67E008A7ADD /* female-sign.png in Resources */,
 				C0BFA40E1BBDDE77008A7ADD /* Assets.xcassets in Resources */,
 				C0BFA40C1BBDDE77008A7ADD /* Main.storyboard in Resources */,
 				C0BFA4351BBDE570008A7ADD /* location.png in Resources */,
-				F22FF9E11BBDF9D50091B5D1 /* black-literature-256.png in Resources */,
 				C0BFA4371BBDE570008A7ADD /* phone.png in Resources */,
+				C0BFA4361BBDE570008A7ADD /* male-sign.png in Resources */,
+				C0BFA4341BBDE570008A7ADD /* female-sign.png in Resources */,
 				C0BFA4321BBDE570008A7ADD /* addressbook.png in Resources */,
-				C0BFA43E1BBDF67E008A7ADD /* male-sign.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +442,6 @@
 				C0BFA4221BBDDE77008A7ADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		C0BFA4231BBDDE77008A7ADD /* Build configuration list for PBXNativeTarget "Exercise4Group7Tests" */ = {
 			isa = XCConfigurationList;
@@ -455,7 +450,6 @@
 				C0BFA4251BBDDE77008A7ADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

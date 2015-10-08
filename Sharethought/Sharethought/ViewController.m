@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  Exercise4Group7
+//  ShareThought
 //
-//  Created by Jared Jones on 10/1/15.
-//  Copyright © 2015 team7. All rights reserved.
+//  Created by UH Game and Entrepreneurship on 10/8/15.
+//  Copyright © 2015 Team7. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -22,10 +22,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)showTablePressed:(id)sender {
-    [self performSegueWithIdentifier:@"showTableSegue" sender:self];
 }
 
 @end
