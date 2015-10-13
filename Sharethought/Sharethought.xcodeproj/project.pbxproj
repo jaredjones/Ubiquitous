@@ -19,6 +19,7 @@
 		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; settings = {ASSET_TAGS = (); }; };
 		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ACAB9D1BCC89D50009386F /* NetworkManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		907F004A1BC9BE8B000759CD /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		907F004B1BCC45E1000759CD /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		907F004C1BCC45E1000759CD /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		C0ACAB9C1BCC89D50009386F /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Networking/NetworkManager.h; sourceTree = "<group>"; };
+		C0ACAB9D1BCC89D50009386F /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,7 @@
 				907F00481BC9BE79000759CD /* User.m */,
 				907F004B1BCC45E1000759CD /* ProfileViewController.h */,
 				907F004C1BCC45E1000759CD /* ProfileViewController.m */,
+				C0ACAB9B1BCC89BA0009386F /* Networking */,
 			);
 			path = ShareThought;
 			sourceTree = "<group>";
@@ -130,6 +134,15 @@
 				9038A13E1BC70A64002D3691 /* Info.plist */,
 			);
 			path = ShareThoughtTests;
+			sourceTree = "<group>";
+		};
+		C0ACAB9B1BCC89BA0009386F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C0ACAB9C1BCC89D50009386F /* NetworkManager.h */,
+				C0ACAB9D1BCC89D50009386F /* NetworkManager.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */;
+			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -233,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */,
 				9038A1271BC70A64002D3691 /* ViewController.m in Sources */,
 				907F00491BC9BE79000759CD /* User.m in Sources */,
 				907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */,
@@ -393,7 +407,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */ = {
+		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9038A13F1BC70A64002D3691 /* Debug */,
