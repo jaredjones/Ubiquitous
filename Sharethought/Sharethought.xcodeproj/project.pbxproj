@@ -16,6 +16,9 @@
 		9038A1481BC70BD7002D3691 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1471BC70BD7002D3691 /* iPhone.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1491BC70BE5002D3691 /* iPad.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9038A14E1BC70CF5002D3691 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A14D1BC70CF5002D3691 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; settings = {ASSET_TAGS = (); }; };
+		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; settings = {ASSET_TAGS = (); }; };
+		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,12 @@
 		9038A1471BC70BD7002D3691 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		9038A1491BC70BE5002D3691 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		9038A14D1BC70CF5002D3691 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		907F00401BC99ED7000759CD /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		907F00411BC99ED7000759CD /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		907F00481BC9BE79000759CD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		907F004A1BC9BE8B000759CD /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		907F004B1BCC45E1000759CD /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		907F004C1BCC45E1000759CD /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,12 @@
 				9038A1471BC70BD7002D3691 /* iPhone.storyboard */,
 				9038A1491BC70BE5002D3691 /* iPad.storyboard */,
 				9038A14D1BC70CF5002D3691 /* Launch Screen.storyboard */,
+				907F00401BC99ED7000759CD /* RegistrationViewController.h */,
+				907F00411BC99ED7000759CD /* RegistrationViewController.m */,
+				907F004A1BC9BE8B000759CD /* User.h */,
+				907F00481BC9BE79000759CD /* User.m */,
+				907F004B1BCC45E1000759CD /* ProfileViewController.h */,
+				907F004C1BCC45E1000759CD /* ProfileViewController.m */,
 			);
 			path = ShareThought;
 			sourceTree = "<group>";
@@ -219,6 +234,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9038A1271BC70A64002D3691 /* ViewController.m in Sources */,
+				907F00491BC9BE79000759CD /* User.m in Sources */,
+				907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */,
+				907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */,
 				9038A1241BC70A64002D3691 /* AppDelegate.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
@@ -391,6 +409,7 @@
 				9038A1431BC70A64002D3691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9038A1441BC70A64002D3691 /* Build configuration list for PBXNativeTarget "ShareThoughtTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +418,7 @@
 				9038A1461BC70A64002D3691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
