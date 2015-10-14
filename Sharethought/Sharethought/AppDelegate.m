@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "Networking/NetworkManager.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) NetworkManager *networkMgr;
 
 @end
 
@@ -17,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _networkMgr = [[NetworkManager alloc]initWithHost:@"google.com" withPort:@80];
     return YES;
 }
 
