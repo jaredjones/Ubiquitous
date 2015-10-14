@@ -79,6 +79,16 @@ int main()
             aClient.SocketID = clientID;
             clientSockets.push_back(aClient);
             printf("Connection made on: 0.0.0.0:%d\n", PORT_NUM);
+            
+            //print connections
+            /*
+            if(!clientSockets.empty())
+            {
+                for(list<Client>::iterator it = clientSockets.begin(); it != clientSockets.end(); ++it){
+                    Client p = *it;
+                    cout<<p.SocketID<<endl;
+                }
+            }*/
         }
     }
 
