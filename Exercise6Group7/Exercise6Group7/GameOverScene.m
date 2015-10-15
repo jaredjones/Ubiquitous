@@ -7,6 +7,7 @@
 //
 
 #import "GameOverScene.h"
+#import "GameScene.h"
 
 @implementation GameOverScene
 
@@ -14,7 +15,7 @@
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     
-    myLabel.text = @"Hello, World!";
+    myLabel.text = @"Game Over!";
     myLabel.fontSize = 45;
     myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                    CGRectGetMidY(self.frame));
@@ -26,19 +27,12 @@
     /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
+        [touch description];
         
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.xScale = 0.5;
-        sprite.yScale = 0.5;
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+        SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+        GameScene *gameScene = [[GameScene alloc]initWithSize:self.size];
+        [self.view presentScene:gameScene transition:reveal];
+        break;
     }
 }
 

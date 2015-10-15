@@ -66,7 +66,17 @@
 }
 
 - (void)viewWillLayoutSubviews{
+    NSError *error;
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"gameplay" withExtension:@"mp3"];
+    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     
+    if (error){
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    self.backgroundMusicPlayer.numberOfLoops = -1;
+    [self.backgroundMusicPlayer prepareToPlay];
+    [self.backgroundMusicPlayer play];
 }
 
 - (BOOL)shouldAutorotate

@@ -7,10 +7,13 @@
 //
 
 #import "GameScene.h"
+#import "GameOverScene.h"
 
 @interface GameScene()
 
 @property (atomic, strong) NSNumber *score;
+@property double timerStart;
+@property double timerEnd;
 
 @property (nonatomic, strong) SKLabelNode *timerLabel;
 @property (nonatomic, strong) SKLabelNode *scoreLabel;
@@ -32,7 +35,10 @@
     _eggs = [[NSMutableSet alloc]init];
     _score = @0;
     
-    _timerLabel.text = @"Time Left: 0";
+    _timerStart = [[NSDate date] timeIntervalSince1970];
+    _timerEnd = [[NSDate date] timeIntervalSince1970] + 20;
+    
+    _timerLabel.text = [@"Time Left: " stringByAppendingString: [NSString stringWithFormat:@"%d", (int)((_timerEnd - _timerStart) / 10)]];
     _timerLabel.fontSize = 45;
     _scoreLabel.fontColor = [UIColor whiteColor];
     _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 2 + 10,self.view.frame.size.height - 45);
@@ -49,6 +55,7 @@
     [self addChild:_timerLabel];
     [self addChild:_scoreLabel];
     [self addChild:_player];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -70,6 +77,19 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    
+    int cTime = [[NSDate date] timeIntervalSince1970];
+    
+    int timeDiff = (int)((_timerEnd - cTime));
+    
+    if (timeDiff < 1){
+        SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+        GameOverScene *gameOverScene = [[GameOverScene alloc]initWithSize:self.size];
+        [self.view presentScene:gameOverScene transition:reveal];
+    }
+    
+    _timerLabel.text = [@"Time Left: " stringByAppendingString: [NSString stringWithFormat:@"%d", timeDiff]];
+    
     NSMutableSet *objectsToRemove = [[NSMutableSet alloc] init];
     
     for (SKSpriteNode *egg in _eggs){
@@ -90,8 +110,11 @@
     
     [_eggs minusSet:objectsToRemove];
     
+    _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 2 + 10,self.view.frame.size.height - 45);
+    _scoreLabel.position = CGPointMake(self.view.frame.size.width - (_scoreLabel.frame.size.width / 2), self.view.frame.size.height - 45);
+    
     NSInteger rand = arc4random() % 100;
-    if (rand > 1)
+    if (rand > 5)
         return;
     
     SKSpriteNode *egg = [SKSpriteNode spriteNodeWithImageNamed:@"egg"];

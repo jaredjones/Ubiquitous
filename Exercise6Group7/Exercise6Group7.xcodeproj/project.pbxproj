@@ -20,8 +20,7 @@
 		C0F33A941BD0539A002C891C /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F33A911BD0539A002C891C /* basket.png */; settings = {ASSET_TAGS = (); }; };
 		C0F33A971BD053C9002C891C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F33A961BD053C9002C891C /* GameOverScene.m */; settings = {ASSET_TAGS = (); }; };
 		C0F33A991BD067AE002C891C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F33A981BD067AE002C891C /* AVFoundation.framework */; };
-		C0F33A9B1BD06B81002C891C /* gameplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0F33A9A1BD06B81002C891C /* gameplay.mp3 */; settings = {ASSET_TAGS = (); }; };
-		C0F33A9D1BD06BB4002C891C /* allego.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0F33A9C1BD06BB4002C891C /* allego.mp3 */; settings = {ASSET_TAGS = (); }; };
+		C0F33A9F1BD07295002C891C /* gameplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0F33A9E1BD07295002C891C /* gameplay.mp3 */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +55,7 @@
 		C0F33A951BD053C9002C891C /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		C0F33A961BD053C9002C891C /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		C0F33A981BD067AE002C891C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C0F33A9A1BD06B81002C891C /* gameplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplay.mp3; sourceTree = "<group>"; };
-		C0F33A9C1BD06BB4002C891C /* allego.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = allego.mp3; sourceTree = "<group>"; };
+		C0F33A9E1BD07295002C891C /* gameplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplay.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +114,7 @@
 				C0F33A7B1BD0526C002C891C /* Info.plist */,
 				C0F33A901BD0539A002C891C /* egg.png */,
 				C0F33A911BD0539A002C891C /* basket.png */,
-				C0F33A9A1BD06B81002C891C /* gameplay.mp3 */,
-				C0F33A9C1BD06BB4002C891C /* allego.mp3 */,
+				C0F33A9E1BD07295002C891C /* gameplay.mp3 */,
 				C0F33A651BD0526C002C891C /* Supporting Files */,
 			);
 			path = Exercise6Group7;
@@ -225,10 +222,9 @@
 				C0F33A6F1BD0526C002C891C /* GameScene.sks in Resources */,
 				C0F33A7A1BD0526C002C891C /* LaunchScreen.storyboard in Resources */,
 				C0F33A931BD0539A002C891C /* egg.png in Resources */,
-				C0F33A9D1BD06BB4002C891C /* allego.mp3 in Resources */,
 				C0F33A771BD0526C002C891C /* Assets.xcassets in Resources */,
 				C0F33A751BD0526C002C891C /* Main.storyboard in Resources */,
-				C0F33A9B1BD06B81002C891C /* gameplay.mp3 in Resources */,
+				C0F33A9F1BD07295002C891C /* gameplay.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
