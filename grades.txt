@@ -1,5 +1,11 @@
-    Assignment           #      Grade     
+    Assignment             #      Grade     
 ##########################################
-Baseline Assignment      #       100%     
-In-Class Assignment - 1  #       130%
+Baseline Assignment        #       100%     
+In-Class Assignment - 1    #       130%
+In-Class Assignment - 2    #       100%
+In-Class Assignment - 3    #       160%
+In-Class Assignment - 4    #       140%
+In-Class Assignment - 5    #       100%
+In-Class Assignment - 6    #       ---%
+Programming Assignment - 1 #       100%
 ##########################################
