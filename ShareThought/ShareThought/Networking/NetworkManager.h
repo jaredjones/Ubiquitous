@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetworkManager : NSObject <NSStreamDelegate>
+#import "CocoaAsyncSocket.h"
+
+@interface NetworkManager : NSObject <GCDAsyncSocketDelegate>
 - (instancetype)initWithHost: (NSString *)host withPort: (NSNumber *)port;
 @end

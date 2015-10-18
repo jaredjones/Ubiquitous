@@ -6,14 +6,15 @@
 //  Copyright © 2015 Team7. All rights reserved.
 //
 
+#import "CocoaAsyncSocket.h"
+
 #import "NetworkManager.h"
 
 @interface NetworkManager()
 {
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
-    NSMutableData *outputData;
 }
+
+@property (nonatomic, strong) GCDAsyncSocket *socket;
 
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) NSNumber *port;
@@ -32,117 +33,33 @@
         _host = [host copy];
         _port = [port copy];
         
-        CFReadStreamRef readStream;
-        CFWriteStreamRef writeStream;
+        //dispatch_queue_t networkQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        dispatch_queue_t mainQueue = dispatch_get_main_queue();
         
-        CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)host, [port unsignedIntValue], &readStream, &writeStream);
+        _socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:mainQueue];
         
-        inputStream = (__bridge NSInputStream *)readStream;
-        outputStream = (__bridge NSOutputStream *)writeStream;
-        
-        [inputStream setDelegate:self];
-        [outputStream setDelegate:self];
-        
-        [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
-        [inputStream open];
-        [outputStream open];
+        NSError *error = nil;
+        if ( ![_socket connectToHost:_host onPort:[_port unsignedShortValue] error:&error] ){
+            NSLog(@"Error Connecting: %@", error);
+        }
         
         return self;
     }
     return nil;
 }
 
-- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode{
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
+    NSLog(@"Socket:%@ didConnectToHost:%@ onPort:%hu", sock, host, port);
     
-    NSString *response;
-    NSData *data;
-    NSString *tmp;
+    NSString *requestStr = [NSString stringWithFormat:@"GET / HTTP/1.1\r\nHost: %@\r\n\r\n", @"uvora.com"];
+    NSData *requestData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
     
-    switch (eventCode) {
-            
-        case NSStreamEventOpenCompleted:
-            NSLog(@"TCP Client - Stream Opened!");
-            tmp = @"GET / HTTP/1.1\nHost: google.com\nCache-Control: no-cache\nConnection: close\nContent-Type: text/html\n";
-            
-            response  = [NSString stringWithFormat:@"%@", tmp];
-            data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-            [outputStream write:[data bytes] maxLength:[data length]];
-            break;
-        case NSStreamEventErrorOccurred:
-            NSLog(@"TCP Client - Error Connecting to Host");
-            break;
-        case NSStreamEventEndEncountered:
-            NSLog(@"TCP Client - Stream Has Ended");
-            [aStream close];
-            [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-            break;
-        case NSStreamEventNone:
-            NSLog(@"TCP Client - None event");
-            break;
-        case NSStreamEventHasBytesAvailable:
-            NSLog(@"TCP Client - Bytes Available");
-            if (aStream == inputStream)
-            {
-                uint8_t buffer[1024];
-                NSInteger len;
-                
-                while ([inputStream hasBytesAvailable])
-                {
-                    len = [inputStream read:buffer maxLength:sizeof(buffer)];
-                    if (len > 0)
-                    {
-                        NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
-                        
-                        if (nil != output)
-                        {
-                            NSLog(@"TCP Client - Server sent: %@", output);
-                        }
-                        
-                        //Send some data (large block where the write may not actually send all we request it to send)
-                        NSInteger ActualOutputBytes = [outputStream write:[outputData bytes] maxLength:[outputData length]];
-                        
-                        if (ActualOutputBytes >= 1024)
-                        {
-                            //It was all sent
-                            outputData = nil;
-                        }
-                        else
-                        {
-                            //Only partially sent
-                            [outputData replaceBytesInRange:NSMakeRange(0, ActualOutputBytes) withBytes:NULL length:0];
-                            //Remove sent bytes from the start
-                        }
-                    }
-                }
-            }
-            break;
-        case NSStreamEventHasSpaceAvailable:
-            NSLog(@"TCP Client - Space Available");
-            if (outputData != nil)
-            {
-                //Send rest of the packet
-                NSInteger ActualOutputBytes = [outputStream write:[outputData bytes] maxLength:[outputData length]];
-                
-                if (ActualOutputBytes >= [outputData length])
-                {
-                    //It was all sent
-                    outputData = nil;
-                }
-                else
-                {
-                    //Only partially sent
-                    [outputData replaceBytesInRange:NSMakeRange(0, ActualOutputBytes) withBytes:NULL length:0];
-                    //Remove sent bytes from the start
-                }
-            }
-            break;
-        default:
-            NSLog(@"TCP Client - Unknown event");
-            break;
-    }
+    [sock writeData:requestData withTimeout:-1 tag:0];
+    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
 }
 
-
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
+    NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"HTTP Response:\n%@", httpResponse);
+}
 @end
