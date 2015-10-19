@@ -1,96 +1,66 @@
-#include<iostream>
-#include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <sys/socket.h>
 #include <time.h>
 #include <math.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include<ctime>
-#include<cstring>
-#include<netinet/in.h>
-#include<netdb.h>
-#include<list>
+#include <ctime>
+#include <cstring>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <list>
 #include <fcntl.h>
 
-const int PORT_NUM = 54312;
-const int KEEP_ALIVE_TIMEOUT = 600;
-#define MAX_CONNECTIONS 1024
-#define BILLION 1000000000L
-
-struct Client
+int main(int argc, char **argv)
 {
-    int SocketID;
-};
-
-uint64_t TimeSpecToSeconds(struct timespec* ts)
-{
-    return ts->tv_sec + ts->tv_nsec / BILLION;
-}
-
-
-
-int main()
-{
-    int clientID = 0;
-    char buffer[256];
-    int sockID;
-    int flagServer = 0;
-    struct sockaddr_in sockInfo;
-    struct timespec start, end;
-    uint64_t diff;
-    std::list<Client> clientSockets;
-    memset(&sockInfo, 0 , sizeof(sockInfo));
-    sockInfo.sin_family = AF_INET;
-    sockInfo.sin_addr.s_addr = htonl(INADDR_ANY);
-    sockInfo.sin_port = htons(PORT_NUM);
-    //Client aClient;
+    printf("Done.\nCreating Socket Structures...\n");
+    int sock;
+    struct sockaddr_in serv_addr;
+    struct sockaddr_in cli_addr;
+    memset(&serv_addr, 0, sizeof(serv_addr));
+    memset(&cli_addr, 0, sizeof(cli_addr));
     
-    if((sockID = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serv_addr.sin_port = htons(BOUNDED_PORT);
+    
+    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
-        perror("Socket creation failed on server side.\n");
+        printf("Failed to Create the Socket!\n");
+        return 1;
+    }
+    printf("Done.\nSetting Socket Reusability...\n");
+    int enable = 1;
+    if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0)
+    {
+        perror("setsockopt(SO_REUSEADDR) failed!\n");
         return 1;
     }
     
+    printf("Done.\nBinding to Configuration...\n");
     
-    int err = bind(sockID, (struct sockaddr *)&sockInfo, sizeof(sockInfo));
-    if( err< 0)
+    if ((bind(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) < 0)
     {
-        perror("Binding socket on server has failed.\n");
+        printf("Failed to Bind to Port:%d\n", BOUNDED_PORT);
+        perror("Binding Failed");
         return 1;
     }
     
-    listen(sockID, 1024);
-    printf("Done.\nListening for Connections On: 0.0.0.0:%d\n", PORT_NUM);
-    //clock_gettime(CLOCK_MONOTONIC, &start);
+    listen(sock, 1024);
     
-    while(1)
-    {
-        clientID = accept(sockID, (struct sockaddr*)NULL, NULL);
-        if(clientID != -1)
-        {
-            int x = fcntl(clientID, F_GETFL, 0);
-            fcntl(clientID, F_SETFL, F_GETFL, 0);
-            bzero(buffer, 256);
-            int c = read(clientID, buffer, 255);
-            Client aClient;
-            aClient.SocketID = clientID;
-            clientSockets.push_back(aClient);
-            printf("Connection made on: 0.0.0.0:%d\n", PORT_NUM);
-            
-            //print connections
-            /*
-            if(!clientSockets.empty())
-            {
-                for(list<Client>::iterator it = clientSockets.begin(); it != clientSockets.end(); ++it){
-                    Client p = *it;
-                    cout<<p.SocketID<<endl;
-                }
-            }*/
-        }
-    }
-
+    printf("Done.\nListening for Connections On: 0.0.0.0:%d\n", BOUNDED_PORT);
+    
+    //Sets non-blocking flag for accept, will inherit to children
+    int flags = fcntl(sock, F_GETFL, 0);
+    fcntl(sock, F_SETFL, flags | O_NONBLOCK);
+    
+    printf("\nServer has started up successfully!\n");
+    printf("Waiting for Client Connections...\n");
+    fflush(stdout);
+    
     return 0;
 }
