@@ -19,7 +19,7 @@
 		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; settings = {ASSET_TAGS = (); }; };
 		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A750FE2F3312385B2F920D3A /* Pods_ShareThought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A750FE2F3312385B2F920D3A /* Pods_ShareThought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */; };
 		C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ACAB9D1BCC89D50009386F /* NetworkManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 

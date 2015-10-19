@@ -134,6 +134,11 @@ void WorldUpdate(int timeDiff)
                 connections[i] = new User();
                 connections[i]->SocketID = clientID;
                 printf("Connection[%d] Created : Using Socket ID:%d\n", i, clientID);
+                
+                uint64 finalSize;
+                char *packet = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+                
+                send(connections[i]->SocketID, packet, finalSize, NULL);
                 break;
             }
         }

@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    _networkMgr = [[NetworkManager alloc]initWithHost:@"uvora.com" withPort:@80];
+    _networkMgr = [[NetworkManager alloc]initWithHost:@"localhost" withPort:@38205];
     return YES;
 }
 

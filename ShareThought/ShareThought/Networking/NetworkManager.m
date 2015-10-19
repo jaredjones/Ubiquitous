@@ -9,6 +9,7 @@
 #import "CocoaAsyncSocket.h"
 
 #import "NetworkManager.h"
+#import "Packet.h"
 
 @interface NetworkManager()
 {
@@ -39,13 +40,17 @@
         _socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:mainQueue];
         
         NSError *error = nil;
-        if ( ![_socket connectToHost:_host onPort:[_port unsignedShortValue] error:&error] ){
+        if ( ![_socket connectToHost:_host onPort:[_port unsignedIntegerValue] withTimeout:5.0 error:&error] ){
             NSLog(@"Error Connecting: %@", error);
         }
         
         return self;
     }
     return nil;
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
+    NSLog(@"Socket Disconnected");
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
@@ -55,11 +60,44 @@
     NSData *requestData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
     
     [sock writeData:requestData withTimeout:-1 tag:0];
-    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    
+    NSUInteger headerLength = 3;
+    [sock readDataToLength:headerLength withTimeout:-1 tag:0];
 }
 
+Packet *tmp = nil;
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
-    NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"HTTP Response:\n%@", httpResponse);
+    
+    if (tmp == nil){
+        const void *packet = [data bytes];
+        tmp = DecodePacket((void*)packet, [data length]);
+        
+        if (tmp->LENGTH == 0){
+            goto startPacketReading;
+        }
+        [sock readDataToLength:tmp->LENGTH withTimeout:-1 tag:0];
+        
+        return;
+    }else{
+    startPacketReading:
+        switch (tmp->OPCODE) {
+            case SMSG_KEEP_ALIVE:
+                NSLog(@"KEEP ALIVE RECEIVED");
+                break;
+                
+            default:
+                break;
+        }
+        
+        free(tmp);
+        tmp = nil;
+        
+        //Read next packet
+        [sock readDataToLength:3 withTimeout:-1 tag:0];
+        return;
+    }
+    
+    //NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSLog(@"HTTP Response:\n%@", httpResponse);
 }
 @end

@@ -15,8 +15,8 @@
 #pragma pack(push, 1)
 typedef struct Packet
 {
-    uint8 OPCODE;
-    uint16 LENGTH;
+    uint8_t OPCODE;
+    uint16_t LENGTH;
     char* DATA;
 }Packet;
 #pragma pack(pop)
@@ -25,9 +25,9 @@ typedef struct Packet
 #define SMSG_KEEP_ALIVE         0x02
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
-char* ConstructPacket(uint8 op, uint16 length, char* data, uint64* finalPacketSize)
+char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPacketSize)
 {
-    uint64 finalSize = sizeof(op) + sizeof(uint16) + length;
+    uint64_t finalSize = sizeof(op) + sizeof(uint16_t) + length;
     *finalPacketSize = finalSize;
     char* finalPacket = (char*)calloc(finalSize, 1);
     
@@ -37,8 +37,8 @@ char* ConstructPacket(uint8 op, uint16 length, char* data, uint64* finalPacketSi
         if (i == 0)
         {
             *(finalPacket + 0) = op;
-            *(finalPacket + 1) = (uint8)(length & 0x00FF);
-            *(finalPacket + 2) = (uint8)((length & 0xFF00) >> 8);
+            *(finalPacket + 1) = (uint8_t)(length & 0x00FF);
+            *(finalPacket + 2) = (uint8_t)((length & 0xFF00) >> 8);
             i = 2;
             continue;
         }
@@ -48,19 +48,19 @@ char* ConstructPacket(uint8 op, uint16 length, char* data, uint64* finalPacketSi
     return finalPacket;
 }
 
-Packet DecodePacket(char *buff, uint64 size)
+Packet* DecodePacket(char *buff, uint64_t size)
 {
-    Packet tmp;
-    tmp.OPCODE = *buff;
+    Packet *tmp = malloc(sizeof(Packet));
+    tmp->OPCODE = *buff;
     
-    tmp.LENGTH = *(buff + 1);
-    tmp.LENGTH = tmp.LENGTH | (*(buff + 2) << 8);
+    tmp->LENGTH = *(buff + 1);
+    tmp->LENGTH = tmp->LENGTH | (*(buff + 2) << 8);
     
-    tmp.DATA = (char*)calloc(size - 3, 1);
+    tmp->DATA = (char*)calloc(size - 3, 1);
     
     int i;
     for (i = 3; i < size; i++)
-        *(tmp.DATA + i - 3) = *(buff + i);
+        *(tmp->DATA + i - 3) = *(buff + i);
     return tmp;
 }
 
