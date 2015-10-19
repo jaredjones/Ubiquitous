@@ -107,8 +107,6 @@ void WorldUpdateLoop()
         uint64 diff = getMSTimeDiff(realPrevTime, realCurrTime);
         
         WorldUpdate(diff);
-        
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
         realPrevTime = realCurrTime;
         
         if ( diff <= WORLD_SLEEP_CONST + prevSleepTime)
