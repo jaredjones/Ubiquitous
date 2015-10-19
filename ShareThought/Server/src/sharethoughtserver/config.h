@@ -1,0 +1,6 @@
+#ifndef SHARETHOUGHT_CONFIG_H
+#define SHARETHOUGHT_CONFIG_H
+
+
+
+#endif
