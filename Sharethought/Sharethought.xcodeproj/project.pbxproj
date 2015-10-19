@@ -60,6 +60,7 @@
 		B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0ACAB9C1BCC89D50009386F /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Networking/NetworkManager.h; sourceTree = "<group>"; };
 		C0ACAB9D1BCC89D50009386F /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
+		C0B58F5F1BD5AE2900A03203 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = Networking/Packet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 			children = (
 				C0ACAB9C1BCC89D50009386F /* NetworkManager.h */,
 				C0ACAB9D1BCC89D50009386F /* NetworkManager.m */,
+				C0B58F5F1BD5AE2900A03203 /* Packet.h */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
