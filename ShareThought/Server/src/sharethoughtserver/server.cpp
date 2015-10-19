@@ -20,8 +20,6 @@ const int KEEP_ALIVE_TIMEOUT = 600;
 #define MAX_CONNECTIONS 1024
 #define BILLION 1000000000L
 
-using namespace std;
-
 struct Client
 {
     int SocketID;
@@ -43,7 +41,7 @@ int main()
     struct sockaddr_in sockInfo;
     struct timespec start, end;
     uint64_t diff;
-    list<Client> clientSockets;
+    std::list<Client> clientSockets;
     memset(&sockInfo, 0 , sizeof(sockInfo));
     sockInfo.sin_family = AF_INET;
     sockInfo.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -56,7 +54,9 @@ int main()
         return 1;
     }
     
-    if((bind(sockID, (struct sockaddr *)&sockInfo, sizeof(sockInfo)) < 0))
+    
+    int err = bind(sockID, (struct sockaddr *)&sockInfo, sizeof(sockInfo));
+    if( err< 0)
     {
         perror("Binding socket on server has failed.\n");
         return 1;
