@@ -12,3 +12,4 @@ echo ""
 echo "Success! Check the BIN Folder for the Xcode Project!"
 rm -f CMakeCache.txt
 rm -rf CMakeFiles
+open BIN/ShareThough_Server.xcodeproj/
