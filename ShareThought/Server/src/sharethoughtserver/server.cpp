@@ -20,6 +20,7 @@
 #include "config.h"
 #include "timer.h"
 #include "user.h"
+#include "packet.h"
 
 void WorldUpdateLoop();
 void WorldUpdate(int timeDiff);
