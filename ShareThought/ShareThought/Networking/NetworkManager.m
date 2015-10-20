@@ -80,12 +80,26 @@ Packet *tmp = nil;
         return;
     }else{
     startPacketReading:
+        fflush(stdout);
+        uint64_t finalSize;
+        char *packetData;
+        NSData *data;
+        
         switch (tmp->OPCODE) {
+            case SMSG_CONNECTED:
+                NSLog(@"Connected!");
+                packetData = ConstructPacket(CMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+                data = [NSData dataWithBytes:packetData length:finalSize];
+                [sock writeData:data withTimeout:-1 tag:0];
+                break;
+                
             case SMSG_KEEP_ALIVE:
                 NSLog(@"KEEP ALIVE RECEIVED");
                 break;
                 
             default:
+                NSLog(@"Malformed Packet Received!");
+                [sock disconnect];
                 break;
         }
         

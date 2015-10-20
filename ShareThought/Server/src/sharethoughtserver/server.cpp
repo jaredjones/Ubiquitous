@@ -136,8 +136,7 @@ void WorldUpdate(int timeDiff)
                 printf("Connection[%d] Created : Using Socket ID:%d\n", i, clientID);
                 
                 uint64 finalSize;
-                char *packet = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-                
+                char *packet = ConstructPacket(SMSG_CONNECTED, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packet, finalSize, NULL);
                 break;
             }
@@ -148,5 +147,36 @@ void WorldUpdate(int timeDiff)
         
         //send(clientID, packetData, finalSize, 0);
         //free(packetData);
+    }
+    
+    //Check if there is any data to receive from
+    for (int i = 0; i < SERVER_MAX_CONNECTIONS; i++)
+    {
+        if (connections[i] == nullptr)
+            continue;
+        char buffer[1024];
+        int64 retSize = recv(connections[i]->SocketID, &buffer, sizeof(buffer), 0);
+        
+        //No data in buffer so ignore
+        if (retSize <= 0)
+            continue;
+        
+        Packet op = DecodePacket(buffer, sizeof(buffer));
+        if (op.OPCODE == 0x00)
+            continue;
+        
+        uint64 finalSize;
+        char *packetData;
+        switch(op.OPCODE)
+        {
+            case CMSG_KEEP_ALIVE:
+                packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+                send(connections[i]->SocketID, packetData, finalSize, NULL);
+                break;
+            default:
+                printf("Bad Packet From Socket:%d", connections[i]->SocketID);
+                break;
+        }
+        
     }
 }
