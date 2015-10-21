@@ -6,8 +6,9 @@ class User
         
 public:
     int SocketID;
+    double keepAliveEndPoint;
     User(){
-        printf("I MADE\n");
+        this->keepAliveEndPoint = 0.0;
     }
 };
 

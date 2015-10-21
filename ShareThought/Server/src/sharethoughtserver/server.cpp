@@ -16,6 +16,7 @@
 #include <fcntl.h>
 
 #include <thread>
+#include <unordered_map>
 
 #include "config.h"
 #include "timer.h"
@@ -121,6 +122,10 @@ void WorldUpdateLoop()
 
 void WorldUpdate(int timeDiff)
 {
+    //Check Keep Alives
+    auto now = std::chrono::steady_clock::now().time_since_epoch();
+    auto currentTimeSinceEpoch = std::chrono::duration_cast<std::chrono::milliseconds>(now).count();
+    
     int clientID = accept(serverSocket, (struct sockaddr *)NULL, NULL);
     if (clientID != -1)
     {
@@ -138,15 +143,15 @@ void WorldUpdate(int timeDiff)
                 uint64 finalSize;
                 char *packet = ConstructPacket(SMSG_CONNECTED, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packet, finalSize, NULL);
+                free(packet);
+                
+                auto now = std::chrono::steady_clock::now().time_since_epoch();
+                double kLEndPoint = (double)std::chrono::duration_cast<std::chrono::milliseconds>(now).count();
+                connections[i]->keepAliveEndPoint = kLEndPoint + 5000.0;
+                
                 break;
             }
         }
-        
-        //uint64 finalSize;
-        //char* packetData = ConstructPacket(SMSG_CONNECTED, 0, NULL, &finalSize);
-        
-        //send(clientID, packetData, finalSize, 0);
-        //free(packetData);
     }
     
     //Check if there is any data to receive from
@@ -172,6 +177,7 @@ void WorldUpdate(int timeDiff)
             case CMSG_KEEP_ALIVE:
                 packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packetData, finalSize, NULL);
+                free(packetData);
                 break;
             default:
                 printf("Bad Packet From Socket:%d", connections[i]->SocketID);
