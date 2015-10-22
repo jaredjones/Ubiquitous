@@ -6,9 +6,9 @@
 //  Copyright © 2015 ubicomp7. All rights reserved.
 //
 
-#import "RecipeClass.h"
+#import "Recipe.h"
 
-@implementation RecipeClass
+@implementation Recipe
 
 
 
