@@ -6,8 +6,8 @@
 //  Copyright © 2015 ubicomp7. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 
-@interface RecipeTableViewController : NSViewController
+@interface RecipeTableViewController : UIViewController
 
 @end

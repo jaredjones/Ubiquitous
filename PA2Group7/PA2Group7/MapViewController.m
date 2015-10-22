@@ -1,18 +1,18 @@
 //
-//  RecipeTableViewController.m
+//  MapViewController.m
 //  PA2Group7
 //
 //  Created by UH Game and Entrepreneurship on 10/22/15.
 //  Copyright © 2015 ubicomp7. All rights reserved.
 //
 
-#import "RecipeTableViewController.h"
+#import "MapViewController.h"
 
-@interface RecipeTableViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation RecipeTableViewController
+@implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
