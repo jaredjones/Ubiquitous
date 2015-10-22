@@ -24,7 +24,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="Iqx-T2-xuA" kind="show" id="PGf-Zi-mfA"/>
+                                    <segue destination="Iqx-T2-xuA" kind="show" identifier="mapSegue" id="PGf-Zi-mfA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
