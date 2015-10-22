@@ -18,6 +18,7 @@
 		CEB251241BD9885A000E2958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB251231BD9885A000E2958 /* Assets.xcassets */; };
 		CEB251271BD9885A000E2958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB251251BD9885A000E2958 /* LaunchScreen.storyboard */; };
 		CEB251321BD9885A000E2958 /* PA2Group7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB251311BD9885A000E2958 /* PA2Group7Tests.m */; };
+		CEB251411BD98BB1000E2958 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB251401BD98BB1000E2958 /* Recipe.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		CEB2512D1BD9885A000E2958 /* PA2Group7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PA2Group7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB251311BD9885A000E2958 /* PA2Group7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PA2Group7Tests.m; sourceTree = "<group>"; };
 		CEB251331BD9885A000E2958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB2513F1BD98BB1000E2958 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		CEB251401BD98BB1000E2958 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		CEB251161BD98859000E2958 /* PA2Group7 */ = {
 			isa = PBXGroup;
 			children = (
+				CEB2513F1BD98BB1000E2958 /* Recipe.h */,
+				CEB251401BD98BB1000E2958 /* Recipe.m */,
 				CEB2511A1BD9885A000E2958 /* AppDelegate.h */,
 				CEB2511B1BD9885A000E2958 /* AppDelegate.m */,
 				CEB2511D1BD9885A000E2958 /* ViewController.h */,
@@ -234,6 +239,7 @@
 				90DB5FC61BD98BAE002BC1AC /* RecipeMapViewController.m in Sources */,
 				CEB2511C1BD9885A000E2958 /* AppDelegate.m in Sources */,
 				CEB251191BD9885A000E2958 /* main.m in Sources */,
+				CEB251411BD98BB1000E2958 /* Recipe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
