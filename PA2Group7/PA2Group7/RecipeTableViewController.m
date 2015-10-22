@@ -16,7 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _recipeArray = [[NSMutableArray alloc]init];
+    
+    // Do any additional setup after loading the view.œå
 }
 
 - (void)didReceiveMemoryWarning {
