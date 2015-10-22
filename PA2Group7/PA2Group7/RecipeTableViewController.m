@@ -19,6 +19,8 @@
 
     _recipeArray = [[NSMutableArray alloc]init];
     
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://cpl.uh.edu/courses/ubicomp/api/recipe.php?query=getAll"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *e = nil;
@@ -41,8 +43,12 @@
             
             [_recipeArray addObject:r];
         }
+        dispatch_semaphore_signal(sema);
     }];
     [dataTask resume];
+    
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    
     // Do any additional setup after loading the view.
     
 
@@ -71,10 +77,17 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
+    if (cell == nil){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RecipeCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.textLabel.numberOfLines = 0;
+    }
     
-    
-    
+    Recipe *r = [_recipeArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [r name];
+    cell.textLabel.hidden = NO;
     return cell;
 }
 
