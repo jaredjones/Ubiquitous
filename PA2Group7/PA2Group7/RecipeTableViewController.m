@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"Recipe List"];
+    self.tableView.delegate = self;
     _recipeArray = [[NSMutableArray alloc]init];
     
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
@@ -90,13 +91,23 @@
     Recipe *r = [_recipeArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [r name];
     cell.textLabel.hidden = NO;
+    cell.detailTextLabel.numberOfLines = 0;
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.detailTextLabel.text = [r desc];
+    
+    //[cell updateConstraintsIfNeeded];
     return cell;
 }
+
 
 Recipe *currentRecipe;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     currentRecipe = [_recipeArray objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"mapSegue" sender:self];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 300.0f;
 }
 
 /*
