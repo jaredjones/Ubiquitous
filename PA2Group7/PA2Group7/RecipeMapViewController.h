@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "Recipe.h"
 
-@interface RecipeMapViewController : UIViewController
+@interface RecipeMapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
+@property (nonatomic,strong) Recipe* recipe;
 
 @end
