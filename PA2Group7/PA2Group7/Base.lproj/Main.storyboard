@@ -14,6 +14,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.57253676050000002" green="0.99181709100000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.57253676050000002" green="0.99181709100000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" textLabel="i3Y-Wl-8F6" detailTextLabel="J3e-L7-Ckz" style="IBUITableViewCellStyleSubtitle" id="L8p-Cm-cKe">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -42,6 +44,7 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="backgroundColor" red="0.57253676046627511" green="0.99181709096101811" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
