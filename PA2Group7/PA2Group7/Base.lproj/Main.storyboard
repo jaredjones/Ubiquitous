@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KYj-yO-GEz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Recipe List-->
         <scene sceneID="QaA-pl-rih">
             <objects>
-                <tableViewController id="DiQ-vO-x18" customClass="RecipeTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Recipe List" id="DiQ-vO-x18" customClass="RecipeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vpc-VI-g3w">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,13 +52,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vUf-zT-O05">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vUf-zT-O05">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                             </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q8K-kQ-C5Z" firstAttribute="top" secondItem="vUf-zT-O05" secondAttribute="bottom" id="F2J-HQ-k5S"/>
+                            <constraint firstItem="vUf-zT-O05" firstAttribute="top" secondItem="y4z-nF-O4u" secondAttribute="bottom" id="Usc-O5-ul4"/>
+                            <constraint firstItem="vUf-zT-O05" firstAttribute="leading" secondItem="j7q-ZM-woc" secondAttribute="leadingMargin" constant="-20" id="UtW-aY-SoN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vUf-zT-O05" secondAttribute="trailing" constant="-20" id="hQp-7b-U7y"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="vUf-zT-O05" id="rn1-Nh-aNw"/>
@@ -67,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="1998" y="1290"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Recipe List-->
         <scene sceneID="Zsd-5Q-Apl">
             <objects>
-                <navigationController id="KYj-yO-GEz" sceneMemberID="viewController">
+                <navigationController title="Recipe List" id="KYj-yO-GEz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="haC-GQ-DCd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -35,7 +35,7 @@
     }
     
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest; // 100 m
-    //[_locationManager startUpdatingLocation];
+    [_locationManager startUpdatingLocation];
     
     
     CLLocationCoordinate2D pinCoordinate;
@@ -50,9 +50,6 @@
     point.subtitle = desc;
 
     [_mapView addAnnotation:point];
-            // add annotation to the map
-
-    
 }
 
 - (void)didReceiveMemoryWarning {

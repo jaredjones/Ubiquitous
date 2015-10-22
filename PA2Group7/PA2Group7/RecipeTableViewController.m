@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setTitle:@"Recipe List"];
     _recipeArray = [[NSMutableArray alloc]init];
     
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
