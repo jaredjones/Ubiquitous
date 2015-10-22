@@ -91,6 +91,7 @@
     Recipe *r = [_recipeArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [r name];
     cell.textLabel.hidden = NO;
+    
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.detailTextLabel.text = [r desc];
