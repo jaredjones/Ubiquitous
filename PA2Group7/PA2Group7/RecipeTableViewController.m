@@ -16,8 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-<<<<<<< HEAD
+
     _recipeArray = [[NSMutableArray alloc]init];
     
     
@@ -48,17 +47,13 @@
     [dataTask resume];
     // Do any additional setup after loading the view.
     
-    
-    
-    
-    // Do any additional setup after loading the view.œå
-=======
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
->>>>>>> 861b8120577c59843eab40dcabe6bc8df7286d88
+
 }
 
 - (void)didReceiveMemoryWarning {

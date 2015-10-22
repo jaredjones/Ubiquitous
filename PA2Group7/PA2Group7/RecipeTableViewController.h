@@ -13,9 +13,5 @@
 
 @property (nonatomic) NSMutableArray *recipeArray;
 
-<<<<<<< HEAD
-=======
-@interface RecipeTableViewController : UITableViewController
->>>>>>> 861b8120577c59843eab40dcabe6bc8df7286d88
 
 @end
