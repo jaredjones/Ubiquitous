@@ -52,9 +52,10 @@
     
     // Do any additional setup after loading the view.
     
+    [self.tableView setAllowsSelection:YES];
 
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -139,7 +140,7 @@ Recipe *currentRecipe;
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
      RecipeMapViewController *mapViewController = [segue destinationViewController];
-     mapViewController.recipe = currentRecipe;
+     [mapViewController setRecipe: currentRecipe];
  }
 
 
