@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90DB5FC11BD98B91002BC1AC /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DB5FBF1BD98B91002BC1AC /* RecipeTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		90DB5FC21BD98B91002BC1AC /* RecipeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90DB5FC01BD98B91002BC1AC /* RecipeTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		90DB5FC61BD98BAE002BC1AC /* RecipeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DB5FC41BD98BAE002BC1AC /* RecipeMapViewController.m */; settings = {ASSET_TAGS = (); }; };
+		90DB5FC71BD98BAE002BC1AC /* RecipeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90DB5FC51BD98BAE002BC1AC /* RecipeMapViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		CEB251191BD9885A000E2958 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB251181BD9885A000E2958 /* main.m */; };
 		CEB2511C1BD9885A000E2958 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB2511B1BD9885A000E2958 /* AppDelegate.m */; };
 		CEB2511F1BD9885A000E2958 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB2511E1BD9885A000E2958 /* ViewController.m */; };
@@ -27,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90DB5FBE1BD98B91002BC1AC /* RecipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewController.h; sourceTree = "<group>"; };
+		90DB5FBF1BD98B91002BC1AC /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
+		90DB5FC01BD98B91002BC1AC /* RecipeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTableViewController.xib; sourceTree = "<group>"; };
+		90DB5FC31BD98BAE002BC1AC /* RecipeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeMapViewController.h; sourceTree = "<group>"; };
+		90DB5FC41BD98BAE002BC1AC /* RecipeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeMapViewController.m; sourceTree = "<group>"; };
+		90DB5FC51BD98BAE002BC1AC /* RecipeMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeMapViewController.xib; sourceTree = "<group>"; };
 		CEB251141BD98859000E2958 /* PA2Group7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PA2Group7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB251181BD9885A000E2958 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB2511A1BD9885A000E2958 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +100,12 @@
 				CEB251251BD9885A000E2958 /* LaunchScreen.storyboard */,
 				CEB251281BD9885A000E2958 /* Info.plist */,
 				CEB251171BD9885A000E2958 /* Supporting Files */,
+				90DB5FBE1BD98B91002BC1AC /* RecipeTableViewController.h */,
+				90DB5FBF1BD98B91002BC1AC /* RecipeTableViewController.m */,
+				90DB5FC01BD98B91002BC1AC /* RecipeTableViewController.xib */,
+				90DB5FC31BD98BAE002BC1AC /* RecipeMapViewController.h */,
+				90DB5FC41BD98BAE002BC1AC /* RecipeMapViewController.m */,
+				90DB5FC51BD98BAE002BC1AC /* RecipeMapViewController.xib */,
 			);
 			path = PA2Group7;
 			sourceTree = "<group>";
@@ -192,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB251271BD9885A000E2958 /* LaunchScreen.storyboard in Resources */,
+				90DB5FC21BD98B91002BC1AC /* RecipeTableViewController.xib in Resources */,
+				90DB5FC71BD98BAE002BC1AC /* RecipeMapViewController.xib in Resources */,
 				CEB251241BD9885A000E2958 /* Assets.xcassets in Resources */,
 				CEB251221BD9885A000E2958 /* Main.storyboard in Resources */,
 			);
@@ -212,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB2511F1BD9885A000E2958 /* ViewController.m in Sources */,
+				90DB5FC11BD98B91002BC1AC /* RecipeTableViewController.m in Sources */,
+				90DB5FC61BD98BAE002BC1AC /* RecipeMapViewController.m in Sources */,
 				CEB2511C1BD9885A000E2958 /* AppDelegate.m in Sources */,
 				CEB251191BD9885A000E2958 /* main.m in Sources */,
 			);
@@ -400,6 +420,7 @@
 				CEB251381BD9885A000E2958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEB251391BD9885A000E2958 /* Build configuration list for PBXNativeTarget "PA2Group7Tests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +429,7 @@
 				CEB2513B1BD9885A000E2958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
