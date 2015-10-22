@@ -19,29 +19,27 @@
 
     _recipeArray = [[NSMutableArray alloc]init];
     
-    
-    
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://cpl.uh.edu/courses/ubicomp/api/recipe.php?query=getAll"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *e = nil;
-        NSArray *JSONarray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &e];
-        for (NSUInteger i = 0; i < [JSONarray count]; i++){
-            Recipe *tmp = [[Recipe alloc] init];
-            /*tmp.favoriteFruit = [[JSONarray objectAtIndex:i]objectForKey:@"identify"];
-            tmp.address = [[JSONarray objectAtIndex:i]objectForKey:@"address"];
-            tmp.phone = [[JSONarray objectAtIndex:i]objectForKey:@"phone"];
-            tmp.email = [[JSONarray objectAtIndex:i]objectForKey:@"email"];
-            tmp.company = [[JSONarray objectAtIndex:i]objectForKey:@"company"];
-            tmp.lastName = [[[JSONarray objectAtIndex:i]objectForKey:@"name"] objectForKey:@"last"];
-            tmp.firstName = [[[JSONarray objectAtIndex:i]objectForKey:@"name"] objectForKey:@"first"];
-            tmp.gender = [[JSONarray objectAtIndex:i]objectForKey:@"gender"];
-            tmp.age = [[JSONarray objectAtIndex:i]objectForKey:@"age"];
-            tmp.idValue = [[JSONarray objectAtIndex:i]objectForKey:@"_id"];
-             */
+        NSMutableDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &e];
+        NSNumber *length = [jsonDictionary objectForKey:@"total"];
+        
+        
+        for (NSUInteger i = 1; i <= [length integerValue]; i++){
+            NSMutableDictionary *dic = [jsonDictionary objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)i]];
+            Recipe *r = [[Recipe alloc]init];
             
-            /*if ((i + 1) == [JSONarray count]){
-                [_showTableButton setUserInteractionEnabled:YES];
-            }*/
+            [r setIdentify:[dic objectForKey:@"id"]];
+            [r setName:[dic objectForKey:@"name"]];
+            [r setDesc:[dic objectForKey:@"description"]];
+            [r setLatitude:[dic objectForKey:@"latitude"]];
+            [r setLongitude:[dic objectForKey:@"longitude"]];
+            [r setPicture1:[dic objectForKey:@"picture1"]];
+            [r setPicture2:[dic objectForKey:@"picture2"]];
+            [r setPicture3:[dic objectForKey:@"picture3"]];
+            
+            [_recipeArray addObject:r];
         }
     }];
     [dataTask resume];
