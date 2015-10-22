@@ -46,49 +46,14 @@
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
     point.coordinate = pinCoordinate;
     point.title = [_recipe name];
-            
+    NSString *desc = [NSString stringWithFormat:@"%f, %f", lat, longitude];
+    point.subtitle = desc;
 
-            
     [_mapView addAnnotation:point];
             // add annotation to the map
 
     
 }
-
--(void)addPinToMap:(UIGestureRecognizer *)gestureRecognizer{
-    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
-        return;
-    
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate =
-    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
-    MKPointAnnotation *toAdd = [[MKPointAnnotation alloc]init];
-    
-    CLLocation *loc = [[CLLocation alloc]initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
-    
-    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
-    [geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        if (placemarks && placemarks.count > 0) {
-            CLPlacemark *topResult = [placemarks objectAtIndex:0];
-            
-            MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
-            point.coordinate = topResult.location.coordinate;
-            
-            
-            NSString *zip = [[topResult addressDictionary] objectForKey:kABPersonAddressZIPKey];
-            NSString *city = [[topResult addressDictionary] objectForKey:kABPersonAddressCityKey];
-            NSString *state = [[topResult addressDictionary] objectForKey:kABPersonAddressStateKey];
-            
-            point.title = [[[[city stringByAppendingString:@", "] stringByAppendingString:state] stringByAppendingString:@", "]stringByAppendingString:zip];
-            
-            [_mapView addAnnotation:point];
-            
-            // add annotation to the map
-        }
-    }];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
