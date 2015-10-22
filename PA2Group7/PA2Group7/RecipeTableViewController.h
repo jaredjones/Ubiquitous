@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Recipe.h"
 
-@interface RecipeTableViewController : UIViewController
+@interface RecipeTableViewController : UITableViewController
 
 @property (nonatomic) NSMutableArray *recipeArray;
 
