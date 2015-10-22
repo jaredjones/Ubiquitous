@@ -1,5 +1,5 @@
 //
-//  RecipeTableViewController.h
+//  RecipeMapViewController.h
 //  PA2Group7
 //
 //  Created by UH Game and Entrepreneurship on 10/22/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipeTableViewController : UITableViewController
+@interface RecipeMapViewController : UIViewController
 
 @end
