@@ -7,7 +7,9 @@ class User
 public:
     int SocketID;
     double keepAliveEndPoint;
+    bool klFlagged;
     User(){
+        this->klFlagged = false;
         this->keepAliveEndPoint = 0.0;
     }
 };

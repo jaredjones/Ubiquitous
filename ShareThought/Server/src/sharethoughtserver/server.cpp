@@ -159,6 +159,26 @@ void WorldUpdate(int timeDiff)
     {
         if (connections[i] == nullptr)
             continue;
+        
+        if (currentTimeSinceEpoch >= connections[i]->keepAliveEndPoint)
+        {
+            if (connections[i]->klFlagged)
+            {
+                shutdown(connections[i]->SocketID, SHUT_RDWR);
+                close(connections[i]->SocketID);
+                delete connections[i];
+                connections[i] = nullptr;
+                continue;
+            }
+            connections[i]->klFlagged = true;
+            uint64 finalSize;
+            char *packetData;
+            packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+            send(connections[i]->SocketID, packetData, finalSize, NULL);
+            free(packetData);
+            connections[i]->keepAliveEndPoint = currentTimeSinceEpoch + 5000;
+        }
+        
         char buffer[1024];
         int64 retSize = recv(connections[i]->SocketID, &buffer, sizeof(buffer), 0);
         
@@ -175,12 +195,11 @@ void WorldUpdate(int timeDiff)
         switch(op.OPCODE)
         {
             case CMSG_KEEP_ALIVE:
-                packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-                send(connections[i]->SocketID, packetData, finalSize, NULL);
-                free(packetData);
+                printf("CMSG_KEEP_ALIVE\n");
+                connections[i]->klFlagged = false;
                 break;
             default:
-                printf("Bad Packet From Socket:%d", connections[i]->SocketID);
+                printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
                 break;
         }
         

@@ -56,11 +56,6 @@
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
     NSLog(@"Socket:%@ didConnectToHost:%@ onPort:%hu", sock, host, port);
     
-    NSString *requestStr = [NSString stringWithFormat:@"GET / HTTP/1.1\r\nHost: %@\r\n\r\n", @"uvora.com"];
-    NSData *requestData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [sock writeData:requestData withTimeout:-1 tag:0];
-    
     NSUInteger headerLength = 3;
     [sock readDataToLength:headerLength withTimeout:-1 tag:0];
 }
@@ -88,13 +83,16 @@ Packet *tmp = nil;
         switch (tmp->OPCODE) {
             case SMSG_CONNECTED:
                 NSLog(@"Connected!");
-                packetData = ConstructPacket(CMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-                data = [NSData dataWithBytes:packetData length:finalSize];
-                [sock writeData:data withTimeout:-1 tag:0];
                 break;
                 
             case SMSG_KEEP_ALIVE:
-                NSLog(@"KEEP ALIVE RECEIVED");
+                NSLog(@"SMSG_KEEP_ALIVE");
+                packetData = ConstructPacket(CMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+                data = [NSData dataWithBytes:packetData length:finalSize];
+                
+                //Endianess?
+                [sock writeData:data withTimeout:-1 tag:0];
+                free(packetData);
                 break;
                 
             default:
