@@ -13,14 +13,14 @@
 		9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9038A12B1BC70A64002D3691 /* ShareThought.xcdatamodeld */; };
 		9038A12F1BC70A64002D3691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9038A12E1BC70A64002D3691 /* Assets.xcassets */; };
 		9038A13D1BC70A64002D3691 /* ShareThoughtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9038A13C1BC70A64002D3691 /* ShareThoughtTests.m */; };
-		9038A1481BC70BD7002D3691 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1471BC70BD7002D3691 /* iPhone.storyboard */; settings = {ASSET_TAGS = (); }; };
-		9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1491BC70BE5002D3691 /* iPad.storyboard */; settings = {ASSET_TAGS = (); }; };
-		9038A14E1BC70CF5002D3691 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A14D1BC70CF5002D3691 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; settings = {ASSET_TAGS = (); }; };
-		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; settings = {ASSET_TAGS = (); }; };
-		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9038A1481BC70BD7002D3691 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1471BC70BD7002D3691 /* iPhone.storyboard */; };
+		9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1491BC70BE5002D3691 /* iPad.storyboard */; };
+		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; };
+		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; };
+		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; };
 		A750FE2F3312385B2F920D3A /* Pods_ShareThought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */; };
-		C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ACAB9D1BCC89D50009386F /* NetworkManager.m */; settings = {ASSET_TAGS = (); }; };
+		C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ACAB9D1BCC89D50009386F /* NetworkManager.m */; };
+		C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		9038A13E1BC70A64002D3691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9038A1471BC70BD7002D3691 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		9038A1491BC70BE5002D3691 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
-		9038A14D1BC70CF5002D3691 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		907F00401BC99ED7000759CD /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		907F00411BC99ED7000759CD /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		907F00481BC9BE79000759CD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		C0ACAB9C1BCC89D50009386F /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Networking/NetworkManager.h; sourceTree = "<group>"; };
 		C0ACAB9D1BCC89D50009386F /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
 		C0B58F5F1BD5AE2900A03203 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = Networking/Packet.h; sourceTree = "<group>"; };
+		C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,6 @@
 				9038A11F1BC70A64002D3691 /* Supporting Files */,
 				9038A1471BC70BD7002D3691 /* iPhone.storyboard */,
 				9038A1491BC70BE5002D3691 /* iPad.storyboard */,
-				9038A14D1BC70CF5002D3691 /* Launch Screen.storyboard */,
 				907F00401BC99ED7000759CD /* RegistrationViewController.h */,
 				907F00411BC99ED7000759CD /* RegistrationViewController.m */,
 				907F004A1BC9BE8B000759CD /* User.h */,
@@ -138,6 +137,7 @@
 		9038A11F1BC70A64002D3691 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */,
 				9038A1201BC70A64002D3691 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */;
+			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -256,7 +256,7 @@
 			files = (
 				9038A12F1BC70A64002D3691 /* Assets.xcassets in Resources */,
 				9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */,
-				9038A14E1BC70CF5002D3691 /* Launch Screen.storyboard in Resources */,
+				C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */,
 				9038A1481BC70BD7002D3691 /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,7 +486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */ = {
+		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9038A13F1BC70A64002D3691 /* Debug */,
