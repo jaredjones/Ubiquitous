@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r7-dj-Bjf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="H2J-Af-Yrk">
             <objects>
-                <viewController id="8r7-dj-Bjf" sceneMemberID="viewController">
+                <viewController id="8r7-dj-Bjf" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uJS-Ux-8mO"/>
                         <viewControllerLayoutGuide type="bottom" id="v2N-aM-P74"/>
@@ -16,30 +17,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI9-OX-ewE">
-                                <rect key="frame" x="272" y="508" width="57" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <segue destination="IFW-2k-84U" kind="show" id="2PW-w2-OIX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3l-2f-Vhc">
-                                <rect key="frame" x="281" y="470" width="38" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="nno-Oa-gw0" kind="show" id="z04-GF-Mth"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SharethoughtLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-85-gQa">
-                                <rect key="frame" x="152" y="124" width="296" height="243"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Chd-c2-Jpp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ2-ip-By0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pRr-1R-h3w">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPk-7m-vty">
+                                            <rect key="frame" x="124" y="262" width="94" height="61"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="HuJ-II-tOU">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="61"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3l-2f-Vhc">
+                                                        <rect key="frame" x="15" y="16" width="64" height="30"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <state key="normal" title="Login">
+                                                            <color key="titleColor" red="0.86726930629999999" green="0.86726930629999999" blue="0.86726930629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="nno-Oa-gw0" kind="show" id="z04-GF-Mth"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <animations/>
+                                            </view>
+                                            <animations/>
+                                            <blurEffect style="dark"/>
+                                        </visualEffectView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79L-ay-PMk">
+                                            <rect key="frame" x="249" y="262" width="101" height="61"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="kq8-08-sSA">
+                                                <rect key="frame" x="0.0" y="0.0" width="101" height="61"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI9-OX-ewE">
+                                                        <rect key="frame" x="6" y="16" width="89" height="30"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <state key="normal" title="Register">
+                                                            <color key="titleColor" red="0.86726930629999999" green="0.86726930629999999" blue="0.86726930629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="IFW-2k-84U" kind="show" id="2PW-w2-OIX"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <animations/>
+                                            </view>
+                                            <animations/>
+                                            <blurEffect style="dark"/>
+                                        </visualEffectView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015 ShareThought. All Rights Reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vO-sF-GXf">
+                                            <rect key="frame" x="152.5" y="572" width="295.5" height="20"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="2vO-sF-GXf" secondAttribute="bottom" constant="8" id="lRQ-53-yRA"/>
+                                        <constraint firstItem="2vO-sF-GXf" firstAttribute="centerX" secondItem="pRr-1R-h3w" secondAttribute="centerX" id="vAx-I6-pYv"/>
+                                    </constraints>
+                                </view>
+                                <animations/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.18571797425994593" green="0.83310818973213729" blue="0.36038842682330563" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.12549019610000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Chd-c2-Jpp" firstAttribute="top" secondItem="HD3-2y-1I1" secondAttribute="topMargin" id="CfJ-St-fxr"/>
+                            <constraint firstItem="KJ2-ip-By0" firstAttribute="top" secondItem="HD3-2y-1I1" secondAttribute="topMargin" id="Fef-2o-j9e"/>
+                            <constraint firstItem="v2N-aM-P74" firstAttribute="top" secondItem="KJ2-ip-By0" secondAttribute="bottom" id="GkM-1O-29H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Chd-c2-Jpp" secondAttribute="trailing" constant="-20" id="Hm8-2E-zlT"/>
+                            <constraint firstItem="Chd-c2-Jpp" firstAttribute="leading" secondItem="HD3-2y-1I1" secondAttribute="leadingMargin" constant="-20" id="fds-SC-ZcQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KJ2-ip-By0" secondAttribute="trailing" constant="-20" id="hZL-JY-PgO"/>
+                            <constraint firstItem="v2N-aM-P74" firstAttribute="top" secondItem="Chd-c2-Jpp" secondAttribute="bottom" id="jXk-MH-AyL"/>
+                            <constraint firstItem="KJ2-ip-By0" firstAttribute="leading" secondItem="HD3-2y-1I1" secondAttribute="leadingMargin" constant="-20" id="nKB-PM-QqX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="Chd-c2-Jpp" id="Ln4-Lu-lU6"/>
+                        <outlet property="backgroundVisualEffectView" destination="KJ2-ip-By0" id="9cq-VF-ujw"/>
+                        <outlet property="copyrightNoticeLabel" destination="2vO-sF-GXf" id="SqE-B7-BlQ"/>
+                        <outlet property="loginVisualEffectView" destination="yPk-7m-vty" id="QYi-la-3Ms"/>
+                        <outlet property="registerVisualEffectView" destination="79L-ay-PMk" id="t1b-sT-mW7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UP6-2t-o6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -403,6 +474,7 @@
         <image name="UserIcon.png" width="256" height="256"/>
         <image name="addIconBlack.png" width="506" height="512"/>
         <image name="chat-icon.png" width="512" height="512"/>
+        <image name="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" width="990" height="742"/>
         <image name="save.png" width="394" height="381"/>
     </resources>
     <inferredMetricsTieBreakers>
