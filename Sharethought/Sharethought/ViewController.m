@@ -77,20 +77,20 @@
     CGFloat sTLWidth = _shareThoughtLogoView.frame.size.width;
     _shareThoughtLogoView.frame = CGRectMake(self.view.bounds.size.width / 2 - sTLWidth/2, self.view.bounds.size.width / 2 - sTLHeight/2, sTLWidth, sTLHeight);
     
-    _loginVisualEffectView.frame = CGRectMake(self.view.bounds.size.width / 2 - _loginVisualEffectView.frame.size.width - 10, self.view.bounds.size.height / 2 - sTLHeight/2.5, 94, 64);
-    _registerVisualEffectView.frame = CGRectMake(self.view.bounds.size.width / 2 + 10, self.view.bounds.size.height / 2 - sTLHeight/2.5, 101, 64);
+    _loginVisualEffectView.frame = CGRectMake(self.view.bounds.size.width / 2 - _loginVisualEffectView.frame.size.width - 10, _shareThoughtLogoView.frame.origin.y + _shareThoughtLogoView.frame.size.height / 2 + 40, 94, 64);
+    _registerVisualEffectView.frame = CGRectMake(self.view.bounds.size.width / 2 + 10, _shareThoughtLogoView.frame.origin.y + _shareThoughtLogoView.frame.size.height / 2 + 40, 101, 64);
     
-            CABasicAnimation *moveButtonDown = [CABasicAnimation animationWithKeyPath:@"position"];
-        moveButtonDown.additive = YES;
-        moveButtonDown.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0, -_shareThoughtLogoView.frame.size.height)];
-        moveButtonDown.toValue = [NSValue valueWithCGPoint:CGPointZero];
-        moveButtonDown.autoreverses = NO;
-        moveButtonDown.duration = 0.75;
-        moveButtonDown.repeatCount = 0;
-        [_loginVisualEffectView.layer addAnimation:moveButtonDown forKey:@"myMoveButtonDownAnimation"];
-        [_registerVisualEffectView.layer addAnimation:moveButtonDown forKey:@"myMoveButtonDownAnimation"];
-        _loginVisualEffectView.hidden = NO;
-        _registerVisualEffectView.hidden = NO;
+    CABasicAnimation *moveButtonDown = [CABasicAnimation animationWithKeyPath:@"position"];
+    moveButtonDown.additive = YES;
+    moveButtonDown.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0, -_shareThoughtLogoView.frame.size.height)];
+    moveButtonDown.toValue = [NSValue valueWithCGPoint:CGPointZero];
+    moveButtonDown.autoreverses = NO;
+    moveButtonDown.duration = 0.75;
+    moveButtonDown.repeatCount = 0;
+    [_loginVisualEffectView.layer addAnimation:moveButtonDown forKey:@"myMoveButtonDownAnimation"];
+    [_registerVisualEffectView.layer addAnimation:moveButtonDown forKey:@"myMoveButtonDownAnimation"];
+    _loginVisualEffectView.hidden = NO;
+    _registerVisualEffectView.hidden = NO;
     
     CABasicAnimation *moveLogoDown = [CABasicAnimation animationWithKeyPath:@"position"];
     moveLogoDown.additive = YES;
