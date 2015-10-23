@@ -123,6 +123,7 @@
 				9038A11F1BC70A64002D3691 /* Supporting Files */,
 				9038A1471BC70BD7002D3691 /* iPhone.storyboard */,
 				9038A1491BC70BE5002D3691 /* iPad.storyboard */,
+				C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */,
 				907F00401BC99ED7000759CD /* RegistrationViewController.h */,
 				907F00411BC99ED7000759CD /* RegistrationViewController.m */,
 				907F004A1BC9BE8B000759CD /* User.h */,
@@ -137,7 +138,6 @@
 		9038A11F1BC70A64002D3691 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */,
 				9038A1201BC70A64002D3691 /* main.m */,
 			);
 			name = "Supporting Files";
