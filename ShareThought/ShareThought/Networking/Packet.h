@@ -30,7 +30,7 @@ char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPa
 {
     uint64_t finalSize = sizeof(op) + sizeof(uint16_t) + length;
     *finalPacketSize = finalSize;
-    char* finalPacket = (char*)calloc(finalSize, 1);
+    char* finalPacket = (char*)calloc((uint32_t)finalSize, 1);
     
     int i;
     for (i = 0; i < finalSize; i++)
@@ -57,7 +57,7 @@ Packet* DecodePacket(char *buff, uint64_t size)
     tmp->LENGTH = *(buff + 1);
     tmp->LENGTH = tmp->LENGTH | (*(buff + 2) << 8);
     
-    tmp->DATA = (char*)calloc(size - 3, 1);
+    tmp->DATA = (char*)calloc((uint32_t)size - 3, 1);
     
     int i;
     for (i = 3; i < size; i++)

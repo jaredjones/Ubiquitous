@@ -88,7 +88,7 @@ Packet *tmp = nil;
             case SMSG_KEEP_ALIVE:
                 NSLog(@"SMSG_KEEP_ALIVE");
                 packetData = ConstructPacket(CMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-                data = [NSData dataWithBytes:packetData length:finalSize];
+                data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
                 
                 //Endianess?
                 [sock writeData:data withTimeout:-1 tag:0];
