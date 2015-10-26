@@ -30,6 +30,9 @@
     if ( self = [super init] ) {
         _email = [aDecoder decodeObjectForKey:@"email"];
         _password = [aDecoder decodeObjectForKey:@"password"];
+        _fname = [aDecoder decodeObjectForKey:@"fname"];;
+        _lname = [aDecoder decodeObjectForKey:@"lname"];;
+        _profileDescription = [aDecoder decodeObjectForKey:@"profileDescription"];;
     }
     return self;
 }
@@ -37,7 +40,9 @@
 -(void) encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:_email forKey:@"email"];
     [aCoder encodeObject:_password forKey:@"password"];
-    // code for other attribute(s)
+    [aCoder encodeObject:_fname forKey:@"fname"];
+    [aCoder encodeObject:_lname forKey:@"lname"];
+    [aCoder encodeObject:_profileDescription forKey:@"profileDescription"];
 }
 
 + (BOOL)doesEmailExist: (NSString *) email{
