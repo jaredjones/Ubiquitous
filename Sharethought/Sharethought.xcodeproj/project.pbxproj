@@ -32,6 +32,8 @@
 		C0BDC20B1BD9C2C2002B0884 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2021BD9C2C2002B0884 /* save.png */; };
 		C0BDC20C1BD9C2C2002B0884 /* SharethoughtLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2031BD9C2C2002B0884 /* SharethoughtLogo.png */; };
 		C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2041BD9C2C2002B0884 /* UserIcon.png */; };
+		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
+		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,10 @@
 		C0BDC2021BD9C2C2002B0884 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = "Bundle Resources/save.png"; sourceTree = "<group>"; };
 		C0BDC2031BD9C2C2002B0884 /* SharethoughtLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SharethoughtLogo.png; path = "Bundle Resources/SharethoughtLogo.png"; sourceTree = "<group>"; };
 		C0BDC2041BD9C2C2002B0884 /* UserIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UserIcon.png; path = "Bundle Resources/UserIcon.png"; sourceTree = "<group>"; };
+		D3E493EF1BDEDCFC00A45021 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
+		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +154,13 @@
 				9038A1331BC70A64002D3691 /* Info.plist */,
 				9038A12B1BC70A64002D3691 /* ShareThought.xcdatamodeld */,
 				9038A11F1BC70A64002D3691 /* Supporting Files */,
+				D3E493EF1BDEDCFC00A45021 /* LoginViewController.h */,
+				D3E493F01BDEDCFC00A45021 /* LoginViewController.m */,
 				9038A1471BC70BD7002D3691 /* iPhone.storyboard */,
 				9038A1491BC70BE5002D3691 /* iPad.storyboard */,
 				C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */,
+				D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */,
+				D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */,
 				907F00401BC99ED7000759CD /* RegistrationViewController.h */,
 				907F00411BC99ED7000759CD /* RegistrationViewController.m */,
 				907F004A1BC9BE8B000759CD /* User.h */,
@@ -378,10 +388,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */,
+				D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */,
 				9038A1271BC70A64002D3691 /* ViewController.m in Sources */,
 				907F00491BC9BE79000759CD /* User.m in Sources */,
 				907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */,
 				907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */,
+				D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */,
 				9038A1241BC70A64002D3691 /* AppDelegate.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
