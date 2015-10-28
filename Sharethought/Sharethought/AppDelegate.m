@@ -22,7 +22,9 @@
     // Override point for customization after application launch.
     
     [NSThread sleepForTimeInterval:3.0];
-    _networkMgr = [[NetworkManager alloc]initWithHost:@"localhost" withPort:@38205];
+    
+    _networkMgr = [NetworkManager sharedManager];
+    [_networkMgr connect:@"localhost" withPort:@38205];
     return YES;
 }
 

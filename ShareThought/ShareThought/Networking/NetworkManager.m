@@ -6,10 +6,10 @@
 //  Copyright © 2015 Team7. All rights reserved.
 //
 
-#import "CocoaAsyncSocket.h"
+#import "packet.h"
 
+#import "CocoaAsyncSocket.h"
 #import "NetworkManager.h"
-#import "Packet.h"
 
 @interface NetworkManager()
 {
@@ -24,29 +24,50 @@
 
 @implementation NetworkManager
 
-- (instancetype)init{
-    NSLog(@"You must initalize Network Manager with initWithHost: withPort:");
-    return nil;
++ (id)sharedManager {
+    static NetworkManager *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc] init];
+    });
+    return sharedMyManager;
 }
 
-- (instancetype)initWithHost: (NSString *)host withPort: (NSNumber *)port{
+- (instancetype)init{
     if (self = [super init]){
-        _host = [host copy];
-        _port = [port copy];
-        
-        //dispatch_queue_t networkQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-        dispatch_queue_t mainQueue = dispatch_get_main_queue();
-        
-        _socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:mainQueue];
-        
-        NSError *error = nil;
-        if ( ![_socket connectToHost:_host onPort:[_port unsignedIntegerValue] withTimeout:5.0 error:&error] ){
-            NSLog(@"Error Connecting: %@", error);
-        }
-        
         return self;
     }
     return nil;
+}
+
+- (void)connect: (NSString *)host withPort: (NSNumber *)port{
+    _host = [host copy];
+    _port = [port copy];
+    
+    //dispatch_queue_t networkQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    
+    _socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:mainQueue];
+    
+    NSError *error = nil;
+    if ( ![_socket connectToHost:_host onPort:[_port unsignedIntegerValue] withTimeout:5.0 error:&error] ){
+        NSLog(@"Error Connecting: %@", error);
+    }
+}
+
+- (void)loginWithEmail: (NSString *)email withPassword: (NSString *)password{
+    
+    NSString *packetBody = [NSString stringWithFormat:@"%c%s%c%s", (char)email.length, [email cStringUsingEncoding:NSUTF8StringEncoding], (char)password.length, [password cStringUsingEncoding:NSUTF8StringEncoding]];
+    NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint64_t finalSize;
+    char *packetData;
+    NSData *data;
+    packetData = ConstructPacket(CMSG_LOGIN, packetBody.length, (char*)[packetBodyData bytes], &finalSize);
+    data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+    
+    [_socket writeData:data withTimeout:-1 tag:0];
+    free(packetData);
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
@@ -90,7 +111,6 @@ Packet *tmp = nil;
                 packetData = ConstructPacket(CMSG_KEEP_ALIVE, 0, NULL, &finalSize);
                 data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
                 
-                //Endianess?
                 [sock writeData:data withTimeout:-1 tag:0];
                 free(packetData);
                 break;
@@ -111,5 +131,9 @@ Packet *tmp = nil;
     
     //NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //NSLog(@"HTTP Response:\n%@", httpResponse);
+}
+
+- (GCDAsyncSocket *)getSocket{
+    return self.socket;
 }
 @end

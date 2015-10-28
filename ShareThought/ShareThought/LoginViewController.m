@@ -6,6 +6,8 @@
 //  Copyright © 2015 Team7. All rights reserved.
 //
 
+#import "NetworkManager.h"
+
 #import "LoginViewController.h"
 #import "User.h"
 #import "NSString+StringVerification.h"
@@ -13,7 +15,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *loginEmail;
 @property (weak, nonatomic) IBOutlet UITextField *loginPassword;
-@property (weak, nonatomic) IBOutlet UIButton *verifyLogin;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @end
 
 @implementation LoginViewController
@@ -29,6 +31,10 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
+    
+    [[NetworkManager sharedManager] loginWithEmail:_loginEmail.text withPassword:_loginPassword.text];
+    
+    /*
     UIAlertController *msg;
  
     //If email exists check for valid user/pass combination
@@ -45,6 +51,7 @@
         return;
     }
      [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
+     */
 }
  
 

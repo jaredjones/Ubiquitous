@@ -198,6 +198,9 @@ void WorldUpdate(int timeDiff)
                 printf("CMSG_KEEP_ALIVE\n");
                 connections[i]->klFlagged = false;
                 break;
+            case CMSG_LOGIN:
+                printf("%s\n", op.DATA);
+                break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
                 break;

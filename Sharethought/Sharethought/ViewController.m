@@ -109,6 +109,16 @@
                      animations:^{ _copyrightNoticeLabel.alpha = 1;}
                      completion:nil];
 }
+- (IBAction)registerButtonTapped:(id)sender {
+    [self performSegueWithIdentifier:@"registerSegue" sender:self];
+}
+- (IBAction)loginButtonTapped:(id)sender {
+    [self performSegueWithIdentifier:@"loginSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -11,5 +11,9 @@
 #import "CocoaAsyncSocket.h"
 
 @interface NetworkManager : NSObject <GCDAsyncSocketDelegate>
-- (instancetype)initWithHost: (NSString *)host withPort: (NSNumber *)port;
+
++ (id)sharedManager;
+- (void)loginWithEmail: (NSString *)email withPassword: (NSString *)password;
+- (void)connect: (NSString *)host withPort: (NSNumber *)port;
+- (GCDAsyncSocket *)getSocket;
 @end

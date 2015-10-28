@@ -6,8 +6,8 @@
 //  Copyright © 2015 Team7. All rights reserved.
 //
 
-#ifndef Packet_h
-#define Packet_h
+#ifndef _H_SHARETHOUGHT_Packet_H
+#define _H_SHARETHOUGHT_Packet_H
 
 #include <stdlib.h>
 #include <string.h>
@@ -24,6 +24,7 @@ typedef struct Packet
 #define CMSG_KEEP_ALIVE         0x01
 #define SMSG_KEEP_ALIVE         0x02
 #define SMSG_CONNECTED          0x03
+#define CMSG_LOGIN              0x04
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
 char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPacketSize)
@@ -65,4 +66,4 @@ Packet* DecodePacket(char *buff, uint64_t size)
     return tmp;
 }
 
-#endif /* Packet_h */
+#endif /* _H_SHARETHOUGHT_Packet_H */
