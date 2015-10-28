@@ -74,7 +74,7 @@
                                             <blurEffect style="dark"/>
                                         </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015 ShareThought.  All Rights Reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vO-sF-GXf">
-                                            <rect key="frame" x="150" y="572" width="300.5" height="20"/>
+                                            <rect key="frame" x="150" y="572" width="301" height="20"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,7 +214,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="registrationButtonPressed:" destination="IFW-2k-84U" eventType="touchUpInside" id="ZXI-9H-RGP"/>
-                                    <segue destination="nno-Oa-gw0" kind="show" id="OkO-Ii-Hq7"/>
+                                    <segue destination="nno-Oa-gw0" kind="show" identifier="registrationToLoginSegue" id="OkO-Ii-Hq7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell Us About Yourself" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5t-9L-obz">
@@ -277,7 +277,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s3m-6f-ojb" id="qwp-dC-MdM">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -493,6 +493,6 @@
         <image name="save.png" width="394" height="381"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3EY-mN-WRy"/>
+        <segue reference="OkO-Ii-Hq7"/>
     </inferredMetricsTieBreakers>
 </document>

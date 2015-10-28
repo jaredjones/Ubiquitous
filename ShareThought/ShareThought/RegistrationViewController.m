@@ -7,7 +7,8 @@
 //
 
 #import "RegistrationViewController.h"
-# import "User.h"
+#import "User.h"
+#import "NSString+StringVerification.h"
 
 @interface RegistrationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *registrationEmail;
@@ -36,8 +37,40 @@
     [_registrationPassword resignFirstResponder];
 }
 - (IBAction)registrationButtonPressed:(id)sender {
+    BOOL emailExist = [User doesEmailExist: [_registrationEmail text]];
+    UIAlertController *msg;
+    
+    if (![[_registrationEmail text] isValidEmail]) {
+        msg= [UIAlertController alertControllerWithTitle:@"Invalid Email"
+                                                 message:@"The email address you entered is not in a valid format!"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {NSLog(@"OK button was pressed");
+        }];
+        
+        [msg addAction:defaultAction];
+        return;
+    }
+    
+    if (emailExist) {
+        msg= [UIAlertController alertControllerWithTitle:@"Email Already in Use"
+                                                 message:@"The email address you entered is already registered!"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {NSLog(@"OK button was pressed");
+        }];
+        
+        [msg addAction:defaultAction];
+        return;
+    }
+    
+    
     User *u = [[User alloc]initWithUser:[_registrationEmail text] withPassword:[_registrationPassword text] withFirstName:[_firstNameField text] withLastName:[_lastNameField text] withProfileDesc:[_descriptionField text]];
     [User storeDataInNSUserDefaults:u];
+    
+    [self performSegueWithIdentifier:@"registrationToLoginSegue" sender:self];
+    return;
+    
 }
 
 /*
