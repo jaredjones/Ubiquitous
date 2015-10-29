@@ -25,6 +25,7 @@ typedef struct Packet
 #define SMSG_KEEP_ALIVE         0x02
 #define SMSG_CONNECTED          0x03
 #define CMSG_LOGIN              0x04
+#define CMSG_REGISTER           0x05
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
 char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPacketSize)

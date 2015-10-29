@@ -31,8 +31,6 @@ User* *connections;
 
 int main(int argc, char **argv)
 {
-    printf("Done.\nCreating Socket Structures...\n");
-
     struct sockaddr_in serv_addr;
     struct sockaddr_in cli_addr;
     memset(&serv_addr, 0, sizeof(serv_addr));
@@ -192,14 +190,20 @@ void WorldUpdate(int timeDiff)
         
         uint64 finalSize;
         char *packetData;
+        struct LoginPacketInfo lpInfo;
         switch(op.OPCODE)
         {
+            case CMSG_REGISTER:
+                
+                //connections[i]->account = new Account();
+                
+                break;
             case CMSG_KEEP_ALIVE:
                 printf("CMSG_KEEP_ALIVE\n");
                 connections[i]->klFlagged = false;
                 break;
             case CMSG_LOGIN:
-                printf("%s\n", op.DATA);
+                lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
