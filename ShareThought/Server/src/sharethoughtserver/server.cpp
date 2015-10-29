@@ -204,9 +204,14 @@ void WorldUpdate(int timeDiff)
                 connections[i]->klFlagged = false;
                 break;
             case CMSG_LOGIN:
+                printf("CMSG_LOGIN\n");
                 lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
                 if (connections[i]->account == nullptr)
                     connections[i]->account = new Account(lpInfo.Username, lpInfo.Password);
+                
+                packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
+                send(connections[i]->SocketID, packetData, finalSize, NULL);
+                free(packetData);
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);

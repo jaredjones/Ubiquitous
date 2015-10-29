@@ -22,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedLoggedInNotification:)
+                                                 name:@"LoggedInNotification"
+                                               object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -53,7 +57,17 @@
      [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
      */
 }
- 
+
+- (void) receivedLoggedInNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"LoggedInNotification"]){
+        NSLog (@"You have logged in!");
+    }
+}
 
 
 /*
