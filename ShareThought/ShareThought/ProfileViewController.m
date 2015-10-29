@@ -11,6 +11,8 @@
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *fullNameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *profileTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+
 
 @end
 
