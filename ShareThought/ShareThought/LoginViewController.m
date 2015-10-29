@@ -12,6 +12,9 @@
 #import "User.h"
 #import "NSString+StringVerification.h"
 
+#define HORIZONTAL_START_POINT  CGPointMake(0, 0.5)
+#define HORIZONTAL_END_POINT    CGPointMake(1, 0.5)
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *loginEmail;
 @property (weak, nonatomic) IBOutlet UITextField *loginPassword;
@@ -22,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self myButtonChange:_loginButton];
     // Do any additional setup after loading the view.
 }
 
@@ -53,7 +57,31 @@
      [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
      */
 }
- 
+
+
+-(void) myButtonChange: (UIButton*) btn
+{
+    [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    
+    CAGradientLayer *btnGradient = [CAGradientLayer layer];
+    btnGradient.frame = btn.bounds;
+    btnGradient.colors = [NSArray arrayWithObjects:
+                          (id)[[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f] CGColor],
+                          (id)[[UIColor colorWithRed:0.0/255.0f green:200.0f/255.0f blue:200.0f/255.0f alpha:1.0f] CGColor],
+                          
+                          
+                          nil];
+    [btn.layer insertSublayer:btnGradient atIndex:0];
+    
+    btnGradient.startPoint = HORIZONTAL_START_POINT;
+    
+    btnGradient.endPoint = HORIZONTAL_END_POINT;
+    CALayer *btnLayer = [btn layer];
+    [btnLayer setMasksToBounds:YES];
+    
+    [[btn layer] setBorderWidth:0.0f];
+    [[btn layer] setCornerRadius:10.0f];    
+}
 
 
 /*
