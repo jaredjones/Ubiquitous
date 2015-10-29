@@ -114,6 +114,10 @@ Packet *tmp = nil;
                 [sock writeData:data withTimeout:-1 tag:0];
                 free(packetData);
                 break;
+            case SMSG_SUCCESSFUL_LOGIN:
+                NSLog(@"SMSG_SUCCESSFUL_LOGIN");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:self];
+                break;
                 
             default:
                 NSLog(@"Malformed Packet Received!");
