@@ -170,7 +170,7 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.2604621379" green="0.30069474260000001" blue="0.38134284019999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.094117647058823528" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sa4-DM-EuB" firstAttribute="top" secondItem="cC9-07-80d" secondAttribute="topMargin" constant="-29" id="4MP-tg-LTT"/>
                             <constraint firstItem="sa4-DM-EuB" firstAttribute="centerX" secondItem="cC9-07-80d" secondAttribute="centerX" id="fut-gu-Pgs"/>
@@ -198,19 +198,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXU-Lv-tzO">
-                                <rect key="frame" x="284" y="503" width="32" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-I7-0it">
+                                <rect key="frame" x="150" y="177" width="300" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Next"/>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-Wy-ydt">
+                                <rect key="frame" x="150" y="275" width="300" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0a-lA-CDQ">
+                                <rect key="frame" x="150" y="325" width="300" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fP-MW-m43">
-                                <rect key="frame" x="252" y="163" width="97" height="30"/>
+                                <rect key="frame" x="150" y="226" width="300" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6E-ij-AXy">
-                                <rect key="frame" x="284" y="503" width="32" height="30"/>
+                                <rect key="frame" x="150" y="496" width="300" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Next"/>
                                 <connections>
@@ -219,33 +232,11 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell Us About Yourself" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5t-9L-obz">
-                                <rect key="frame" x="156" y="398" width="288" height="30"/>
+                                <rect key="frame" x="150" y="379" width="300" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-I7-0it">
-                                <rect key="frame" x="252" y="118" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-Wy-ydt">
-                                <rect key="frame" x="252" y="209" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0a-lA-CDQ">
-                                <rect key="frame" x="252" y="254" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SharethoughtLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Br-l6-tyE">
-                                <rect key="frame" x="152" y="-69" width="296" height="243"/>
-                                <animations/>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.17647058823529413" green="0.81176470588235294" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,7 +247,6 @@
                         <outlet property="lastNameField" destination="S0a-lA-CDQ" id="0hv-AF-7eo"/>
                         <outlet property="registrationEmail" destination="VJf-I7-0it" id="SBY-kg-2HK"/>
                         <outlet property="registrationPassword" destination="6fP-MW-m43" id="z6w-qg-aZT"/>
-                        <outlet property="verifyRegistration" destination="RXU-Lv-tzO" id="qfw-NG-HEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ze3-rS-6Tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -494,6 +484,6 @@
         <image name="save.png" width="394" height="381"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3EY-mN-WRy"/>
+        <segue reference="OkO-Ii-Hq7"/>
     </inferredMetricsTieBreakers>
 </document>
