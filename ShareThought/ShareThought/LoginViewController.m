@@ -25,14 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< HEAD
+
     [self myButtonChange:_loginButton];
-=======
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedLoggedInNotification:)
                                                  name:@"LoggedInNotification"
                                                object:nil];
->>>>>>> 86f8053272289561459d9896a96d5e5ba48e29c8
     // Do any additional setup after loading the view.
 }
 
@@ -65,7 +64,6 @@
      */
 }
 
-<<<<<<< HEAD
 
 -(void) myButtonChange: (UIButton*) btn
 {
@@ -89,7 +87,8 @@
     
     [[btn layer] setBorderWidth:0.0f];
     [[btn layer] setCornerRadius:10.0f];    
-=======
+}
+
 - (void) receivedLoggedInNotification:(NSNotification *) notification
 {
     // [notification name] should always be @"TestNotification"
@@ -99,7 +98,6 @@
     if ([[notification name] isEqualToString:@"LoggedInNotification"]){
         NSLog (@"You have logged in!");
     }
->>>>>>> 86f8053272289561459d9896a96d5e5ba48e29c8
 }
 
 
