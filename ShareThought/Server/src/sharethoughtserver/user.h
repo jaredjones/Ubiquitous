@@ -19,7 +19,7 @@ public:
     int SocketID;
     double keepAliveEndPoint;
     bool klFlagged;
-    Account account;
+    Account *account = nullptr;
     User(){
         this->klFlagged = false;
         this->keepAliveEndPoint = 0.0;

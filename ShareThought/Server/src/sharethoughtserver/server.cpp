@@ -164,6 +164,7 @@ void WorldUpdate(int timeDiff)
             {
                 shutdown(connections[i]->SocketID, SHUT_RDWR);
                 close(connections[i]->SocketID);
+                delete connections[i]->account;
                 delete connections[i];
                 connections[i] = nullptr;
                 continue;
@@ -204,6 +205,8 @@ void WorldUpdate(int timeDiff)
                 break;
             case CMSG_LOGIN:
                 lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
+                if (connections[i]->account == nullptr)
+                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password);
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
