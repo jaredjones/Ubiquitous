@@ -200,7 +200,7 @@ void WorldUpdate(int timeDiff)
             case CMSG_REGISTER:
                 if (connections[i]->account == nullptr){
                     lpInfo = GetUserInfoGivenRegistrationPacketData(op.DATA);
-                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password);
+                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password, lpInfo.FirstName, lpInfo.LastName, lpInfo.AboutUs);
                 }
                 
                 break;
