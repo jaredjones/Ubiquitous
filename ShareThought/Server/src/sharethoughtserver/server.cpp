@@ -23,6 +23,8 @@
 #include "user.h"
 #include "packet.h"
 
+#include <mysql/mysql.h>
+
 void WorldUpdateLoop();
 void WorldUpdate(int timeDiff);
 

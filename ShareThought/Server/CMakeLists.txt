@@ -33,6 +33,7 @@ set(OPENSSL_EXPECTED_VERSION 1.0.2)
 
 find_package(PCHSupport)
 find_package(OpenSSL ${OPENSSL_EXPECTED_VERSION} REQUIRED)
+find_package(MySQL)
 
 include(ConfigureBoost)
 

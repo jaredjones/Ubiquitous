@@ -32,6 +32,7 @@ include_directories(
   	${CMAKE_BINARY_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${OPENSSL_INCLUDE_DIR}
+	${MYSQL_INCLUDE_DIR}
 )
 
 add_executable(sharethought_server
@@ -53,6 +54,7 @@ target_link_libraries(sharethought_server
   ${OPENSSL_LIBRARIES}
   ${CMAKE_THREAD_LIBS_INIT}
   ${Boost_LIBRARIES}
+  ${MYSQL_LIBRARY}
 )
 
 
