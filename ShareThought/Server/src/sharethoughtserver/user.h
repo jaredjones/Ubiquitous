@@ -65,7 +65,6 @@ static struct LoginRegistrationPacketInfo GetUserInfoGivenRegistrationPacketData
     
     lPInfo.FirstName = std::string(fname);
     free(fname);
-    
 }
 
 

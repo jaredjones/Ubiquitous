@@ -19,6 +19,9 @@
 		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; };
 		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; };
 		90A0BA5E1BE1B5E50000BF86 /* SharethoughtLogoSlim.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA5D1BE1B5E50000BF86 /* SharethoughtLogoSlim.png */; };
+		90A0BA601BE26ACA0000BF86 /* arrowRightCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA5F1BE26ACA0000BF86 /* arrowRightCircle.png */; };
+		90A0BA621BE26C1D0000BF86 /* arrowLeftCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA611BE26C1D0000BF86 /* arrowLeftCircle.png */; };
+		90A0BA651BE274F50000BF86 /* NavPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A0BA641BE274F50000BF86 /* NavPageViewController.m */; };
 		A750FE2F3312385B2F920D3A /* Pods_ShareThought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */; };
 		C0084D8D1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */; };
 		C0084D901BDA12CF00727B08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0084D8F1BDA12CF00727B08 /* QuartzCore.framework */; };
@@ -71,6 +74,10 @@
 		907F004B1BCC45E1000759CD /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		907F004C1BCC45E1000759CD /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		90A0BA5D1BE1B5E50000BF86 /* SharethoughtLogoSlim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SharethoughtLogoSlim.png; sourceTree = "<group>"; };
+		90A0BA5F1BE26ACA0000BF86 /* arrowRightCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRightCircle.png; sourceTree = "<group>"; };
+		90A0BA611BE26C1D0000BF86 /* arrowLeftCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowLeftCircle.png; sourceTree = "<group>"; };
+		90A0BA631BE274F50000BF86 /* NavPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavPageViewController.h; sourceTree = "<group>"; };
+		90A0BA641BE274F50000BF86 /* NavPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPageViewController.m; sourceTree = "<group>"; };
 		B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hoh-rain-forest-olympic-national-park_51546_990x742.jpg"; sourceTree = "<group>"; };
 		C0084D8E1BDA0B5400727B08 /* BackgroundBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundBlurEffect.h; sourceTree = "<group>"; };
@@ -156,19 +163,21 @@
 				9038A1331BC70A64002D3691 /* Info.plist */,
 				9038A12B1BC70A64002D3691 /* ShareThought.xcdatamodeld */,
 				9038A11F1BC70A64002D3691 /* Supporting Files */,
-				D3E493EF1BDEDCFC00A45021 /* LoginViewController.h */,
-				D3E493F01BDEDCFC00A45021 /* LoginViewController.m */,
 				9038A1471BC70BD7002D3691 /* iPhone.storyboard */,
 				9038A1491BC70BE5002D3691 /* iPad.storyboard */,
 				C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */,
+				D3E493EF1BDEDCFC00A45021 /* LoginViewController.h */,
+				D3E493F01BDEDCFC00A45021 /* LoginViewController.m */,
+				90A0BA631BE274F50000BF86 /* NavPageViewController.h */,
+				90A0BA641BE274F50000BF86 /* NavPageViewController.m */,
 				D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */,
 				D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */,
+				907F004B1BCC45E1000759CD /* ProfileViewController.h */,
+				907F004C1BCC45E1000759CD /* ProfileViewController.m */,
 				907F00401BC99ED7000759CD /* RegistrationViewController.h */,
 				907F00411BC99ED7000759CD /* RegistrationViewController.m */,
 				907F004A1BC9BE8B000759CD /* User.h */,
 				907F00481BC9BE79000759CD /* User.m */,
-				907F004B1BCC45E1000759CD /* ProfileViewController.h */,
-				907F004C1BCC45E1000759CD /* ProfileViewController.m */,
 				C0ACAB9B1BCC89BA0009386F /* Networking */,
 			);
 			path = ShareThought;
@@ -204,6 +213,8 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90A0BA611BE26C1D0000BF86 /* arrowLeftCircle.png */,
+				90A0BA5F1BE26ACA0000BF86 /* arrowRightCircle.png */,
 				C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */,
 				C0BDC1FC1BD9C2C2002B0884 /* addIconBlack.png */,
 				90A0BA5D1BE1B5E50000BF86 /* SharethoughtLogoSlim.png */,
@@ -313,7 +324,9 @@
 			files = (
 				9038A12F1BC70A64002D3691 /* Assets.xcassets in Resources */,
 				C0BDC2071BD9C2C2002B0884 /* Button-Add-icon.png in Resources */,
+				90A0BA601BE26ACA0000BF86 /* arrowRightCircle.png in Resources */,
 				9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */,
+				90A0BA621BE26C1D0000BF86 /* arrowLeftCircle.png in Resources */,
 				C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */,
 				C0BDC2061BD9C2C2002B0884 /* addIconFlat.png in Resources */,
 				C0BDC20A1BD9C2C2002B0884 /* Save As-128.png in Resources */,
@@ -397,6 +410,7 @@
 				907F00491BC9BE79000759CD /* User.m in Sources */,
 				907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */,
 				907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */,
+				90A0BA651BE274F50000BF86 /* NavPageViewController.m in Sources */,
 				D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */,
 				9038A1241BC70A64002D3691 /* AppDelegate.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
