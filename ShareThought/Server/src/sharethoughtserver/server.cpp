@@ -206,6 +206,7 @@ void WorldUpdate(int timeDiff)
         switch(op.OPCODE)
         {
             case CMSG_REGISTER:
+                printf("CMSG_REGISTER\n");
                 if (connections[i]->account == nullptr){
                     lpInfo = GetUserInfoGivenRegistrationPacketData(op.DATA);
 
@@ -213,7 +214,7 @@ void WorldUpdate(int timeDiff)
                     
                     SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
                     
-                    std::string s = "INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES ('" + lpInfo.Username + "','" + lpInfo.Password + "','" + lpInfo.Username + "','" + lpInfo.FirstName + "','" + lpInfo.LastName + "'," + lpInfo.AboutUs + ");";
+                    std::string s = "INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES ('" + lpInfo.Username + "','" + lpInfo.Password + "','" + lpInfo.Username + "','" + lpInfo.FirstName + "','" + lpInfo.LastName + "','" + lpInfo.AboutUs + "');";
                     
                     mysql_query(sqlMgr->MYSQL_CONNECTION, s.c_str());
                 }
