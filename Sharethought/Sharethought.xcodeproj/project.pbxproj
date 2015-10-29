@@ -18,6 +18,7 @@
 		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; };
 		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; };
 		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; };
+		90A0BA5C1BE1B0A80000BF86 /* SharethoughtLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA5B1BE1B0A80000BF86 /* SharethoughtLogo.png */; };
 		A750FE2F3312385B2F920D3A /* Pods_ShareThought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */; };
 		C0084D8D1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */; };
 		C0084D901BDA12CF00727B08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0084D8F1BDA12CF00727B08 /* QuartzCore.framework */; };
@@ -69,6 +70,7 @@
 		907F004A1BC9BE8B000759CD /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		907F004B1BCC45E1000759CD /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		907F004C1BCC45E1000759CD /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		90A0BA5B1BE1B0A80000BF86 /* SharethoughtLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SharethoughtLogo.png; sourceTree = "<group>"; };
 		B8139ED5CD767B46B4416A37 /* Pods_ShareThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hoh-rain-forest-olympic-national-park_51546_990x742.jpg"; sourceTree = "<group>"; };
 		C0084D8E1BDA0B5400727B08 /* BackgroundBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundBlurEffect.h; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */,
+				90A0BA5B1BE1B0A80000BF86 /* SharethoughtLogo.png */,
 				C0BDC1FC1BD9C2C2002B0884 /* addIconBlack.png */,
 				C0BDC1FD1BD9C2C2002B0884 /* addIconFlat.png */,
 				C0BDC1FE1BD9C2C2002B0884 /* Button-Add-icon.png */,
@@ -315,6 +318,7 @@
 				C0BDC2061BD9C2C2002B0884 /* addIconFlat.png in Resources */,
 				C0BDC20A1BD9C2C2002B0884 /* Save As-128.png in Resources */,
 				C0084D8D1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg in Resources */,
+				90A0BA5C1BE1B0A80000BF86 /* SharethoughtLogo.png in Resources */,
 				C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */,
 				C0BDC20B1BD9C2C2002B0884 /* save.png in Resources */,
 				C0BDC2051BD9C2C2002B0884 /* addIconBlack.png in Resources */,
