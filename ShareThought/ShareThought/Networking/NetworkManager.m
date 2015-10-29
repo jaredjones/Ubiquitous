@@ -71,7 +71,7 @@
 }
 
 - (void)registerWithEmail: (NSString *)email withPassword: (NSString *)password withFirstName: (NSString *)fName withLastName: (NSString *)lName withAboutYou: (NSString *)aboutYou withUserName:(NSString *)userName{
-    NSString *packetBody = [NSString stringWithFormat:@"%c%s%c%s%c%s%c%s%c%s", (char)email.length, [email cStringUsingEncoding:NSUTF8StringEncoding], (char)password.length, [password cStringUsingEncoding:NSUTF8StringEncoding], (char)fName.length, [fName cStringUsingEncoding:NSUTF8StringEncoding], (char) lName.length, [lName cStringUsingEncoding:NSUTF8StringEncoding], (char)aboutYou.length, [aboutYou cStringUsingEncoding:NSUTF8StringEncoding]];
+    NSString *packetBody = [NSString stringWithFormat:@"%c%s%c%s%c%s%c%s%c%s%c%s", (char)email.length, [email cStringUsingEncoding:NSUTF8StringEncoding], (char)password.length, [password cStringUsingEncoding:NSUTF8StringEncoding], (char)fName.length, [fName cStringUsingEncoding:NSUTF8StringEncoding], (char) lName.length, [lName cStringUsingEncoding:NSUTF8StringEncoding], (char)aboutYou.length, [aboutYou cStringUsingEncoding:NSUTF8StringEncoding], (char)userName.length, [userName cStringUsingEncoding:NSUTF8StringEncoding]];
     NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
     
     uint64_t finalSize;
