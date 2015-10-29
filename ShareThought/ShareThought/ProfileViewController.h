@@ -10,7 +10,7 @@
 
 
 @interface ProfileViewController : UIViewController
-@property (nonatomic, strong) NSString *loggedInEmail;
 @property (nonatomic, strong) NSString *fullname;
 @property (nonatomic, strong) NSString *profileDescription;
+@property (nonatomic, strong) NSString (*tagArray);
 @end
