@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
 
 @end
 
@@ -41,7 +42,7 @@
     [self.registrationPassword resignFirstResponder];
 }
 - (IBAction)registrationButtonPressed:(id)sender {
-    [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text];
+    [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
     
     /*BOOL emailExist = [User doesEmailExist: [_registrationEmail text]];
     UIAlertController *msg;

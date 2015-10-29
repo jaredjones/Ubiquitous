@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r7-dj-Bjf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r7-dj-Bjf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -230,16 +230,22 @@
                                     <action selector="registrationButtonPressed:" destination="IFW-2k-84U" eventType="touchUpInside" id="ZXI-9H-RGP"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell Us About Yourself" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5t-9L-obz">
-                                <rect key="frame" x="150" y="379" width="300" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SharethoughtLogoSlim.png" translatesAutoresizingMaskIntoConstraints="NO" id="WjN-61-O0w">
                                 <rect key="frame" x="180" y="84" width="240" height="72"/>
                                 <animations/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-cf-BrA">
+                                <rect key="frame" x="150" y="372" width="300" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell Us About Yourself" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5t-9L-obz">
+                                <rect key="frame" x="150" y="421" width="300" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
@@ -250,6 +256,7 @@
                         <outlet property="lastNameField" destination="S0a-lA-CDQ" id="0hv-AF-7eo"/>
                         <outlet property="registrationEmail" destination="VJf-I7-0it" id="SBY-kg-2HK"/>
                         <outlet property="registrationPassword" destination="6fP-MW-m43" id="z6w-qg-aZT"/>
+                        <outlet property="userName" destination="V2U-cf-BrA" id="61y-9r-JfZ"/>
                         <outlet property="verifyRegistration" destination="A6E-ij-AXy" id="dZG-c3-MM0"/>
                     </connections>
                 </viewController>
