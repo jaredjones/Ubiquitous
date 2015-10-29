@@ -34,8 +34,11 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [_registrationEmail resignFirstResponder];
-    [_registrationPassword resignFirstResponder];
+    [self.registrationEmail resignFirstResponder];
+    [self.firstNameField resignFirstResponder];
+    [self.lastNameField resignFirstResponder];
+    [self.descriptionField resignFirstResponder];
+    [self.registrationPassword resignFirstResponder];
 }
 - (IBAction)registrationButtonPressed:(id)sender {
     [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text];
@@ -75,6 +78,7 @@
     return;
     */
 }
+
 
 /*
 #pragma mark - Navigation

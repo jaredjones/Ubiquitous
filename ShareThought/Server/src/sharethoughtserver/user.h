@@ -65,6 +65,24 @@ static struct LoginRegistrationPacketInfo GetUserInfoGivenRegistrationPacketData
     
     lPInfo.FirstName = std::string(fname);
     free(fname);
+    
+    char *lname = (char*)malloc(lastNameLength + 1);
+    memcpy(lname, pData + 1 + emailLength + 1 + passwordLength + 1 + lastNameLength + 1, lastNameLength);
+    lname[lastNameLength] = '\0';
+    
+    lPInfo.LastName = std::string(lname);
+    free(lname);
+    
+    char *aboutMe = (char*)malloc(aboutMeLength + 1);
+    memcpy(aboutMe, pData + 1 + emailLength + 1 + passwordLength + 1 + lastNameLength + 1 + aboutMeLength + 1, aboutMeLength);
+    aboutMe[aboutMeLength] = '\0';
+    
+    lPInfo.AboutUs = std::string(aboutMe);
+    free(aboutMe);
+    
+    
+    
+    return lPInfo;
 }
 
 
