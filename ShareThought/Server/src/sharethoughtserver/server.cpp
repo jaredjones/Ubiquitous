@@ -84,6 +84,14 @@ int main(int argc, char **argv)
         connections[i] = nullptr;
     }
     
+    //Initalize and Connect to Database
+    SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
+    if (!sqlMgr->ConnectToDatabase())
+    {
+        printf("Unable to Connect to the MariaDB Database!\n");
+        return 1;
+    }
+    
     //Program Loop
     WorldUpdateLoop();
     
@@ -201,6 +209,12 @@ void WorldUpdate(int timeDiff)
                 if (connections[i]->account == nullptr){
                     lpInfo = GetUserInfoGivenRegistrationPacketData(op.DATA);
                     connections[i]->account = new Account(lpInfo.Username, lpInfo.Password);
+                    
+                    SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
+                    
+                    std::string s = "INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES ('" + lpInfo.Username + "','" + lpInfo.Password + "','" + lpInfo.Username + "','" + lpInfo.FirstName + "','" + lpInfo.LastName + "'," + lpInfo.AboutUs + ");";
+                    
+                    mysql_query(sqlMgr->MYSQL_CONNECTION, s.c_str());
                 }
                 
                 break;
@@ -211,6 +225,9 @@ void WorldUpdate(int timeDiff)
             case CMSG_LOGIN:
                 printf("CMSG_LOGIN\n");
                 lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
+                
+                
+                
                 packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packetData, finalSize, NULL);
                 free(packetData);

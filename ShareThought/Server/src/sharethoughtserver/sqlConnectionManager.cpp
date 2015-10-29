@@ -1,6 +1,13 @@
-#include "sqlConnectionManager.h"
+#include "SqlConnectionManager.h"
+#include "config.h"
 
-sqlConnectionManager::sqlConnectionManager()
+SqlConnectionManager* SqlConnectionManager::getInstance()
+{
+    static SqlConnectionManager *sqlMgr = new SqlConnectionManager();
+    return sqlMgr;
+}
+
+SqlConnectionManager::SqlConnectionManager()
 {
     SERVER_NAME = "gaea.uvora.com";
     LOGIN = "tdickson";
@@ -9,14 +16,7 @@ sqlConnectionManager::sqlConnectionManager()
     MYSQL_PORT_NUMBER = 3306;
 }
 
-
-void sqlConnectionManager::verifyUserLoginToDatabase (char username[], char password[])
-{
-    
-    
-}
-
-bool sqlConnectionManager::verifyConnectionToDatabase()
+bool SqlConnectionManager::ConnectToDatabase()
 {
     //Set connection to null
     MYSQL_CONNECTION = mysql_init(NULL);
@@ -32,7 +32,6 @@ bool sqlConnectionManager::verifyConnectionToDatabase()
     else
     {
         std::cout<<"CONNECTION TO DATABASE SUCCESS!\n";
-        mysql_close(MYSQL_CONNECTION);
         return true;
     }
 }
