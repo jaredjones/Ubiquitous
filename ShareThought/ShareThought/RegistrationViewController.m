@@ -41,6 +41,11 @@
     [self.descriptionField resignFirstResponder];
     [self.registrationPassword resignFirstResponder];
 }
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (IBAction)registrationButtonPressed:(id)sender {
     [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
     

@@ -291,6 +291,7 @@
 				TargetAttributes = {
 					9038A11B1BC70A64002D3691 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = TY38WX2KB9;
 					};
 					9038A1371BC70A64002D3691 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -524,10 +525,13 @@
 			baseConfigurationReference = 1CD2DEAFABA5C3EF8CAC6152 /* Pods-ShareThought.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShareThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Team7.ShareThought;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -536,10 +540,13 @@
 			baseConfigurationReference = 470FD256531612FD0DF9B34B /* Pods-ShareThought.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShareThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Team7.ShareThought;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

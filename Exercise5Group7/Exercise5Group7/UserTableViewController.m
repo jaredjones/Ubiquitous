@@ -103,7 +103,7 @@ User *u;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     MapViewController *mapDispVC = [segue destinationViewController];
-    mapDispVC.user = u;
+    mapDispVC. = u;
 }
 
 @end

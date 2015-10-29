@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.loginEmail.delegate = self;
+    self.loginPassword.delegate = self;
+    
     [self myButtonChange:_loginButton];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -100,6 +103,19 @@
     }
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_loginEmail resignFirstResponder];
+    [_loginPassword resignFirstResponder];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return NO;
+}
 
 /*
 #pragma mark - Navigation
