@@ -23,7 +23,8 @@
 #include "user.h"
 #include "packet.h"
 
-#include <mysql/mysql.h>
+//#include <mysql/mysql.h>
+#include "sqlConnectionManager.h"
 
 void WorldUpdateLoop();
 void WorldUpdate(int timeDiff);
@@ -210,7 +211,6 @@ void WorldUpdate(int timeDiff)
             case CMSG_LOGIN:
                 printf("CMSG_LOGIN\n");
                 lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
-                
                 packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packetData, finalSize, NULL);
                 free(packetData);
