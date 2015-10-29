@@ -8,6 +8,7 @@
 
 #import "RegistrationViewController.h"
 #import "User.h"
+#import "NetworkManager.h"
 #import "NSString+StringVerification.h"
 
 @interface RegistrationViewController ()
@@ -37,7 +38,9 @@
     [_registrationPassword resignFirstResponder];
 }
 - (IBAction)registrationButtonPressed:(id)sender {
-    BOOL emailExist = [User doesEmailExist: [_registrationEmail text]];
+    [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text];
+    
+    /*BOOL emailExist = [User doesEmailExist: [_registrationEmail text]];
     UIAlertController *msg;
     
     if (![[_registrationEmail text] isValidEmail]) {
@@ -70,7 +73,7 @@
     
     [self performSegueWithIdentifier:@"registrationToLoginSegue" sender:self];
     return;
-    
+    */
 }
 
 /*

@@ -6,11 +6,14 @@
 
 #include "account.h"
 
-struct LoginPacketInfo
+struct LoginRegistrationPacketInfo
 {
     std::string Username;
     std::string Password;
-}LoginPacketInfo;
+    std::string FirstName;
+    std::string LastName;
+    std::string AboutUs;
+}LoginRegistrationPacketInfo;
 
 class User
 {
@@ -26,9 +29,9 @@ public:
     }
 };
 
-static struct LoginPacketInfo GetUserInfoGivenLoginPacketData(const char *pData)
+static struct LoginRegistrationPacketInfo GetUserInfoGivenLoginPacketData(const char *pData)
 {
-    struct LoginPacketInfo lPInfo;
+    struct LoginRegistrationPacketInfo lPInfo;
     
     uint8_t emailLength = *pData;
     char *email = (char*)malloc(emailLength + 1);
@@ -48,5 +51,22 @@ static struct LoginPacketInfo GetUserInfoGivenLoginPacketData(const char *pData)
 
     return lPInfo;
 }
+static struct LoginRegistrationPacketInfo GetUserInfoGivenRegistrationPacketData(const char *pData){
+    struct LoginRegistrationPacketInfo lPInfo = GetUserInfoGivenLoginPacketData(pData);
+    uint8_t emailLength = *pData;
+    uint8_t passwordLength = *(pData + emailLength + 1);
+    uint8_t firstNameLength = *(pData + emailLength + passwordLength + 2);
+    uint8_t lastNameLength = *(pData + emailLength + passwordLength + firstNameLength + 3);
+    uint8_t aboutMeLength = *(pData + emailLength + passwordLength + firstNameLength + lastNameLength + 4);
+    
+    char *fname = (char*)malloc(firstNameLength + 1);
+    memcpy(fname, pData + 1 + emailLength + 1 + passwordLength + 1, firstNameLength);
+    fname[firstNameLength] = '\0';
+    
+    lPInfo.FirstName = std::string(fname);
+    free(fname);
+    
+}
+
 
 #endif

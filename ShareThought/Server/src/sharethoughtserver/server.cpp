@@ -191,12 +191,14 @@ void WorldUpdate(int timeDiff)
         
         uint64 finalSize;
         char *packetData;
-        struct LoginPacketInfo lpInfo;
+        struct LoginRegistrationPacketInfo lpInfo;
         switch(op.OPCODE)
         {
             case CMSG_REGISTER:
-                
-                //connections[i]->account = new Account();
+                if (connections[i]->account == nullptr){
+                    lpInfo = GetUserInfoGivenRegistrationPacketData(op.DATA);
+                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password);
+                }
                 
                 break;
             case CMSG_KEEP_ALIVE:
@@ -206,8 +208,6 @@ void WorldUpdate(int timeDiff)
             case CMSG_LOGIN:
                 printf("CMSG_LOGIN\n");
                 lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
-                if (connections[i]->account == nullptr)
-                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password);
                 
                 packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packetData, finalSize, NULL);

@@ -228,7 +228,6 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="registrationButtonPressed:" destination="IFW-2k-84U" eventType="touchUpInside" id="ZXI-9H-RGP"/>
-                                    <segue destination="nno-Oa-gw0" kind="show" identifier="registrationToLoginSegue" id="OkO-Ii-Hq7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell Us About Yourself" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5t-9L-obz">
@@ -484,7 +483,4 @@
         <image name="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" width="990" height="742"/>
         <image name="save.png" width="394" height="381"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="OkO-Ii-Hq7"/>
-    </inferredMetricsTieBreakers>
 </document>
