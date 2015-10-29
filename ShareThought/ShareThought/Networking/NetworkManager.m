@@ -70,6 +70,19 @@
     free(packetData);
 }
 
+- (void)registerWithEmail: (NSString *)email withPassword: (NSString *)password withFirstName: (NSString *)fName withLastName: (NSString *)lName{
+    NSString *packetBody = [NSString stringWithFormat:@"%c%s%c%s%c%s%c%s", (char)email.length, [email cStringUsingEncoding:NSUTF8StringEncoding], (char)password.length, [password cStringUsingEncoding:NSUTF8StringEncoding], (char)fName.length, [fName cStringUsingEncoding:NSUTF8StringEncoding], (char) lName.length, [lName cStringUsingEncoding:NSUTF8StringEncoding]];
+    NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint64_t finalSize;
+    char *packetData;
+    NSData *data;
+    packetData = ConstructPacket(CMSG_REGISTER, packetBody.length, (char*)[packetBodyData bytes], &finalSize);
+    data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+    
+    [_socket writeData:data withTimeout:-1 tag:0];
+    free(packetData);
+}
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
     NSLog(@"Socket Disconnected");
 }
