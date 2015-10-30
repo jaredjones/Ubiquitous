@@ -25,6 +25,9 @@
     [super viewDidLoad];
     
     _messageTextField.delegate = self;
+    _messageTextField.attributedPlaceholder = [[NSAttributedString alloc]
+                                               initWithString:@"Type a message..."
+                                               attributes:@{ NSForegroundColorAttributeName: [UIColor darkGrayColor] }];
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _textEntryAndSubmitView.bounds.origin.y, _textEntryAndSubmitView.bounds.size.width, 0.5)];
     lineView.backgroundColor = [UIColor blackColor];
