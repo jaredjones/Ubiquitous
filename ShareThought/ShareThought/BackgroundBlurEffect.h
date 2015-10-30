@@ -28,6 +28,9 @@
 - (id)effectSettings
 {
     id settings = [super effectSettings];
+    for(id key in settings)
+        NSLog(@"key=%@ key", key);
+    
     [settings setValue:@10 forKey:@"blurRadius"];
     return settings;
 }

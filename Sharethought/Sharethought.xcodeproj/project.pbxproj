@@ -165,7 +165,6 @@
 				9038A1231BC70A64002D3691 /* AppDelegate.m */,
 				9038A1251BC70A64002D3691 /* ViewController.h */,
 				9038A1261BC70A64002D3691 /* ViewController.m */,
-				C0084D8E1BDA0B5400727B08 /* BackgroundBlurEffect.h */,
 				9038A12E1BC70A64002D3691 /* Assets.xcassets */,
 				9038A1331BC70A64002D3691 /* Info.plist */,
 				9038A12B1BC70A64002D3691 /* ShareThought.xcdatamodeld */,
@@ -214,6 +213,7 @@
 				C0333F791BE3C98A001E760C /* ChatViewController.m */,
 				C0333F7B1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.h */,
 				C0333F7C1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.m */,
+				C0084D8E1BDA0B5400727B08 /* BackgroundBlurEffect.h */,
 			);
 			name = Chat;
 			sourceTree = "<group>";

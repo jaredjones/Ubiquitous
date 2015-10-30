@@ -8,6 +8,7 @@
 
 #import "ChatViewController.h"
 #import "TopChatNavBarVisualEffectView.h"
+#import "BackgroundBlurEffect.h"
 
 @interface ChatViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;

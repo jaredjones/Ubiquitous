@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "ViewController.h"
-#import "BackgroundBlurEffect.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
