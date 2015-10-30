@@ -15,9 +15,13 @@
 @property (weak, nonatomic) IBOutlet UIView *textEntryAndSubmitView;
 @property (weak, nonatomic) IBOutlet TopChatNavBarVisualEffectView *topBarVisualEffectView;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
-
+@property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatScrollViewBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textEntryAndSubmitViewHeightConstraint;
+
+@property float textEntryAndSubmitViewHeightConstraintBaseHeight;
+@property float messageTextViewLastHeight;
+@property NSUInteger lineCount;
 @end
 
 @implementation ChatViewController
@@ -25,11 +29,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _messageTextField.delegate = self;
-    _messageTextField.attributedPlaceholder = [[NSAttributedString alloc]
+    _textEntryAndSubmitViewHeightConstraintBaseHeight = _textEntryAndSubmitViewHeightConstraint.constant;
+    _messageTextViewLastHeight = _messageTextView.contentSize.height;
+    _lineCount = 1;
+    
+    _messageTextView.delegate = self;
+    _messageTextView.layer.cornerRadius = 5.0f;
+    
+    /*_messageTextField.attributedPlaceholder = [[NSAttributedString alloc]
                                                initWithString:@"Type a message..."
                                                attributes:@{ NSForegroundColorAttributeName: [UIColor darkGrayColor] }];
-    
+    */
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _textEntryAndSubmitView.bounds.origin.y, _textEntryAndSubmitView.bounds.size.width, 0.5)];
     lineView.backgroundColor = [UIColor blackColor];
     [_textEntryAndSubmitView addSubview:lineView];
@@ -51,12 +61,29 @@
 }
 
 - (void)handleSingleTapOnScrollView:(UITapGestureRecognizer *)recognizer {
-    [_messageTextField resignFirstResponder];
+    [_messageTextView resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return NO;
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    [textView resignFirstResponder];
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    if (textView.contentSize.height > _messageTextViewLastHeight){
+        _lineCount++;
+    }else if (textView.contentSize.height < _messageTextViewLastHeight){
+        _lineCount--;
+    }
+    
+    _messageTextViewLastHeight = textView.contentSize.height;
+    
+    if (_lineCount == 1){
+        _textEntryAndSubmitViewHeightConstraint.constant = (_textEntryAndSubmitViewHeightConstraintBaseHeight * _lineCount);
+    }else{
+        _textEntryAndSubmitViewHeightConstraint.constant = (_textEntryAndSubmitViewHeightConstraintBaseHeight * _lineCount) / 2;
+    }
+    [_textEntryAndSubmitView layoutIfNeeded];
 }
 
 - (void)keyboardWillShow: (NSNotification *) notification{
