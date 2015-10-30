@@ -38,10 +38,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(handleSingleTapOnScrollView:)];
+    [_chatScrollView addGestureRecognizer:singleFingerTap];
+    
     // Do any additional setup after loading the view.
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)handleSingleTapOnScrollView:(UITapGestureRecognizer *)recognizer {
     [_messageTextField resignFirstResponder];
 }
 
@@ -57,14 +62,16 @@
     NSValue *v = [info valueForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrame = [v CGRectValue];
     
-    [UIView animateWithDuration:0.1 animations:^{
+    [UIView animateWithDuration:1.0 animations:^{
         [_chatScrollViewBottomConstraint setConstant:keyboardFrame.size.height];
+        [_textEntryAndSubmitView layoutIfNeeded];
     }];
 }
 
 - (void)keyboardWillHide: (NSNotification *) notification{
-    [UIView animateWithDuration:0.1 animations:^{
+    [UIView animateWithDuration:1.0 animations:^{
         [_chatScrollViewBottomConstraint setConstant:0];
+        [_textEntryAndSubmitView layoutIfNeeded];
     }];
 }
 
