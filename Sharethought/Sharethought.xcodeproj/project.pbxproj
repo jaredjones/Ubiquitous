@@ -17,7 +17,6 @@
 		9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038A1491BC70BE5002D3691 /* iPad.storyboard */; };
 		907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00411BC99ED7000759CD /* RegistrationViewController.m */; };
 		907F00491BC9BE79000759CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F00481BC9BE79000759CD /* User.m */; };
-		907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907F004C1BCC45E1000759CD /* ProfileViewController.m */; };
 		90A0BA5E1BE1B5E50000BF86 /* SharethoughtLogoSlim.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA5D1BE1B5E50000BF86 /* SharethoughtLogoSlim.png */; };
 		90A0BA601BE26ACA0000BF86 /* arrowRightCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA5F1BE26ACA0000BF86 /* arrowRightCircle.png */; };
 		90A0BA621BE26C1D0000BF86 /* arrowLeftCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0BA611BE26C1D0000BF86 /* arrowLeftCircle.png */; };
@@ -40,6 +39,7 @@
 		C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2041BD9C2C2002B0884 /* UserIcon.png */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
+		F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479721BE800A500BD57D9 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,6 @@
 		907F00411BC99ED7000759CD /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		907F00481BC9BE79000759CD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		907F004A1BC9BE8B000759CD /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		907F004B1BCC45E1000759CD /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		907F004C1BCC45E1000759CD /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		90A0BA5D1BE1B5E50000BF86 /* SharethoughtLogoSlim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SharethoughtLogoSlim.png; sourceTree = "<group>"; };
 		90A0BA5F1BE26ACA0000BF86 /* arrowRightCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRightCircle.png; sourceTree = "<group>"; };
 		90A0BA611BE26C1D0000BF86 /* arrowLeftCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowLeftCircle.png; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
 		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
+		F2F479711BE800A500BD57D9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		F2F479721BE800A500BD57D9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +159,7 @@
 		9038A11E1BC70A64002D3691 /* ShareThought */ = {
 			isa = PBXGroup;
 			children = (
+				F2F479701BE8004700BD57D9 /* Profile */,
 				C0333F771BE3C927001E760C /* Chat */,
 				C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */,
 				9038A1221BC70A64002D3691 /* AppDelegate.h */,
@@ -178,8 +179,6 @@
 				90A0BA641BE274F50000BF86 /* NavPageViewController.m */,
 				D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */,
 				D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */,
-				907F004B1BCC45E1000759CD /* ProfileViewController.h */,
-				907F004C1BCC45E1000759CD /* ProfileViewController.m */,
 				907F00401BC99ED7000759CD /* RegistrationViewController.h */,
 				907F00411BC99ED7000759CD /* RegistrationViewController.m */,
 				907F004A1BC9BE8B000759CD /* User.h */,
@@ -255,6 +254,15 @@
 				470FD256531612FD0DF9B34B /* Pods-ShareThought.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F2F479701BE8004700BD57D9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F2F479711BE800A500BD57D9 /* ProfileViewController.h */,
+				F2F479721BE800A500BD57D9 /* ProfileViewController.m */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,11 +436,11 @@
 				C0333F7A1BE3C98A001E760C /* ChatViewController.m in Sources */,
 				9038A1271BC70A64002D3691 /* ViewController.m in Sources */,
 				907F00491BC9BE79000759CD /* User.m in Sources */,
-				907F004D1BCC45E1000759CD /* ProfileViewController.m in Sources */,
 				907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */,
 				90A0BA651BE274F50000BF86 /* NavPageViewController.m in Sources */,
 				D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */,
 				9038A1241BC70A64002D3691 /* AppDelegate.m in Sources */,
+				F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
 				C0333F7D1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
