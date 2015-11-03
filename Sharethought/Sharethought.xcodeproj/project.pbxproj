@@ -40,6 +40,7 @@
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
 		F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479721BE800A500BD57D9 /* ProfileViewController.m */; };
+		F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479781BE83EB800BD57D9 /* ProfilePads.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
 		F2F479711BE800A500BD57D9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F2F479721BE800A500BD57D9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		F2F479771BE83EB800BD57D9 /* ProfilePads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePads.h; sourceTree = "<group>"; };
+		F2F479781BE83EB800BD57D9 /* ProfilePads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePads.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,8 @@
 			children = (
 				F2F479711BE800A500BD57D9 /* ProfileViewController.h */,
 				F2F479721BE800A500BD57D9 /* ProfileViewController.m */,
+				F2F479771BE83EB800BD57D9 /* ProfilePads.h */,
+				F2F479781BE83EB800BD57D9 /* ProfilePads.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				9038A1241BC70A64002D3691 /* AppDelegate.m in Sources */,
 				F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
+				F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */,
 				C0333F7D1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
 			);
