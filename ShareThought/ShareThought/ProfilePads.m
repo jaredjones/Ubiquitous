@@ -28,6 +28,7 @@
         _myImageForFriendsList = [[UIImage alloc] initWithContentsOfFile:_imagePathForFriendsList];
         _imagePathForDeleteFriend = [[NSBundle mainBundle] pathForResource:@"fs-floppy" ofType:@"png"];
         _myImageForDeleteFriend = [[UIImage alloc] initWithContentsOfFile:_imagePathForDeleteFriend];
+        _thePadNumberLocation = @-1;
         [self setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1.0f]];
         return self;
     }
