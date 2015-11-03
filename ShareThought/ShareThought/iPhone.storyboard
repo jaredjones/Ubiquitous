@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="446" width="276" height="154"/>
                                 <animations/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqe-Af-PPu" customClass="ProfilePads">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqe-Af-PPu" customClass="ProfilePads">
                                 <rect key="frame" x="0.0" y="141" width="600" height="228"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0020719666393533842" alpha="1" colorSpace="calibratedRGB"/>

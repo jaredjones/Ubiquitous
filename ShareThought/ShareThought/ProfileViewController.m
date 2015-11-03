@@ -19,8 +19,10 @@
 @implementation ProfileViewController
 
 - (void)viewDidLoad{
-    [_friendsButton setBorderLinePositionIsLeft:NO];
-    [_friendsButton setBorderLinePositionIsLeft:YES];
+    //[_friendsButton setBorderLinePositionIsLeft:NO];
+    //[_deleteFriendButton setBorderLinePositionIsLeft:YES];
+    [_friendsButton setBorderLinePositionIsLeft:NO forAGivenPadNumber:@0];
+    [_deleteFriendButton setBorderLinePositionIsLeft:YES forAGivenPadNumber:@1];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
