@@ -37,6 +37,8 @@
 		C0BDC20B1BD9C2C2002B0884 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2021BD9C2C2002B0884 /* save.png */; };
 		C0BDC20C1BD9C2C2002B0884 /* SharethoughtLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2031BD9C2C2002B0884 /* SharethoughtLogo.png */; };
 		C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2041BD9C2C2002B0884 /* UserIcon.png */; };
+		D33493571BE9CC730079BE5F /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493561BE9CC730079BE5F /* ContactListViewController.m */; };
+		D334935A1BE9CC880079BE5F /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493591BE9CC880079BE5F /* ContactList.m */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
 		F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479721BE800A500BD57D9 /* ProfileViewController.m */; };
@@ -100,6 +102,10 @@
 		C0BDC2021BD9C2C2002B0884 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = "Bundle Resources/save.png"; sourceTree = "<group>"; };
 		C0BDC2031BD9C2C2002B0884 /* SharethoughtLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SharethoughtLogo.png; path = "Bundle Resources/SharethoughtLogo.png"; sourceTree = "<group>"; };
 		C0BDC2041BD9C2C2002B0884 /* UserIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UserIcon.png; path = "Bundle Resources/UserIcon.png"; sourceTree = "<group>"; };
+		D33493551BE9CC730079BE5F /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
+		D33493561BE9CC730079BE5F /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
+		D33493581BE9CC880079BE5F /* ContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactList.h; sourceTree = "<group>"; };
+		D33493591BE9CC880079BE5F /* ContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactList.m; sourceTree = "<group>"; };
 		D3E493EF1BDEDCFC00A45021 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 		9038A11E1BC70A64002D3691 /* ShareThought */ = {
 			isa = PBXGroup;
 			children = (
+				D33493541BE9CC3F0079BE5F /* Contact List */,
 				F2F479701BE8004700BD57D9 /* Profile */,
 				C0333F771BE3C927001E760C /* Chat */,
 				C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */,
@@ -257,6 +264,17 @@
 				470FD256531612FD0DF9B34B /* Pods-ShareThought.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D33493541BE9CC3F0079BE5F /* Contact List */ = {
+			isa = PBXGroup;
+			children = (
+				D33493551BE9CC730079BE5F /* ContactListViewController.h */,
+				D33493561BE9CC730079BE5F /* ContactListViewController.m */,
+				D33493581BE9CC880079BE5F /* ContactList.h */,
+				D33493591BE9CC880079BE5F /* ContactList.m */,
+			);
+			name = "Contact List";
 			sourceTree = "<group>";
 		};
 		F2F479701BE8004700BD57D9 /* Profile */ = {
@@ -436,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D334935A1BE9CC880079BE5F /* ContactList.m in Sources */,
 				C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */,
 				D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */,
 				C0333F7A1BE3C98A001E760C /* ChatViewController.m in Sources */,
@@ -446,6 +465,7 @@
 				D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */,
 				9038A1241BC70A64002D3691 /* AppDelegate.m in Sources */,
 				F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */,
+				D33493571BE9CC730079BE5F /* ContactListViewController.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
 				F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */,
 				C0333F7D1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.m in Sources */,

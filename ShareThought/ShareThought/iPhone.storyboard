@@ -178,6 +178,14 @@
                                                 <segue destination="dti-En-VK5" kind="show" id="bVx-p9-3OZ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-9b-qxm">
+                                            <rect key="frame" x="472" y="123" width="69" height="30"/>
+                                            <animations/>
+                                            <state key="normal" title="Contacts"/>
+                                            <connections>
+                                                <segue destination="GzP-1M-8yy" kind="show" id="6W4-mn-x6y"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -240,14 +248,14 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGR-3c-8o0">
-                                        <rect key="frame" x="3" y="256" width="324.5" height="30"/>
+                                        <rect key="frame" x="3" y="256" width="325" height="30"/>
                                         <animations/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-mU-NNx">
-                                        <rect key="frame" x="3" y="199" width="324.5" height="30"/>
+                                        <rect key="frame" x="3" y="199" width="325" height="30"/>
                                         <animations/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -262,7 +270,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0k-3S-hhQ">
-                                        <rect key="frame" x="3" y="347" width="324.5" height="33"/>
+                                        <rect key="frame" x="3" y="347" width="325" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                         <state key="normal" title="Login"/>
@@ -316,6 +324,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUR-py-pH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="329" y="1195"/>
+        </scene>
+        <!--Contact List View Controller-->
+        <scene sceneID="tgV-Xe-bY3">
+            <objects>
+                <viewController id="GzP-1M-8yy" customClass="ContactListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7X9-a8-bjy"/>
+                        <viewControllerLayoutGuide type="bottom" id="waO-bq-fOE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pns-77-eHr" customClass="ContactList">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGQ-cG-xcg" userLabel="contactListLabel">
+                                <rect key="frame" x="0.0" y="20" width="600" height="42"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQH-Oa-Cw0" userLabel="contactSearchBar">
+                                <rect key="frame" x="0.0" y="62" width="600" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GzP-1M-8yy" id="bGn-uQ-id7"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="contactListLabel" destination="tGQ-cG-xcg" id="3RY-WB-1HB"/>
+                            <outlet property="contactSearchBar" destination="nQH-Oa-Cw0" id="RAK-h3-MLK"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="1WE-Ij-u2q" id="ui8-Tq-ZPt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYg-Y4-jXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="1WE-Ij-u2q">
+                    <connections>
+                        <outlet property="delegate" destination="GzP-1M-8yy" id="6jt-DF-3fF"/>
+                        <outlet property="searchBar" destination="nQH-Oa-Cw0" id="qd2-24-QpO"/>
+                        <outlet property="searchContentsController" destination="GzP-1M-8yy" id="c31-Bo-J3i"/>
+                        <outlet property="searchResultsDataSource" destination="GzP-1M-8yy" id="bWK-Jm-qlY"/>
+                        <outlet property="searchResultsDelegate" destination="GzP-1M-8yy" id="S5u-CZ-2L9"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="329" y="-484"/>
         </scene>
         <!--RegistrationViewController-->
         <scene sceneID="F1S-XI-fNn">
@@ -501,7 +561,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jared Jones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC7-JE-fFs">
-                                                    <rect key="frame" x="85" y="23" width="430" height="20.5"/>
+                                                    <rect key="frame" x="85" y="23" width="430" height="21"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="430" id="uPU-Vq-Rha"/>
