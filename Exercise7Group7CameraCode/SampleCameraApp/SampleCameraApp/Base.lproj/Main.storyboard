@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="xqh-zJ-dHb">
+                                <rect key="frame" x="55" y="28" width="499" height="520"/>
+                                <animations/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqg-qL-NhE">
+                                <rect key="frame" x="0.0" y="564" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="Camera" id="huR-2Z-lS3">
+                                        <connections>
+                                            <action selector="useCamera:" destination="BYZ-38-t0r" id="hbD-Ri-xZ0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Camera Roll" id="aVJ-D5-eDV">
+                                        <connections>
+                                            <action selector="useCameraRoll:" destination="BYZ-38-t0r" id="QF6-Qo-9k1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uqg-qL-NhE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ARf-sp-VvB"/>
+                            <constraint firstItem="uqg-qL-NhE" firstAttribute="top" secondItem="xqh-zJ-dHb" secondAttribute="bottom" constant="16" id="BKB-uK-SMr"/>
+                            <constraint firstItem="xqh-zJ-dHb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="XLh-5k-36A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uqg-qL-NhE" secondAttribute="trailing" constant="-20" id="Zit-6S-JcH"/>
+                            <constraint firstItem="xqh-zJ-dHb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="35" id="ebl-Oa-mWY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xqh-zJ-dHb" secondAttribute="trailing" constant="26" id="hbF-A9-eSb"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uqg-qL-NhE" secondAttribute="bottom" constant="-8" id="nag-sP-JW8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageview" destination="xqh-zJ-dHb" id="Nfj-r7-XnA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="418"/>
+        </scene>
+    </scenes>
+</document>
