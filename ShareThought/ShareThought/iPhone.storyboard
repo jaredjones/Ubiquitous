@@ -352,12 +352,30 @@
                                     <outlet property="delegate" destination="GzP-1M-8yy" id="bGn-uQ-id7"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUL-f4-rVd" userLabel="contactTableView">
+                                <rect key="frame" x="0.0" y="106" width="600" height="494"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="SUL-kb-owe" userLabel="contactCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SUL-kb-owe" id="PPe-hK-e8Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="contactListLabel" destination="tGQ-cG-xcg" id="3RY-WB-1HB"/>
                             <outlet property="contactSearchBar" destination="nQH-Oa-Cw0" id="RAK-h3-MLK"/>
+                            <outlet property="contactTableView" destination="bUL-f4-rVd" id="uVX-Kk-HYD"/>
                         </connections>
                     </view>
                     <connections>
