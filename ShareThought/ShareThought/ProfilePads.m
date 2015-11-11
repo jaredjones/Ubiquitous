@@ -11,12 +11,8 @@
 #import "ProfilePads.h"
 
 @interface ProfilePads ()
+@property (nonatomic, strong) UIImageView *backgroundImageView;
 @property BOOL isLeft;
-@property NSString* imagePathForFriendsList;
-@property UIImage* myImageForFriendsList;
-@property NSString* imagePathForDeleteFriend;
-@property UIImage* myImageForDeleteFriend;
-@property NSNumber* thePadNumberLocation;
 @end
 
 @implementation ProfilePads
@@ -24,23 +20,28 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]){
         _isLeft = YES;
-        _imagePathForFriendsList = [[NSBundle mainBundle] pathForResource:@"addIconFlat" ofType:@"png"];
-        _myImageForFriendsList = [[UIImage alloc] initWithContentsOfFile:_imagePathForFriendsList];
-        _imagePathForDeleteFriend = [[NSBundle mainBundle] pathForResource:@"fs-floppy" ofType:@"png"];
-        _myImageForDeleteFriend = [[UIImage alloc] initWithContentsOfFile:_imagePathForDeleteFriend];
-        _thePadNumberLocation = @-1;
         [self setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1.0f]];
         return self;
     }
     return nil;
 }
 
-- (void)setBorderLinePositionIsLeft: (BOOL)isLeft forAGivenPadNumber:(NSNumber*) aPadNumber{
+- (void)setBorderLinePositionIsLeft: (BOOL)isLeft{
     _isLeft = isLeft;
-    _thePadNumberLocation = aPadNumber;
     [self setNeedsDisplay];
 }
 
+- (void)setBackgroundImage:(UIImage *)image{
+    _backgroundImageView = [[UIImageView alloc] initWithImage:image];
+    [_backgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
+    _backgroundImageView.frame = CGRectMake(self.frame.size.width / 4,
+                                 self.frame.size.height / 4,
+                                 self.frame.size.width / 4,
+                                 self.frame.size.height / 4);
+    [_backgroundImageView removeFromSuperview];
+    [self addSubview:_backgroundImageView];
+    
+}
 
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
@@ -58,13 +59,6 @@
         CGContextAddLineToPoint(context, 0, self.bounds.size.height);
     }else{
         CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height);
-    }
-    
-    if(_thePadNumberLocation.integerValue == 0){
-        [_myImageForDeleteFriend drawInRect:rect ];
-    }
-    if(_thePadNumberLocation.integerValue == 1){
-        [_myImageForFriendsList drawInRect:rect ];
     }
     
     CGContextMoveToPoint(context, 0, self.bounds.size.height);

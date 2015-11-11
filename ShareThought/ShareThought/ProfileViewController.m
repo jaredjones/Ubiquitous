@@ -19,10 +19,11 @@
 @implementation ProfileViewController
 
 - (void)viewDidLoad{
-    //[_friendsButton setBorderLinePositionIsLeft:NO];
-    //[_deleteFriendButton setBorderLinePositionIsLeft:YES];
-    [_friendsButton setBorderLinePositionIsLeft:NO forAGivenPadNumber:@0];
-    [_deleteFriendButton setBorderLinePositionIsLeft:YES forAGivenPadNumber:@1];
+    [_friendsButton setBorderLinePositionIsLeft:NO];
+    [_deleteFriendButton setBorderLinePositionIsLeft:YES];
+    
+    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"addIconFlat.png"]];
+    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"fs-floppy.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

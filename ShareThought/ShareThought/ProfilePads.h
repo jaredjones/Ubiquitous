@@ -10,5 +10,6 @@
 
 @interface ProfilePads : UIButton
 
-- (void)setBorderLinePositionIsLeft: (BOOL)isLeft forAGivenPadNumber:(NSNumber*) aPadNumber;
+- (void)setBorderLinePositionIsLeft: (BOOL)isLeft;
+- (void)setBackgroundImage:(UIImage *)image;
 @end
