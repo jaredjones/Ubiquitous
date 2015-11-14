@@ -32,6 +32,10 @@
 }
 
 - (void)setBackgroundImage:(UIImage *)image{
+    
+    //try and find a way to modify a image position based on size
+    //image.size.width
+    
     _backgroundImageView = [[UIImageView alloc] initWithImage:image];
     [_backgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
     _backgroundImageView.frame = CGRectMake(self.frame.size.width / 4,
