@@ -19,9 +19,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatScrollViewBottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textEntryAndSubmitViewHeightConstraint;
 
-@property float textEntryAndSubmitViewHeightConstraintBaseHeight;
-@property float messageTextViewLastHeight;
-@property NSUInteger lineCount;
+@property CGFloat textViewAndContentDifference;
+
 @end
 
 @implementation ChatViewController
@@ -29,12 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _textEntryAndSubmitViewHeightConstraintBaseHeight = _textEntryAndSubmitViewHeightConstraint.constant;
-    _messageTextViewLastHeight = _messageTextView.contentSize.height;
-    _lineCount = 1;
-    
     _messageTextView.delegate = self;
     _messageTextView.layer.cornerRadius = 5.0f;
+    
+    _textViewAndContentDifference = _textEntryAndSubmitViewHeightConstraint.constant - _messageTextView.contentSize.height;
     
     /*_messageTextField.attributedPlaceholder = [[NSAttributedString alloc]
                                                initWithString:@"Type a message..."
@@ -70,19 +67,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
-    if (textView.contentSize.height > _messageTextViewLastHeight){
-        _lineCount++;
-    }else if (textView.contentSize.height < _messageTextViewLastHeight){
-        _lineCount--;
-    }
-    
-    _messageTextViewLastHeight = textView.contentSize.height;
-    
-    if (_lineCount == 1){
-        _textEntryAndSubmitViewHeightConstraint.constant = (_textEntryAndSubmitViewHeightConstraintBaseHeight * _lineCount);
-    }else{
-        _textEntryAndSubmitViewHeightConstraint.constant = (_textEntryAndSubmitViewHeightConstraintBaseHeight * _lineCount) / 2;
-    }
+    _textEntryAndSubmitViewHeightConstraint.constant = textView.contentSize.height + _textViewAndContentDifference;
     [_textEntryAndSubmitView layoutIfNeeded];
 }
 
