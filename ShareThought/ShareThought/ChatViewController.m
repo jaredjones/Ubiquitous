@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _messageTextView.keyboardAppearance = UIKeyboardAppearanceDark;
     _messageTextView.delegate = self;
     _messageTextView.layer.cornerRadius = 5.0f;
     
