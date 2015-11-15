@@ -11,5 +11,5 @@
 @interface ProfilePads : UIButton
 - (void)setButtonLabelString:(NSString *)buttonString;
 - (void)setBorderLinePositionIsLeft: (BOOL)isLeft;
-- (void)setBackgroundImage:(UIImage *)image withHeight: (CGFloat *) otherHeight;
+- (void)setBackgroundImage:(UIImage *)image withPressed:(UIImage *)pressedImage withHeight: (CGFloat *) otherHeight;
 @end

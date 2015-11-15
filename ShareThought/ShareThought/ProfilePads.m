@@ -14,6 +14,10 @@
 @property (nonatomic, strong) UIImageView *backgroundImageView;
 @property (nonatomic, strong) UILabel *buttonLabel;
 @property BOOL isLeft;
+
+@property (nonatomic, strong) UIImage *normalImage;
+@property (nonatomic, strong) UIImage *pressedImage;
+@property CGFloat *oHeight;
 @end
 
 @implementation ProfilePads
@@ -23,7 +27,10 @@
         _isLeft = YES;
         [self setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1.0f]];
         
-    
+        [self addTarget:self action:@selector(methodTouchDown:) forControlEvents:UIControlEventTouchDown];
+        [self addTarget:self action:@selector(methodTouchDragExit:) forControlEvents:UIControlEventTouchDragExit];
+        [self addTarget:self action:@selector(methodTouchDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
+        [self addTarget:self action:@selector(methodTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
         
         CGRect labelFrame = CGRectMake(0, 0, self.frame.size.width, 20);
         
@@ -35,6 +42,26 @@
         return self;
     }
     return nil;
+}
+
+- (void) methodTouchDown: (id)sender{
+    _backgroundImageView.image = _pressedImage;
+    [self setBackgroundColor:[UIColor colorWithRed:72.0/255.0 green:80.0/255.0 blue:108.0/255.0 alpha:1.0f]];
+}
+
+- (void) methodTouchDragExit: (id)sender{
+    _backgroundImageView.image = _normalImage;
+    [self setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1.0f]];
+}
+
+- (void) methodTouchDragEnter: (id)sender{
+    _backgroundImageView.image = _pressedImage;
+    [self setBackgroundColor:[UIColor colorWithRed:72.0/255.0 green:80.0/255.0 blue:108.0/255.0 alpha:1.0f]];
+}
+
+- (void) methodTouchUpInside: (id)sender{
+    _backgroundImageView.image = _normalImage;
+    [self setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1.0f]];
 }
 
 - (void)setButtonLabelString:(NSString *)buttonString{
@@ -58,7 +85,10 @@
     [self setNeedsDisplay];
 }
 
-- (void)setBackgroundImage:(UIImage *)image withHeight: (CGFloat *) otherHeight{
+- (void)setBackgroundImage:(UIImage *)image withPressed:(UIImage *)pressedImage withHeight: (CGFloat *) otherHeight{
+    _normalImage = image;
+    _pressedImage = pressedImage;
+    _oHeight = otherHeight;
     _backgroundImageView = [[UIImageView alloc] initWithImage:image];
     [_backgroundImageView.layer setMinificationFilter:kCAFilterTrilinear];
 

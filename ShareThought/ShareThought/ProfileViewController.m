@@ -35,12 +35,12 @@
     [_deleteFriendButton setBorderLinePositionIsLeft:YES];
     [_numberOfFriendsButton setBorderLinePositionIsLeft:NO];
     [_addFriendButton setBorderLinePositionIsLeft:YES];
-    [_addFriendButton setBackgroundImage:[UIImage imageNamed:@"addfriend.png"] withHeight:nil];
-    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"chaticon.png"] withHeight:nil];
+    [_addFriendButton setBackgroundImage:[UIImage imageNamed:@"addfriend.png"] withPressed:[UIImage imageNamed:@"addfriend-pressed.png"] withHeight:nil];
+    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"chaticon.png"] withPressed:[UIImage imageNamed:@"chaticon-pressed.png"] withHeight:nil];
     
     CGFloat height = _addFriendButton.frame.size.height;
-    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:&height];
-    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"] withHeight:&height];
+    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withPressed:[UIImage imageNamed:@"deletefriend-pressed.png"] withHeight:&height];
+    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"] withPressed:[UIImage imageNamed:@"friend-pressed.png"] withHeight:&height];
     
     [_addFriendButton setButtonLabelString:@"Add Friend"];
     [_deleteFriendButton setButtonLabelString:@"Delete Friend"];
@@ -52,4 +52,16 @@
 
 }
 
+- (IBAction)personsFriendsPressed:(id)sender {
+    NSLog(@"Person's Friends Pressed");
+}
+- (IBAction)deleteFriendPressed:(id)sender {
+    NSLog(@"Delete Friend Pressed");
+}
+- (IBAction)clickToChatPressed:(id)sender {
+    NSLog(@"Click to Chat Pressed");
+}
+- (IBAction)addFriendPressed:(id)sender {
+    NSLog(@"Add Friend Pressed");
+}
 @end

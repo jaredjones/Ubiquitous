@@ -21,16 +21,25 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOP-f6-8jD" customClass="ProfilePads">
                                 <rect key="frame" x="300" y="450" width="300" height="150"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="deleteFriendPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="Zvh-ZL-r8d"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqe-Af-PPu" customClass="ProfilePads">
                                 <rect key="frame" x="0.0" y="360" width="600" height="90"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0020719666393533842" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="clickToChatPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="fbm-hk-OyX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg8-Dl-pNc" customClass="ProfilePads">
                                 <rect key="frame" x="300" y="270" width="300" height="90"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.33998318398935756" blue="0.2873067923872441" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="addFriendPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="JI6-Pr-BpY"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vco-TN-DYR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
@@ -40,6 +49,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0M6-WA-xJq" customClass="ProfilePads">
                                 <rect key="frame" x="0.0" y="450" width="300" height="150"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="personsFriendsPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="Jht-iJ-pbd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbh-Wa-oku" customClass="ProfilePads">
                                 <rect key="frame" x="0.0" y="270" width="300" height="90"/>
