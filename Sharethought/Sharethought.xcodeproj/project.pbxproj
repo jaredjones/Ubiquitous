@@ -41,6 +41,10 @@
 		D334935A1BE9CC880079BE5F /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493591BE9CC880079BE5F /* ContactList.m */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
+		F28F129D1BF80E6F003BCAD4 /* deletefriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */; };
+		F28F129E1BF80E6F003BCAD4 /* deletefriend.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129A1BF80E6F003BCAD4 /* deletefriend.png */; };
+		F28F129F1BF80E6F003BCAD4 /* friend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */; };
+		F28F12A01BF80E6F003BCAD4 /* friend.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129C1BF80E6F003BCAD4 /* friend.png */; };
 		F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479721BE800A500BD57D9 /* ProfileViewController.m */; };
 		F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479781BE83EB800BD57D9 /* ProfilePads.m */; };
 /* End PBXBuildFile section */
@@ -110,6 +114,10 @@
 		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
 		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
+		F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deletefriend-pressed.png"; sourceTree = "<group>"; };
+		F28F129A1BF80E6F003BCAD4 /* deletefriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deletefriend.png; sourceTree = "<group>"; };
+		F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-pressed.png"; sourceTree = "<group>"; };
+		F28F129C1BF80E6F003BCAD4 /* friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend.png; sourceTree = "<group>"; };
 		F2F479711BE800A500BD57D9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F2F479721BE800A500BD57D9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F2F479771BE83EB800BD57D9 /* ProfilePads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePads.h; sourceTree = "<group>"; };
@@ -240,6 +248,10 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */,
+				F28F129A1BF80E6F003BCAD4 /* deletefriend.png */,
+				F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */,
+				F28F129C1BF80E6F003BCAD4 /* friend.png */,
 				90A0BA611BE26C1D0000BF86 /* arrowLeftCircle.png */,
 				90A0BA5F1BE26ACA0000BF86 /* arrowRightCircle.png */,
 				C0084D8C1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg */,
@@ -373,11 +385,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9038A12F1BC70A64002D3691 /* Assets.xcassets in Resources */,
+				F28F129D1BF80E6F003BCAD4 /* deletefriend-pressed.png in Resources */,
+				F28F129E1BF80E6F003BCAD4 /* deletefriend.png in Resources */,
 				C0BDC2071BD9C2C2002B0884 /* Button-Add-icon.png in Resources */,
+				F28F129F1BF80E6F003BCAD4 /* friend-pressed.png in Resources */,
 				90A0BA601BE26ACA0000BF86 /* arrowRightCircle.png in Resources */,
 				9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */,
 				90A0BA621BE26C1D0000BF86 /* arrowLeftCircle.png in Resources */,
 				C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */,
+				F28F12A01BF80E6F003BCAD4 /* friend.png in Resources */,
 				C0BDC2061BD9C2C2002B0884 /* addIconFlat.png in Resources */,
 				C0BDC20A1BD9C2C2002B0884 /* Save As-128.png in Resources */,
 				C0084D8D1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg in Resources */,
