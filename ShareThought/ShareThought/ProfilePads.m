@@ -12,6 +12,7 @@
 
 @interface ProfilePads ()
 @property (nonatomic, strong) UIImageView *backgroundImageView;
+@property (nonatomic, strong) UILabel *buttonLabel;
 @property BOOL isLeft;
 @end
 
@@ -21,9 +22,35 @@
     if (self = [super initWithCoder:aDecoder]){
         _isLeft = YES;
         [self setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1.0f]];
+        
+    
+        
+        CGRect labelFrame = CGRectMake(0, 0, self.frame.size.width, 20);
+        
+        _buttonLabel = [[UILabel alloc] initWithFrame:labelFrame];
+        _buttonLabel.font = [UIFont fontWithName:@"Gill Sans" size:22.0f];
+        _buttonLabel.textColor = [UIColor lightGrayColor];
+        _buttonLabel.textAlignment = NSTextAlignmentCenter;
+        
         return self;
     }
     return nil;
+}
+
+- (void)setButtonLabelString:(NSString *)buttonString{
+    [_buttonLabel setText:buttonString];
+    [_buttonLabel removeFromSuperview];
+    
+    float widthIs = [_buttonLabel.text boundingRectWithSize:_buttonLabel.frame.size
+                                      options:NSStringDrawingUsesLineFragmentOrigin
+                                   attributes:@{ NSFontAttributeName:_buttonLabel.font }
+                                    context:nil].size.width;
+    
+    CGRect frame = _buttonLabel.frame;
+    frame.size = CGSizeMake(widthIs, _buttonLabel.frame.size.height);
+    frame.origin = CGPointMake(self.frame.size.width / 2 - widthIs / 2, _backgroundImageView.frame.origin.y + _backgroundImageView.frame.size.height+5);
+    [_buttonLabel setFrame:frame];
+    [self addSubview:_buttonLabel];
 }
 
 - (void)setBorderLinePositionIsLeft: (BOOL)isLeft{
@@ -49,7 +76,7 @@
     
     [_backgroundImageView setContentMode:UIViewContentModeScaleToFill];
     _backgroundImageView.frame = CGRectMake(width / 2 - (height * imageShrinkSize) / 2,
-                                            self.frame.size.height / 2 - (height * imageShrinkSize / 2),
+                                            self.frame.size.height / 2 - (height * imageShrinkSize / 2) -(height * imageShrinkSize) * 0.2,
                                             height * imageShrinkSize,
                                             height * imageShrinkSize);
     [_backgroundImageView removeFromSuperview];

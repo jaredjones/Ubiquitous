@@ -39,9 +39,13 @@
     [_startChatButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:nil];
     
     CGFloat height = _addFriendButton.frame.size.height;
-    
     [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:&height];
     [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"] withHeight:&height];
+    
+    [_addFriendButton setButtonLabelString:@"Add Friend"];
+    [_deleteFriendButton setButtonLabelString:@"Delete Friend"];
+    [_startChatButton setButtonLabelString:@"Click to Chat"];
+    [_friendsButton setButtonLabelString:@"Person's Friends"];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
