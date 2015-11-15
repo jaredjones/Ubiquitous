@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet ProfilePads *addFriendButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *startChatButton;
 
-@property (strong, nonatomic) UIImageView *shareThoughtProfileView;
 @end
 
 
