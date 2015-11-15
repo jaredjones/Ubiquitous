@@ -52,6 +52,7 @@
 		F28F129E1BF80E6F003BCAD4 /* deletefriend.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129A1BF80E6F003BCAD4 /* deletefriend.png */; };
 		F28F129F1BF80E6F003BCAD4 /* friend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */; };
 		F28F12A01BF80E6F003BCAD4 /* friend.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129C1BF80E6F003BCAD4 /* friend.png */; };
+		F2D40F9A1BF927BB0086AE43 /* marley4.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D40F991BF927BB0086AE43 /* marley4.png */; };
 		F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479721BE800A500BD57D9 /* ProfileViewController.m */; };
 		F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F479781BE83EB800BD57D9 /* ProfilePads.m */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		F28F129A1BF80E6F003BCAD4 /* deletefriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deletefriend.png; sourceTree = "<group>"; };
 		F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-pressed.png"; sourceTree = "<group>"; };
 		F28F129C1BF80E6F003BCAD4 /* friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend.png; sourceTree = "<group>"; };
+		F2D40F991BF927BB0086AE43 /* marley4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = marley4.png; path = ../../../../../marley4.png; sourceTree = "<group>"; };
 		F2F479711BE800A500BD57D9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F2F479721BE800A500BD57D9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F2F479771BE83EB800BD57D9 /* ProfilePads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePads.h; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2D40F991BF927BB0086AE43 /* marley4.png */,
 				F212E7051BF910C6001635EB /* morgie.jpg */,
 				F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */,
 				F22EA3C01BF8750C00549AA9 /* chaticon.png */,
@@ -432,6 +435,7 @@
 				C0BDC2091BD9C2C2002B0884 /* fs-floppy.png in Resources */,
 				F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */,
 				C0BDC2081BD9C2C2002B0884 /* chat-icon.png in Resources */,
+				F2D40F9A1BF927BB0086AE43 /* marley4.png in Resources */,
 				C0BDC20C1BD9C2C2002B0884 /* SharethoughtLogo.png in Resources */,
 				9038A1481BC70BD7002D3691 /* iPhone.storyboard in Resources */,
 				90A0BA5E1BE1B5E50000BF86 /* SharethoughtLogoSlim.png in Resources */,

@@ -48,7 +48,7 @@
     [_startChatButton setButtonLabelString:@"Chat"];
     [_friendsButton setButtonLabelString:@"Friends"];
     
-    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
+    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.png"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
