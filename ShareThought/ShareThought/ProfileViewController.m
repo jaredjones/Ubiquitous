@@ -22,8 +22,8 @@
     [_friendsButton setBorderLinePositionIsLeft:NO];
     [_deleteFriendButton setBorderLinePositionIsLeft:YES];
     
-    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"addIconFlat.png"]];
-    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"fs-floppy.png"]];
+    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"]];
+    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
