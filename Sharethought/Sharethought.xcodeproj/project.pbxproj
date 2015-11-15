@@ -44,6 +44,8 @@
 		F212E7011BF90E42001635EB /* BottomProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = F212E7001BF90E42001635EB /* BottomProfileView.m */; };
 		F212E7041BF9102D001635EB /* ProfileTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F212E7031BF9102D001635EB /* ProfileTopView.m */; };
 		F212E7061BF910C6001635EB /* morgie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F212E7051BF910C6001635EB /* morgie.jpg */; };
+		F212E70C1BF91D28001635EB /* UILabel+Width.m in Sources */ = {isa = PBXBuildFile; fileRef = F212E70B1BF91D28001635EB /* UILabel+Width.m */; };
+		F212E70D1BF920A4001635EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9038A1201BC70A64002D3691 /* main.m */; };
 		F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */; };
 		F22EA3C21BF8750C00549AA9 /* chaticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3C01BF8750C00549AA9 /* chaticon.png */; };
 		F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137B1BF824FF00F494A0 /* addfriend-pressed.png */; };
@@ -127,6 +129,8 @@
 		F212E7021BF9102D001635EB /* ProfileTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTopView.h; sourceTree = "<group>"; };
 		F212E7031BF9102D001635EB /* ProfileTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTopView.m; sourceTree = "<group>"; };
 		F212E7051BF910C6001635EB /* morgie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = morgie.jpg; sourceTree = "<group>"; };
+		F212E70A1BF91D28001635EB /* UILabel+Width.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Width.h"; sourceTree = "<group>"; };
+		F212E70B1BF91D28001635EB /* UILabel+Width.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Width.m"; sourceTree = "<group>"; };
 		F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chaticon-pressed.png"; sourceTree = "<group>"; };
 		F22EA3C01BF8750C00549AA9 /* chaticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chaticon.png; sourceTree = "<group>"; };
 		F271137B1BF824FF00F494A0 /* addfriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addfriend-pressed.png"; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				9038A1231BC70A64002D3691 /* AppDelegate.m */,
 				9038A1251BC70A64002D3691 /* ViewController.h */,
 				9038A1261BC70A64002D3691 /* ViewController.m */,
+				F212E70A1BF91D28001635EB /* UILabel+Width.h */,
+				F212E70B1BF91D28001635EB /* UILabel+Width.m */,
 				9038A12E1BC70A64002D3691 /* Assets.xcassets */,
 				9038A1331BC70A64002D3691 /* Info.plist */,
 				9038A12B1BC70A64002D3691 /* ShareThought.xcdatamodeld */,
@@ -522,6 +528,7 @@
 				F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */,
 				C0333F7D1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
+				F212E70C1BF91D28001635EB /* UILabel+Width.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F212E70D1BF920A4001635EB /* main.m in Sources */,
 				9038A13D1BC70A64002D3691 /* ShareThoughtTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

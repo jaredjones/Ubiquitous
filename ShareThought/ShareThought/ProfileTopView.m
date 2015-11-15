@@ -8,10 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "ProfileTopView.h"
+#import "UILabel+Width.h"
 
 @interface ProfileTopView ()
 
 @property (nonatomic, strong) UIImageView *profileImageView;
+@property (nonatomic, strong) UILabel *usernameLabel;
+@property (nonatomic, strong) UILabel *nameLabel;
 
 @end
 
@@ -19,9 +22,21 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]){
-        _profileImageView = [[UIImageView alloc]init];
+        _profileImageView = [[UIImageView alloc] init];
+        _usernameLabel = [[UILabel alloc] init];
+        _nameLabel = [[UILabel alloc] init];
         [_profileImageView setBackgroundColor:[UIColor whiteColor]];
+        _usernameLabel.font = [UIFont fontWithName:@"Gill Sans" size:22.0f];
+        _usernameLabel.textColor = [UIColor lightGrayColor];
+        _usernameLabel.textAlignment = NSTextAlignmentCenter;
+        
+        _nameLabel.font = [UIFont fontWithName:@"Gill Sans" size:26.0f];
+        _nameLabel.textColor = [UIColor lightGrayColor];
+        _nameLabel.textAlignment = NSTextAlignmentCenter;
+        
         [self addSubview:_profileImageView];
+        [self addSubview:_usernameLabel];
+        [self addSubview:_nameLabel];
         return self;
     }
     return nil;
@@ -73,6 +88,21 @@
 - (void)changeProfilePhoto: (UIImage *)photo{
     [_profileImageView.layer setMinificationFilter:kCAFilterTrilinear];
     _profileImageView.image = photo;
+}
+
+- (void)setUsername: (NSString *) username{
+    [_usernameLabel setText:username];
+    [_usernameLabel setFrame:CGRectMake(self.frame.size.width / 2 - [_usernameLabel getWidth] / 2, 30.0f, [_usernameLabel getWidth], 26.0f)];
+}
+
+- (void)setName: (NSString *) name{
+    [_nameLabel setText:name];
+    [self layoutSubviews];
+    
+    [_nameLabel setFrame:CGRectMake(self.frame.size.width / 2 - [_nameLabel getWidth] / 2,
+                                    _profileImageView.frame.origin.y + _profileImageView.frame.size.height + 10.0,
+                                    [_nameLabel getWidth],
+                                    32.0f)];
 }
 
 /*

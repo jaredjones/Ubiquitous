@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "ProfilePads.h"
+#import "UILabel+Width.h"
 
 @interface ProfilePads ()
 @property (nonatomic, strong) UIImageView *backgroundImageView;
@@ -68,10 +69,7 @@
     [_buttonLabel setText:buttonString];
     [_buttonLabel removeFromSuperview];
     
-    float widthIs = [_buttonLabel.text boundingRectWithSize:_buttonLabel.frame.size
-                                      options:NSStringDrawingUsesLineFragmentOrigin
-                                   attributes:@{ NSFontAttributeName:_buttonLabel.font }
-                                    context:nil].size.width;
+    CGFloat widthIs = [_buttonLabel getWidth];
     
     CGRect frame = _buttonLabel.frame;
     frame.size = CGSizeMake(widthIs, _buttonLabel.frame.size.height);
