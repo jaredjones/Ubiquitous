@@ -48,13 +48,9 @@
     [_startChatButton setButtonLabelString:@"Chat"];
     [_friendsButton setButtonLabelString:@"Friends"];
     
-<<<<<<< HEAD
-    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.png"]];
-=======
     [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
     [_profileTopView setUsername:@"toastieghostie"];
     [_profileTopView setName:@"Morgan Nicole Vegsund"];
->>>>>>> e40aca7f0c638e48c158ee450845a63dbf6a20d3
 }
 
 - (void)viewDidAppear:(BOOL)animated{
