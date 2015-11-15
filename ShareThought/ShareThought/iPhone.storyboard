@@ -41,11 +41,6 @@
                                     <action selector="addFriendPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="JI6-Pr-BpY"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vco-TN-DYR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0M6-WA-xJq" customClass="ProfilePads">
                                 <rect key="frame" x="0.0" y="450" width="300" height="150"/>
                                 <animations/>
@@ -58,6 +53,33 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.96574908739059573" blue="0.10968818348063836" alpha="1" colorSpace="calibratedRGB"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vco-TN-DYR" customClass="ProfileTopView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-mh-0PY">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14117647058823529" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2e-IO-5zU" customClass="BottomProfileView">
+                                        <rect key="frame" x="0.0" y="135" width="600" height="135"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.24676851782381748" green="0.23438608974975009" blue="0.31305500565610866" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hh6-mh-0PY" firstAttribute="leading" secondItem="Vco-TN-DYR" secondAttribute="leading" id="Et4-1t-b1h"/>
+                                    <constraint firstAttribute="trailing" secondItem="hh6-mh-0PY" secondAttribute="trailing" id="KEb-m1-jCu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y2e-IO-5zU" secondAttribute="bottom" id="eKZ-BX-M4B"/>
+                                    <constraint firstItem="hh6-mh-0PY" firstAttribute="top" secondItem="Vco-TN-DYR" secondAttribute="top" id="fhk-6E-lBl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y2e-IO-5zU" secondAttribute="trailing" id="h2k-Gs-ADd"/>
+                                    <constraint firstItem="Y2e-IO-5zU" firstAttribute="height" secondItem="hh6-mh-0PY" secondAttribute="height" id="hio-em-yMU"/>
+                                    <constraint firstItem="Y2e-IO-5zU" firstAttribute="leading" secondItem="Vco-TN-DYR" secondAttribute="leading" id="kGT-kN-d99"/>
+                                    <constraint firstItem="Y2e-IO-5zU" firstAttribute="top" secondItem="hh6-mh-0PY" secondAttribute="bottom" id="zI4-Jb-SPj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.27163776178010468" green="0.27163776178010468" blue="0.27163776178010468" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwg-Ur-NGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339" y="-95.25"/>
+            <point key="canvasLocation" x="-339" y="-96"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H2J-Af-Yrk">

@@ -41,6 +41,9 @@
 		D334935A1BE9CC880079BE5F /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493591BE9CC880079BE5F /* ContactList.m */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
+		F212E7011BF90E42001635EB /* BottomProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = F212E7001BF90E42001635EB /* BottomProfileView.m */; };
+		F212E7041BF9102D001635EB /* ProfileTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F212E7031BF9102D001635EB /* ProfileTopView.m */; };
+		F212E7061BF910C6001635EB /* morgie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F212E7051BF910C6001635EB /* morgie.jpg */; };
 		F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */; };
 		F22EA3C21BF8750C00549AA9 /* chaticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3C01BF8750C00549AA9 /* chaticon.png */; };
 		F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137B1BF824FF00F494A0 /* addfriend-pressed.png */; };
@@ -118,6 +121,11 @@
 		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
 		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
+		F212E6FF1BF90E42001635EB /* BottomProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomProfileView.h; sourceTree = "<group>"; };
+		F212E7001BF90E42001635EB /* BottomProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomProfileView.m; sourceTree = "<group>"; };
+		F212E7021BF9102D001635EB /* ProfileTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTopView.h; sourceTree = "<group>"; };
+		F212E7031BF9102D001635EB /* ProfileTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTopView.m; sourceTree = "<group>"; };
+		F212E7051BF910C6001635EB /* morgie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = morgie.jpg; sourceTree = "<group>"; };
 		F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chaticon-pressed.png"; sourceTree = "<group>"; };
 		F22EA3C01BF8750C00549AA9 /* chaticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chaticon.png; sourceTree = "<group>"; };
 		F271137B1BF824FF00F494A0 /* addfriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addfriend-pressed.png"; sourceTree = "<group>"; };
@@ -256,6 +264,7 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F212E7051BF910C6001635EB /* morgie.jpg */,
 				F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */,
 				F22EA3C01BF8750C00549AA9 /* chaticon.png */,
 				F271137B1BF824FF00F494A0 /* addfriend-pressed.png */,
@@ -308,6 +317,10 @@
 				F2F479721BE800A500BD57D9 /* ProfileViewController.m */,
 				F2F479771BE83EB800BD57D9 /* ProfilePads.h */,
 				F2F479781BE83EB800BD57D9 /* ProfilePads.m */,
+				F212E6FF1BF90E42001635EB /* BottomProfileView.h */,
+				F212E7001BF90E42001635EB /* BottomProfileView.m */,
+				F212E7021BF9102D001635EB /* ProfileTopView.h */,
+				F212E7031BF9102D001635EB /* ProfileTopView.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -372,7 +385,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */;
+			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -402,6 +415,7 @@
 				C0BDC2071BD9C2C2002B0884 /* Button-Add-icon.png in Resources */,
 				F28F129F1BF80E6F003BCAD4 /* friend-pressed.png in Resources */,
 				90A0BA601BE26ACA0000BF86 /* arrowRightCircle.png in Resources */,
+				F212E7061BF910C6001635EB /* morgie.jpg in Resources */,
 				9038A14A1BC70BE5002D3691 /* iPad.storyboard in Resources */,
 				90A0BA621BE26C1D0000BF86 /* arrowLeftCircle.png in Resources */,
 				C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */,
@@ -490,6 +504,7 @@
 				C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */,
 				D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */,
 				C0333F7A1BE3C98A001E760C /* ChatViewController.m in Sources */,
+				F212E7011BF90E42001635EB /* BottomProfileView.m in Sources */,
 				9038A1271BC70A64002D3691 /* ViewController.m in Sources */,
 				907F00491BC9BE79000759CD /* User.m in Sources */,
 				907F00421BC99ED7000759CD /* RegistrationViewController.m in Sources */,
@@ -499,6 +514,7 @@
 				F2F479731BE800A500BD57D9 /* ProfileViewController.m in Sources */,
 				D33493571BE9CC730079BE5F /* ContactListViewController.m in Sources */,
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
+				F212E7041BF9102D001635EB /* ProfileTopView.m in Sources */,
 				F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */,
 				C0333F7D1BE3D7A4001E760C /* TopChatNavBarVisualEffectView.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
@@ -663,7 +679,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */ = {
+		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9038A13F1BC70A64002D3691 /* Debug */,

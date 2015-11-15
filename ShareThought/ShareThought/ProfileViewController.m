@@ -8,10 +8,11 @@
 
 #import "ProfileViewController.h"
 #import "ProfilePads.h"
+#import "ProfileTopView.h"
 
 @interface ProfileViewController()
 
-@property (weak, nonatomic) IBOutlet UIView *profileTopView;
+@property (weak, nonatomic) IBOutlet ProfileTopView *profileTopView;
 @property (weak, nonatomic) IBOutlet ProfilePads *friendsButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *deleteFriendButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *numberOfFriendsButton;
@@ -46,10 +47,16 @@
     [_deleteFriendButton setButtonLabelString:@"Delete Friend"];
     [_startChatButton setButtonLabelString:@"Click to Chat"];
     [_friendsButton setButtonLabelString:@"Person's Friends"];
+    
+    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
 
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 - (IBAction)personsFriendsPressed:(id)sender {
