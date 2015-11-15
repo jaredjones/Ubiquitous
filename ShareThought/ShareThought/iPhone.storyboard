@@ -362,7 +362,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SUL-kb-owe" id="PPe-hK-e8Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -549,12 +549,19 @@
                                                     <action selector="sendMessagedPressed:" destination="Zi6-fi-vIa" eventType="touchUpInside" id="FPS-fE-azq"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJ8-4V-Gnc">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJ8-4V-Gnc">
                                                 <rect key="frame" x="8" y="5" width="540" height="30"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.14983467549999999" green="0.1630925466" blue="0.19265648569999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="textColor" white="0.93013317949999996" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Enter a message...">
+                                                        <attributes>
+                                                            <color key="NSColor" white="0.93013317949999996" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>

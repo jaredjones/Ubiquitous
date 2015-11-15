@@ -34,10 +34,8 @@
     
     _textViewAndContentDifference = _textEntryAndSubmitViewHeightConstraint.constant - _messageTextView.contentSize.height;
     
-    /*_messageTextField.attributedPlaceholder = [[NSAttributedString alloc]
-                                               initWithString:@"Type a message..."
-                                               attributes:@{ NSForegroundColorAttributeName: [UIColor darkGrayColor] }];
-    */
+    [self replaceMessageTextWithPlaceholder];
+    
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _textEntryAndSubmitView.bounds.origin.y, _textEntryAndSubmitView.bounds.size.width, 0.5)];
     lineView.backgroundColor = [UIColor blackColor];
     [_textEntryAndSubmitView addSubview:lineView];
@@ -58,8 +56,25 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)replaceMessageTextWithPlaceholder {
+    _messageTextView.attributedText = [[NSAttributedString alloc]
+                                       initWithString:@"Type a message..."
+                                       attributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
+}
+
 - (void)handleSingleTapOnScrollView:(UITapGestureRecognizer *)recognizer {
     [_messageTextView resignFirstResponder];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    _messageTextView.attributedText = [[NSAttributedString alloc]
+                                       initWithString:@""
+                                       attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    _messageTextView.textColor = [UIColor whiteColor];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
@@ -107,13 +122,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
