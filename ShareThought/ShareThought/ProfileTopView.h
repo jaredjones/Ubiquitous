@@ -10,4 +10,6 @@
 
 @interface ProfileTopView : UIView
 - (void)changeProfilePhoto: (UIImage *)photo;
+- (void)setUsername: (NSString *) username;
+- (void)setName: (NSString *) name;
 @end

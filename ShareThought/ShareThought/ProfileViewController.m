@@ -49,6 +49,8 @@
     [_friendsButton setButtonLabelString:@"Friends"];
     
     [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
+    [_profileTopView setUsername:@"toastieghostie"];
+    [_profileTopView setName:@"Morgan Nicole Vegsund"];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
