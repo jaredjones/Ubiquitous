@@ -31,17 +31,16 @@
     [self setNeedsDisplay];
 }
 
-- (void)setBackgroundImage:(UIImage *)image{
-    
-    //try and find a way to modify a image position based on size
-    //image.size.width
-    
+- (void)setBackgroundImage:(UIImage *)image withPoint: (CGPoint *) widthAndHeight{
     _backgroundImageView = [[UIImageView alloc] initWithImage:image];
-    [_backgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
-    _backgroundImageView.frame = CGRectMake(self.frame.size.width / 4,
-                                 self.frame.size.height / 4,
-                                 self.frame.size.width / 4,
-                                 self.frame.size.height / 4);
+    [_backgroundImageView.layer setMinificationFilter:kCAFilterTrilinear];
+
+    
+    [_backgroundImageView setContentMode:UIViewContentModeScaleToFill];
+    _backgroundImageView.frame = CGRectMake(self.frame.size.width / 2 - (self.frame.size.height*.5 / 2)
+                                            ,self.frame.size.height / 2 - (self.frame.size.height*.5 / 2)
+                                            ,self.frame.size.height*.5,
+                                            self.frame.size.height*.5);
     [_backgroundImageView removeFromSuperview];
     [self addSubview:_backgroundImageView];
     
@@ -55,18 +54,18 @@
     
     CGContextSetLineWidth(context, 1.0f);
     CGContextMoveToPoint(context, 0, 0);
-    CGContextAddLineToPoint(context, self.bounds.size.width, 0);
+    CGContextAddLineToPoint(context, self.frame.size.width, 0);
     
     //Variability Line
     if (_isLeft){
         CGContextMoveToPoint(context, 0, 0);
-        CGContextAddLineToPoint(context, 0, self.bounds.size.height);
+        CGContextAddLineToPoint(context, 0, self.frame.size.height);
     }else{
-        CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height);
+        CGContextAddLineToPoint(context, self.frame.size.width, self.frame.size.height);
     }
     
-    CGContextMoveToPoint(context, 0, self.bounds.size.height);
-    CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height);
+    CGContextMoveToPoint(context, 0, self.frame.size.height);
+    CGContextAddLineToPoint(context, self.frame.size.width, self.frame.size.height);
     
     CGContextStrokePath(context);
     

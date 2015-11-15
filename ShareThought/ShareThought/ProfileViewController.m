@@ -24,15 +24,23 @@
 @implementation ProfileViewController
 
 - (void)viewDidLoad{
-    [_friendsButton setBorderLinePositionIsLeft:NO];
-    [_deleteFriendButton setBorderLinePositionIsLeft:YES];
     
-    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"]];
-    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    
+}
+
+- (void)viewDidLayoutSubviews{
+    [_friendsButton setBorderLinePositionIsLeft:NO];
+    [_deleteFriendButton setBorderLinePositionIsLeft:YES];
+    [_numberOfFriendsButton setBorderLinePositionIsLeft:NO];
+    [_addFriendButton setBorderLinePositionIsLeft:YES];
+    [_addFriendButton setBackgroundImage:[UIImage imageNamed:@"addfriend.png"] withPoint:nil];
+    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withPoint:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+
 }
 
 @end
