@@ -41,6 +41,8 @@
 		D334935A1BE9CC880079BE5F /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493591BE9CC880079BE5F /* ContactList.m */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
+		F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */; };
+		F22EA3C21BF8750C00549AA9 /* chaticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3C01BF8750C00549AA9 /* chaticon.png */; };
 		F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137B1BF824FF00F494A0 /* addfriend-pressed.png */; };
 		F271137E1BF824FF00F494A0 /* addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137C1BF824FF00F494A0 /* addfriend.png */; };
 		F28F129D1BF80E6F003BCAD4 /* deletefriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */; };
@@ -116,6 +118,8 @@
 		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
 		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
+		F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chaticon-pressed.png"; sourceTree = "<group>"; };
+		F22EA3C01BF8750C00549AA9 /* chaticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chaticon.png; sourceTree = "<group>"; };
 		F271137B1BF824FF00F494A0 /* addfriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addfriend-pressed.png"; sourceTree = "<group>"; };
 		F271137C1BF824FF00F494A0 /* addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addfriend.png; sourceTree = "<group>"; };
 		F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deletefriend-pressed.png"; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */,
+				F22EA3C01BF8750C00549AA9 /* chaticon.png */,
 				F271137B1BF824FF00F494A0 /* addfriend-pressed.png */,
 				F271137C1BF824FF00F494A0 /* addfriend.png */,
 				F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */,
@@ -366,7 +372,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */;
+			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -404,11 +410,13 @@
 				F271137E1BF824FF00F494A0 /* addfriend.png in Resources */,
 				C0BDC20A1BD9C2C2002B0884 /* Save As-128.png in Resources */,
 				C0084D8D1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg in Resources */,
+				F22EA3C21BF8750C00549AA9 /* chaticon.png in Resources */,
 				C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */,
 				F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */,
 				C0BDC20B1BD9C2C2002B0884 /* save.png in Resources */,
 				C0BDC2051BD9C2C2002B0884 /* addIconBlack.png in Resources */,
 				C0BDC2091BD9C2C2002B0884 /* fs-floppy.png in Resources */,
+				F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */,
 				C0BDC2081BD9C2C2002B0884 /* chat-icon.png in Resources */,
 				C0BDC20C1BD9C2C2002B0884 /* SharethoughtLogo.png in Resources */,
 				9038A1481BC70BD7002D3691 /* iPhone.storyboard in Resources */,
@@ -655,7 +663,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */ = {
+		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9038A13F1BC70A64002D3691 /* Debug */,

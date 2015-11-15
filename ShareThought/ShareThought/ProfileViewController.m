@@ -36,7 +36,7 @@
     [_numberOfFriendsButton setBorderLinePositionIsLeft:NO];
     [_addFriendButton setBorderLinePositionIsLeft:YES];
     [_addFriendButton setBackgroundImage:[UIImage imageNamed:@"addfriend.png"] withHeight:nil];
-    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:nil];
+    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"chaticon.png"] withHeight:nil];
     
     CGFloat height = _addFriendButton.frame.size.height;
     [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:&height];
