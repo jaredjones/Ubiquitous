@@ -35,8 +35,13 @@
     [_deleteFriendButton setBorderLinePositionIsLeft:YES];
     [_numberOfFriendsButton setBorderLinePositionIsLeft:NO];
     [_addFriendButton setBorderLinePositionIsLeft:YES];
-    [_addFriendButton setBackgroundImage:[UIImage imageNamed:@"addfriend.png"] withPoint:nil];
-    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withPoint:nil];
+    [_addFriendButton setBackgroundImage:[UIImage imageNamed:@"addfriend.png"] withHeight:nil];
+    [_startChatButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:nil];
+    
+    CGFloat height = _addFriendButton.frame.size.height;
+    
+    [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withHeight:&height];
+    [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"] withHeight:&height];
 }
 
 - (void)viewDidAppear:(BOOL)animated{

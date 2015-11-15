@@ -31,19 +31,29 @@
     [self setNeedsDisplay];
 }
 
-- (void)setBackgroundImage:(UIImage *)image withPoint: (CGPoint *) widthAndHeight{
+- (void)setBackgroundImage:(UIImage *)image withHeight: (CGFloat *) otherHeight{
     _backgroundImageView = [[UIImageView alloc] initWithImage:image];
     [_backgroundImageView.layer setMinificationFilter:kCAFilterTrilinear];
 
+    CGFloat imageShrinkSize = 0.5;
+    
+    CGFloat width;
+    CGFloat height;
+    if (otherHeight == nil){
+        width = self.frame.size.width;
+        height = self.frame.size.height;
+    }else{
+        width = self.frame.size.width;
+        height = (*otherHeight);
+    }
     
     [_backgroundImageView setContentMode:UIViewContentModeScaleToFill];
-    _backgroundImageView.frame = CGRectMake(self.frame.size.width / 2 - (self.frame.size.height*.5 / 2)
-                                            ,self.frame.size.height / 2 - (self.frame.size.height*.5 / 2)
-                                            ,self.frame.size.height*.5,
-                                            self.frame.size.height*.5);
+    _backgroundImageView.frame = CGRectMake(width / 2 - (height * imageShrinkSize) / 2,
+                                            self.frame.size.height / 2 - (height * imageShrinkSize / 2),
+                                            height * imageShrinkSize,
+                                            height * imageShrinkSize);
     [_backgroundImageView removeFromSuperview];
     [self addSubview:_backgroundImageView];
-    
 }
 
 - (void)drawRect:(CGRect)rect{
