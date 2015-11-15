@@ -41,6 +41,8 @@
 		D334935A1BE9CC880079BE5F /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493591BE9CC880079BE5F /* ContactList.m */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
+		F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137B1BF824FF00F494A0 /* addfriend-pressed.png */; };
+		F271137E1BF824FF00F494A0 /* addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137C1BF824FF00F494A0 /* addfriend.png */; };
 		F28F129D1BF80E6F003BCAD4 /* deletefriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */; };
 		F28F129E1BF80E6F003BCAD4 /* deletefriend.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129A1BF80E6F003BCAD4 /* deletefriend.png */; };
 		F28F129F1BF80E6F003BCAD4 /* friend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */; };
@@ -114,6 +116,8 @@
 		D3E493F01BDEDCFC00A45021 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D3E493F21BDF235B00A45021 /* NSString+StringVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringVerification.h"; sourceTree = "<group>"; };
 		D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringVerification.m"; sourceTree = "<group>"; };
+		F271137B1BF824FF00F494A0 /* addfriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addfriend-pressed.png"; sourceTree = "<group>"; };
+		F271137C1BF824FF00F494A0 /* addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addfriend.png; sourceTree = "<group>"; };
 		F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deletefriend-pressed.png"; sourceTree = "<group>"; };
 		F28F129A1BF80E6F003BCAD4 /* deletefriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deletefriend.png; sourceTree = "<group>"; };
 		F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-pressed.png"; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F271137B1BF824FF00F494A0 /* addfriend-pressed.png */,
+				F271137C1BF824FF00F494A0 /* addfriend.png */,
 				F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */,
 				F28F129A1BF80E6F003BCAD4 /* deletefriend.png */,
 				F28F129B1BF80E6F003BCAD4 /* friend-pressed.png */,
@@ -395,9 +401,11 @@
 				C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */,
 				F28F12A01BF80E6F003BCAD4 /* friend.png in Resources */,
 				C0BDC2061BD9C2C2002B0884 /* addIconFlat.png in Resources */,
+				F271137E1BF824FF00F494A0 /* addfriend.png in Resources */,
 				C0BDC20A1BD9C2C2002B0884 /* Save As-128.png in Resources */,
 				C0084D8D1BD9FFD500727B08 /* hoh-rain-forest-olympic-national-park_51546_990x742.jpg in Resources */,
 				C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */,
+				F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */,
 				C0BDC20B1BD9C2C2002B0884 /* save.png in Resources */,
 				C0BDC2051BD9C2C2002B0884 /* addIconBlack.png in Resources */,
 				C0BDC2091BD9C2C2002B0884 /* fs-floppy.png in Resources */,
