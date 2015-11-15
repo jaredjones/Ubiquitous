@@ -43,10 +43,10 @@
     [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withPressed:[UIImage imageNamed:@"deletefriend-pressed.png"] withHeight:&height];
     [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"] withPressed:[UIImage imageNamed:@"friend-pressed.png"] withHeight:&height];
     
-    [_addFriendButton setButtonLabelString:@"Add Friend"];
-    [_deleteFriendButton setButtonLabelString:@"Delete Friend"];
-    [_startChatButton setButtonLabelString:@"Click to Chat"];
-    [_friendsButton setButtonLabelString:@"Person's Friends"];
+    [_addFriendButton setButtonLabelString:@"Add"];
+    [_deleteFriendButton setButtonLabelString:@"Delete"];
+    [_startChatButton setButtonLabelString:@"Chat"];
+    [_friendsButton setButtonLabelString:@"Friends"];
     
     [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
 }
