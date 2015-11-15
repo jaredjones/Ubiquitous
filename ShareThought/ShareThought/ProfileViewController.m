@@ -10,8 +10,11 @@
 #import "ProfilePads.h"
 
 @interface ProfileViewController()
+@property (strong, nonatomic) IBOutlet UIView *profileUIView;
+@property (weak, nonatomic) IBOutlet ProfilePads *yellowButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *friendsButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *deleteFriendButton;
+@property (weak, nonatomic) IBOutlet ProfilePads *addFriendsButton;
 @property (strong, nonatomic) UIImageView *shareThoughtProfileView;
 @end
 
