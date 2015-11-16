@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [NSThread sleepForTimeInterval:3.0];
+    //[NSThread sleepForTimeInterval:3.0];
     
     _networkMgr = [NetworkManager sharedManager];
     [_networkMgr connect:@"localhost" withPort:@38205];

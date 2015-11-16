@@ -1,10 +1,16 @@
 PODS:
   - CocoaAsyncSocket (7.4.2)
+  - MZAppearance (1.1.6)
+  - MZFormSheetPresentationController (2.1.2):
+    - MZAppearance
 
 DEPENDENCIES:
   - CocoaAsyncSocket
+  - MZFormSheetPresentationController
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
+  MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  MZFormSheetPresentationController: a268a1840780d52f47688d823d2b6d35318bf24d
 
 COCOAPODS: 0.39.0

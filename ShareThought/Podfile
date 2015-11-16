@@ -4,6 +4,7 @@
 target 'ShareThought' do
 	use_frameworks!
 	pod 'CocoaAsyncSocket', :inhibit_warnings => true
+	pod 'MZFormSheetPresentationController'
 end
 
 target 'ShareThoughtTests' do
