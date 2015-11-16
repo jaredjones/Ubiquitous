@@ -77,4 +77,11 @@
 - (IBAction)addFriendPressed:(id)sender {
     NSLog(@"Add Friend Pressed");
 }
+- (IBAction)aboutUsOrEditButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"aboutUserSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+}
 @end
