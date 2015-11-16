@@ -60,10 +60,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlZ-QK-i61">
-                                                <rect key="frame" x="19" y="28" width="19" height="28"/>
+                                                <rect key="frame" x="19" y="29" width="19" height="28"/>
                                                 <animations/>
                                                 <state key="normal" image="backbutton.png"/>
                                                 <state key="highlighted" image="backbutton-pressed.png"/>
+                                                <connections>
+                                                    <action selector="navigationBackButtonPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="EzY-wy-gj9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <animations/>

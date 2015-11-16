@@ -66,12 +66,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     _loginVisualEffectView.hidden = YES;
     _registerVisualEffectView.hidden = YES;
+    _shareThoughtLogoView.hidden = YES;
+    _copyrightNoticeLabel.alpha = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    
-    
-    
     CGFloat sTLHeight = _shareThoughtLogoView.frame.size.height;
     CGFloat sTLWidth = _shareThoughtLogoView.frame.size.width;
     _shareThoughtLogoView.frame = CGRectMake(self.view.bounds.size.width / 2 - sTLWidth/2, self.view.bounds.size.width / 2 - sTLHeight/2, sTLWidth, sTLHeight);
@@ -90,6 +89,7 @@
     [_registerVisualEffectView.layer addAnimation:moveButtonDown forKey:@"myMoveButtonDownAnimation"];
     _loginVisualEffectView.hidden = NO;
     _registerVisualEffectView.hidden = NO;
+    _shareThoughtLogoView.hidden = NO;
     
     CABasicAnimation *moveLogoDown = [CABasicAnimation animationWithKeyPath:@"position"];
     moveLogoDown.additive = YES;
@@ -101,8 +101,6 @@
     [_shareThoughtLogoView.layer addAnimation:moveLogoDown forKey:@"myMoveDownAnimation"];
     
     [CATransaction commit];
-    
-    _copyrightNoticeLabel.alpha = 0;
     
     [UIView animateWithDuration:1.0 delay:0.25 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ _copyrightNoticeLabel.alpha = 1;}

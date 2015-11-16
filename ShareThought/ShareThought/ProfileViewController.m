@@ -61,6 +61,9 @@
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+- (IBAction)navigationBackButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)personsFriendsPressed:(id)sender {
     NSLog(@"Person's Friends Pressed");
