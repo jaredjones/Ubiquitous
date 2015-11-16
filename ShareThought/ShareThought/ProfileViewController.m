@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet ProfileTopView *profileTopView;
 @property (weak, nonatomic) IBOutlet ProfilePads *friendsButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *deleteFriendButton;
-@property (weak, nonatomic) IBOutlet ProfilePads *numberOfFriendsButton;
+@property (weak, nonatomic) IBOutlet ProfilePads *numberOfFriendsButton; //aboutButton
 @property (weak, nonatomic) IBOutlet ProfilePads *addFriendButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *startChatButton;
 @property (weak, nonatomic) IBOutlet UIButton *navigationBackButton;
@@ -43,11 +43,13 @@
     CGFloat height = _addFriendButton.frame.size.height;
     [_deleteFriendButton setBackgroundImage:[UIImage imageNamed:@"deletefriend.png"] withPressed:[UIImage imageNamed:@"deletefriend-pressed.png"] withHeight:&height];
     [_friendsButton setBackgroundImage:[UIImage imageNamed:@"friend.png"] withPressed:[UIImage imageNamed:@"friend-pressed.png"] withHeight:&height];
+    [_numberOfFriendsButton setBackgroundImage:[UIImage imageNamed:@"about.png"] withPressed:[UIImage imageNamed:@"about-pressed.png"] withHeight:&height];
     
     [_addFriendButton setButtonLabelString:@"Add"];
     [_deleteFriendButton setButtonLabelString:@"Delete"];
     [_startChatButton setButtonLabelString:@"Chat"];
     [_friendsButton setButtonLabelString:@"Friends"];
+    [_numberOfFriendsButton setButtonLabelString:@"About"];
     
     [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
     [_profileTopView setUsername:@"toastieghostie"];
