@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet ProfilePads *numberOfFriendsButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *addFriendButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *startChatButton;
+@property (weak, nonatomic) IBOutlet UIButton *navigationBackButton;
 
 @end
 
@@ -25,7 +26,7 @@
 @implementation ProfileViewController
 
 - (void)viewDidLoad{
-    
+    [_navigationBackButton.imageView.layer setMinificationFilter:kCAFilterTrilinear];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

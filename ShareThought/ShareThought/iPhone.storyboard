@@ -58,6 +58,14 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-mh-0PY">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlZ-QK-i61">
+                                                <rect key="frame" x="19" y="28" width="19" height="28"/>
+                                                <animations/>
+                                                <state key="normal" image="backbutton.png"/>
+                                                <state key="highlighted" image="backbutton-pressed.png"/>
+                                            </button>
+                                        </subviews>
                                         <animations/>
                                         <color key="backgroundColor" red="0.14901960784313725" green="0.14117647058823529" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -114,6 +122,7 @@
                         <outlet property="addFriendButton" destination="xg8-Dl-pNc" id="jpr-d7-taR"/>
                         <outlet property="deleteFriendButton" destination="XOP-f6-8jD" id="9bR-li-Twd"/>
                         <outlet property="friendsButton" destination="0M6-WA-xJq" id="d4U-kw-MWt"/>
+                        <outlet property="navigationBackButton" destination="TlZ-QK-i61" id="H4e-kd-s7W"/>
                         <outlet property="numberOfFriendsButton" destination="Rbh-Wa-oku" id="Thb-2Y-CCc"/>
                         <outlet property="profileTopView" destination="Vco-TN-DYR" id="aZl-tn-Zro"/>
                         <outlet property="startChatButton" destination="dqe-Af-PPu" id="61j-OE-vQF"/>
@@ -121,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwg-Ur-NGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339" y="-96"/>
+            <point key="canvasLocation" x="-378" y="-127"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H2J-Af-Yrk">
@@ -687,6 +696,8 @@
     </scenes>
     <resources>
         <image name="SharethoughtLogoSlim.png" width="872" height="246"/>
+        <image name="backbutton-pressed.png" width="240" height="368"/>
+        <image name="backbutton.png" width="248" height="376"/>
         <image name="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" width="990" height="742"/>
     </resources>
 </document>
