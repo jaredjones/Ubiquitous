@@ -48,10 +48,10 @@
 		F212E70D1BF920A4001635EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9038A1201BC70A64002D3691 /* main.m */; };
 		F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */; };
 		F22EA3C21BF8750C00549AA9 /* chaticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F22EA3C01BF8750C00549AA9 /* chaticon.png */; };
+		F23C78E41BF98CFA007D27B5 /* about-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F23C78E21BF98CFA007D27B5 /* about-pressed.png */; };
+		F23C78E51BF98CFA007D27B5 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = F23C78E31BF98CFA007D27B5 /* about.png */; };
 		F247246E1BF96267000937F6 /* backbutton-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F247246C1BF96267000937F6 /* backbutton-pressed.png */; };
 		F247246F1BF96267000937F6 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = F247246D1BF96267000937F6 /* backbutton.png */; };
-		F26F82891BF98A39005F9AC6 /* about-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F26F82871BF98A39005F9AC6 /* about-pressed.png */; };
-		F26F828A1BF98A39005F9AC6 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = F26F82881BF98A39005F9AC6 /* about.png */; };
 		F271137D1BF824FF00F494A0 /* addfriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137B1BF824FF00F494A0 /* addfriend-pressed.png */; };
 		F271137E1BF824FF00F494A0 /* addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = F271137C1BF824FF00F494A0 /* addfriend.png */; };
 		F28F129D1BF80E6F003BCAD4 /* deletefriend-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */; };
@@ -136,10 +136,10 @@
 		F212E70B1BF91D28001635EB /* UILabel+Width.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Width.m"; sourceTree = "<group>"; };
 		F22EA3BF1BF8750C00549AA9 /* chaticon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chaticon-pressed.png"; sourceTree = "<group>"; };
 		F22EA3C01BF8750C00549AA9 /* chaticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chaticon.png; sourceTree = "<group>"; };
+		F23C78E21BF98CFA007D27B5 /* about-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-pressed.png"; sourceTree = "<group>"; };
+		F23C78E31BF98CFA007D27B5 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		F247246C1BF96267000937F6 /* backbutton-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton-pressed.png"; sourceTree = "<group>"; };
 		F247246D1BF96267000937F6 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
-		F26F82871BF98A39005F9AC6 /* about-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about-pressed.png"; path = "../../../../../about-pressed.png"; sourceTree = "<group>"; };
-		F26F82881BF98A39005F9AC6 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about.png; path = ../../../../../about.png; sourceTree = "<group>"; };
 		F271137B1BF824FF00F494A0 /* addfriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addfriend-pressed.png"; sourceTree = "<group>"; };
 		F271137C1BF824FF00F494A0 /* addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addfriend.png; sourceTree = "<group>"; };
 		F28F12991BF80E6F003BCAD4 /* deletefriend-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deletefriend-pressed.png"; sourceTree = "<group>"; };
@@ -278,8 +278,8 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F26F82871BF98A39005F9AC6 /* about-pressed.png */,
-				F26F82881BF98A39005F9AC6 /* about.png */,
+				F23C78E21BF98CFA007D27B5 /* about-pressed.png */,
+				F23C78E31BF98CFA007D27B5 /* about.png */,
 				F247246C1BF96267000937F6 /* backbutton-pressed.png */,
 				F247246D1BF96267000937F6 /* backbutton.png */,
 				F212E7051BF910C6001635EB /* morgie.jpg */,
@@ -432,7 +432,7 @@
 				F247246F1BF96267000937F6 /* backbutton.png in Resources */,
 				F28F129E1BF80E6F003BCAD4 /* deletefriend.png in Resources */,
 				C0BDC2071BD9C2C2002B0884 /* Button-Add-icon.png in Resources */,
-				F26F828A1BF98A39005F9AC6 /* about.png in Resources */,
+				F23C78E51BF98CFA007D27B5 /* about.png in Resources */,
 				F28F129F1BF80E6F003BCAD4 /* friend-pressed.png in Resources */,
 				90A0BA601BE26ACA0000BF86 /* arrowRightCircle.png in Resources */,
 				F212E7061BF910C6001635EB /* morgie.jpg in Resources */,
@@ -441,7 +441,7 @@
 				F247246E1BF96267000937F6 /* backbutton-pressed.png in Resources */,
 				C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */,
 				F28F12A01BF80E6F003BCAD4 /* friend.png in Resources */,
-				F26F82891BF98A39005F9AC6 /* about-pressed.png in Resources */,
+				F23C78E41BF98CFA007D27B5 /* about-pressed.png in Resources */,
 				C0BDC2061BD9C2C2002B0884 /* addIconFlat.png in Resources */,
 				F271137E1BF824FF00F494A0 /* addfriend.png in Resources */,
 				C0BDC20A1BD9C2C2002B0884 /* Save As-128.png in Resources */,
