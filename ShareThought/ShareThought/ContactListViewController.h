@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactListViewController : UIViewController
+@interface ContactListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @end
