@@ -408,8 +408,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUL-f4-rVd" userLabel="contactTableView">
-                                <rect key="frame" x="0.0" y="106" width="600" height="494"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUL-f4-rVd" userLabel="contactTableView">
+                                <rect key="frame" x="0.0" y="110" width="600" height="490"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -429,29 +429,44 @@
                                     <outlet property="delegate" destination="GzP-1M-8yy" id="t0K-Je-en5"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agD-Yk-zfc">
-                                <rect key="frame" x="0.0" y="62" width="600" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="agD-Yk-zfc">
+                                <rect key="frame" x="0.0" y="66" width="600" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="GzP-1M-8yy" id="4IM-cN-IaL"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGQ-cG-xcg">
-                                <rect key="frame" x="0.0" y="20" width="600" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGQ-cG-xcg">
+                                <rect key="frame" x="253" y="28" width="95" height="38"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="0yX-P8-V4T"/>
+                                    <constraint firstAttribute="width" constant="95" id="CfR-Jt-0A6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="agD-Yk-zfc" firstAttribute="top" secondItem="tGQ-cG-xcg" secondAttribute="bottom" id="0Gf-op-dSH"/>
+                            <constraint firstItem="tGQ-cG-xcg" firstAttribute="centerX" secondItem="agD-Yk-zfc" secondAttribute="centerX" id="C7k-cx-uUh"/>
+                            <constraint firstItem="tGQ-cG-xcg" firstAttribute="top" secondItem="7X9-a8-bjy" secondAttribute="bottom" constant="8" id="FFV-aa-EvD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="agD-Yk-zfc" secondAttribute="trailing" constant="-20" id="Yky-1g-zcy"/>
+                            <constraint firstItem="bUL-f4-rVd" firstAttribute="leading" secondItem="pns-77-eHr" secondAttribute="leadingMargin" constant="-20" id="cDf-qA-fFv"/>
+                            <constraint firstItem="waO-bq-fOE" firstAttribute="top" secondItem="bUL-f4-rVd" secondAttribute="bottom" id="csI-2V-6SO"/>
+                            <constraint firstItem="bUL-f4-rVd" firstAttribute="top" secondItem="agD-Yk-zfc" secondAttribute="bottom" id="czZ-lz-QSI"/>
+                            <constraint firstItem="agD-Yk-zfc" firstAttribute="leading" secondItem="pns-77-eHr" secondAttribute="leadingMargin" constant="-20" id="yDO-Lv-JpV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bUL-f4-rVd" secondAttribute="trailing" constant="-20" id="ySj-2p-07z"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="contactTableView" destination="bUL-f4-rVd" id="ONk-ZJ-c7L"/>
                         <outlet property="searchBar" destination="agD-Yk-zfc" id="Qkz-6m-fYq"/>
                         <outlet property="searchDisplayController" destination="1WE-Ij-u2q" id="ui8-Tq-ZPt"/>
+                        <outlet property="titleLabel" destination="tGQ-cG-xcg" id="bJ8-yk-D7Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYg-Y4-jXl" userLabel="First Responder" sceneMemberID="firstResponder"/>

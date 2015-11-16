@@ -9,8 +9,10 @@
 #import "ContactListViewController.h"
 
 @interface ContactListViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *contactTableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *contactTableView;
 
 @property (strong, nonatomic) NSArray *contacts;                    //for testing need to implement for users
 @property (strong, nonatomic) NSMutableArray *searchResults;        //for testing need to implement for users
@@ -33,15 +35,26 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setContactTableView:(UITableView *)contactTableView {
-    contactTableView.backgroundColor = [UIColor darkGrayColor];
-    _contactTableView = contactTableView;
+-(void)setTitleLabel:(UILabel *)titleLabel {
+    titleLabel.text = @"Contacts";
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    _titleLabel = titleLabel;
 }
 
 -(void)setSearchBar:(UISearchBar *)searchBar {
     searchBar.text = @"Search for Contact or Tag";
-    searchBar.barTintColor = [UIColor colorWithRed:116.0/255.0f green:114.0/255.0f blue:120.0/255.0f alpha:0.0f];
+    searchBar.barTintColor = [UIColor colorWithRed:116.0/255.0f green:114.0/255.0f blue:120.0/255.0 alpha:0.0f];
+    
     _searchBar = searchBar;
+}
+
+-(void)setContactTableView:(UITableView *)contactTableView {
+    contactTableView.backgroundColor = [UIColor darkGrayColor];
+    
+    _contactTableView = contactTableView;
 }
 
 #pragma Table View Methods
@@ -62,6 +75,7 @@
     }
     
     cell.textLabel.text = [_searchResults objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor darkGrayColor];
     return cell;
 }
