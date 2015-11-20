@@ -34,11 +34,46 @@
 }
 
 -(void)initTableData {
-    _contacts = [[NSMutableArray alloc] init];          //needs to connect to database
+    _contacts = [[NSMutableArray alloc] init];          //load the contacts with dummy data
+    
+    User *user = [[User alloc] initWithUser:@"user1@mail.com" withPassword:@"password1" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user2@mail.com" withPassword:@"password2" withFirstName:@"Isaac" withLastName:@"Ford" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user3@mail.com" withPassword:@"password3" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user4@mail.com" withPassword:@"password4" withFirstName:@"McKenzie" withLastName:@"Terrell" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user5@mail.com" withPassword:@"password5" withFirstName:@"Stephanie" withLastName:@"Welch" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user6@mail.com" withPassword:@"password6" withFirstName:@"Kylie" withLastName:@"Oliver" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user7" withPassword:@"password7" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user8" withPassword:@"password8" withFirstName:@"Thomas" withLastName:@"Everett" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user9" withPassword:@"password9" withFirstName:@"Omar" withLastName:@"Wilson" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user10" withPassword:@"password10" withFirstName:@"Harding" withLastName:@"Leach" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user11" withPassword:@"password11" withFirstName:@"Brody" withLastName:@"Eaton" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user12" withPassword:@"password12" withFirstName:@"David" withLastName:@"Stuart" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user13" withPassword:@"password13" withFirstName:@"Mark" withLastName:@"Beach" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    user = [[User alloc] initWithUser:@"user14" withPassword:@"password14" withFirstName:@"Michael" withLastName:@"Copeland" withProfileDesc:@"desc"];
+    [_contacts addObject:user];
+    
+    //sort contacts by lastname
+    NSSortDescriptor *lnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lname" ascending:YES];
+    NSArray *descriptors = @[lnameDescriptor];
+    
+    [_contacts sortUsingDescriptors:descriptors];
+    _searchResults = [[NSMutableArray alloc] initWithArray:_contacts];
     
     
     _contactSectionTitles = [[NSMutableArray alloc] init];
-    
     NSString *letterString = nil;
     if ([_contacts count] != 0) {
         for (_currentContact in _contacts) {
@@ -50,8 +85,7 @@
         }
     }
     
-    _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"#", @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
-    _searchResults = [[NSMutableArray alloc] initWithArray:_contacts];
+    _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
 }
 
 -(void)didReceiveMemoryWarning {
