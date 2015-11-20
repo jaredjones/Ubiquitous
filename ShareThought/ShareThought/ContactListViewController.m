@@ -42,7 +42,7 @@
     [_contacts addObject:user];
     user = [[User alloc] initWithUser:@"user3@mail.com" withPassword:@"password3" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"desc"];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user4@mail.com" withPassword:@"password4" withFirstName:@"McKenzie" withLastName:@"Terrell" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"user4@mail.com" withPassword:@"password4" withFirstName:@"McKenzie" withLastName:@"Mitchell" withProfileDesc:@"desc"];
     [_contacts addObject:user];
     user = [[User alloc] initWithUser:@"user5@mail.com" withPassword:@"password5" withFirstName:@"Stephanie" withLastName:@"Welch" withProfileDesc:@"desc"];
     [_contacts addObject:user];
@@ -65,25 +65,16 @@
     user = [[User alloc] initWithUser:@"user14" withPassword:@"password14" withFirstName:@"Michael" withLastName:@"Copeland" withProfileDesc:@"desc"];
     [_contacts addObject:user];
     
-    //sort contacts by lastname
+    //sort contacts by last name and then first name
     NSSortDescriptor *lnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lname" ascending:YES];
-    NSArray *descriptors = @[lnameDescriptor];
+    NSSortDescriptor *fnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"fname" ascending:YES];
+    NSArray *descriptors = @[lnameDescriptor, fnameDescriptor];
     
     [_contacts sortUsingDescriptors:descriptors];
     _searchResults = [[NSMutableArray alloc] initWithArray:_contacts];
     
     
-    _contactSectionTitles = [[NSMutableArray alloc] init];
-    NSString *letterString = nil;
-    if ([_contacts count] != 0) {
-        for (_currentContact in _contacts) {
-            unichar letter = [_currentContact.lname characterAtIndex:0];
-            letterString = [NSString stringWithCharacters:&letter length:1];
-            if (![_contactSectionTitles containsObject:letterString]) {
-                [_contactSectionTitles addObject:letterString];
-            }
-        }
-    }
+    [self setSectionTitles:_contactSectionTitles];
     
     _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
 }
@@ -113,6 +104,19 @@
     contactTableView.backgroundColor = [UIColor darkGrayColor];
     
     _contactTableView = contactTableView;
+}
+
+-(void)setSectionTitles:(NSMutableArray *)sectionTitles {
+    _contactSectionTitles = [[NSMutableArray alloc] init];
+    
+    NSString *letterString = nil;
+    for (_currentContact in _searchResults) {
+        unichar letter = [_currentContact.lname characterAtIndex:0];
+        letterString = [NSString stringWithCharacters:&letter length:1];
+        if (![_contactSectionTitles containsObject:letterString]) {
+            [_contactSectionTitles addObject:letterString];
+        }
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -198,6 +202,7 @@
             }
         }
     }
+    [self setSectionTitles:_contactSectionTitles];
     [_contactTableView reloadData];
 }
 
