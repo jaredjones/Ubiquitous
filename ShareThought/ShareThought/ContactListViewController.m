@@ -8,8 +8,9 @@
 
 #import "ContactListViewController.h"
 #import "User.h"
+#import "ContactListTableViewCell.h"
 
-@interface ContactListViewController ()
+@interface ContactListViewController () <ContactListTableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -88,7 +89,7 @@
     titleLabel.text = @"Contacts";
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    //titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     _titleLabel = titleLabel;
 }
@@ -125,7 +126,7 @@
 
 #pragma Table View Methods
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {      //sections need to hide when searching
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [_contactSectionTitles count];
 }
 
@@ -149,10 +150,10 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell"];
+    ContactListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell" forIndexPath:indexPath];
     
     if (cell == nil ) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contactCell"];
+        cell = [[ContactListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contactCell"];
     }
     
     NSString *sectionTitle = [_contactSectionTitles objectAtIndex:indexPath.section];
@@ -167,9 +168,9 @@
         }
     }
     User *u = [users objectAtIndex:indexPath.row];
-    cell.textLabel.text = [u.fname stringByAppendingFormat:@" %@", u.lname];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.backgroundColor = [UIColor darkGrayColor];
+    cell.contactName = [u.fname stringByAppendingFormat:@" %@", u.lname];
+    cell.contactDesc = u.profileDescription;
+    cell.delegate = self;
     
     return cell;
 }
@@ -204,6 +205,32 @@
     }
     [self setSectionTitles:_contactSectionTitles];
     [_contactTableView reloadData];
+}
+
+#pragma Contact List Table Cell Delegate
+
+-(void)deleteButtonActionForContact:(NSString *)contactName {
+    NSUInteger index = 0;
+    NSArray *name = [contactName componentsSeparatedByString:@" "];
+    for (int i=0; i < [_contacts count]; i++) {
+        User *u = [_contacts objectAtIndex:i];
+        if ([u.fname isEqualToString:[name objectAtIndex:0]] && [u.lname isEqualToString:[name objectAtIndex:1]]) {
+            index = i;
+        }
+    }
+    
+    //update model
+    [_contacts removeObjectAtIndex:index];
+    [_searchResults removeAllObjects];
+    [_searchResults addObjectsFromArray:_contacts];
+    [self setSectionTitles:_contactSectionTitles];
+    
+    //update view
+    [_contactTableView reloadData];
+}
+
+-(void)editButtonActionForContact:(NSString *)contactName {
+    NSLog(@"edit button for %@", contactName);                     //need to implement editing
 }
 
 /*

@@ -408,20 +408,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUL-f4-rVd" userLabel="contactTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUL-f4-rVd" userLabel="contactTableView">
                                 <rect key="frame" x="0.0" y="110" width="600" height="490"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="SUL-kb-owe">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="SUL-kb-owe" customClass="ContactListTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SUL-kb-owe" id="PPe-hK-e8Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj0-o8-biB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="55"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="qA3-jo-Na6"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Edit">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonClicked:" destination="SUL-kb-owe" eventType="touchUpInside" id="Usg-yi-Mlg"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HK-ub-bBr">
+                                                    <rect key="frame" x="540" y="0.0" width="60" height="55"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="OIB-qp-WKp"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Delete">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonClicked:" destination="SUL-kb-owe" eventType="touchUpInside" id="xtx-fj-pTd"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg6-cu-TYS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-Vp-fgY">
+                                                            <rect key="frame" x="5" y="5" width="195" height="30"/>
+                                                            <animations/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="vXk-6S-cbo"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oud-L6-a6z">
+                                                            <rect key="frame" x="5" y="38" width="150" height="15"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="oud-L6-a6z" firstAttribute="top" secondItem="jIG-Vp-fgY" secondAttribute="bottom" constant="3" id="1ND-7b-IhA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oud-L6-a6z" secondAttribute="trailing" constant="445" id="PIs-E4-wzc"/>
+                                                        <constraint firstItem="oud-L6-a6z" firstAttribute="top" secondItem="jIG-Vp-fgY" secondAttribute="bottom" constant="3" id="UsR-ir-QSa"/>
+                                                        <constraint firstItem="oud-L6-a6z" firstAttribute="leading" secondItem="Gg6-cu-TYS" secondAttribute="leading" constant="5" id="YY1-CJ-AIu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oud-L6-a6z" secondAttribute="bottom" constant="2" id="ej8-Pq-U6g"/>
+                                                        <constraint firstItem="jIG-Vp-fgY" firstAttribute="top" secondItem="Gg6-cu-TYS" secondAttribute="top" constant="5" id="qn9-9c-tgj"/>
+                                                        <constraint firstItem="jIG-Vp-fgY" firstAttribute="leading" secondItem="Gg6-cu-TYS" secondAttribute="leading" constant="5" id="t3D-dM-6bt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="jIG-Vp-fgY" secondAttribute="trailing" constant="400" id="vpp-vj-3CP"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="6HK-ub-bBr" firstAttribute="top" secondItem="PPe-hK-e8Z" secondAttribute="topMargin" constant="-8" id="4SU-1Y-Wo3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qj0-o8-biB" secondAttribute="bottom" constant="-8" id="Hfb-jz-6ai"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6HK-ub-bBr" secondAttribute="bottom" constant="-8" id="Ibf-YZ-cga"/>
+                                                <constraint firstItem="qj0-o8-biB" firstAttribute="leading" secondItem="PPe-hK-e8Z" secondAttribute="leadingMargin" constant="-8" id="UHs-CB-eUr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gg6-cu-TYS" secondAttribute="trailing" constant="-8" id="Z9d-xU-YnF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6HK-ub-bBr" secondAttribute="trailing" constant="-8" id="ece-1w-e5j"/>
+                                                <constraint firstItem="Gg6-cu-TYS" firstAttribute="top" secondItem="PPe-hK-e8Z" secondAttribute="topMargin" constant="-8" id="n9e-vB-qxB"/>
+                                                <constraint firstItem="qj0-o8-biB" firstAttribute="top" secondItem="PPe-hK-e8Z" secondAttribute="topMargin" constant="-8" id="nih-QA-S0D"/>
+                                                <constraint firstItem="Gg6-cu-TYS" firstAttribute="leading" secondItem="PPe-hK-e8Z" secondAttribute="leadingMargin" constant="-8" id="qVu-7h-dPC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Gg6-cu-TYS" secondAttribute="bottom" constant="-8" id="zd0-QA-CyY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="contactDescLabel" destination="oud-L6-a6z" id="Fep-xZ-VpG"/>
+                                            <outlet property="contactDisplayView" destination="Gg6-cu-TYS" id="oRM-WQ-4Tc"/>
+                                            <outlet property="contactNameLabel" destination="jIG-Vp-fgY" id="UC4-Te-e4j"/>
+                                            <outlet property="deleteButton" destination="6HK-ub-bBr" id="FgH-cm-35a"/>
+                                            <outlet property="editButton" destination="qj0-o8-biB" id="Tmx-i7-Fzz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
