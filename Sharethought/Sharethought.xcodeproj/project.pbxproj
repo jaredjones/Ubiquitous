@@ -38,6 +38,7 @@
 		C0BDC20C1BD9C2C2002B0884 /* SharethoughtLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2031BD9C2C2002B0884 /* SharethoughtLogo.png */; };
 		C0BDC20D1BD9C2C2002B0884 /* UserIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC2041BD9C2C2002B0884 /* UserIcon.png */; };
 		D327291B1C0403F600650406 /* ContactListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D327291A1C0403F600650406 /* ContactListTableViewCell.m */; };
+		D32BA2C21C0D730700A64606 /* rose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D32BA2C11C0D730700A64606 /* rose.jpg */; };
 		D33493571BE9CC730079BE5F /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33493561BE9CC730079BE5F /* ContactListViewController.m */; };
 		D3E493F11BDEDCFC00A45021 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F01BDEDCFC00A45021 /* LoginViewController.m */; };
 		D3E493F41BDF235B00A45021 /* NSString+StringVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E493F31BDF235B00A45021 /* NSString+StringVerification.m */; };
@@ -121,6 +122,7 @@
 		C0BDC2041BD9C2C2002B0884 /* UserIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UserIcon.png; path = "Bundle Resources/UserIcon.png"; sourceTree = "<group>"; };
 		D32729191C0403F600650406 /* ContactListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTableViewCell.h; sourceTree = "<group>"; };
 		D327291A1C0403F600650406 /* ContactListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTableViewCell.m; sourceTree = "<group>"; };
+		D32BA2C11C0D730700A64606 /* rose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rose.jpg; sourceTree = "<group>"; };
 		D33493551BE9CC730079BE5F /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
 		D33493561BE9CC730079BE5F /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
 		D3E493EF1BDEDCFC00A45021 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		C0BDC1FB1BD9C28F002B0884 /* Bundle Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D32BA2C11C0D730700A64606 /* rose.jpg */,
 				F23C78E21BF98CFA007D27B5 /* about-pressed.png */,
 				F23C78E31BF98CFA007D27B5 /* about.png */,
 				F247246C1BF96267000937F6 /* backbutton-pressed.png */,
@@ -403,7 +406,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */;
+			buildConfigurationList = 9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -452,6 +455,7 @@
 				C0BDC20B1BD9C2C2002B0884 /* save.png in Resources */,
 				C0BDC2051BD9C2C2002B0884 /* addIconBlack.png in Resources */,
 				C0BDC2091BD9C2C2002B0884 /* fs-floppy.png in Resources */,
+				D32BA2C21C0D730700A64606 /* rose.jpg in Resources */,
 				F22EA3C11BF8750C00549AA9 /* chaticon-pressed.png in Resources */,
 				C0BDC2081BD9C2C2002B0884 /* chat-icon.png in Resources */,
 				C0BDC20C1BD9C2C2002B0884 /* SharethoughtLogo.png in Resources */,
@@ -703,7 +707,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "Sharethought" */ = {
+		9038A1171BC70A64002D3691 /* Build configuration list for PBXProject "ShareThought" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9038A13F1BC70A64002D3691 /* Debug */,
