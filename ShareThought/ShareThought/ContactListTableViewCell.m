@@ -7,12 +7,14 @@
 //
 
 #import "ContactListTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ContactListTableViewCell ()
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
 @property (nonatomic, weak) IBOutlet UIButton *editButton;
 
 @property (nonatomic, weak) IBOutlet UIView *contactDisplayView;
+@property (nonatomic, weak) IBOutlet UIImageView *contactImageView;
 @property (nonatomic, weak) IBOutlet UILabel *contactNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *contactDescLabel;
 
@@ -35,18 +37,6 @@
     [_contactDisplayView addGestureRecognizer:_swipeLeft];
 }
 
--(void)setContactName:(NSString *)contactName {
-    _contactName = contactName;
-    _contactNameLabel.text = _contactName;
-    _contactNameLabel.textColor = [UIColor whiteColor];
-}
-
--(void)setContactDesc:(NSString *)contactDesc {
-    _contactDesc = contactDesc;
-    _contactDescLabel.text = _contactDesc;
-    _contactDescLabel.textColor = [UIColor lightTextColor];
-}
-
 -(void)setDeleteButton:(UIButton *)deleteButton {
     deleteButton.backgroundColor = [UIColor redColor];
     _deleteButton = deleteButton;
@@ -60,6 +50,28 @@
 -(void)setContactDisplayView:(UIView *)contactDisplayView {
     contactDisplayView.backgroundColor = [UIColor darkGrayColor];
     _contactDisplayView = contactDisplayView;
+}
+
+-(void)setContactImageView:(UIImageView *)contactImageView {
+    UIImage *image = [UIImage imageNamed:@"rose.jpg"];
+    contactImageView.image = image;
+    
+    contactImageView.layer.cornerRadius = contactImageView.frame.size.width / 2;
+    contactImageView.layer.masksToBounds = YES;
+    
+    _contactImageView = contactImageView;
+}
+
+-(void)setContactName:(NSString *)contactName {
+    _contactName = contactName;
+    _contactNameLabel.text = _contactName;
+    _contactNameLabel.textColor = [UIColor whiteColor];
+}
+
+-(void)setContactDesc:(NSString *)contactDesc {
+    _contactDesc = contactDesc;
+    _contactDescLabel.text = _contactDesc;
+    _contactDescLabel.textColor = [UIColor lightTextColor];
 }
 
 -(IBAction)buttonClicked:(id)sender {

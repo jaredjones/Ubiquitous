@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 
     [self initTableData];
     self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f];
@@ -89,13 +88,12 @@
     titleLabel.text = @"Contacts";
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    //titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     _titleLabel = titleLabel;
 }
 
 -(void)setSearchBar:(UISearchBar *)searchBar {
-    searchBar.placeholder = @"Search for Contact or Tag";
+    searchBar.placeholder = @"Search for Contact";
     searchBar.barTintColor = [UIColor colorWithRed:116.0/255.0f green:114.0/255.0f blue:120.0/255.0 alpha:0.0f];
     
     _searchBar = searchBar;
@@ -110,6 +108,7 @@
 -(void)setSectionTitles:(NSMutableArray *)sectionTitles {
     _contactSectionTitles = [[NSMutableArray alloc] init];
     
+    //get first letter of lastname of each contact, if it has not been added as a section title before then do so
     NSString *letterString = nil;
     for (_currentContact in _searchResults) {
         unichar letter = [_currentContact.lname characterAtIndex:0];
@@ -118,6 +117,18 @@
             [_contactSectionTitles addObject:letterString];
         }
     }
+}
+
+-(NSUInteger)findIndexOfContactWithName:(NSString *)contactName {
+    NSUInteger index = 0;
+    NSArray *name = [contactName componentsSeparatedByString:@" "];
+    for (int i=0; i < [_contacts count]; i++) {
+        User *u = [_contacts objectAtIndex:i];
+        if ([u.fname isEqualToString:[name objectAtIndex:0]] && [u.lname isEqualToString:[name objectAtIndex:1]]) {
+            index = i;
+        }
+    }
+    return index;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -160,6 +171,7 @@
     NSString *letterString = nil;
     NSMutableArray *users = [[NSMutableArray alloc] init];
     
+    //load the cell in the corresponding section
     for (_currentContact in _searchResults) {
         unichar letter = [_currentContact.lname characterAtIndex:0];
         letterString = [NSString stringWithCharacters:&letter length:1];
@@ -210,14 +222,7 @@
 #pragma Contact List Table Cell Delegate
 
 -(void)deleteButtonActionForContact:(NSString *)contactName {
-    NSUInteger index = 0;
-    NSArray *name = [contactName componentsSeparatedByString:@" "];
-    for (int i=0; i < [_contacts count]; i++) {
-        User *u = [_contacts objectAtIndex:i];
-        if ([u.fname isEqualToString:[name objectAtIndex:0]] && [u.lname isEqualToString:[name objectAtIndex:1]]) {
-            index = i;
-        }
-    }
+    NSUInteger index = [self findIndexOfContactWithName:contactName];
     
     //update model
     [_contacts removeObjectAtIndex:index];
