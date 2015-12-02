@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
-- (UIColor*)colorPickerForNameLabel:(NSNumber *)theColorChoiceChoosen;
+//- (UIColor*)colorPickerForNameLabel:(NSNumber *)theColorChoiceChoosen;
 @end
