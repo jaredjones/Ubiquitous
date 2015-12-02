@@ -56,7 +56,7 @@
     [_contacts addObject:user];
     user = [[User alloc] initWithUser:@"fish432" withEmail:@"fish432@gmail.com" withFirstName:@"Kylie" withLastName:@"Oliver" withProfileDesc:@"I'm pretty." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"fish432" withEmail:@"fish432@gmail.com" withFirstName:@"Kylie" withLastName:@"Oliver" withProfileDesc:@"I'm pretty." ];
+    user = [[User alloc] initWithUser:@"buffGuy812" withEmail:@"buffGuy@gmail.com" withFirstName:@"Dillon" withLastName:@"Harper" withProfileDesc:@"Making sexy movies with Tim." ];
     [_contacts addObject:user];
     user = [[User alloc] initWithUser:@"rubberducky" withEmail:@"rubberducky@gmail.com" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"I like ducks." ];
     [_contacts addObject:user];
