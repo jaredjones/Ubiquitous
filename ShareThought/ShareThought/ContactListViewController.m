@@ -77,6 +77,7 @@
     [self setSectionTitles:_contactSectionTitles];
     
     _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
+    
 }
 
 -(void)didReceiveMemoryWarning {
@@ -214,6 +215,7 @@
     cell.delegate = self;
     
     //In order to change the color go to the ContactTabelViewCell.m
+    
     cell.backgroundColor = [UIColor colorWithRed:54/255.0f green:58/255.0f blue:64/255.0f alpha:1.0f];
     return cell;
 }
@@ -222,6 +224,7 @@
     tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
     tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     tableView.superview.backgroundColor = [UIColor clearColor];
+    tableView.sectionIndexColor = [UIColor lightGrayColor];
     if ([_searchBar.text length] == 0) {
         return _contactIndexTitles;
     }
