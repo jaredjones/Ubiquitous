@@ -32,6 +32,7 @@ void WorldUpdate(int timeDiff);
 int serverSocket;
 User* *connections;
 
+
 int main(int argc, char **argv)
 {
     struct sockaddr_in serv_addr;
@@ -203,6 +204,9 @@ void WorldUpdate(int timeDiff)
         uint64 finalSize;
         char *packetData;
         struct LoginRegistrationPacketInfo lpInfo;
+        MYSQL_RES *mySQLQueryResult;
+        MYSQL_ROW row;
+        int numberOfRowsReturned;
         switch(op.OPCODE)
         {
             case CMSG_REGISTER:
@@ -226,10 +230,46 @@ void WorldUpdate(int timeDiff)
                 break;
             case CMSG_LOGIN:
                 printf("CMSG_LOGIN\n");
-                lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
-                
-                
-                
+                if(connections[i]->account == nullptr)
+                {
+                    lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
+                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password, lpInfo.FirstName, lpInfo.LastName, lpInfo.AboutUs);
+                    SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
+                    std::string s = "SELECT * FROM User WHERE EMAIL='" + lpInfo.Username + "' AND PASSWORD='" + lpInfo.Password + "';";
+                    
+                    //runs the query and checks if there is an error with the statment
+                    if(mysql_query(sqlMgr->MYSQL_CONNECTION, s.c_str()))
+                    {
+                        std::cout<<mysql_error(sqlMgr->MYSQL_CONNECTION)<<std::endl;
+                        mysql_close(sqlMgr->MYSQL_CONNECTION);
+                    }
+                    
+                    //Store result of sql query on success
+                    mySQLQueryResult = mysql_store_result(sqlMgr->MYSQL_CONNECTION);
+                    
+                    //If the query return NULL
+                    if(mySQLQueryResult == NULL)
+                    {
+                        std::cout<<mysql_error(sqlMgr->MYSQL_CONNECTION)<<std::endl;
+                    }
+                    
+                    //get the number of rows returned
+                    numberOfRowsReturned = mysql_num_fields(mySQLQueryResult);
+                    
+                    while((row = mysql_fetch_row(mySQLQueryResult)))
+                    {
+                        for(int i = 0; i < numberOfRowsReturned; i++)
+                        {
+                            printf("%s ", row[i] ? row[i] : "NULL");
+                        }
+                        printf("\n");
+                    }
+                    
+                    //Free the mysql connection
+                    mysql_free_result(mySQLQueryResult);
+                    mysql_close(sqlMgr->MYSQL_CONNECTION);
+                    
+                }
                 packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packetData, finalSize, NULL);
                 free(packetData);
