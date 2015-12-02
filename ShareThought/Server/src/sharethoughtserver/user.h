@@ -12,6 +12,7 @@ struct LoginRegistrationPacketInfo
     std::string Password;
     std::string FirstName;
     std::string LastName;
+    std::string Email;
     std::string AboutUs;
 }LoginRegistrationPacketInfo;
 
@@ -38,7 +39,7 @@ static struct LoginRegistrationPacketInfo GetUserInfoGivenLoginPacketData(const 
     memcpy(email, pData+1, emailLength);
     email[emailLength] = '\0';
     
-    lPInfo.Username = std::string(email);
+    lPInfo.Email = std::string(email);
     free(email);
     
     uint8_t passwordLength = *(pData + emailLength + 1);
@@ -84,7 +85,7 @@ static struct LoginRegistrationPacketInfo GetUserInfoGivenRegistrationPacketData
     
     char *username = (char*)malloc(usernameLength + 1);
     memcpy(username, pData + emailLength + passwordLength + firstNameLength + lastNameLength + aboutMeLength + 6, usernameLength);
-    aboutMe[usernameLength] = '\0';
+    username[usernameLength] = '\0';
     
     lPInfo.Username = std::string(username);
     free(username);

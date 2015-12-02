@@ -70,7 +70,7 @@
                         [[_registrationPassword text] length] != 0 &&
                         [[_firstNameField text] length] != 0 &&
                         [[_lastNameField text] length] != 0 &&
-                        [[_descriptionField text] length] != 0 );
+                        [[_descriptionField text] length] != 0);
     if (!allFilledIn){
         msg= [UIAlertController alertControllerWithTitle:@"Empty Field"
                                                  message:@"All fields are required in order to register!"

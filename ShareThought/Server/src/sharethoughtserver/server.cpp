@@ -217,16 +217,25 @@ void WorldUpdate(int timeDiff)
                     
                     lpInfo.Password = str2md5(hashedPass.c_str(), hashedPass.length());
                     connections[i]->account = new Account(lpInfo.Username, lpInfo.Password, lpInfo.FirstName, lpInfo.LastName, lpInfo.AboutUs);
+                    try {
+                        sql::PreparedStatement *pstmt;
+                        pstmt = SQLMGR->conn->prepareStatement("INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES (?,?,?,?,?,?)");
+                        pstmt->setString(1, lpInfo.Username);
+                        pstmt->setString(2, lpInfo.Password);
+                        pstmt->setString(3, lpInfo.Email);
+                        pstmt->setString(4, lpInfo.FirstName);
+                        pstmt->setString(5, lpInfo.LastName);
+                        pstmt->setString(6, lpInfo.AboutUs);
+                        pstmt->execute();
+                    } catch (sql::SQLException &e) {
+                        std::cout << "# ERR: SQLException in " << __FILE__;
+                        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+                        /* what() (derived from std::runtime_error) fetches error message */
+                        std::cout << "# ERR: " << e.what();
+                        std::cout << " (MySQL error code: " << e.getErrorCode();
+                        std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                    }
                     
-                    sql::PreparedStatement *pstmt;
-                    pstmt = SQLMGR->conn->prepareStatement("INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES (?,?,?,?,?,?)");
-                    pstmt->setString(1, lpInfo.Username);
-                    pstmt->setString(2, lpInfo.Password);
-                    pstmt->setString(3, lpInfo.Username);
-                    pstmt->setString(4, lpInfo.FirstName);
-                    pstmt->setString(5, lpInfo.LastName);
-                    pstmt->setString(6, lpInfo.AboutUs);
-                    pstmt->execute();
                 }
                 
                 break;
