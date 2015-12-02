@@ -10,6 +10,8 @@
 
 #import "ViewController.h"
 
+#import "DemoMessagesViewController.h"
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *backgroundVisualEffectView;
@@ -111,6 +113,12 @@
 }
 - (IBAction)loginButtonTapped:(id)sender {
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
+}
+- (IBAction)chatButtonTapped:(id)sender {
+    DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    vc.delegateModal = self;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
