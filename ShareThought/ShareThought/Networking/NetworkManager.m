@@ -127,6 +127,8 @@ Packet *tmp = nil;
         char *packetData;
         NSData *wData;
         
+        NSMutableArray *arr;
+        
         switch (tmp->OPCODE) {
             case SMSG_CONNECTED:
                 NSLog(@"Connected!");
@@ -142,7 +144,21 @@ Packet *tmp = nil;
                 break;
             case SMSG_SUCCESSFUL_LOGIN:
                 NSLog(@"SMSG_SUCCESSFUL_LOGIN");
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:self userInfo:@{@"SSO":[NSString stringWithUTF8String:[data bytes]]}];
+                
+                arr = [[NSMutableArray alloc]init];
+                for (int i = 0; i < [data length]; i++){
+                    char* loc = (char*)[data bytes];
+                    NSUInteger len = *(loc);
+                    
+                    char *str = malloc(len);
+                    strncpy(str, loc, len);
+                    
+                    [arr addObject:[NSString stringWithUTF8String:str]];
+                    free(str);
+                }
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:
+                 self userInfo:@{@"SSO":[NSString stringWithUTF8String:[data bytes]]}];
                 break;
             case SMSG_UNSUCCESSFUL_LOGIN:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailureInNotification" object:self];

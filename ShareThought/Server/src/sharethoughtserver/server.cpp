@@ -294,6 +294,7 @@ void WorldUpdate(int timeDiff)
                         if (resultSet->rowsCount() > 0){
                             char *guid = generateguid();
                             resultSet->first();
+                            
                             connections[i]->account = new Account(resultSet->getString("USERNAME"),
                                                                   resultSet->getString("PASSWORD"),
                                                                   resultSet->getString("EMAIL"),
@@ -307,7 +308,16 @@ void WorldUpdate(int timeDiff)
                             pstmt->setString(2, resultSet->getString("USER_ID"));
                             pstmt->execute();
                             
-                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 41, guid, &finalSize);
+                            char buf[1024];
+                            sprintf(buf, "%c%s%c%s%c%s%c%s%c%s%c%s",
+                                    (char)strlen(guid), guid,
+                            (char)connections[i]->account->username.length(), connections[i]->account->username.c_str(),
+                            (char)connections[i]->account->email.length(), connections[i]->account->email.c_str(),
+                            (char)connections[i]->account->fname.length(), connections[i]->account->fname.c_str(),
+                            (char)connections[i]->account->lname.length(), connections[i]->account->lname.c_str(),
+                            (char)connections[i]->account->aboutMe.length(), connections[i]->account->aboutMe.c_str());
+                            
+                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, (uint16_t)strlen(buf), buf, &finalSize);
                             send(connections[i]->SocketID, packetData, finalSize, 0);
                             free(guid);
                             free(packetData);
