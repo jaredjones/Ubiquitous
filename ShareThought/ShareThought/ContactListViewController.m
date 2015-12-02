@@ -30,7 +30,7 @@
     [super viewDidLoad];
 
     [self initTableData];
-    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f];
+    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:1.0f]; // DOES NOTHING
 }
 
 -(void)initTableData {
@@ -77,6 +77,7 @@
     [self setSectionTitles:_contactSectionTitles];
     
     _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
+    
 }
 
 -(void)didReceiveMemoryWarning {
@@ -86,15 +87,44 @@
 
 -(void)setTitleLabel:(UILabel *)titleLabel {
     titleLabel.text = @"Contacts";
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _titleLabel = titleLabel;
 }
 
 -(void)setSearchBar:(UISearchBar *)searchBar {
-    searchBar.placeholder = @"Search for Contact";
-    searchBar.barTintColor = [UIColor colorWithRed:116.0/255.0f green:114.0/255.0f blue:120.0/255.0 alpha:0.0f];
+    searchBar.placeholder = @"Search Contacts";
+    searchBar.tintColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
+    searchBar.barTintColor = [UIColor colorWithRed:37/255.0f green:42/255.0f blue:49/255.0f alpha:0.0f];
+    
+    //[searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"555555"] forState:UIControlStateNormal];
+    
+    for (UIView *subView in searchBar.subviews) {
+        for(id field in subView.subviews){
+            if ([field isKindOfClass:[UITextField class]]) {
+                UITextField *textField = (UITextField *)field;
+                //[textField setBackgroundColor:[UIColor grayColor]];
+                [textField setBackgroundColor:[UIColor colorWithRed:30/255.0f green:31/255.0f blue:33/255.0 alpha:1.0f]];
+            }
+        }
+    }
+    
+    for (id object in [[[searchBar subviews] objectAtIndex:0] subviews])
+    {
+        if ([object isKindOfClass:[UITextField class]])
+        {
+            UITextField *textFieldObject = (UITextField *)object;
+            
+
+            textFieldObject.layer.borderColor = [[UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f]CGColor];
+            textFieldObject.layer.cornerRadius=15.0f;
+            textFieldObject.layer.masksToBounds = YES;
+            textFieldObject.layer.borderWidth = 2.0;
+            textFieldObject.textColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
+            break;
+        }
+    }
     
     _searchBar = searchBar;
 }
@@ -184,10 +214,17 @@
     cell.contactDesc = u.profileDescription;
     cell.delegate = self;
     
+    //In order to change the color go to the ContactTabelViewCell.m
+    
+    cell.backgroundColor = [UIColor colorWithRed:54/255.0f green:58/255.0f blue:64/255.0f alpha:1.0f];
     return cell;
 }
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
+    tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    tableView.superview.backgroundColor = [UIColor clearColor];
+    tableView.sectionIndexColor = [UIColor lightGrayColor];
     if ([_searchBar.text length] == 0) {
         return _contactIndexTitles;
     }
