@@ -24,13 +24,14 @@
     return self;
 }
 
-- (instancetype)initWithUser: (NSString *)user withEmail: (NSString *)email withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) pDesc{
+- (instancetype)initWithUser: (NSString *)user withEmail: (NSString *)email withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) pDesc withProfilePic:(UIImage *)profilePic{
     if (self = [super init]){
         _email = email;
         _username = user;
         _fname = firstName;
         _lname = lastName;
         _profileDescription = pDesc;
+        _profilePic = nil;
         return self;
     }
     return nil;

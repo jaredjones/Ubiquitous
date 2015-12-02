@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C48a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r7-dj-Bjf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r7-dj-Bjf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwg-Ur-NGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-702" y="1177"/>
+            <point key="canvasLocation" x="-372" y="597"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Y4v-bk-QFc">
@@ -247,6 +247,14 @@
                                             <state key="normal" title="Contacts"/>
                                             <connections>
                                                 <segue destination="GzP-1M-8yy" kind="show" id="6W4-mn-x6y"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3S-sp-ZJe">
+                                            <rect key="frame" x="37" y="107" width="46" height="30"/>
+                                            <animations/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <segue destination="dti-En-VK5" kind="show" id="Uvg-eE-fJW"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -789,7 +797,8 @@
         <image name="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" width="990" height="742"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3EY-mN-WRy"/>
         <segue reference="cuQ-HD-fnt"/>
+        <segue reference="3EY-mN-WRy"/>
+        <segue reference="Uvg-eE-fJW"/>
     </inferredMetricsTieBreakers>
 </document>

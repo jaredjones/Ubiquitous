@@ -54,7 +54,7 @@
     [_friendsButton setButtonLabelString:@"Friends"];
     [_numberOfFriendsButton setButtonLabelString:@"About"];
    
-    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
+    [_profileTopView changeProfilePhoto:[_user profilePic]];
     [_profileTopView setUsername:[_user username]];
     [_profileTopView setName:[[[_user fname] stringByAppendingString:@" "] stringByAppendingString:[_user lname]]];
     
@@ -96,7 +96,7 @@
 }
 
 - (void)photoTapped: (UITapGestureRecognizer *)tap{
-    if ([User me] == _user){
+    //if ([User me] == _user){
         NSLog(@"Tapped");
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -104,14 +104,14 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         [self presentViewController:picker animated:YES completion:NULL];
-    }
+    //}
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    
+    _user.profilePic = chosenImage;
     [_profileTopView changeProfilePhoto:chosenImage];
-    
+    _user.profilePic = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 

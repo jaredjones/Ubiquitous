@@ -37,7 +37,7 @@
 
 -(void)initTableData {
     _contacts = [[NSMutableArray alloc] init];          //load the contacts with dummy data
-    
+    /*
     User *user = [[User alloc] initWithUser:@"coolkid111" withEmail:@"user1@gmail.com" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"I'm a cool guy."];
     [_contacts addObject:user];
     user = [[User alloc] initWithUser:@"tdik543" withEmail:@"tdik543@gmail.com" withFirstName:@"Tim" withLastName:@"Dickson" withProfileDesc:@"Lost cause..." ];
@@ -60,7 +60,7 @@
     [_contacts addObject:user];
     user = [[User alloc] initWithUser:@"rubberducky" withEmail:@"rubberducky@gmail.com" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"I like ducks." ];
     [_contacts addObject:user];
-    
+    */
     //sort contacts by last name and then first name
     NSSortDescriptor *lnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lname" ascending:YES];
     NSSortDescriptor *fnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"fname" ascending:YES];

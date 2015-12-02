@@ -167,7 +167,8 @@ Packet *tmp = nil;
                                            withEmail:[arr objectAtIndex:2]
                                            withFirstName:[arr objectAtIndex:3]
                                            withLastName:[arr objectAtIndex:4]
-                                           withProfileDesc:[arr objectAtIndex:5]]}];
+                                           withProfileDesc:[arr objectAtIndex:5]
+                                           withProfilePic:[arr objectAtIndex:6]]}];
                 break;
             case SMSG_UNSUCCESSFUL_LOGIN:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailureInNotification" object:self];
