@@ -18,13 +18,14 @@
 #include <thread>
 #include <unordered_map>
 
-#include "config.h"
-#include "timer.h"
-#include "user.h"
-#include "packet.h"
+#include "Common.h"
+#include "Config.h"
+#include "Timer.h"
+#include "User.h"
+#include "Packet.h"
 
 //#include <mysql/mysql.h>
-#include "sqlConnectionManager.h"
+#include "SQLConnectionManager.h"
 
 void WorldUpdateLoop();
 void WorldUpdate(int timeDiff);
@@ -86,8 +87,8 @@ int main(int argc, char **argv)
     }
     
     //Initalize and Connect to Database
-    SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
-    if (!sqlMgr->ConnectToDatabase())
+    
+    if (!SQLMGR->ConnectToDatabase())
     {
         printf("Unable to Connect to the MariaDB Database!\n");
         return 1;
@@ -201,26 +202,40 @@ void WorldUpdate(int timeDiff)
         if (op.OPCODE == 0x00)
             continue;
         
-        uint64 finalSize;
-        char *packetData;
+        
         struct LoginRegistrationPacketInfo lpInfo;
-        MYSQL_RES *mySQLQueryResult;
-        MYSQL_ROW row;
-        int numberOfRowsReturned;
+        
         switch(op.OPCODE)
         {
             case CMSG_REGISTER:
                 printf("CMSG_REGISTER\n");
                 if (connections[i]->account == nullptr){
                     lpInfo = GetUserInfoGivenRegistrationPacketData(op.DATA);
-
+                    
+                    std::string hashedPass = LOGIN_HASH_SALT_SHAKER;
+                    hashedPass += lpInfo.Password;
+                    
+                    lpInfo.Password = str2md5(hashedPass.c_str(), hashedPass.length());
                     connections[i]->account = new Account(lpInfo.Username, lpInfo.Password, lpInfo.FirstName, lpInfo.LastName, lpInfo.AboutUs);
+                    try {
+                        sql::PreparedStatement *pstmt;
+                        pstmt = SQLMGR->conn->prepareStatement("INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES (?,?,?,?,?,?)");
+                        pstmt->setString(1, lpInfo.Username);
+                        pstmt->setString(2, lpInfo.Password);
+                        pstmt->setString(3, lpInfo.Email);
+                        pstmt->setString(4, lpInfo.FirstName);
+                        pstmt->setString(5, lpInfo.LastName);
+                        pstmt->setString(6, lpInfo.AboutUs);
+                        pstmt->execute();
+                    } catch (sql::SQLException &e) {
+                        std::cout << "# ERR: SQLException in " << __FILE__;
+                        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+                        /* what() (derived from std::runtime_error) fetches error message */
+                        std::cout << "# ERR: " << e.what();
+                        std::cout << " (MySQL error code: " << e.getErrorCode();
+                        std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                    }
                     
-                    SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
-                    
-                    std::string s = "INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES ('" + lpInfo.Username + "','" + lpInfo.Password + "','" + lpInfo.Username + "','" + lpInfo.FirstName + "','" + lpInfo.LastName + "','" + lpInfo.AboutUs + "');";
-                    
-                    mysql_query(sqlMgr->MYSQL_CONNECTION, s.c_str());
                 }
                 
                 break;
@@ -230,49 +245,7 @@ void WorldUpdate(int timeDiff)
                 break;
             case CMSG_LOGIN:
                 printf("CMSG_LOGIN\n");
-                if(connections[i]->account == nullptr)
-                {
-                    lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
-                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password, lpInfo.FirstName, lpInfo.LastName, lpInfo.AboutUs);
-                    SqlConnectionManager *sqlMgr = SqlConnectionManager::getInstance();
-                    std::string s = "SELECT * FROM User WHERE EMAIL='" + lpInfo.Username + "' AND PASSWORD='" + lpInfo.Password + "';";
-                    
-                    //runs the query and checks if there is an error with the statment
-                    if(mysql_query(sqlMgr->MYSQL_CONNECTION, s.c_str()))
-                    {
-                        std::cout<<mysql_error(sqlMgr->MYSQL_CONNECTION)<<std::endl;
-                        mysql_close(sqlMgr->MYSQL_CONNECTION);
-                    }
-                    
-                    //Store result of sql query on success
-                    mySQLQueryResult = mysql_store_result(sqlMgr->MYSQL_CONNECTION);
-                    
-                    //If the query return NULL
-                    if(mySQLQueryResult == NULL)
-                    {
-                        std::cout<<mysql_error(sqlMgr->MYSQL_CONNECTION)<<std::endl;
-                    }
-                    
-                    //get the number of rows returned
-                    numberOfRowsReturned = mysql_num_fields(mySQLQueryResult);
-                    
-                    while((row = mysql_fetch_row(mySQLQueryResult)))
-                    {
-                        for(int i = 0; i < numberOfRowsReturned; i++)
-                        {
-                            printf("%s ", row[i] ? row[i] : "NULL");
-                        }
-                        printf("\n");
-                    }
-                    
-                    //Free the mysql connection
-                    mysql_free_result(mySQLQueryResult);
-                    mysql_close(sqlMgr->MYSQL_CONNECTION);
-                    
-                }
-                packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
-                send(connections[i]->SocketID, packetData, finalSize, NULL);
-                free(packetData);
+                
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);

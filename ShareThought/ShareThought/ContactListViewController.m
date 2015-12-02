@@ -9,6 +9,7 @@
 #import "ContactListViewController.h"
 #import "User.h"
 #import "ContactListTableViewCell.h"
+#import "DemoMessagesViewController.h"
 
 @interface ContactListViewController () <ContactListTableCellDelegate>
 
@@ -31,7 +32,7 @@
     [super viewDidLoad];
     _colorPicker = @0;
     [self initTableData];
-    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f]; // DOES NOTHING
+    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:1.0f]; // DOES NOTHING
 }
 
 -(void)initTableData {
@@ -78,6 +79,7 @@
     [self setSectionTitles:_contactSectionTitles];
     
     _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
+    
 }
 
 -(void)didReceiveMemoryWarning {
@@ -215,7 +217,9 @@
     cell.contactDesc = u.profileDescription;
     cell.delegate = self;
     
-    //In order to change the color go to the ContactTabelViewCell.m 
+    //In order to change the color go to the ContactTabelViewCell.m
+    
+    cell.backgroundColor = [UIColor colorWithRed:54/255.0f green:58/255.0f blue:64/255.0f alpha:1.0f];
     return cell;
 }
 /*- (UIColor*)colorPickerForNameLabel:(NSNumber *)theColorChoiceChoosen{
@@ -244,6 +248,10 @@
 }*/
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
+    tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    tableView.superview.backgroundColor = [UIColor clearColor];
+    tableView.sectionIndexColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f]; // FOnt color
     if ([_searchBar.text length] == 0) {
         return _contactIndexTitles;
     }
@@ -290,8 +298,10 @@
     [_contactTableView reloadData];
 }
 
--(void)editButtonActionForContact:(NSString *)contactName {
-    NSLog(@"edit button for %@", contactName);                     //need to implement editing
+-(void)chatButtonAction:(id)sender withContactName:(NSString *)contactName {
+    DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 /*

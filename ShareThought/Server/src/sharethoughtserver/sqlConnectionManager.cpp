@@ -1,13 +1,12 @@
-#include "SqlConnectionManager.h"
-#include "config.h"
+#include "SQLConnectionManager.h"
 
-SqlConnectionManager* SqlConnectionManager::getInstance()
+SQLConnectionManager* SQLConnectionManager::getInstance()
 {
-    static SqlConnectionManager *sqlMgr = new SqlConnectionManager();
+    static SQLConnectionManager *sqlMgr = new SQLConnectionManager();
     return sqlMgr;
 }
 
-SqlConnectionManager::SqlConnectionManager()
+SQLConnectionManager::SQLConnectionManager()
 {
     SERVER_NAME = "gaea.uvora.com";
     LOGIN = "tdickson";
@@ -16,22 +15,36 @@ SqlConnectionManager::SqlConnectionManager()
     MYSQL_PORT_NUMBER = 3306;
 }
 
-bool SqlConnectionManager::ConnectToDatabase()
+bool SQLConnectionManager::ConnectToDatabase()
 {
-    //Set connection to null
-    MYSQL_CONNECTION = mysql_init(NULL);
-    
-    //Establish SQL Connection
-    if(!mysql_real_connect(MYSQL_CONNECTION, SERVER_NAME, LOGIN, PASSWORD, DATABASE_NAME, MYSQL_PORT_NUMBER, NULL, 0))
-    {
-        std::cout<<"CONNECTION TO DATABASE FAILED!\n";
-        std::cout<<mysql_error(MYSQL_CONNECTION)<<std::endl;
-        return false;
+    try {
+        driver = get_driver_instance();
+        std::string s = "tcp://";
+        s+=  SERVER_NAME;
+        s+= ":";
+        s+= MYSQL_PORT_NUMBER;
         
+        conn = driver->connect(s.c_str(), LOGIN, PASSWORD);
+        
+        conn->setSchema(DATABASE_NAME);
+        
+    } catch (sql::SQLException &e) {
+        /*
+         MySQL Connector/C++ throws three different exceptions:
+         
+         - sql::MethodNotImplementedException (derived from sql::SQLException)
+         - sql::InvalidArgumentException (derived from sql::SQLException)
+         - sql::SQLException (derived from std::runtime_error)
+         */
+        std::cout << "# ERR: SQLException in " << __FILE__;
+        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+        /* what() (derived from std::runtime_error) fetches error message */
+        std::cout << "# ERR: " << e.what();
+        std::cout << " (MySQL error code: " << e.getErrorCode();
+        std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+        
+        return EXIT_FAILURE;
     }
-    else
-    {
-        std::cout<<"CONNECTION TO DATABASE SUCCESS!\n";
-        return true;
-    }
+    std::cout << "Connection to Database Successful!" << std::endl;
+    return true;
 }
