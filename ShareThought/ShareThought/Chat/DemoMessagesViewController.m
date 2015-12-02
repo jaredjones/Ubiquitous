@@ -39,11 +39,11 @@
     self.view.backgroundColor = [UIColor colorWithRed:38.0/255.0f green:42.0/255.0f blue:49.0/255.0f alpha:1.0f];
     self.collectionView.backgroundColor = [UIColor colorWithRed:38.0/255.0f green:42.0/255.0f blue:49.0/255.0f alpha:1.0f];
     
-    CGRect navBarbounds = self.navigationController.navigationBar.bounds;
+    /*CGRect navBarbounds = self.navigationController.navigationBar.bounds;
     navBarbounds.origin.y -= 20;
     navBarbounds.size.height += 20;
     
-    /*
+    
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView * visualEffectViewNavBar = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     
