@@ -11,7 +11,7 @@
 
 @interface ContactListTableViewCell ()
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
-@property (nonatomic, weak) IBOutlet UIButton *editButton;
+@property (nonatomic, weak) IBOutlet UIButton *chatButton;
 
 @property (nonatomic, weak) IBOutlet UIView *contactDisplayView;
 @property (nonatomic, weak) IBOutlet UIImageView *contactImageView;
@@ -42,9 +42,9 @@
     _deleteButton = deleteButton;
 }
 
--(void)setEditButton:(UIButton *)editButton {
-    editButton.backgroundColor = [UIColor colorWithRed:125.0/255.0f green:250.0/255.0f blue:164.0/255.0f alpha:1.0f];
-    _editButton = editButton;
+-(void)setChatButton:(UIButton *)chatButton {
+    [chatButton setBackgroundImage:[UIImage imageNamed:@"chaticon.png"] forState:UIControlStateNormal];
+    _chatButton = chatButton;
 }
 
 -(void)setContactDisplayView:(UIView *)contactDisplayView {
@@ -78,14 +78,14 @@
     if (sender == _deleteButton) {
         [_delegate deleteButtonActionForContact:_contactName];
     }
-    else if (sender == _editButton) {
-        [_delegate editButtonActionForContact:_contactName];
+    else if (sender == _chatButton) {
+        [_delegate chatButtonAction:sender withContactName:_contactName];
     }
 }
 
 -(void)swipeRightWithGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
     [UIView animateWithDuration:0.5 animations:^{
-        _contactDisplayView.frame = CGRectOffset(_contactDisplayView.frame, _editButton.frame.size.width, 0.0);
+        _contactDisplayView.frame = CGRectOffset(_contactDisplayView.frame, _chatButton.frame.size.width, 0.0);
     }];
 }
 
