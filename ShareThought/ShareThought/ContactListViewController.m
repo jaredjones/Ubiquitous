@@ -117,7 +117,7 @@
             
 
             textFieldObject.layer.borderColor = [[UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f]CGColor];
-            textFieldObject.layer.cornerRadius=6.0f;
+            textFieldObject.layer.cornerRadius=15.0f;
             textFieldObject.layer.masksToBounds = YES;
             textFieldObject.layer.borderWidth = 2.0;
             textFieldObject.textColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
