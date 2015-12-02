@@ -38,33 +38,27 @@
 -(void)initTableData {
     _contacts = [[NSMutableArray alloc] init];          //load the contacts with dummy data
     
-    User *user = [[User alloc] initWithUser:@"user1@mail.com" withPassword:@"password1" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"desc"];
+    User *user = [[User alloc] initWithUser:@"coolkid111" withEmail:@"user1@gmail.com" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"I'm a cool guy."];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user2@mail.com" withPassword:@"password2" withFirstName:@"Isaac" withLastName:@"Ford" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"tdik543" withEmail:@"tdik543@gmail.com" withFirstName:@"Tim" withLastName:@"Dickson" withProfileDesc:@"Lost cause..." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user3@mail.com" withPassword:@"password3" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"oatman" withEmail:@"oatman@gmail.com" withFirstName:@"Jared" withLastName:@"AssHat" withProfileDesc:@"As long as it looks pretty." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user4@mail.com" withPassword:@"password4" withFirstName:@"McKenzie" withLastName:@"Mitchell" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"towelie224" withEmail:@"towelie224@gmail.com" withFirstName:@"Faysal" withLastName:@"AssHat#2" withProfileDesc:@"Tim do something pointless." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user5@mail.com" withPassword:@"password5" withFirstName:@"Stephanie" withLastName:@"Welch" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"coder339" withEmail:@"coder339@gmail.com" withFirstName:@"Aidaly" withLastName:@"Santamaria" withProfileDesc:@" :D " ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user6@mail.com" withPassword:@"password6" withFirstName:@"Kylie" withLastName:@"Oliver" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"shipme897" withEmail:@"shipme897@gmail.com" withFirstName:@"Stefan" withLastName:@"Theard" withProfileDesc:@"Just ship it..." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user7" withPassword:@"password7" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"dog678" withEmail:@"dog678@gmail.com" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"idk" ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user8" withPassword:@"password8" withFirstName:@"Thomas" withLastName:@"Everett" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"cat876" withEmail:@"cat876@gmail.com" withFirstName:@"Isacc" withLastName:@"Derman" withProfileDesc:@"hi" ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user9" withPassword:@"password9" withFirstName:@"Omar" withLastName:@"Wilson" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"fish432" withEmail:@"fish432@gmail.com" withFirstName:@"Kylie" withLastName:@"Oliver" withProfileDesc:@"I'm pretty." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user10" withPassword:@"password10" withFirstName:@"Harding" withLastName:@"Leach" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"buffGuy812" withEmail:@"buffGuy@gmail.com" withFirstName:@"Dillon" withLastName:@"Harper" withProfileDesc:@"Making sexy movies with Tim." ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user11" withPassword:@"password11" withFirstName:@"Brody" withLastName:@"Eaton" withProfileDesc:@"desc"];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user12" withPassword:@"password12" withFirstName:@"David" withLastName:@"Stuart" withProfileDesc:@"desc"];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user13" withPassword:@"password13" withFirstName:@"Mark" withLastName:@"Beach" withProfileDesc:@"desc"];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"user14" withPassword:@"password14" withFirstName:@"Michael" withLastName:@"Copeland" withProfileDesc:@"desc"];
+    user = [[User alloc] initWithUser:@"rubberducky" withEmail:@"rubberducky@gmail.com" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"I like ducks." ];
     [_contacts addObject:user];
     
     //sort contacts by last name and then first name
@@ -132,8 +126,7 @@
 }
 
 -(void)setContactTableView:(UITableView *)contactTableView {
-    contactTableView.backgroundColor = [UIColor darkGrayColor];
-    
+    contactTableView.backgroundColor = [UIColor colorWithRed:36/255.0f green:40/255.0f blue:47/255.0f alpha:1.0f];
     _contactTableView = contactTableView;
 }
 
@@ -192,6 +185,15 @@
     return counter;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
+    // Background color
+    //view.tintColor = [UIColor blackColor];
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor: [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f]];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContactListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell" forIndexPath:indexPath];
     
@@ -202,7 +204,7 @@
     NSString *sectionTitle = [_contactSectionTitles objectAtIndex:indexPath.section];
     NSString *letterString = nil;
     NSMutableArray *users = [[NSMutableArray alloc] init];
-    
+    [tableView setSeparatorColor:[UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f]];
     //load the cell in the corresponding section
     for (_currentContact in _searchResults) {
         unichar letter = [_currentContact.lname characterAtIndex:0];
@@ -215,6 +217,7 @@
     cell.contactName = [u.fname stringByAppendingFormat:@" %@", u.lname];
     //cell.theLabelColor = [self colorPickerForNameLabel: _colorPicker];
     cell.contactDesc = u.profileDescription;
+    
     cell.delegate = self;
     
     //In order to change the color go to the ContactTabelViewCell.m

@@ -49,6 +49,8 @@
 
 -(void)setDeleteButton:(UIButton *)deleteButton {
     deleteButton.backgroundColor = [UIColor redColor];
+    deleteButton.layer.cornerRadius = 10.0f;
+    deleteButton.layer.masksToBounds = YES;
     _deleteButton = deleteButton;
 }
 
