@@ -132,8 +132,7 @@
 }
 
 -(void)setContactTableView:(UITableView *)contactTableView {
-    contactTableView.backgroundColor = [UIColor darkGrayColor];
-    
+    contactTableView.backgroundColor = [UIColor colorWithRed:36/255.0f green:40/255.0f blue:47/255.0f alpha:1.0f];
     _contactTableView = contactTableView;
 }
 
@@ -192,6 +191,15 @@
     return counter;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
+    // Background color
+    //view.tintColor = [UIColor blackColor];
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor: [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f]];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContactListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell" forIndexPath:indexPath];
     
@@ -202,7 +210,7 @@
     NSString *sectionTitle = [_contactSectionTitles objectAtIndex:indexPath.section];
     NSString *letterString = nil;
     NSMutableArray *users = [[NSMutableArray alloc] init];
-    
+    [tableView setSeparatorColor:[UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f]];
     //load the cell in the corresponding section
     for (_currentContact in _searchResults) {
         unichar letter = [_currentContact.lname characterAtIndex:0];
@@ -215,6 +223,7 @@
     cell.contactName = [u.fname stringByAppendingFormat:@" %@", u.lname];
     //cell.theLabelColor = [self colorPickerForNameLabel: _colorPicker];
     cell.contactDesc = u.profileDescription;
+    
     cell.delegate = self;
     
     //In order to change the color go to the ContactTabelViewCell.m
