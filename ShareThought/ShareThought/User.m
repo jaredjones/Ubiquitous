@@ -45,6 +45,23 @@
     [aCoder encodeObject:_profileDescription forKey:@"profileDescription"];
 }
 
++ (NSArray *)convertPacketDataToStringArray:(NSData *)data{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [data length];){
+        char* loc = (char*)[data bytes];
+        NSUInteger len = *(loc + i);
+        
+        char *str = malloc(len+1);
+        strncpy(str, (loc + i + 1), len);
+        *(str + len) = 0;
+        
+        [arr addObject:[NSString stringWithUTF8String:str]];
+        free(str);
+        i+=len +1;
+    }
+    return arr;
+}
+
 + (BOOL)doesEmailExist: (NSString *) email{
     NSArray *userArray = [User retrieveDataFromNSUserDefaults];
     for (User *u in userArray){

@@ -105,7 +105,8 @@
     if ([[notification name] isEqualToString:@"LoggedInNotification"]){
         NSLog (@"You have logged in!");
         NSString *sso = [[notification userInfo] objectForKey:@"SSO"];
-        NSLog(@"SSO:%@", sso);
+        User *user = [[notification userInfo] objectForKey:@"User"];
+        
     }
     if ([[notification name] isEqualToString:@"LoginFailureInNotification"]){
         UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Login Failed"

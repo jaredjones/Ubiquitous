@@ -10,6 +10,7 @@
 
 #import "CocoaAsyncSocket.h"
 #import "NetworkManager.h"
+#import "User.h"
 
 @interface NetworkManager()
 {
@@ -127,7 +128,7 @@ Packet *tmp = nil;
         char *packetData;
         NSData *wData;
         
-        NSMutableArray *arr;
+        NSArray *arr;
         
         switch (tmp->OPCODE) {
             case SMSG_CONNECTED:
@@ -145,20 +146,16 @@ Packet *tmp = nil;
             case SMSG_SUCCESSFUL_LOGIN:
                 NSLog(@"SMSG_SUCCESSFUL_LOGIN");
                 
-                arr = [[NSMutableArray alloc]init];
-                for (int i = 0; i < [data length]; i++){
-                    char* loc = (char*)[data bytes];
-                    NSUInteger len = *(loc);
-                    
-                    char *str = malloc(len);
-                    strncpy(str, loc, len);
-                    
-                    [arr addObject:[NSString stringWithUTF8String:str]];
-                    free(str);
-                }
+                arr = [User convertPacketDataToStringArray:data];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:
-                 self userInfo:@{@"SSO":[NSString stringWithUTF8String:[data bytes]]}];
+                 self userInfo:@{@"SSO":[arr objectAtIndex:0],
+                                 @"User": [[User alloc]
+                                           initWithUser:[arr objectAtIndex:1]
+                                           withEmail:[arr objectAtIndex:2]
+                                           withFirstName:[arr objectAtIndex:3]
+                                           withLastName:[arr objectAtIndex:4]
+                                           withProfileDesc:[arr objectAtIndex:5]]}];
                 break;
             case SMSG_UNSUCCESSFUL_LOGIN:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailureInNotification" object:self];

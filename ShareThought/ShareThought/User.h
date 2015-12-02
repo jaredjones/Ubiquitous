@@ -18,6 +18,7 @@
 
 
 - (instancetype)initWithUser: (NSString *)user withEmail: (NSString *)email withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) pDesc;
++ (NSArray *)convertPacketDataToStringArray: (NSData *)data;
 + (BOOL)doesEmailExist: (NSString*) email;
 + (NSArray*) retrieveDataFromNSUserDefaults;
 + (void)storeDataInNSUserDefaults:(User *)userToStore;
