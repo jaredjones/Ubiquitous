@@ -52,8 +52,15 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(handleSingleTapOnScrollView:)];
     [_chatScrollView addGestureRecognizer:singleFingerTap];
-    
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [_chatScrollView setContentSize:_chatScrollView.frame.size];
+}
+
+- (void)viewDidLayoutSubviews{
+    
 }
 
 - (void)replaceMessageTextWithPlaceholder {
@@ -87,6 +94,24 @@
     [_textEntryAndSubmitView layoutIfNeeded];
 }
 
+- (void)scrollChatViewToBottom: (UIScrollView *)v{
+    CGPoint bottomOffset = CGPointMake(0, v.contentSize.height - v.bounds.size.height);
+    [v setContentOffset:bottomOffset animated:YES];
+}
+
+- (void)addMessageToView:(NSString *)message{
+    CGSize cSize = _chatScrollView.contentSize;
+    cSize.height += 20.0f;
+    
+    [_chatScrollView setContentSize:cSize];
+    
+    UIView *mBox = [[UIView alloc]initWithFrame:CGRectMake(5.0, _chatScrollView.contentSize.height - 20, 50, 20)];
+    [mBox setBackgroundColor:[UIColor greenColor]];
+    
+    //[_chatScrollView setContentSize:CGSizeMake(_chatScrollView.frame.size.width, 1000)];
+    [_chatScrollView addSubview:mBox];
+}
+
 - (void)keyboardWillShow: (NSNotification *) notification{
     
     NSDictionary *info = [notification userInfo];
@@ -97,6 +122,8 @@
     [UIView animateWithDuration:1.0 animations:^{
         [_chatScrollViewBottomConstraint setConstant:keyboardFrame.size.height];
         [_textEntryAndSubmitView layoutIfNeeded];
+    }completion:^ (BOOL finished){
+        [self scrollChatViewToBottom:_chatScrollView];
     }];
 }
 
@@ -104,6 +131,8 @@
     [UIView animateWithDuration:1.0 animations:^{
         [_chatScrollViewBottomConstraint setConstant:0];
         [_textEntryAndSubmitView layoutIfNeeded];
+    }completion:^ (BOOL finished){
+        [self scrollChatViewToBottom:_chatScrollView];
     }];
 }
 
@@ -117,6 +146,8 @@
 }
 
 - (IBAction)sendMessagedPressed:(id)sender {
+    [self addMessageToView:@""];
+    [self scrollChatViewToBottom:_chatScrollView];
 }
 
 
