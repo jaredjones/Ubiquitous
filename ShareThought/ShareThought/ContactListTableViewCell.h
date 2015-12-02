@@ -11,7 +11,7 @@
 @protocol ContactListTableCellDelegate <NSObject>
 
 -(void)deleteButtonActionForContact:(NSString *)contactName;
--(void)editButtonActionForContact:(NSString *)contactName;
+-(void)chatButtonAction:(id)sender withContactName:(NSString *)contactName;
 
 @end
 

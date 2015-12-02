@@ -9,6 +9,7 @@
 #import "ContactListViewController.h"
 #import "User.h"
 #import "ContactListTableViewCell.h"
+#import "DemoMessagesViewController.h"
 
 @interface ContactListViewController () <ContactListTableCellDelegate>
 
@@ -271,8 +272,10 @@
     [_contactTableView reloadData];
 }
 
--(void)editButtonActionForContact:(NSString *)contactName {
-    NSLog(@"edit button for %@", contactName);                     //need to implement editing
+-(void)chatButtonAction:(id)sender withContactName:(NSString *)contactName {
+    DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 /*
