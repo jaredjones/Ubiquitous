@@ -116,7 +116,6 @@
 }
 - (IBAction)chatButtonTapped:(id)sender {
     DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
-    vc.delegateModal = self;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nc animated:YES completion:nil];
 }

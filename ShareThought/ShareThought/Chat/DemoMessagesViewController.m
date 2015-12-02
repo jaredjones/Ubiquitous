@@ -370,13 +370,14 @@
 
 - (void)didPressAccessoryButton:(UIButton *)sender
 {
+    /*
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Media messages"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                          destructiveButtonTitle:nil
                                               otherButtonTitles:@"Send photo", @"Send location", @"Send video", nil];
     
-    [sheet showFromToolbar:self.inputToolbar];
+    [sheet showFromToolbar:self.inputToolbar];*/
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -591,13 +592,13 @@
 - (void)customAction:(id)sender
 {
     NSLog(@"Custom action received! Sender: %@", sender);
-    
+    /*
     [[[UIAlertView alloc] initWithTitle:@"Custom Action"
                                 message:nil
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil]
-     show];
+     show];*/
 }
 
 
