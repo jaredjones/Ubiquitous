@@ -137,6 +137,11 @@ void WorldUpdate(int timeDiff)
     auto now = std::chrono::steady_clock::now().time_since_epoch();
     auto currentTimeSinceEpoch = std::chrono::duration_cast<std::chrono::milliseconds>(now).count();
     
+    //Make sure MySQL is alive
+    if (SQLMGR->conn->isClosed()){
+        SQLMGR->ConnectToDatabase();
+    }
+    
     int clientID = accept(serverSocket, (struct sockaddr *)NULL, NULL);
     if (clientID != -1)
     {
@@ -220,6 +225,18 @@ void WorldUpdate(int timeDiff)
                     
                     try {
                         sql::PreparedStatement *pstmt;
+                        
+                        pstmt = SQLMGR->conn->prepareStatement("SELECT * FROM User WHERE USERNAME = ?");
+                        pstmt->setString(1, lpInfo.Username);
+                        sql::ResultSet *resultSet = pstmt->executeQuery();
+                        
+                        if (resultSet->rowsCount() > 0){
+                            printf("SMSG_ACCOUNT_ALREADY_EXISTS\n");
+                            packetData = ConstructPacket(SMSG_ACCOUNT_ALREADY_EXISTS, 0, NULL, &finalSize);
+                            send(connections[i]->SocketID, packetData, finalSize, 0);
+                            return;
+                        }
+                        
                         pstmt = SQLMGR->conn->prepareStatement("INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES (?,?,?,?,?,?)");
                         pstmt->setString(1, lpInfo.Username);
                         pstmt->setString(2, lpInfo.Password);
@@ -229,15 +246,6 @@ void WorldUpdate(int timeDiff)
                         pstmt->setString(6, lpInfo.AboutUs);
                         pstmt->execute();
                     } catch (sql::SQLException &e) {
-                        
-                        //Duplicate Account
-                        if (e.getErrorCode() == 1062){
-                            printf("SMSG_ACCOUNT_ALREADY_EXISTS\n");
-                            packetData = ConstructPacket(SMSG_ACCOUNT_ALREADY_EXISTS, 0, NULL, &finalSize);
-                            send(connections[i]->SocketID, packetData, finalSize, 0);
-                            return;
-                        }
-                        
                         std::cout << "# ERR: SQLException in " << __FILE__;
                         std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
                         /* what() (derived from std::runtime_error) fetches error message */

@@ -59,6 +59,10 @@
     [self.registrationPassword resignFirstResponder];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [_verifyRegistration setEnabled:YES];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -77,7 +81,6 @@
         
         [msg addAction:defaultAction];
         [self presentViewController:msg animated:YES completion:nil];
-        return;
     }
     
     if ([[notification name] isEqualToString:@"RegistrationNotificationAlreadyExists"]){
@@ -89,6 +92,7 @@
         [msg addAction:defaultAction];
         [self presentViewController:msg animated:YES completion:nil];
     }
+    [_verifyRegistration setEnabled:YES];
 }
 
 - (IBAction)registrationButtonPressed:(id)sender {
@@ -139,8 +143,8 @@
         return;
     }
     
-    [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
-    
+    [[NetworkManager sharedManager] registerWithEmail:[_registrationEmail.text lowercaseString] withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
+    [_verifyRegistration setEnabled:NO];
     /*User *u = [[User alloc]initWithUser:[_registrationEmail text] withPassword:[_registrationPassword text] withFirstName:[_firstNameField text] withLastName:[_lastNameField text] withProfileDesc:[_descriptionField text]];
     [User storeDataInNSUserDefaults:u];
     
@@ -152,6 +156,7 @@
 -(void) myButtonChange: (UIButton*) btn
 {
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateDisabled];
     
     CAGradientLayer *btnGradient = [CAGradientLayer layer];
     btnGradient.frame = btn.bounds;

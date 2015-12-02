@@ -3,6 +3,7 @@
 SQLConnectionManager* SQLConnectionManager::getInstance()
 {
     static SQLConnectionManager *sqlMgr = new SQLConnectionManager();
+    sqlMgr->driver = get_driver_instance();
     return sqlMgr;
 }
 
@@ -18,7 +19,6 @@ SQLConnectionManager::SQLConnectionManager()
 bool SQLConnectionManager::ConnectToDatabase()
 {
     try {
-        driver = get_driver_instance();
         std::string s = "tcp://";
         s+=  SERVER_NAME;
         s+= ":";
