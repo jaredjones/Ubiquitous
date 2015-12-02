@@ -29,7 +29,7 @@ endif()
 
 include(CheckPlatform)
 
-set(OPENSSL_EXPECTED_VERSION 1.0.2)
+set(OPENSSL_EXPECTED_VERSION 1.0.1)
 
 find_package(PCHSupport)
 find_package(OpenSSL ${OPENSSL_EXPECTED_VERSION} REQUIRED)
