@@ -93,8 +93,10 @@
 }
 
 -(void)setSearchBar:(UISearchBar *)searchBar {
-    searchBar.placeholder = @"Search for Contact";
-    searchBar.barTintColor = [UIColor colorWithRed:37/255.0f green:42/255.0f blue:49/255.0 alpha:0.0f];
+    searchBar.placeholder = @"Search Contacts";
+    searchBar.tintColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
+    searchBar.barTintColor = [UIColor colorWithRed:37/255.0f green:42/255.0f blue:49/255.0f alpha:0.0f];
+    
     //[searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"555555"] forState:UIControlStateNormal];
     
     for (UIView *subView in searchBar.subviews) {
@@ -104,6 +106,22 @@
                 //[textField setBackgroundColor:[UIColor grayColor]];
                 [textField setBackgroundColor:[UIColor colorWithRed:30/255.0f green:31/255.0f blue:33/255.0 alpha:1.0f]];
             }
+        }
+    }
+    
+    for (id object in [[[searchBar subviews] objectAtIndex:0] subviews])
+    {
+        if ([object isKindOfClass:[UITextField class]])
+        {
+            UITextField *textFieldObject = (UITextField *)object;
+            
+
+            textFieldObject.layer.borderColor = [[UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f]CGColor];
+            textFieldObject.layer.cornerRadius=6.0f;
+            textFieldObject.layer.masksToBounds = YES;
+            textFieldObject.layer.borderWidth = 2.0;
+            textFieldObject.textColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
+            break;
         }
     }
     
