@@ -33,6 +33,7 @@ include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${OPENSSL_INCLUDE_DIR}
 	${MYSQL_INCLUDE_DIR}
+	${MYSQLCONNECTORCPP_INCLUDE_DIR}
 )
 
 add_executable(sharethought_server
@@ -55,6 +56,7 @@ target_link_libraries(sharethought_server
   ${CMAKE_THREAD_LIBS_INIT}
   ${Boost_LIBRARIES}
   ${MYSQL_LIBRARY}
+  ${MYSQLCONNECTORCPP_LIBRARY}
 )
 
 

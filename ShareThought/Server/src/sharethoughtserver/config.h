@@ -5,6 +5,7 @@ static int const SERVER_PORT = 38205;
 static int const SERVER_CONNECTION_MAX_QUEUE = 4096;
 static int const SERVER_MAX_CONNECTIONS = 2048;
 static int const WORLD_SLEEP_CONST = 50;
+const char *LOGIN_HASH_SALT_SHAKER = "guasu8gya7g82asg891";
 
 typedef uint8_t uint8;
 typedef uint16_t uint16;
