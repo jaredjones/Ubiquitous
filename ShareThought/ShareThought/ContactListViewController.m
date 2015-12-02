@@ -9,6 +9,7 @@
 #import "ContactListViewController.h"
 #import "User.h"
 #import "ContactListTableViewCell.h"
+#import "DemoMessagesViewController.h"
 
 @interface ContactListViewController () <ContactListTableCellDelegate>
 
@@ -224,7 +225,7 @@
     tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
     tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     tableView.superview.backgroundColor = [UIColor clearColor];
-    tableView.sectionIndexColor = [UIColor lightGrayColor];
+    tableView.sectionIndexColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f]; // FOnt color
     if ([_searchBar.text length] == 0) {
         return _contactIndexTitles;
     }
@@ -271,8 +272,10 @@
     [_contactTableView reloadData];
 }
 
--(void)editButtonActionForContact:(NSString *)contactName {
-    NSLog(@"edit button for %@", contactName);                     //need to implement editing
+-(void)chatButtonAction:(id)sender withContactName:(NSString *)contactName {
+    DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 /*
