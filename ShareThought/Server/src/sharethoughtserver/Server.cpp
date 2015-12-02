@@ -158,7 +158,7 @@ void WorldUpdate(int timeDiff)
                 
                 uint64 finalSize;
                 char *packet = ConstructPacket(SMSG_CONNECTED, 0, NULL, &finalSize);
-                send(connections[i]->SocketID, packet, finalSize, NULL);
+                send(connections[i]->SocketID, packet, finalSize, 0);
                 free(packet);
                 
                 auto now = std::chrono::steady_clock::now().time_since_epoch();
@@ -191,7 +191,7 @@ void WorldUpdate(int timeDiff)
             uint64 finalSize;
             char *packetData;
             packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-            send(connections[i]->SocketID, packetData, finalSize, NULL);
+            send(connections[i]->SocketID, packetData, finalSize, 0);
             free(packetData);
             connections[i]->keepAliveEndPoint = currentTimeSinceEpoch + 5000;
         }
