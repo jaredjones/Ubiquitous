@@ -3,7 +3,6 @@
 SQLConnectionManager* SQLConnectionManager::getInstance()
 {
     static SQLConnectionManager *sqlMgr = new SQLConnectionManager();
-    sqlMgr->driver = get_driver_instance();
     return sqlMgr;
 }
 
@@ -24,8 +23,10 @@ bool SQLConnectionManager::ConnectToDatabase()
         s+= ":";
         s+= MYSQL_PORT_NUMBER;
         
-        conn = driver->connect(s.c_str(), LOGIN, PASSWORD);
+        if (driver == nullptr)
+            driver = get_driver_instance();
         
+        conn = driver->connect(s.c_str(), LOGIN, PASSWORD);
         conn->setSchema(DATABASE_NAME);
         
     } catch (sql::SQLException &e) {

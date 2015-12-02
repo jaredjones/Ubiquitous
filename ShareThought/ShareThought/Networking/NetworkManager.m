@@ -144,6 +144,9 @@ Packet *tmp = nil;
                 NSLog(@"SMSG_SUCCESSFUL_LOGIN");
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:self];
                 break;
+            case SMSG_UNSUCCESSFUL_LOGIN:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailureInNotification" object:self];
+                break;
             case SMSG_ACCOUNT_CREATED:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationNotification" object:self];
                 break;

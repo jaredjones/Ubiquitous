@@ -35,6 +35,10 @@
                                              selector:@selector(receivedLoggedInNotification:)
                                                  name:@"LoggedInNotification"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedLoggedInNotification:)
+                                                 name:@"LoginFailureInNotification"
+                                               object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -100,6 +104,9 @@
     
     if ([[notification name] isEqualToString:@"LoggedInNotification"]){
         NSLog (@"You have logged in!");
+    }
+    if ([[notification name] isEqualToString:@"LoginFailureInNotification"]){
+        NSLog (@"Login Failure!");
     }
 }
 
