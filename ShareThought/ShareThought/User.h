@@ -23,3 +23,6 @@
 + (NSArray*) retrieveDataFromNSUserDefaults;
 + (void)storeDataInNSUserDefaults:(User *)userToStore;
 @end
+
+static User *me = nil;
+static NSString *meSSO = nil;

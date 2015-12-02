@@ -346,6 +346,11 @@ void WorldUpdate(int timeDiff)
                     }
                 }
                 break;
+            case CMSG_LOGOUT:
+                printf("CMSG_LOGOUT\n");
+                delete connections[i]->account;
+                connections[i]->account = nullptr;
+                break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
                 break;

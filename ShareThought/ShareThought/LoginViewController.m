@@ -10,6 +10,7 @@
 
 #import "LoginViewController.h"
 #import "User.h"
+#import "ProfileViewController.h"
 #import "NSString+StringVerification.h"
 
 #define HORIZONTAL_START_POINT  CGPointMake(0, 0.5)
@@ -103,10 +104,10 @@
     // as well.
     
     if ([[notification name] isEqualToString:@"LoggedInNotification"]){
-        NSLog (@"You have logged in!");
-        NSString *sso = [[notification userInfo] objectForKey:@"SSO"];
-        User *user = [[notification userInfo] objectForKey:@"User"];
+        meSSO = [[notification userInfo] objectForKey:@"SSO"];
+        me = [[notification userInfo] objectForKey:@"User"];
         
+        [self performSegueWithIdentifier:@"loggedInToProfile" sender:self];
     }
     if ([[notification name] isEqualToString:@"LoginFailureInNotification"]){
         UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Login Failed"
@@ -135,14 +136,17 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"loggedInToProfile"]){
+        ProfileViewController *vc = [segue destinationViewController];
+        [vc changeUser:me];
+    }
 }
-*/
+
 
 @end

@@ -25,7 +25,7 @@
         _profileImageView = [[UIImageView alloc] init];
         _usernameLabel = [[UILabel alloc] init];
         _nameLabel = [[UILabel alloc] init];
-        [_profileImageView setBackgroundColor:[UIColor whiteColor]];
+        [_profileImageView setBackgroundColor:[UIColor darkGrayColor]];
         _usernameLabel.font = [UIFont fontWithName:@"Gill Sans" size:22.0f];
         _usernameLabel.textColor = [UIColor lightGrayColor];
         _usernameLabel.textAlignment = NSTextAlignmentCenter;

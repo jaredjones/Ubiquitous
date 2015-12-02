@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ProfilePads.h"
 #import "ProfileTopView.h"
+#import "NetworkManager.h"
 
 @interface ProfileViewController()
 
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet ProfilePads *addFriendButton;
 @property (weak, nonatomic) IBOutlet ProfilePads *startChatButton;
 @property (weak, nonatomic) IBOutlet UIButton *navigationBackButton;
+
+@property (strong, nonatomic)User *user;
 
 @end
 
@@ -50,10 +53,10 @@
     [_startChatButton setButtonLabelString:@"Chat"];
     [_friendsButton setButtonLabelString:@"Friends"];
     [_numberOfFriendsButton setButtonLabelString:@"About"];
-    
-    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
-    [_profileTopView setUsername:@"toastieghostie"];
-    [_profileTopView setName:@"Morgan Nicole Vegsund"];
+   
+    [_profileTopView changeProfilePhoto:nil];
+    [_profileTopView setUsername:[_user username]];
+    [_profileTopView setName:[[[_user fname] stringByAppendingString:@" "] stringByAppendingString:[_user lname]]];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -64,6 +67,9 @@
     return UIStatusBarStyleLightContent;
 }
 - (IBAction)navigationBackButtonPressed:(id)sender {
+    //Temporarily Logout
+    [[NetworkManager sharedManager] logout];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -81,6 +87,11 @@
 }
 - (IBAction)aboutUsOrEditButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"aboutUserSegue" sender:self];
+}
+
+- (void)changeUser:(User *)u{
+    NSLog(@"changeUser");
+    _user = u;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
