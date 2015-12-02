@@ -104,9 +104,17 @@
     
     if ([[notification name] isEqualToString:@"LoggedInNotification"]){
         NSLog (@"You have logged in!");
+        NSString *sso = [[notification userInfo] objectForKey:@"SSO"];
+        NSLog(@"SSO:%@", sso);
     }
     if ([[notification name] isEqualToString:@"LoginFailureInNotification"]){
-        NSLog (@"Login Failure!");
+        UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Login Failed"
+                                                                     message:@"The username/password combination you have chosen is invalid!"
+                                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+        [msg addAction:defaultAction];
+        [self presentViewController:msg animated:YES completion:nil];
     }
 }
 

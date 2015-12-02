@@ -49,7 +49,7 @@ char *str2md5(const char *str, int length) {
 
 char *generateguid(){
     srand (clock());
-    char *GUID = (char*)malloc(40);
+    char *GUID = (char*)malloc(41);
     int t = 0;
     const char *szTemp = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
     const char *szHex = "0123456789ABCDEF-";
@@ -70,6 +70,7 @@ char *generateguid(){
         
         GUID[t] = ( t < nLen ) ? c : 0x00;
     }
+    GUID[40] = 0;
     return GUID;
 }
 

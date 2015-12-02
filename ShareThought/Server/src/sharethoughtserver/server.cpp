@@ -293,8 +293,21 @@ void WorldUpdate(int timeDiff)
                         
                         if (resultSet->rowsCount() > 0){
                             char *guid = generateguid();
+                            resultSet->first();
+                            connections[i]->account = new Account(resultSet->getString("USERNAME"),
+                                                                  resultSet->getString("PASSWORD"),
+                                                                  resultSet->getString("EMAIL"),
+                                                                  resultSet->getString("FIRST_NAME"),
+                                                                  resultSet->getString("LAST_NAME"),
+                                                                  resultSet->getString("ABOUT_ME"));
+                            connections[i]->SSO = std::string(guid);
+                            delete(pstmt);
+                            pstmt = SQLMGR->conn->prepareStatement("UPDATE User SET SSO = ? WHERE USER_ID = ?");
+                            pstmt->setString(1, connections[i]->SSO);
+                            pstmt->setString(2, resultSet->getString("USER_ID"));
+                            pstmt->execute();
                             
-                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 0, NULL, &finalSize);
+                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 41, guid, &finalSize);
                             send(connections[i]->SocketID, packetData, finalSize, 0);
                             free(guid);
                             free(packetData);
