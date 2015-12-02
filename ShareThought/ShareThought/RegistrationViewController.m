@@ -47,42 +47,46 @@
 }
 
 - (IBAction)registrationButtonPressed:(id)sender {
-    [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
-    
-    /*BOOL emailExist = [User doesEmailExist: [_registrationEmail text]];
     UIAlertController *msg;
-    
     if (![[_registrationEmail text] isValidEmail]) {
         msg= [UIAlertController alertControllerWithTitle:@"Invalid Email"
                                                  message:@"The email address you entered is not in a valid format!"
                                           preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {NSLog(@"OK button was pressed");
-        }];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
         
         [msg addAction:defaultAction];
+        [self presentViewController:msg animated:YES completion:nil];
         return;
     }
     
-    if (emailExist) {
-        msg= [UIAlertController alertControllerWithTitle:@"Email Already in Use"
-                                                 message:@"The email address you entered is already registered!"
+    BOOL allFilledIn = ([[_userName text] length] != 0 &&
+                        [[_registrationEmail text] length] != 0 &&
+                        [[_registrationPassword text] length] != 0 &&
+                        [[_firstNameField text] length] != 0 &&
+                        [[_lastNameField text] length] != 0 &&
+                        [[_descriptionField text] length] != 0 );
+    if (!allFilledIn){
+        msg= [UIAlertController alertControllerWithTitle:@"Empty Field"
+                                                 message:@"All fields are required in order to register!"
                                           preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {NSLog(@"OK button was pressed");
-        }];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
         
         [msg addAction:defaultAction];
+        [self presentViewController:msg animated:YES completion:nil];
         return;
     }
     
     
-    User *u = [[User alloc]initWithUser:[_registrationEmail text] withPassword:[_registrationPassword text] withFirstName:[_firstNameField text] withLastName:[_lastNameField text] withProfileDesc:[_descriptionField text]];
+    [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
+    
+    /*User *u = [[User alloc]initWithUser:[_registrationEmail text] withPassword:[_registrationPassword text] withFirstName:[_firstNameField text] withLastName:[_lastNameField text] withProfileDesc:[_descriptionField text]];
     [User storeDataInNSUserDefaults:u];
     
-    [self performSegueWithIdentifier:@"registrationToLoginSegue" sender:self];
+    [self performSegueWithIdentifier:@"registrationToLoginSegue" sender:self];*/
     return;
-    */
+    
 }
 
 
