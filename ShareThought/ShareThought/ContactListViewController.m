@@ -30,7 +30,7 @@
     [super viewDidLoad];
 
     [self initTableData];
-    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f]; // DOES NOTHING
+    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:1.0f]; // DOES NOTHING
 }
 
 -(void)initTableData {
@@ -213,11 +213,15 @@
     cell.contactDesc = u.profileDescription;
     cell.delegate = self;
     
-    //In order to change the color go to the ContactTabelViewCell.m 
+    //In order to change the color go to the ContactTabelViewCell.m
+    cell.backgroundColor = [UIColor colorWithRed:54/255.0f green:58/255.0f blue:64/255.0f alpha:1.0f];
     return cell;
 }
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
+    tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    tableView.superview.backgroundColor = [UIColor clearColor];
     if ([_searchBar.text length] == 0) {
         return _contactIndexTitles;
     }
