@@ -20,9 +20,19 @@
 
 @property (nonatomic, strong) UISwipeGestureRecognizer *swipeRight;
 @property (nonatomic, strong) UISwipeGestureRecognizer *swipeLeft;
+@property (nonatomic, strong) NSNumber *colorPicker;
 @end
 
 @implementation ContactListTableViewCell
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        _colorPicker = @0;
+    }
+    return self;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -65,13 +75,25 @@
 -(void)setContactName:(NSString *)contactName {
     _contactName = contactName;
     _contactNameLabel.text = _contactName;
+    //_contactNameLabel.textAlignment =  NSTextAlignmentCenter;
+    //_contactNameLabel.layer.cornerRadius = 15.0f;
+    //_contactNameLabel.layer.masksToBounds = YES;
     _contactNameLabel.textColor = [UIColor whiteColor];
+    //_contactNameLabel.backgroundColor = _theLabelColor;
 }
+
+/*-(void)setTheLabelColor:(UIColor *)theLabelColor{
+    _theLabelColor = theLabelColor;
+    _contactNameLabel.backgroundColor = _theLabelColor;
+}*/
 
 -(void)setContactDesc:(NSString *)contactDesc {
     _contactDesc = contactDesc;
     _contactDescLabel.text = _contactDesc;
     _contactDescLabel.textColor = [UIColor lightTextColor];
+    //_contactDescLabel.textAlignment =  NSTextAlignmentCenter;
+    //_contactDescLabel.layer.cornerRadius = 15.0f;
+    //_contactDescLabel.layer.masksToBounds = YES;
 }
 
 -(IBAction)buttonClicked:(id)sender {

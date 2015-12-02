@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *searchResults;
 @property (nonatomic, strong) NSMutableArray *contactSectionTitles;
 @property (nonatomic, strong) NSArray *contactIndexTitles;
+@property (nonatomic, strong) NSNumber *colorPicker;
 
 @end
 
@@ -28,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _colorPicker = @0;
     [self initTableData];
     self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f]; // DOES NOTHING
 }
@@ -210,12 +211,37 @@
     }
     User *u = [users objectAtIndex:indexPath.row];
     cell.contactName = [u.fname stringByAppendingFormat:@" %@", u.lname];
+    //cell.theLabelColor = [self colorPickerForNameLabel: _colorPicker];
     cell.contactDesc = u.profileDescription;
     cell.delegate = self;
     
     //In order to change the color go to the ContactTabelViewCell.m 
     return cell;
 }
+/*- (UIColor*)colorPickerForNameLabel:(NSNumber *)theColorChoiceChoosen{
+    UIColor *theColor;
+    if([theColorChoiceChoosen integerValue] == 0){
+        theColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
+    }
+    else if([theColorChoiceChoosen integerValue] == 1){
+        theColor = [UIColor colorWithRed:44/255.0f green:152/255.0f blue:223/255.0f alpha:1.0f];
+    }
+    else if([theColorChoiceChoosen integerValue] == 2){
+        theColor = [UIColor colorWithRed:234/255.0f green:76/255.0f blue:53/255.0f alpha:1.0f];
+    }
+    else if([theColorChoiceChoosen integerValue] == 3){
+        theColor = [UIColor colorWithRed:242/255.0f green:198/255.0f blue:0/255.0f alpha:1.0f];
+    }
+    else{
+        theColor = [UIColor colorWithRed:7/255.0f green:201/255.0f blue:5/255.0f alpha:1.0f];
+    }
+    
+    if([theColorChoiceChoosen integerValue] <  4)
+       _colorPicker = @(theColorChoiceChoosen.integerValue + 1);
+    else
+        _colorPicker = @0;
+    return theColor;
+}*/
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     if ([_searchBar.text length] == 0) {

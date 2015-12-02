@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSString *contactName;
 @property (nonatomic, strong) NSString *contactDesc;
+//@property (nonatomic, strong) UIColor *theLabelColor;
 @property (nonatomic, weak) id <ContactListTableCellDelegate> delegate;
+
 
 @end
