@@ -40,31 +40,31 @@
     self.collectionView.backgroundColor = [UIColor colorWithRed:38.0/255.0f green:42.0/255.0f blue:49.0/255.0f alpha:1.0f];
     
     /*CGRect navBarbounds = self.navigationController.navigationBar.bounds;
-    navBarbounds.origin.y -= 20;
-    navBarbounds.size.height += 20;
-    
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView * visualEffectViewNavBar = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    
-    visualEffectViewNavBar.frame = navBarbounds;
-    visualEffectViewNavBar.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
-    [self.navigationController.navigationBar addSubview:visualEffectViewNavBar];
-    */
+     navBarbounds.origin.y -= 20;
+     navBarbounds.size.height += 20;
+     
+     
+     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+     UIVisualEffectView * visualEffectViewNavBar = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+     
+     visualEffectViewNavBar.frame = navBarbounds;
+     visualEffectViewNavBar.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+     
+     [self.navigationController.navigationBar addSubview:visualEffectViewNavBar];
+     */
     self.title = @"Jared Jones";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor orangeColor]}];
     
-            
+    
     /*CGRect toolbarBounds = [[self inputToolbar] bounds];
-    UIVisualEffectView * toolbarVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-            
-    toolbarVisualEffectView.frame = toolbarBounds;
-    toolbarVisualEffectView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-            
-    [[self inputToolbar] insertSubview:toolbarVisualEffectView
-                          belowSubview:[[self inputToolbar] contentView]];*/
+     UIVisualEffectView * toolbarVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+     
+     toolbarVisualEffectView.frame = toolbarBounds;
+     toolbarVisualEffectView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+     
+     [[self inputToolbar] insertSubview:toolbarVisualEffectView
+     belowSubview:[[self inputToolbar] contentView]];*/
     
     
     UIButton *rButton = [[[self inputToolbar] contentView] rightBarButtonItem];
@@ -102,7 +102,7 @@
     
     self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero;
     self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero;
-
+    
     
     self.showLoadEarlierMessagesHeader = NO;
     
@@ -141,14 +141,13 @@
 {
     [super viewWillAppear:animated];
     
-    if (self.delegateModal) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
-                                                                                              target:self
-                                                                                              action:@selector(closePressed:)];
-        
-        [self.navigationItem.leftBarButtonItem setTintColor:[UIColor orangeColor]];
-        [self.navigationItem.rightBarButtonItem setTintColor:[UIColor orangeColor]];
-    }
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                                                          target:self
+                                                                                          action:@selector(closePressed:)];
+    
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor orangeColor]];
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor orangeColor]];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -371,13 +370,13 @@
 - (void)didPressAccessoryButton:(UIButton *)sender
 {
     /*
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Media messages"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:@"Send photo", @"Send location", @"Send video", nil];
-    
-    [sheet showFromToolbar:self.inputToolbar];*/
+     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Media messages"
+     delegate:self
+     cancelButtonTitle:@"Cancel"
+     destructiveButtonTitle:nil
+     otherButtonTitles:@"Send photo", @"Send location", @"Send video", nil];
+     
+     [sheet showFromToolbar:self.inputToolbar];*/
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -593,11 +592,11 @@
 {
     NSLog(@"Custom action received! Sender: %@", sender);
     /*
-    [[[UIAlertView alloc] initWithTitle:@"Custom Action"
-                                message:nil
-                               delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil]
+     [[[UIAlertView alloc] initWithTitle:@"Custom Action"
+     message:nil
+     delegate:nil
+     cancelButtonTitle:@"OK"
+     otherButtonTitles:nil]
      show];*/
 }
 
