@@ -17,6 +17,7 @@
 @interface RegistrationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *registrationEmail;
 @property (weak, nonatomic) IBOutlet UITextField *registrationPassword;
+@property (weak, nonatomic) IBOutlet UITextField *registrationPasswordVerify;
 @property (weak, nonatomic) IBOutlet UIButton *verifyRegistration;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
@@ -31,6 +32,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self myButtonChange:_registrationButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedRegistrationNotification:)
+                                                 name:@"RegistrationNotification"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedRegistrationNotification:)
+                                                 name:@"RegistrationNotificationAlreadyExists"
+                                               object:nil];
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -51,11 +63,54 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (void) receivedRegistrationNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"RegistrationNotification"]){
+        UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Registration Successful"
+                                                 message:@"Your account has successfully been created, please proceed to the login page."
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+            [self performSegueWithIdentifier:@"regToLoginSegue" sender:self];
+        }];
+        
+        [msg addAction:defaultAction];
+        [self presentViewController:msg animated:YES completion:nil];
+        return;
+    }
+    
+    if ([[notification name] isEqualToString:@"RegistrationNotificationAlreadyExists"]){
+        UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Registration Failure"
+                                                                     message:@"The account you are trying to create already exists..."
+                                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+        [msg addAction:defaultAction];
+        [self presentViewController:msg animated:YES completion:nil];
+    }
+}
+
 - (IBAction)registrationButtonPressed:(id)sender {
     UIAlertController *msg;
-    if (![[_registrationEmail text] isValidEmail]) {
+    
+    BOOL isValidEmail = [[_registrationEmail text] isValidEmail];
+    if (!isValidEmail) {
         msg= [UIAlertController alertControllerWithTitle:@"Invalid Email"
                                                  message:@"The email address you entered is not in a valid format!"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+        
+        [msg addAction:defaultAction];
+        [self presentViewController:msg animated:YES completion:nil];
+        return;
+    }
+    
+    BOOL passwordsMatch = [[_registrationPassword text] isEqualToString:[_registrationPasswordVerify text]];
+    if (!passwordsMatch){
+        msg= [UIAlertController alertControllerWithTitle:@"Password Mismatch"
+                                                 message:@"Your passwords do not match..."
                                           preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
@@ -68,6 +123,7 @@
     BOOL allFilledIn = ([[_userName text] length] != 0 &&
                         [[_registrationEmail text] length] != 0 &&
                         [[_registrationPassword text] length] != 0 &&
+                        [[_registrationPasswordVerify text] length] != 0 &&
                         [[_firstNameField text] length] != 0 &&
                         [[_lastNameField text] length] != 0 &&
                         [[_descriptionField text] length] != 0);
@@ -82,7 +138,6 @@
         [self presentViewController:msg animated:YES completion:nil];
         return;
     }
-    
     
     [[NetworkManager sharedManager] registerWithEmail:_registrationEmail.text withPassword:_registrationPassword.text withFirstName:_firstNameField.text withLastName:_lastNameField.text withAboutYou:_descriptionField.text withUserName:_userName.text];
     

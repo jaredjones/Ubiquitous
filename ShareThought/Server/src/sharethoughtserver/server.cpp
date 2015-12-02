@@ -202,7 +202,8 @@ void WorldUpdate(int timeDiff)
         if (op.OPCODE == 0x00)
             continue;
         
-        
+        uint64 finalSize;
+        char *packetData;
         struct LoginRegistrationPacketInfo lpInfo;
         
         switch(op.OPCODE)
@@ -216,7 +217,7 @@ void WorldUpdate(int timeDiff)
                     hashedPass += lpInfo.Password;
                     
                     lpInfo.Password = str2md5(hashedPass.c_str(), hashedPass.length());
-                    connections[i]->account = new Account(lpInfo.Username, lpInfo.Password, lpInfo.FirstName, lpInfo.LastName, lpInfo.AboutUs);
+                    
                     try {
                         sql::PreparedStatement *pstmt;
                         pstmt = SQLMGR->conn->prepareStatement("INSERT INTO User (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME, ABOUT_ME) VALUES (?,?,?,?,?,?)");
@@ -228,14 +229,26 @@ void WorldUpdate(int timeDiff)
                         pstmt->setString(6, lpInfo.AboutUs);
                         pstmt->execute();
                     } catch (sql::SQLException &e) {
+                        
+                        //Duplicate Account
+                        if (e.getErrorCode() == 1062){
+                            printf("SMSG_ACCOUNT_ALREADY_EXISTS\n");
+                            packetData = ConstructPacket(SMSG_ACCOUNT_ALREADY_EXISTS, 0, NULL, &finalSize);
+                            send(connections[i]->SocketID, packetData, finalSize, 0);
+                            return;
+                        }
+                        
                         std::cout << "# ERR: SQLException in " << __FILE__;
                         std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
                         /* what() (derived from std::runtime_error) fetches error message */
                         std::cout << "# ERR: " << e.what();
                         std::cout << " (MySQL error code: " << e.getErrorCode();
                         std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                        return;
                     }
                     
+                    packetData = ConstructPacket(SMSG_ACCOUNT_CREATED, 0, NULL, &finalSize);
+                    send(connections[i]->SocketID, packetData, finalSize, 0);
                 }
                 
                 break;

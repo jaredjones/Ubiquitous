@@ -703,6 +703,9 @@
                                         <state key="normal" title="Already a user?">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="nno-Oa-gw0" kind="show" identifier="regToLoginSegue" id="Xfc-Xe-XD7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -776,6 +779,7 @@
                         <outlet property="registrationButton" destination="A6E-ij-AXy" id="zEq-f5-QhX"/>
                         <outlet property="registrationEmail" destination="VJf-I7-0it" id="SBY-kg-2HK"/>
                         <outlet property="registrationPassword" destination="6fP-MW-m43" id="z6w-qg-aZT"/>
+                        <outlet property="registrationPasswordVerify" destination="FDt-au-7pT" id="9x5-ke-TYd"/>
                         <outlet property="userName" destination="V2U-cf-BrA" id="61y-9r-JfZ"/>
                         <outlet property="verifyRegistration" destination="A6E-ij-AXy" id="dZG-c3-MM0"/>
                     </connections>
@@ -792,6 +796,7 @@
         <image name="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" width="990" height="742"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cuQ-HD-fnt"/>
+        <segue reference="Xfc-Xe-XD7"/>
+        <segue reference="MQU-ZH-567"/>
     </inferredMetricsTieBreakers>
 </document>

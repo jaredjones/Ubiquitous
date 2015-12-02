@@ -21,13 +21,15 @@ typedef struct Packet
 }Packet;
 #pragma pack(pop)
 
-#define CMSG_KEEP_ALIVE         0x01
-#define SMSG_KEEP_ALIVE         0x02
-#define SMSG_CONNECTED          0x03
-#define CMSG_LOGIN              0x04
-#define CMSG_REGISTER           0x05
-#define SMSG_SUCCESSFUL_LOGIN   0x06
-#define SMSG_UNSUCCESSFUL_LOGIN 0x07
+#define CMSG_KEEP_ALIVE                 0x01
+#define SMSG_KEEP_ALIVE                 0x02
+#define SMSG_CONNECTED                  0x03
+#define CMSG_LOGIN                      0x04
+#define CMSG_REGISTER                   0x05
+#define SMSG_SUCCESSFUL_LOGIN           0x06
+#define SMSG_UNSUCCESSFUL_LOGIN         0x07
+#define SMSG_ACCOUNT_CREATED            0x08
+#define SMSG_ACCOUNT_ALREADY_EXISTS     0x09
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
 char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPacketSize)

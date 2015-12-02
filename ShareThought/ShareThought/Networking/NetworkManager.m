@@ -144,7 +144,12 @@ Packet *tmp = nil;
                 NSLog(@"SMSG_SUCCESSFUL_LOGIN");
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:self];
                 break;
-                
+            case SMSG_ACCOUNT_CREATED:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationNotification" object:self];
+                break;
+            case SMSG_ACCOUNT_ALREADY_EXISTS:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationNotificationAlreadyExists" object:self];
+                break;
             default:
                 NSLog(@"Malformed Packet Received!");
                 [sock disconnect];
