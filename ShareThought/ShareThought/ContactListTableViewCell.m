@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIView *contactDisplayView;
 @property (nonatomic, weak) IBOutlet UIImageView *contactImageView;
 @property (nonatomic, weak) IBOutlet UILabel *contactNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *contactDescLabel;
+@property (nonatomic, weak) IBOutlet UILabel *contactDescLabel; // We add buttons here
 
 @property (nonatomic, strong) UISwipeGestureRecognizer *swipeRight;
 @property (nonatomic, strong) UISwipeGestureRecognizer *swipeLeft;
@@ -48,7 +48,7 @@
 }
 
 -(void)setContactDisplayView:(UIView *)contactDisplayView {
-    contactDisplayView.backgroundColor = [UIColor darkGrayColor];
+    contactDisplayView.backgroundColor = [UIColor colorWithRed:54.0/255.0f green:58.0/255.0f blue:64.0/255.0f alpha:1.0f];
     _contactDisplayView = contactDisplayView;
 }
 

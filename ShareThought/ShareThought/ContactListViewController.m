@@ -30,7 +30,7 @@
     [super viewDidLoad];
 
     [self initTableData];
-    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f];
+    self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:0.0f]; // DOES NOTHING
 }
 
 -(void)initTableData {
@@ -86,7 +86,7 @@
 
 -(void)setTitleLabel:(UILabel *)titleLabel {
     titleLabel.text = @"Contacts";
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _titleLabel = titleLabel;
@@ -94,7 +94,18 @@
 
 -(void)setSearchBar:(UISearchBar *)searchBar {
     searchBar.placeholder = @"Search for Contact";
-    searchBar.barTintColor = [UIColor colorWithRed:116.0/255.0f green:114.0/255.0f blue:120.0/255.0 alpha:0.0f];
+    searchBar.barTintColor = [UIColor colorWithRed:37/255.0f green:42/255.0f blue:49/255.0 alpha:0.0f];
+    //[searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"555555"] forState:UIControlStateNormal];
+    
+    for (UIView *subView in searchBar.subviews) {
+        for(id field in subView.subviews){
+            if ([field isKindOfClass:[UITextField class]]) {
+                UITextField *textField = (UITextField *)field;
+                //[textField setBackgroundColor:[UIColor grayColor]];
+                [textField setBackgroundColor:[UIColor colorWithRed:30/255.0f green:31/255.0f blue:33/255.0 alpha:1.0f]];
+            }
+        }
+    }
     
     _searchBar = searchBar;
 }
@@ -184,6 +195,7 @@
     cell.contactDesc = u.profileDescription;
     cell.delegate = self;
     
+    //In order to change the color go to the ContactTabelViewCell.m 
     return cell;
 }
 
