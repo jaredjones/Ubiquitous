@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import "ProfileViewController.h"
 #import "ProfileTopView.h"
 #import "UILabel+Width.h"
 
@@ -37,6 +38,8 @@
         [self addSubview:_profileImageView];
         [self addSubview:_usernameLabel];
         [self addSubview:_nameLabel];
+        
+        
         return self;
     }
     return nil;
@@ -83,6 +86,9 @@
     roundedView.frame = newFrame;
     roundedView.layer.cornerRadius = newSize / 2.0;
     roundedView.center = saveCenter;
+}
+- (UIImageView*)getProfileImageView{
+    return _profileImageView;
 }
 
 - (void)changeProfilePhoto: (UIImage *)photo{

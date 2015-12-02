@@ -138,8 +138,8 @@ void WorldUpdate(int timeDiff)
     auto currentTimeSinceEpoch = std::chrono::duration_cast<std::chrono::milliseconds>(now).count();
     
     //Make sure MySQL is alive
-    if (SQLMGR->conn->isClosed()){
-        SQLMGR->ConnectToDatabase();
+    if (SQLMGR->conn->isClosed() || !SQLMGR->conn->isValid()){
+        SQLMGR->conn->reconnect();
     }
     
     int clientID = accept(serverSocket, (struct sockaddr *)NULL, NULL);

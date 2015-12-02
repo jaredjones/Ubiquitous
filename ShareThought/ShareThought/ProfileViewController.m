@@ -54,9 +54,15 @@
     [_friendsButton setButtonLabelString:@"Friends"];
     [_numberOfFriendsButton setButtonLabelString:@"About"];
    
-    [_profileTopView changeProfilePhoto:nil];
+    [_profileTopView changeProfilePhoto:[UIImage imageNamed:@"morgie.jpg"]];
     [_profileTopView setUsername:[_user username]];
     [_profileTopView setName:[[[_user fname] stringByAppendingString:@" "] stringByAppendingString:[_user lname]]];
+    
+    UIImageView *imgView = [_profileTopView getProfileImageView];
+    imgView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(photoTapped:)];
+    [tapGest setNumberOfTapsRequired:1];
+    [imgView addGestureRecognizer:tapGest];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -87,6 +93,26 @@
 }
 - (IBAction)aboutUsOrEditButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"aboutUserSegue" sender:self];
+}
+
+- (void)photoTapped: (UITapGestureRecognizer *)tap{
+    if ([User me] == _user){
+        NSLog(@"Tapped");
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    [_profileTopView changeProfilePhoto:chosenImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)changeUser:(User *)u{

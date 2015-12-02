@@ -104,8 +104,13 @@
     // as well.
     
     if ([[notification name] isEqualToString:@"LoggedInNotification"]){
-        meSSO = [[notification userInfo] objectForKey:@"SSO"];
-        me = [[notification userInfo] objectForKey:@"User"];
+        User *u = [[notification userInfo] objectForKey:@"User"];
+        
+        [[User me] setSSO:[[notification userInfo] objectForKey:@"SSO"]];
+        [[User me] setUsername:[u username]];
+        [[User me] setFname:[u fname]];
+        [[User me] setLname:[u lname]];
+        [[User me] setEmail:[u email]];
         
         [self performSegueWithIdentifier:@"loggedInToProfile" sender:self];
     }
@@ -144,7 +149,7 @@
     // Get the new view controller using [segue destinationViewController].
     if ([segue.identifier isEqualToString:@"loggedInToProfile"]){
         ProfileViewController *vc = [segue destinationViewController];
-        [vc changeUser:me];
+        [vc changeUser:[User me]];
     }
 }
 

@@ -15,14 +15,12 @@
 @property (nonatomic, strong) NSString *fname;
 @property (nonatomic, strong) NSString *lname;
 @property (nonatomic, strong) NSString *profileDescription;
+@property (nonatomic, strong) NSString *SSO;
 
-
++ (id)me;
 - (instancetype)initWithUser: (NSString *)user withEmail: (NSString *)email withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) pDesc;
 + (NSArray *)convertPacketDataToStringArray: (NSData *)data;
 + (BOOL)doesEmailExist: (NSString*) email;
 + (NSArray*) retrieveDataFromNSUserDefaults;
 + (void)storeDataInNSUserDefaults:(User *)userToStore;
 @end
-
-static User *me = nil;
-static NSString *meSSO = nil;

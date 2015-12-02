@@ -98,8 +98,7 @@
     NSData *data;
     packetData = ConstructPacket(CMSG_LOGOUT, 0, NULL, &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
-    me = nil;
-    meSSO = nil;
+    
     [_socket writeData:data withTimeout:-1 tag:0];
     free(packetData);
 }

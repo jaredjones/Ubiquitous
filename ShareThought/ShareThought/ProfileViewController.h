@@ -10,7 +10,7 @@
 
 #import "User.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 - (void)changeUser: (User *)u;
 

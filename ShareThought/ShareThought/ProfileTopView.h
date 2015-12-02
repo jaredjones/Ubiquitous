@@ -12,4 +12,6 @@
 - (void)changeProfilePhoto: (UIImage *)photo;
 - (void)setUsername: (NSString *) username;
 - (void)setName: (NSString *) name;
+
+- (UIImageView *)getProfileImageView;
 @end

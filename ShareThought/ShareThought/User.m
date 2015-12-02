@@ -9,9 +9,19 @@
 
 @implementation User
 
++ (id)me {
+    static User *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc] init];
+    });
+    return sharedMyManager;
+}
+
 - (instancetype)init{
-    NSLog(@"Please instantiate with initWithUser:");
-    return nil;
+    if (self = [super init]){
+    }
+    return self;
 }
 
 - (instancetype)initWithUser: (NSString *)user withEmail: (NSString *)email withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) pDesc{
