@@ -220,8 +220,9 @@ void WorldUpdate(int timeDiff)
                     
                     std::string hashedPass = LOGIN_HASH_SALT_SHAKER;
                     hashedPass += lpInfo.Password;
-                    
-                    lpInfo.Password = str2md5(hashedPass.c_str(), hashedPass.length());
+                    char *finalMD5 = str2md5(hashedPass.c_str(), hashedPass.length());
+                    lpInfo.Password = std::string(finalMD5);
+                    free(finalMD5);
                     
                     try {
                         sql::PreparedStatement *pstmt;
@@ -234,6 +235,9 @@ void WorldUpdate(int timeDiff)
                             printf("SMSG_ACCOUNT_ALREADY_EXISTS\n");
                             packetData = ConstructPacket(SMSG_ACCOUNT_ALREADY_EXISTS, 0, NULL, &finalSize);
                             send(connections[i]->SocketID, packetData, finalSize, 0);
+                            free(packetData);
+                            delete pstmt;
+                            delete resultSet;
                             return;
                         }
                         
@@ -245,6 +249,8 @@ void WorldUpdate(int timeDiff)
                         pstmt->setString(5, lpInfo.LastName);
                         pstmt->setString(6, lpInfo.AboutUs);
                         pstmt->execute();
+                        delete pstmt;
+                        delete resultSet;
                     } catch (sql::SQLException &e) {
                         std::cout << "# ERR: SQLException in " << __FILE__;
                         std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
@@ -252,11 +258,13 @@ void WorldUpdate(int timeDiff)
                         std::cout << "# ERR: " << e.what();
                         std::cout << " (MySQL error code: " << e.getErrorCode();
                         std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                        
                         return;
                     }
                     
                     packetData = ConstructPacket(SMSG_ACCOUNT_CREATED, 0, NULL, &finalSize);
                     send(connections[i]->SocketID, packetData, finalSize, 0);
+                    free(packetData);
                 }
                 
                 break;
@@ -266,7 +274,67 @@ void WorldUpdate(int timeDiff)
                 break;
             case CMSG_LOGIN:
                 printf("CMSG_LOGIN\n");
-                
+                if (connections[i]->account == nullptr){
+                    lpInfo = GetUserInfoGivenLoginPacketData(op.DATA);
+                    try {
+                        sql::PreparedStatement *pstmt;
+                        
+                        pstmt = SQLMGR->conn->prepareStatement("SELECT * FROM User WHERE USERNAME = ? AND PASSWORD = ?");
+                        
+                        std::string hashedPass = LOGIN_HASH_SALT_SHAKER;
+                        hashedPass += lpInfo.Password;
+                        char *finalMD5 = str2md5(hashedPass.c_str(), hashedPass.length());
+                        lpInfo.Password = std::string(finalMD5);
+                        free(finalMD5);
+                        
+                        pstmt->setString(1, lpInfo.Username);
+                        pstmt->setString(2, lpInfo.Password);
+                        sql::ResultSet *resultSet = pstmt->executeQuery();
+                        
+                        if (resultSet->rowsCount() > 0){
+                            char *guid = generateguid();
+                            resultSet->first();
+                            connections[i]->account = new Account(resultSet->getString("USERNAME"),
+                                                                  resultSet->getString("PASSWORD"),
+                                                                  resultSet->getString("EMAIL"),
+                                                                  resultSet->getString("FIRST_NAME"),
+                                                                  resultSet->getString("LAST_NAME"),
+                                                                  resultSet->getString("ABOUT_ME"));
+                            connections[i]->SSO = std::string(guid);
+                            delete(pstmt);
+                            pstmt = SQLMGR->conn->prepareStatement("UPDATE User SET SSO = ? WHERE USER_ID = ?");
+                            pstmt->setString(1, connections[i]->SSO);
+                            pstmt->setString(2, resultSet->getString("USER_ID"));
+                            pstmt->execute();
+                            
+                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, 41, guid, &finalSize);
+                            send(connections[i]->SocketID, packetData, finalSize, 0);
+                            free(guid);
+                            free(packetData);
+                            delete pstmt;
+                            delete resultSet;
+                            return;
+                        }else{
+                            packetData = ConstructPacket(SMSG_UNSUCCESSFUL_LOGIN, 0, NULL, &finalSize);
+                            send(connections[i]->SocketID, packetData, finalSize, 0);
+                            free(packetData);
+                            delete pstmt;
+                            delete resultSet;
+                            return;
+                        }
+                        delete pstmt;
+                        delete resultSet;
+                    } catch (sql::SQLException &e) {
+                        std::cout << "# ERR: SQLException in " << __FILE__;
+                        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+                        /* what() (derived from std::runtime_error) fetches error message */
+                        std::cout << "# ERR: " << e.what();
+                        std::cout << " (MySQL error code: " << e.getErrorCode();
+                        std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                        
+                        return;
+                    }
+                }
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);

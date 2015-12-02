@@ -125,7 +125,7 @@ Packet *tmp = nil;
         fflush(stdout);
         uint64_t finalSize;
         char *packetData;
-        NSData *data;
+        NSData *wData;
         
         switch (tmp->OPCODE) {
             case SMSG_CONNECTED:
@@ -135,14 +135,17 @@ Packet *tmp = nil;
             case SMSG_KEEP_ALIVE:
                 NSLog(@"SMSG_KEEP_ALIVE");
                 packetData = ConstructPacket(CMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-                data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+                wData = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
                 
-                [sock writeData:data withTimeout:-1 tag:0];
+                [sock writeData:wData withTimeout:-1 tag:0];
                 free(packetData);
                 break;
             case SMSG_SUCCESSFUL_LOGIN:
                 NSLog(@"SMSG_SUCCESSFUL_LOGIN");
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:self];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:self userInfo:@{@"SSO":[NSString stringWithUTF8String:[data bytes]]}];
+                break;
+            case SMSG_UNSUCCESSFUL_LOGIN:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailureInNotification" object:self];
                 break;
             case SMSG_ACCOUNT_CREATED:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationNotification" object:self];

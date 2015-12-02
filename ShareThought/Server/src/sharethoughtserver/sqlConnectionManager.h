@@ -24,7 +24,7 @@ public:
     const char *PASSWORD;
     const char *DATABASE_NAME;
     unsigned int MYSQL_PORT_NUMBER;
-    sql::Driver *driver;
+    sql::Driver *driver = nullptr;
     sql::Connection *conn;
     
     bool ConnectToDatabase();

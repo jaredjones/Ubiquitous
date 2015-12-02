@@ -323,9 +323,9 @@
                                         <animations/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-mU-NNx">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-mU-NNx">
                                         <rect key="frame" x="3" y="199" width="325" height="30"/>
                                         <animations/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -797,6 +797,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xfc-Xe-XD7"/>
-        <segue reference="MQU-ZH-567"/>
+        <segue reference="cuQ-HD-fnt"/>
     </inferredMetricsTieBreakers>
 </document>

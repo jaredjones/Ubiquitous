@@ -14,13 +14,13 @@
     return nil;
 }
 
-- (instancetype)initWithUser: (NSString *)user withPassword: (NSString *)password withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) prDesc{
+- (instancetype)initWithUser: (NSString *)user withEmail: (NSString *)email withFirstName: (NSString *)firstName withLastName: (NSString *)lastName withProfileDesc: (NSString *) pDesc{
     if (self = [super init]){
-        _email = user;
-        _password = password;
+        _email = email;
+        _username = user;
         _fname = firstName;
         _lname = lastName;
-        _profileDescription = prDesc;
+        _profileDescription = pDesc;
         return self;
     }
     return nil;
@@ -28,8 +28,8 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if ( self = [super init] ) {
+        _username = [aDecoder decodeObjectForKey:@"username"];
         _email = [aDecoder decodeObjectForKey:@"email"];
-        _password = [aDecoder decodeObjectForKey:@"password"];
         _fname = [aDecoder decodeObjectForKey:@"fname"];;
         _lname = [aDecoder decodeObjectForKey:@"lname"];;
         _profileDescription = [aDecoder decodeObjectForKey:@"profileDescription"];;
@@ -38,8 +38,8 @@
 }
 
 -(void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:_username forKey:@"username"];
     [aCoder encodeObject:_email forKey:@"email"];
-    [aCoder encodeObject:_password forKey:@"password"];
     [aCoder encodeObject:_fname forKey:@"fname"];
     [aCoder encodeObject:_lname forKey:@"lname"];
     [aCoder encodeObject:_profileDescription forKey:@"profileDescription"];
@@ -55,17 +55,6 @@
     return NO;
 }
 
-+ (BOOL)emailCredentialsValid: (NSString *)email withPassword: (NSString *)password{
-    NSArray *userArray = [User retrieveDataFromNSUserDefaults];
-    for (User *u in userArray){
-        if ([[u email] isEqualToString:email]){
-            if ([[u password] isEqualToString:password]){
-                return YES;
-            }
-        }
-    }
-    return NO;
-}
 
 + (NSArray *)retrieveDataFromNSUserDefaults {
     NSMutableArray *objectArray = [NSMutableArray new];

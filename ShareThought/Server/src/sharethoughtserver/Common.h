@@ -47,5 +47,31 @@ char *str2md5(const char *str, int length) {
     return out;
 }
 
+char *generateguid(){
+    srand (clock());
+    char *GUID = (char*)malloc(41);
+    int t = 0;
+    const char *szTemp = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
+    const char *szHex = "0123456789ABCDEF-";
+    int nLen = strlen (szTemp);
+    
+    for (t=0; t<nLen+1; t++)
+    {
+        int r = rand () % 16;
+        char c = ' ';
+        
+        switch (szTemp[t])
+        {
+            case 'x' : { c = szHex [r]; } break;
+            case 'y' : { c = szHex [(r & 0x03) | 0x08]; } break;
+            case '-' : { c = '-'; } break;
+            case '4' : { c = '4'; } break;
+        }
+        
+        GUID[t] = ( t < nLen ) ? c : 0x00;
+    }
+    GUID[40] = 0;
+    return GUID;
+}
 
 #endif /* Common_h */
