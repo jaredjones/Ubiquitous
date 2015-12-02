@@ -224,7 +224,7 @@
     tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
     tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     tableView.superview.backgroundColor = [UIColor clearColor];
-    tableView.sectionIndexColor = [UIColor lightGrayColor];
+    tableView.sectionIndexColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0 alpha:1.0f]; // FOnt color
     if ([_searchBar.text length] == 0) {
         return _contactIndexTitles;
     }
