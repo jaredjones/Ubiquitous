@@ -159,11 +159,12 @@
                                      initWithContentsOfURL:URL
                                      encoding:NSUTF8StringEncoding
                                      error:&error];
-    
-    NSData *imgData = [ProfileViewController dataFromHexString:stringFromFileAtURL];
-    UIImage *img = [UIImage imageWithData:imgData];
-    _user.profilePic = img;
-    [_profileTopView changeProfilePhoto:img];
+    if (![stringFromFileAtURL isEqualToString:@""]){
+        NSData *imgData = [ProfileViewController dataFromHexString:stringFromFileAtURL];
+        UIImage *img = [UIImage imageWithData:imgData];
+        _user.profilePic = img;
+        [_profileTopView changeProfilePhoto:img];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
