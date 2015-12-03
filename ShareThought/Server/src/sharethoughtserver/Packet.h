@@ -58,7 +58,9 @@ Packet DecodePacket(char *buff, uint64 size)
     tmp.OPCODE = *buff;
     tmp.LENGTH = *((uint32_t*) (buff + 1));
     
-    tmp.DATA = (char*)calloc(size - 3, 1);
+    if (size < 5)
+        size = 5;
+    tmp.DATA = (char*)calloc(size - 5, 1);
     
     int i;
     for (i = 5; i < size; i++)

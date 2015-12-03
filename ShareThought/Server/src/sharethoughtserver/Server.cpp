@@ -190,7 +190,6 @@ void WorldUpdate(int timeDiff)
             connections[i]->klFlagged = true;
             uint64 finalSize;
             char *packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
-            printf("%llu\n", finalSize);
             
             send(connections[i]->SocketID, packetData, finalSize, 0);
             free(packetData);
