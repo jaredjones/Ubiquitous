@@ -37,30 +37,26 @@
 
 -(void)initTableData {
     _contacts = [[NSMutableArray alloc] init];          //load the contacts with dummy data
-    /*
-    User *user = [[User alloc] initWithUser:@"coolkid111" withEmail:@"user1@gmail.com" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"I'm a cool guy."];
+    
+    User *user = [[User alloc] initWithUser:@"coolkid111" withEmail:@"user1@gmail.com" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"I'm a cool guy." withProfilePic:nil];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"tdik543" withEmail:@"tdik543@gmail.com" withFirstName:@"Tim" withLastName:@"Dickson" withProfileDesc:@"Lost cause..." ];
+    user = [[User alloc] initWithUser:@"tdik543" withEmail:@"tdik543@gmail.com" withFirstName:@"Tim" withLastName:@"Dickson" withProfileDesc:@"Lost cause..." withProfilePic:nil];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"oatman" withEmail:@"oatman@gmail.com" withFirstName:@"Jared" withLastName:@"AssHat" withProfileDesc:@"As long as it looks pretty." ];
+    user = [[User alloc] initWithUser:@"oatman" withEmail:@"oatman@gmail.com" withFirstName:@"Jared" withLastName:@"Hat" withProfileDesc:@"As long as it looks pretty." withProfilePic:nil ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"towelie224" withEmail:@"towelie224@gmail.com" withFirstName:@"Faysal" withLastName:@"AssHat#2" withProfileDesc:@"Tim do something pointless." ];
+    user = [[User alloc] initWithUser:@"towelie224" withEmail:@"towelie224@gmail.com" withFirstName:@"Faysal" withLastName:@"Hat#2" withProfileDesc:@"Tim do something pointless." withProfilePic:nil];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"coder339" withEmail:@"coder339@gmail.com" withFirstName:@"Aidaly" withLastName:@"Santamaria" withProfileDesc:@" :D " ];
+    user = [[User alloc] initWithUser:@"coder339" withEmail:@"coder339@gmail.com" withFirstName:@"Aidaly" withLastName:@"Santamaria" withProfileDesc:@" :D " withProfilePic:nil ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"shipme897" withEmail:@"shipme897@gmail.com" withFirstName:@"Stefan" withLastName:@"Theard" withProfileDesc:@"Just ship it..." ];
+    user = [[User alloc] initWithUser:@"shipme897" withEmail:@"shipme897@gmail.com" withFirstName:@"Stefan" withLastName:@"Theard" withProfileDesc:@"Just ship it..." withProfilePic:nil ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"dog678" withEmail:@"dog678@gmail.com" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"idk" ];
+    user = [[User alloc] initWithUser:@"dog678" withEmail:@"dog678@gmail.com" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"idk" withProfilePic:nil ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"cat876" withEmail:@"cat876@gmail.com" withFirstName:@"Isacc" withLastName:@"Derman" withProfileDesc:@"hi" ];
+    user = [[User alloc] initWithUser:@"cat876" withEmail:@"cat876@gmail.com" withFirstName:@"Isacc" withLastName:@"Derman" withProfileDesc:@"hi" withProfilePic:nil];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"fish432" withEmail:@"fish432@gmail.com" withFirstName:@"Kylie" withLastName:@"Oliver" withProfileDesc:@"I'm pretty." ];
+    user = [[User alloc] initWithUser:@"rubberducky" withEmail:@"rubberducky@gmail.com" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"I like ducks." withProfilePic:nil ];
     [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"buffGuy812" withEmail:@"buffGuy@gmail.com" withFirstName:@"Dillon" withLastName:@"Harper" withProfileDesc:@"Making sexy movies with Tim." ];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"rubberducky" withEmail:@"rubberducky@gmail.com" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"I like ducks." ];
-    [_contacts addObject:user];
-    */
+    
     //sort contacts by last name and then first name
     NSSortDescriptor *lnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lname" ascending:YES];
     NSSortDescriptor *fnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"fname" ascending:YES];
