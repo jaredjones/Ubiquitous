@@ -13,5 +13,5 @@
 @interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 - (void)changeUser: (User *)u;
-
++ (NSData *)dataFromHexString:(NSString *)string;
 @end

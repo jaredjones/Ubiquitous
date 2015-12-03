@@ -10,6 +10,7 @@
 #import "ProfilePads.h"
 #import "ProfileTopView.h"
 #import "NetworkManager.h"
+#import "NSData+Conversion.h"
 
 @interface ProfileViewController()
 
@@ -96,7 +97,7 @@
 }
 
 - (void)photoTapped: (UITapGestureRecognizer *)tap{
-    //if ([User me] == _user){
+    if ([User me] == _user){
         NSLog(@"Tapped");
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -104,20 +105,65 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         [self presentViewController:picker animated:YES completion:NULL];
-    //}
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     _user.profilePic = chosenImage;
     [_profileTopView changeProfilePhoto:chosenImage];
-    _user.profilePic = chosenImage;
+
+    NSData *imgData = UIImageJPEGRepresentation(chosenImage, 0.5);
+    NSString *hexImg = [imgData hexadecimalString];
+    NSString *post = [NSString stringWithFormat:@"SSO=%@&Image=%@", [[User me]SSO], hexImg];
+    
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://gaea.uvora.com/sharethought/process.php"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request] resume];
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
++ (NSData *)dataFromHexString:(NSString *)string
+{
+    string = [string lowercaseString];
+    NSMutableData *data= [NSMutableData new];
+    unsigned char whole_byte;
+    char byte_chars[3] = {'\0','\0','\0'};
+    int i = 0;
+    NSUInteger length = string.length;
+    while (i < length-1) {
+        char c = [string characterAtIndex:i++];
+        if (c < '0' || (c > '9' && c < 'a') || c > 'f')
+            continue;
+        byte_chars[0] = c;
+        byte_chars[1] = [string characterAtIndex:i++];
+        whole_byte = strtol(byte_chars, NULL, 16);
+        [data appendBytes:&whole_byte length:1];
+    }
+    return data;
 }
 
 - (void)changeUser:(User *)u{
     NSLog(@"changeUser");
     _user = u;
+    NSURL *URL = [NSURL URLWithString:[@"http://gaea.uvora.com/sharethought/process.php?o=1&user=" stringByAppendingString:[_user username]]];
+    NSError *error;
+    NSString *stringFromFileAtURL = [[NSString alloc]
+                                     initWithContentsOfURL:URL
+                                     encoding:NSUTF8StringEncoding
+                                     error:&error];
+    
+    NSData *imgData = [ProfileViewController dataFromHexString:stringFromFileAtURL];
+    UIImage *img = [UIImage imageWithData:imgData];
+    _user.profilePic = img;
+    [_profileTopView changeProfilePhoto:img];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
