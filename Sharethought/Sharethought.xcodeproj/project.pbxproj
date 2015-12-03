@@ -27,6 +27,7 @@
 		C009EB941C0E67F400B04161 /* DemoMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C009EB931C0E67F400B04161 /* DemoMessagesViewController.m */; };
 		C009EB971C0E684800B04161 /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = C009EB961C0E684800B04161 /* DemoModelData.m */; };
 		C096645F1C1059C2009CF4A1 /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = C096645E1C1059C2009CF4A1 /* NSData+Conversion.m */; };
+		C09664621C10EEEF009CF4A1 /* NoNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09664611C10EEEF009CF4A1 /* NoNetworkViewController.m */; };
 		C0ACAB9E1BCC89D50009386F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ACAB9D1BCC89D50009386F /* NetworkManager.m */; };
 		C0BDC1FA1BD9C19C002B0884 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC1F91BD9C19C002B0884 /* Launch Screen.storyboard */; };
 		C0BDC2051BD9C2C2002B0884 /* addIconBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BDC1FC1BD9C2C2002B0884 /* addIconBlack.png */; };
@@ -109,6 +110,8 @@
 		C009EB961C0E684800B04161 /* DemoModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoModelData.m; path = Chat/DemoModelData.m; sourceTree = "<group>"; };
 		C096645D1C1059C2009CF4A1 /* NSData+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Conversion.h"; sourceTree = "<group>"; };
 		C096645E1C1059C2009CF4A1 /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
+		C09664601C10EEEF009CF4A1 /* NoNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoNetworkViewController.h; sourceTree = "<group>"; };
+		C09664611C10EEEF009CF4A1 /* NoNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoNetworkViewController.m; sourceTree = "<group>"; };
 		C0ACAB9C1BCC89D50009386F /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Networking/NetworkManager.h; sourceTree = "<group>"; };
 		C0ACAB9D1BCC89D50009386F /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
 		C0B58F5F1BD5AE2900A03203 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = Networking/Packet.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				C0ACAB9B1BCC89BA0009386F /* Networking */,
 				C096645D1C1059C2009CF4A1 /* NSData+Conversion.h */,
 				C096645E1C1059C2009CF4A1 /* NSData+Conversion.m */,
+				C09664601C10EEEF009CF4A1 /* NoNetworkViewController.h */,
+				C09664611C10EEEF009CF4A1 /* NoNetworkViewController.m */,
 			);
 			path = ShareThought;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				9038A1211BC70A64002D3691 /* main.m in Sources */,
 				F212E7041BF9102D001635EB /* ProfileTopView.m in Sources */,
 				C009EB971C0E684800B04161 /* DemoModelData.m in Sources */,
+				C09664621C10EEEF009CF4A1 /* NoNetworkViewController.m in Sources */,
 				F2F479791BE83EB800BD57D9 /* ProfilePads.m in Sources */,
 				9038A12D1BC70A64002D3691 /* ShareThought.xcdatamodeld in Sources */,
 				F212E70C1BF91D28001635EB /* UILabel+Width.m in Sources */,

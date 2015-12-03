@@ -11,15 +11,19 @@
 #import "CocoaAsyncSocket.h"
 #import "NetworkManager.h"
 #import "User.h"
+#import "NoNetworkViewController.h"
 
 @interface NetworkManager()
 {
+    
 }
 
 @property (nonatomic, strong) GCDAsyncSocket *socket;
 
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) NSNumber *port;
+
+@property (nonatomic, strong) NoNetworkViewController *noNetworkVC;
 
 @end
 
@@ -36,6 +40,7 @@
 
 - (instancetype)init{
     if (self = [super init]){
+        _noNetworkVC = nil;
         return self;
     }
     return nil;
@@ -105,6 +110,14 @@
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
     NSLog(@"Disconnected");
+    
+    #define ROOTVIEW [[[UIApplication sharedApplication] keyWindow] rootViewController]
+    
+    if (_noNetworkVC == nil){
+        _noNetworkVC = [[NoNetworkViewController alloc]init];
+        [ROOTVIEW presentViewController:_noNetworkVC animated:YES completion:^{}];
+    }
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [NSThread sleepForTimeInterval:1];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,6 +131,13 @@
     
     NSUInteger headerLength = 3;
     [sock readDataToLength:headerLength withTimeout:-1 tag:0];
+}
+
+- (void) nilOutDisconnectedVC
+{
+    [_noNetworkVC dismissViewControllerAnimated:YES completion:^{
+       _noNetworkVC = nil;
+    }];
 }
 
 Packet *tmp = nil;
@@ -145,6 +165,7 @@ Packet *tmp = nil;
         switch (tmp->OPCODE) {
             case SMSG_CONNECTED:
                 NSLog(@"Connected!");
+                [self nilOutDisconnectedVC];
                 break;
                 
             case SMSG_KEEP_ALIVE:
