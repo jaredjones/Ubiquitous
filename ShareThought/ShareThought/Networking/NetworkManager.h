@@ -15,6 +15,7 @@
 + (id)sharedManager;
 - (void)loginWithEmail: (NSString *)email withPassword: (NSString *)password;
 - (void)registerWithEmail: (NSString *)email withPassword: (NSString *)password withFirstName: (NSString *)fName withLastName: (NSString *)lName withAboutYou: (NSString *)aboutYou withUserName: (NSString *)userName;
+- (void)updatePicture: (NSData *)picData;
 - (void)logout;
 - (void)connect: (NSString *)host withPort: (NSNumber *)port;
 - (GCDAsyncSocket *)getSocket;

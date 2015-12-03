@@ -60,6 +60,7 @@
     
     UIImageView *imgView = [_profileTopView getProfileImageView];
     imgView.userInteractionEnabled = YES;
+    
     UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(photoTapped:)];
     [tapGest setNumberOfTapsRequired:1];
     [imgView addGestureRecognizer:tapGest];
@@ -96,7 +97,7 @@
 }
 
 - (void)photoTapped: (UITapGestureRecognizer *)tap{
-    //if ([User me] == _user){
+    if ([User me] == _user){
         NSLog(@"Tapped");
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -104,14 +105,18 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         [self presentViewController:picker animated:YES completion:NULL];
-    //}
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    _user.profilePic = chosenImage;
+    NSData *dat = UIImageJPEGRepresentation(chosenImage, 0.5);
+    
+    _user.profilePic = [UIImage imageWithData:dat scale:1.0];
     [_profileTopView changeProfilePhoto:chosenImage];
-    _user.profilePic = chosenImage;
+    
+    [[NetworkManager sharedManager] updatePicture: dat];
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 

@@ -64,7 +64,7 @@
     uint64_t finalSize;
     char *packetData;
     NSData *data;
-    packetData = ConstructPacket(CMSG_LOGIN, packetBody.length, (char*)[packetBodyData bytes], &finalSize);
+    packetData = ConstructPacket(CMSG_LOGIN, (uint32_t)packetBody.length, (char*)[packetBodyData bytes], &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
     
     [_socket writeData:data withTimeout:-1 tag:0];
@@ -85,11 +85,58 @@
     uint64_t finalSize;
     char *packetData;
     NSData *data;
-    packetData = ConstructPacket(CMSG_REGISTER, packetBody.length, (char*)[packetBodyData bytes], &finalSize);
+    packetData = ConstructPacket(CMSG_REGISTER, (uint32_t)packetBody.length, (char*)[packetBodyData bytes], &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
     
     [_socket writeData:data withTimeout:-1 tag:0];
     free(packetData);
+}
+
+- (void)updatePicture:(NSData *)picData{
+    uint64_t finalSize;
+    char *packetData;
+    NSData *data;
+    
+    NSUInteger cIndex = 0;
+    while (cIndex != [picData length]){
+        char * picDataBytes;
+        BOOL start = false;
+        if (cIndex == 0){
+            printf("Pic LENGTH:%lu\n", (unsigned long)[picData length]);
+            picDataBytes = malloc([picData length] + 4);
+            *(picDataBytes)     = (uint8_t)([picData length] & 0x000000FF);
+            *(picDataBytes + 1) = (uint8_t)(([picData length] & 0x0000FF00) >> 8);
+            *(picDataBytes + 2) = (uint8_t)(([picData length] & 0x00FF0000) >> 16);
+            *(picDataBytes + 3) = (uint8_t)(([picData length] & 0xFF000000) >> 24);
+            start = true;
+            
+        }else{
+            picDataBytes =(char*)[picData bytes];
+        }
+        
+        NSUInteger pLen = 0;
+        if (([picData length] - cIndex) >= (65536 / 2 - 1)){
+            pLen = (65536 / 2 - 1);
+            cIndex += (65536 / 2 - 1);
+        }else{
+            pLen = [picData length] - cIndex;
+            cIndex += [picData length] - cIndex;
+        }
+        
+        if (start)
+            pLen += 4;
+        
+        packetData = ConstructPacket(CMSG_UPDATE_PICTURE, (uint32_t)pLen, picDataBytes, &finalSize);
+        data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+        
+        [_socket writeData:data withTimeout:-1 tag:0];
+        
+        
+        
+        free(packetData);
+        if (start)
+            free(picDataBytes);
+    }
 }
 
 - (void)logout{
@@ -116,7 +163,7 @@
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
     NSLog(@"Socket:%@ didConnectToHost:%@ onPort:%hu", sock, host, port);
     
-    NSUInteger headerLength = 3;
+    NSUInteger headerLength = 5;
     [sock readDataToLength:headerLength withTimeout:-1 tag:0];
 }
 

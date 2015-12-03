@@ -189,8 +189,9 @@ void WorldUpdate(int timeDiff)
             }
             connections[i]->klFlagged = true;
             uint64 finalSize;
-            char *packetData;
-            packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+            char *packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
+            printf("%llu\n", finalSize);
+            
             send(connections[i]->SocketID, packetData, finalSize, 0);
             free(packetData);
             connections[i]->keepAliveEndPoint = currentTimeSinceEpoch + 5000;
@@ -317,7 +318,7 @@ void WorldUpdate(int timeDiff)
                             (char)connections[i]->account->lname.length(), connections[i]->account->lname.c_str(),
                             (char)connections[i]->account->aboutMe.length(), connections[i]->account->aboutMe.c_str());
                             
-                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, (uint16_t)strlen(buf), buf, &finalSize);
+                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, (uint32_t)strlen(buf), buf, &finalSize);
                             send(connections[i]->SocketID, packetData, finalSize, 0);
                             free(guid);
                             free(packetData);
@@ -350,6 +351,53 @@ void WorldUpdate(int timeDiff)
                 printf("CMSG_LOGOUT\n");
                 delete connections[i]->account;
                 connections[i]->account = nullptr;
+                break;
+            case CMSG_UPDATE_PICTURE:
+                printf("CMSG_UPDATE_PICTURE\n");
+                if (connections[i]->account != nullptr){
+                    uint32_t totalPicLen = *((uint32_t*) op.DATA);
+                    
+                    uint16_t pullSize = (65536 / 2 - 1);
+                    if (connections[i]->account->profilePic != nullptr){
+                        free(connections[i]->account->profilePic);
+                        connections[i]->account->profilePic = nullptr;
+                    }
+                    op.DATA += 4;
+                    
+                    uint32_t len = 0;
+                    if ((op.LENGTH - 4) >= pullSize)
+                        len = pullSize;
+                    else
+                        len = op.LENGTH - 4;
+                    
+                    connections[i]->account->profilePicLen = totalPicLen;
+                    connections[i]->account->profilePic = (char*)malloc(totalPicLen);
+                    
+                    
+                    memcpy(connections[i]->account->profilePic, op.DATA, sizeof(buffer));
+                    
+                    char *picMem = connections[i]->account->profilePic;
+                    picMem += sizeof(buffer);
+                    
+                    recv(connections[i]->SocketID, picMem, len - sizeof(buffer), 0);
+                    
+                    connections[i]->account->profilePicCurLen += (sizeof(buffer) + len - sizeof(buffer));
+                }
+            case CMSG_UPDATE_PICTURE_CONT:
+                printf("CMSG_UPDATE_PICTURE_CONT\n");
+                if (connections[i]->account != nullptr && connections[i]->account->profilePic != nullptr){
+                    uint16_t pullSize = (65536 / 2 - 1);
+                    uint32_t len = 0;
+                    if ((op.LENGTH) >= pullSize)
+                        len = pullSize;
+                    else
+                        len = op.LENGTH;
+                    
+                    recv(connections[i]->SocketID, stderr, len - sizeof(buffer), 0);
+                    
+                }
+                break;
+                
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);

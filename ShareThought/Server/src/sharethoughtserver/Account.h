@@ -11,6 +11,9 @@ public:
     std::string fname;
     std::string lname;
     std::string aboutMe;
+    char *profilePic;
+    uint32_t profilePicLen;
+    uint32_t profilePicCurLen;
     Account(){
         this->username = "";
         this->password = "";
@@ -18,6 +21,9 @@ public:
         this->fname = "";
         this->lname = "";
         this->aboutMe = "";
+        this->profilePic = nullptr;
+        this->profilePicLen = 0;
+        this->profilePicCurLen = 0;
     }
     Account(std::string username, std::string password, std::string email, std::string fname, std::string lname, std::string aboutMe){
         this->username = username;
@@ -26,6 +32,19 @@ public:
         this->fname = fname;
         this->lname = lname;
         this->aboutMe = aboutMe;
+        this->profilePic = nullptr;
+        this->profilePicLen = 0;
+        this->profilePicCurLen = 0;
+    }
+    
+    ~Account(){
+        printf("Account Deallocating\n");
+        if (profilePic != nullptr){
+            free (profilePic);
+            profilePic = nullptr;
+            this->profilePicLen = 0;
+            this->profilePicCurLen = 0;
+        }
     }
 };
 

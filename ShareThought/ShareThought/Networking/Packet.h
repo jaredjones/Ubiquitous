@@ -16,7 +16,7 @@
 typedef struct Packet
 {
     uint8_t OPCODE;
-    uint16_t LENGTH;
+    uint32_t LENGTH;
     char* DATA;
 }Packet;
 #pragma pack(pop)
@@ -31,11 +31,12 @@ typedef struct Packet
 #define SMSG_ACCOUNT_CREATED            0x08
 #define SMSG_ACCOUNT_ALREADY_EXISTS     0x09
 #define CMSG_LOGOUT                     0x0a
+#define CMSG_UPDATE_PICTURE             0x0b
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
-char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPacketSize)
+char* ConstructPacket(uint8_t op, uint32_t length, char* data, uint64_t* finalPacketSize)
 {
-    uint64_t finalSize = sizeof(op) + sizeof(uint16_t) + length;
+    uint64_t finalSize = sizeof(op) + sizeof(uint32_t) + length;
     *finalPacketSize = finalSize;
     char* finalPacket = (char*)calloc((uint32_t)finalSize, 1);
     
@@ -45,13 +46,15 @@ char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPa
         if (i == 0)
         {
             *(finalPacket + 0) = op;
-            *(finalPacket + 1) = (uint8_t)(length & 0x00FF);
-            *(finalPacket + 2) = (uint8_t)((length & 0xFF00) >> 8);
-            i = 2;
+            *(finalPacket + 1) = (uint8_t)(length & 0x000000FF);
+            *(finalPacket + 2) = (uint8_t)((length & 0x0000FF00) >> 8);
+            *(finalPacket + 3) = (uint8_t)((length & 0x00FF0000) >> 16);
+            *(finalPacket + 4) = (uint8_t)((length & 0xFF000000) >> 24);
+            i = 4;
             continue;
         }
         
-        *(finalPacket + i) = *(data + i - 3);
+        *(finalPacket + i) = *(data + i - 5);
     }
     return finalPacket;
 }
@@ -61,14 +64,14 @@ Packet* DecodePacket(char *buff, uint64_t size)
     Packet *tmp = malloc(sizeof(Packet));
     tmp->OPCODE = *buff;
     
-    tmp->LENGTH = *(buff + 1);
-    tmp->LENGTH = tmp->LENGTH | (*(buff + 2) << 8);
-    
-    tmp->DATA = (char*)calloc((uint32_t)size - 3, 1);
+    tmp->LENGTH = *((uint32_t*) (buff + 1));
+    if (size < 5)
+        size = 5;
+    tmp->DATA = (char*)calloc((uint32_t)size - 5, 1);
     
     int i;
-    for (i = 3; i < size; i++)
-        *(tmp->DATA + i - 3) = *(buff + i);
+    for (i = 5; i < size; i++)
+        *(tmp->DATA + i - 5) = *(buff + i);
     return tmp;
 }
 
