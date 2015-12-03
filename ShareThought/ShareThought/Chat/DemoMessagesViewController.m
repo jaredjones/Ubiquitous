@@ -52,7 +52,7 @@
      
      [self.navigationController.navigationBar addSubview:visualEffectViewNavBar];
      */
-    self.title = @"Jared Jones";
+    self.title = @"General Channel";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor orangeColor]}];
     
@@ -178,6 +178,8 @@
 
 - (void)receiveMessagePressed:(UIBarButtonItem *)sender
 {
+    if (sender)
+        return;
     /**
      *  DEMO ONLY
      *

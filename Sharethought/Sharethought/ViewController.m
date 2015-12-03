@@ -114,11 +114,6 @@
 - (IBAction)loginButtonTapped:(id)sender {
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
-- (IBAction)chatButtonTapped:(id)sender {
-    DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nc animated:YES completion:nil];
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     

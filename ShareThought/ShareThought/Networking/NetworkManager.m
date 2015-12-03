@@ -159,7 +159,6 @@ Packet *tmp = nil;
                 NSLog(@"SMSG_SUCCESSFUL_LOGIN");
                 
                 arr = [User convertPacketDataToStringArray:data];
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedInNotification" object:
                  self userInfo:@{@"SSO":[arr objectAtIndex:0],
                                  @"User": [[User alloc]

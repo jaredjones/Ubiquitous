@@ -111,6 +111,7 @@
         [[User me] setFname:[u fname]];
         [[User me] setLname:[u lname]];
         [[User me] setEmail:[u email]];
+        [[User me] setProfileDescription:[u profileDescription]];
         
         [self performSegueWithIdentifier:@"loggedInToProfile" sender:self];
     }

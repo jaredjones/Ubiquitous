@@ -133,6 +133,7 @@
                         <outlet property="profileTopView" destination="Vco-TN-DYR" id="aZl-tn-Zro"/>
                         <outlet property="startChatButton" destination="dqe-Af-PPu" id="61j-OE-vQF"/>
                         <segue destination="xWQ-yK-4xO" kind="presentation" identifier="aboutUserSegue" modalPresentationStyle="formSheet" id="sF3-S7-4t7"/>
+                        <segue destination="GzP-1M-8yy" kind="show" identifier="friendsSegue" id="WQI-vA-1O9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwg-Ur-NGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,22 +234,6 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS6-A8-pTQ">
-                                            <rect key="frame" x="37" y="142" width="33" height="30"/>
-                                            <animations/>
-                                            <state key="normal" title="Chat"/>
-                                            <connections>
-                                                <action selector="chatButtonTapped:" destination="8r7-dj-Bjf" eventType="touchUpInside" id="H25-xt-Va0"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-9b-qxm">
-                                            <rect key="frame" x="26" y="69" width="69" height="30"/>
-                                            <animations/>
-                                            <state key="normal" title="Contacts"/>
-                                            <connections>
-                                                <segue destination="GzP-1M-8yy" kind="show" id="6W4-mn-x6y"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -563,8 +548,7 @@
                                 <state key="normal" image="backbutton.png"/>
                                 <state key="highlighted" image="backbutton-pressed.png"/>
                                 <connections>
-                                    <action selector="navigationBackButtonPressed:" destination="dti-En-VK5" eventType="touchUpInside" id="dVK-Jk-gpw"/>
-                                    <segue destination="8r7-dj-Bjf" kind="show" id="RKW-4M-Ytz"/>
+                                    <action selector="navigateBackPressed:" destination="GzP-1M-8yy" eventType="touchUpInside" id="QJx-bj-fEZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -795,7 +779,7 @@
         <image name="hoh-rain-forest-olympic-national-park_51546_990x742.jpg" width="990" height="742"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="3EY-mN-WRy"/>
         <segue reference="cuQ-HD-fnt"/>
-        <segue reference="Xfc-Xe-XD7"/>
     </inferredMetricsTieBreakers>
 </document>

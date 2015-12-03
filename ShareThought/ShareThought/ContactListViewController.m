@@ -84,6 +84,11 @@
     
     _titleLabel = titleLabel;
 }
+- (IBAction)navigateBackPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 -(void)setSearchBar:(UISearchBar *)searchBar {
     searchBar.placeholder = @"Search Contacts";

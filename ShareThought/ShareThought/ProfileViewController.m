@@ -11,6 +11,7 @@
 #import "ProfileTopView.h"
 #import "NetworkManager.h"
 #import "NSData+Conversion.h"
+#import "DemoMessagesViewController.h"
 
 @interface ProfileViewController()
 
@@ -82,18 +83,29 @@
 
 - (IBAction)personsFriendsPressed:(id)sender {
     NSLog(@"Person's Friends Pressed");
+    [self performSegueWithIdentifier:@"friendsSegue" sender:self];
 }
 - (IBAction)deleteFriendPressed:(id)sender {
     NSLog(@"Delete Friend Pressed");
 }
 - (IBAction)clickToChatPressed:(id)sender {
     NSLog(@"Click to Chat Pressed");
+    DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 - (IBAction)addFriendPressed:(id)sender {
     NSLog(@"Add Friend Pressed");
 }
 - (IBAction)aboutUsOrEditButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"aboutUserSegue" sender:self];
+    UIAlertController *msg = [UIAlertController alertControllerWithTitle:[@"About " stringByAppendingString:[_user fname]]
+                                                                 message:[_user profileDescription]
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+    [msg addAction:defaultAction];
+    [self presentViewController:msg animated:YES completion:nil];
+    //[self performSegueWithIdentifier:@"aboutUserSegue" sender:self];
 }
 
 - (void)photoTapped: (UITapGestureRecognizer *)tap{
