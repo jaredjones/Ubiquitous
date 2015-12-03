@@ -51,7 +51,7 @@
     _socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:mainQueue];
     
     NSError *error = nil;
-    if ( ![_socket connectToHost:@"Gaea.uvora.com" onPort:[_port unsignedIntegerValue] withTimeout:2.0 error:&error] ){
+    if ( ![_socket connectToHost:host onPort:[_port unsignedIntegerValue] withTimeout:2.0 error:&error] ){
         NSLog(@"Error Connecting: %@", error);
     }
 }
@@ -168,7 +168,7 @@ Packet *tmp = nil;
                                            withFirstName:[arr objectAtIndex:3]
                                            withLastName:[arr objectAtIndex:4]
                                            withProfileDesc:[arr objectAtIndex:5]
-                                           withProfilePic:[arr objectAtIndex:5]]}];
+                                           withProfilePic:nil]}];
                 break;
             case SMSG_UNSUCCESSFUL_LOGIN:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailureInNotification" object:self];

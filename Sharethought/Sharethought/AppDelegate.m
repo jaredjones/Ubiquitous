@@ -24,7 +24,7 @@
     //[NSThread sleepForTimeInterval:3.0];
     
     _networkMgr = [NetworkManager sharedManager];
-    [_networkMgr connect:@"localhost" withPort:@38205];
+    [_networkMgr connect:@"gaea.uvora.com" withPort:@38205];
     return YES;
 }
 
