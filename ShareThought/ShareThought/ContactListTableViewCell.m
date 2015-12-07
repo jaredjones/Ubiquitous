@@ -64,8 +64,14 @@
     _contactDisplayView = contactDisplayView;
 }
 
+- (void)updateUserIcon: (UIImage *)icon{
+    _contactImageView.image = icon;
+    _contactImageView.layer.cornerRadius = _contactImageView.frame.size.width / 2;
+    _contactImageView.layer.masksToBounds = YES;
+}
+
 -(void)setContactImageView:(UIImageView *)contactImageView {
-    UIImage *image = [UIImage imageNamed:@"rose.jpg"];
+    UIImage *image = nil;
     contactImageView.image = image;
     
     contactImageView.layer.cornerRadius = contactImageView.frame.size.width / 2;

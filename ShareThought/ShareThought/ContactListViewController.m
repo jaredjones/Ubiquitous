@@ -10,6 +10,7 @@
 #import "User.h"
 #import "ContactListTableViewCell.h"
 #import "DemoMessagesViewController.h"
+#import "NetworkManager.h"
 
 @interface ContactListViewController () <ContactListTableCellDelegate>
 
@@ -36,7 +37,9 @@
 }
 
 -(void)initTableData {
-    _contacts = [[NSMutableArray alloc] init];          //load the contacts with dummy data
+    _contacts = [[NSMutableArray alloc] init];
+    
+    [[NetworkManager sharedManager] grabContacts];
     
     User *user = [[User alloc] initWithUser:@"coolkid111" withEmail:@"user1@gmail.com" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"I'm a cool guy." withProfilePic:nil];
     [_contacts addObject:user];

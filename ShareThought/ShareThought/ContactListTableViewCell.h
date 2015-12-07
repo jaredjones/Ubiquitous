@@ -23,4 +23,6 @@
 @property (nonatomic, weak) id <ContactListTableCellDelegate> delegate;
 
 
+- (void)updateUserIcon: (UIImage *)icon;
+
 @end
