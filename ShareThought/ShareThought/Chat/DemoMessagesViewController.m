@@ -159,7 +159,7 @@
      *  You must set this from `viewDidAppear:`
      *  Note: this feature is mostly stable, but still experimental
      */
-    self.collectionView.collectionViewLayout.springinessEnabled = NO;
+    self.collectionView.collectionViewLayout.springinessEnabled = YES;
 }
 
 

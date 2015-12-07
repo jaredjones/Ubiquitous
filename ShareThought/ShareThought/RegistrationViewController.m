@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self myButtonChange:_registrationButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedRegistrationNotification:)
@@ -44,6 +43,10 @@
     
     
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidLayoutSubviews{
+    [self myButtonChange:_registrationButton];
 }
 
 - (void)didReceiveMemoryWarning {
