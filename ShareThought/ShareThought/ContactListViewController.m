@@ -215,20 +215,27 @@
     User *u = [users objectAtIndex:indexPath.row];
     [cell setUser:u];
     
-    NSURL *URL = [NSURL URLWithString:[@"http://gaea.uvora.com/sharethought/process.php?o=1&user=" stringByAppendingString:[u username]]];
-    NSError *error;
-    NSString *stringFromFileAtURL = [[NSString alloc]
-                                     initWithContentsOfURL:URL
-                                     encoding:NSUTF8StringEncoding
-                                     error:&error];
-    UIImage *image = nil;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSURL *URL = [NSURL URLWithString:[@"http://gaea.uvora.com/sharethought/process.php?o=1&user=" stringByAppendingString:[u username]]];
+        NSError *error;
+        NSString *stringFromFileAtURL = [[NSString alloc]
+                                         initWithContentsOfURL:URL
+                                         encoding:NSUTF8StringEncoding
+                                         error:&error];
+        __block UIImage *image = nil;
+        
+        if (![stringFromFileAtURL isEqualToString:@""]){
+            NSData *imgData = [ProfileViewController dataFromHexString:stringFromFileAtURL];
+            UIImage *img = [UIImage imageWithData:imgData];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                image = img;
+                [cell updateUserIcon:image];
+            });
+        }
+    });
     
-    if (![stringFromFileAtURL isEqualToString:@""]){
-        NSData *imgData = [ProfileViewController dataFromHexString:stringFromFileAtURL];
-        UIImage *img = [UIImage imageWithData:imgData];
-        image = img;
-        [cell updateUserIcon:image];
-    }
+    
     
     cell.contactName = [u.fname stringByAppendingFormat:@" %@", u.lname];
     //cell.theLabelColor = [self colorPickerForNameLabel: _colorPicker];
