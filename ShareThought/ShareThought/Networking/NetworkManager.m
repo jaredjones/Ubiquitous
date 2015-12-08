@@ -215,9 +215,10 @@ Packet *tmp = nil;
                 //Loool
                 if (true){
                     char *bytes = (char*)[data bytes];
-                    char numberOfContacts = *(bytes);
+                    int numberOfContacts = *(bytes);
                     bytes+=1;
-                    
+                    if (numberOfContacts < 1)
+                        break;
                     arr = [User convertPacketDataToStringArray:[NSData dataWithBytes:bytes length:[data length] - 1]];
                     
                     NSMutableArray *userArray = [[NSMutableArray alloc]init];

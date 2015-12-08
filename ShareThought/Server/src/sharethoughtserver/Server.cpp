@@ -364,7 +364,8 @@ void WorldUpdate(int timeDiff)
                         sql::ResultSet *resultSet = pstmt->executeQuery();
                         
                         char buff[2048];
-                        sprintf(buff, "%c", (char)resultSet->rowsCount());
+                        char num = (char)resultSet->rowsCount();
+                        sprintf(buff, "%c", num);
                         
                         resultSet->first();
                         uint32_t lastLength = 0;
@@ -386,7 +387,13 @@ void WorldUpdate(int timeDiff)
                             resultSet->next();
                         }
                         
-                        packetData = ConstructPacket(SMSG_SEND_CONTACTS, (uint16_t)strlen(buff), buff, &finalSize);
+                        uint16_t buffLen;
+                        if (num == 0)
+                            buffLen = 1;
+                        else
+                            buffLen = (uint16_t)strlen(buff);
+                        
+                        packetData = ConstructPacket(SMSG_SEND_CONTACTS, buffLen, buff, &finalSize);
                         send(connections[i]->SocketID, packetData, finalSize, 0);
                         free(packetData);
                         
