@@ -32,6 +32,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _registrationEmail.autocorrectionType = UITextAutocorrectionTypeNo;
+    _registrationPassword.autocorrectionType = UITextAutocorrectionTypeNo;
+    _registrationPasswordVerify.autocorrectionType = UITextAutocorrectionTypeNo;
+    _firstNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _lastNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _registrationPassword.autocorrectionType = UITextAutocorrectionTypeNo;
+    _descriptionField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _userName.autocorrectionType = UITextAutocorrectionTypeNo;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedRegistrationNotification:)
                                                  name:@"RegistrationNotification"

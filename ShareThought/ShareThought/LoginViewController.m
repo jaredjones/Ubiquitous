@@ -29,6 +29,8 @@
 
     self.loginEmail.delegate = self;
     self.loginPassword.delegate = self;
+    self.loginEmail.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.loginPassword.autocorrectionType = UITextAutocorrectionTypeNo;
     
     [self myButtonChange:_loginButton];
 
