@@ -37,7 +37,7 @@ typedef struct Packet
 #define CMSG_DELETE_ACCOUNT             0x0d
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
-char* ConstructPacket(uint8_t op, uint16_t length, unsigned char* data, uint64_t* finalPacketSize)
+unsigned char* ConstructPacket(uint8_t op, uint16_t length, unsigned char* data, uint64_t* finalPacketSize)
 {
     uint64_t finalSize = sizeof(op) + sizeof(uint16_t) + length;
     *finalPacketSize = finalSize;

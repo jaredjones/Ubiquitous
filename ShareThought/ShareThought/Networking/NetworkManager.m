@@ -67,9 +67,9 @@
     NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
     
     uint64_t finalSize;
-    char *packetData;
+    unsigned char *packetData;
     NSData *data;
-    packetData = ConstructPacket(CMSG_LOGIN, packetBody.length, (char*)[packetBodyData bytes], &finalSize);
+    packetData = ConstructPacket(CMSG_LOGIN, packetBody.length, (unsigned char*)[packetBodyData bytes], &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
     
     [_socket writeData:data withTimeout:-1 tag:0];
@@ -88,9 +88,9 @@
     NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
     
     uint64_t finalSize;
-    char *packetData;
+    unsigned char *packetData;
     NSData *data;
-    packetData = ConstructPacket(CMSG_REGISTER, packetBody.length, (char*)[packetBodyData bytes], &finalSize);
+    packetData = ConstructPacket(CMSG_REGISTER, packetBody.length, (unsigned char*)[packetBodyData bytes], &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
     
     [_socket writeData:data withTimeout:-1 tag:0];
@@ -99,7 +99,7 @@
 
 - (void)logout{
     uint64_t finalSize;
-    char *packetData;
+    unsigned char *packetData;
     NSData *data;
     packetData = ConstructPacket(CMSG_LOGOUT, 0, NULL, &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
@@ -110,7 +110,7 @@
 
 - (void)deleteAccount{
     uint64_t finalSize;
-    char *packetData;
+    unsigned char *packetData;
     NSData *data;
     packetData = ConstructPacket(CMSG_DELETE_ACCOUNT, 0, NULL, &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
@@ -121,7 +121,7 @@
 
 - (void)grabContacts{
     uint64_t finalSize;
-    char *packetData;
+    unsigned char *packetData;
     NSData *data;
     packetData = ConstructPacket(CMSG_GRAB_CONTACTS, 0, NULL, &finalSize);
     data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
@@ -178,7 +178,7 @@ Packet *tmp = nil;
     startPacketReading:
         fflush(stdout);
         uint64_t finalSize;
-        char *packetData;
+        unsigned char *packetData;
         NSData *wData;
         
         NSArray *arr;
