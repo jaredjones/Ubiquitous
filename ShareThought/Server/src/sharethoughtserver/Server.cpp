@@ -419,6 +419,9 @@ void WorldUpdate(int timeDiff)
                     pstmt = SQLMGR->conn->prepareStatement("");
                     pstmt->setString(1, connections[i]->account->username);
                     
+                    //DELETE FROM `Contacts`
+                    //WHERE `OWNER` IN (SELECT `USER_ID` FROM `User` WHERE `USERNAME` = 'oatman')
+                    
                     delete connections[i]->account;
                     connections[i]->account = nullptr;
                     
