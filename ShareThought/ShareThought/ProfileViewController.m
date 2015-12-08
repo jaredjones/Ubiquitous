@@ -87,6 +87,23 @@
 }
 - (IBAction)deleteFriendPressed:(id)sender {
     NSLog(@"Delete Friend Pressed");
+    if ([User me] == _user){
+        UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"😭 Delete Account 😭"
+                                                                     message:@"You are about to delete your account, are you SURE you want to do this?"
+                                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *yesDeleteAction = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            [[NetworkManager sharedManager] deleteAccount];
+        }];
+        UIAlertAction *noDeleteAction = [UIAlertAction actionWithTitle:@"Keep Account" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }];
+        
+        [msg addAction:noDeleteAction];
+        [msg addAction:yesDeleteAction];
+        [self presentViewController:msg animated:YES completion:nil];
+    }else{
+        
+    }
 }
 - (IBAction)clickToChatPressed:(id)sender {
     NSLog(@"Click to Chat Pressed");

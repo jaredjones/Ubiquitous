@@ -108,6 +108,17 @@
     free(packetData);
 }
 
+- (void)deleteAccount{
+    uint64_t finalSize;
+    char *packetData;
+    NSData *data;
+    packetData = ConstructPacket(CMSG_DELETE_ACCOUNT, 0, NULL, &finalSize);
+    data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+    
+    [_socket writeData:data withTimeout:-1 tag:0];
+    free(packetData);
+}
+
 - (void)grabContacts{
     uint64_t finalSize;
     char *packetData;
