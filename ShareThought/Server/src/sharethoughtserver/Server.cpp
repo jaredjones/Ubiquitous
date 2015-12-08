@@ -157,7 +157,7 @@ void WorldUpdate(int timeDiff)
                 printf("Connection[%d] Created : Using Socket ID:%d\n", i, clientID);
                 
                 uint64 finalSize;
-                char *packet = ConstructPacket(SMSG_CONNECTED, 0, NULL, &finalSize);
+                unsigned char *packet = ConstructPacket(SMSG_CONNECTED, 0, NULL, &finalSize);
                 send(connections[i]->SocketID, packet, finalSize, 0);
                 free(packet);
                 
@@ -189,14 +189,14 @@ void WorldUpdate(int timeDiff)
             }
             connections[i]->klFlagged = true;
             uint64 finalSize;
-            char *packetData;
+            unsigned char *packetData;
             packetData = ConstructPacket(SMSG_KEEP_ALIVE, 0, NULL, &finalSize);
             send(connections[i]->SocketID, packetData, finalSize, 0);
             free(packetData);
             connections[i]->keepAliveEndPoint = currentTimeSinceEpoch + 5000;
         }
         
-        char buffer[1024];
+        unsigned char buffer[1024];
         int64 retSize = recv(connections[i]->SocketID, &buffer, sizeof(buffer), 0);
         
         //No data in buffer so ignore
@@ -208,7 +208,7 @@ void WorldUpdate(int timeDiff)
             continue;
         
         uint64 finalSize;
-        char *packetData;
+        unsigned char *packetData;
         struct LoginRegistrationPacketInfo lpInfo;
         
         switch(op.OPCODE)
@@ -318,7 +318,7 @@ void WorldUpdate(int timeDiff)
                             (char)connections[i]->account->lname.length(), connections[i]->account->lname.c_str(),
                             (char)connections[i]->account->aboutMe.length(), connections[i]->account->aboutMe.c_str());
                             
-                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, (uint16_t)strlen(buf), buf, &finalSize);
+                            packetData = ConstructPacket(SMSG_SUCCESSFUL_LOGIN, (uint16_t)strlen(buf), (unsigned char *)buf, &finalSize);
                             send(connections[i]->SocketID, packetData, finalSize, 0);
                             free(guid);
                             free(packetData);
@@ -367,6 +367,7 @@ void WorldUpdate(int timeDiff)
                         char *cBuff = buff;
                         
                         char num = (char)resultSet->rowsCount();
+                        
                         sprintf(buff, "%c", num);
                         cBuff += 1;
                         
@@ -392,9 +393,9 @@ void WorldUpdate(int timeDiff)
                         
                         uint16_t buffLen = cBuff - buff;
                         
-                        packetData = ConstructPacket(SMSG_SEND_CONTACTS, buffLen, buff, &finalSize);
+                        packetData = ConstructPacket(SMSG_SEND_CONTACTS, buffLen, (unsigned char*)buff, &finalSize);
                         send(connections[i]->SocketID, packetData, finalSize, 0);
-                        printf("DATS SENDT\n");
+                        printf("FINALSIZE:%llu\n", finalSize);
                         free(packetData);
                         
                         delete pstmt;

@@ -9,6 +9,7 @@
 #ifndef _H_SHARETHOUGHT_Packet_H
 #define _H_SHARETHOUGHT_Packet_H
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -17,7 +18,7 @@ typedef struct Packet
 {
     uint8_t OPCODE;
     uint16_t LENGTH;
-    char* DATA;
+    unsigned char* DATA;
 }Packet;
 #pragma pack(pop)
 
@@ -36,11 +37,11 @@ typedef struct Packet
 #define CMSG_DELETE_ACCOUNT             0x0d
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
-char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPacketSize)
+char* ConstructPacket(uint8_t op, uint16_t length, unsigned char* data, uint64_t* finalPacketSize)
 {
     uint64_t finalSize = sizeof(op) + sizeof(uint16_t) + length;
     *finalPacketSize = finalSize;
-    char* finalPacket = (char*)calloc((uint32_t)finalSize, 1);
+    unsigned char* finalPacket = (unsigned char*)calloc((uint32_t)finalSize, 1);
     
     int i;
     for (i = 0; i < finalSize; i++)
@@ -59,7 +60,7 @@ char* ConstructPacket(uint8_t op, uint16_t length, char* data, uint64_t* finalPa
     return finalPacket;
 }
 
-Packet* DecodePacket(char *buff, uint64_t size)
+Packet* DecodePacket(unsigned char *buff, uint64_t size)
 {
     Packet *tmp = malloc(sizeof(Packet));
     tmp->OPCODE = *buff;
@@ -67,7 +68,7 @@ Packet* DecodePacket(char *buff, uint64_t size)
     tmp->LENGTH = *(buff + 1);
     tmp->LENGTH = tmp->LENGTH | (*(buff + 2) << 8);
     
-    tmp->DATA = (char*)calloc((uint32_t)size - 3, 1);
+    tmp->DATA = (unsigned char*)calloc((uint32_t)size - 3, 1);
     
     int i;
     for (i = 3; i < size; i++)

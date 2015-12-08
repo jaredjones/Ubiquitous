@@ -164,7 +164,6 @@
 
 Packet *tmp = nil;
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
-    
     if (tmp == nil){
         const void *packet = [data bytes];
         tmp = DecodePacket((void*)packet, [data length]);

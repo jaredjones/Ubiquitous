@@ -9,7 +9,7 @@ typedef struct Packet
 {
     uint8 OPCODE;
     uint16 LENGTH;
-    char* DATA;
+    unsigned char* DATA;
 }Packet;
 #pragma pack(pop)
 
@@ -28,11 +28,11 @@ typedef struct Packet
 #define CMSG_DELETE_ACCOUNT             0x0d
 
 //Construct Packet Byte Array Given Opcode, Length, and Data
-char* ConstructPacket(uint8 op, uint16 length, char* data, uint64* finalPacketSize)
+unsigned char* ConstructPacket(uint8 op, uint16 length, unsigned char* data, uint64* finalPacketSize)
 {
     uint64 finalSize = sizeof(op) + sizeof(uint16) + length;
     *finalPacketSize = finalSize;
-    char* finalPacket = (char*)calloc(finalSize, 1);
+    unsigned char* finalPacket = (unsigned char*)calloc(finalSize, 1);
     
     int i;
     for (i = 0; i < finalSize; i++)
@@ -51,7 +51,7 @@ char* ConstructPacket(uint8 op, uint16 length, char* data, uint64* finalPacketSi
     return finalPacket;
 }
 
-Packet DecodePacket(char *buff, uint64 size)
+Packet DecodePacket(unsigned char *buff, uint64 size)
 {
     Packet tmp;
     tmp.OPCODE = *buff;
@@ -59,7 +59,7 @@ Packet DecodePacket(char *buff, uint64 size)
     tmp.LENGTH = *(buff + 1);
     tmp.LENGTH = tmp.LENGTH | (*(buff + 2) << 8);
     
-    tmp.DATA = (char*)calloc(size - 3, 1);
+    tmp.DATA = (unsigned char*)calloc(size - 3, 1);
     
     int i;
     for (i = 3; i < size; i++)

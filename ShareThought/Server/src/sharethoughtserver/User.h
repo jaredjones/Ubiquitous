@@ -31,7 +31,7 @@ public:
     }
 };
 
-static struct LoginRegistrationPacketInfo GetUserInfoGivenLoginPacketData(const char *pData)
+static struct LoginRegistrationPacketInfo GetUserInfoGivenLoginPacketData(const unsigned char *pData)
 {
     struct LoginRegistrationPacketInfo lPInfo;
     
@@ -53,7 +53,7 @@ static struct LoginRegistrationPacketInfo GetUserInfoGivenLoginPacketData(const 
 
     return lPInfo;
 }
-static struct LoginRegistrationPacketInfo GetUserInfoGivenRegistrationPacketData(const char *pData){
+static struct LoginRegistrationPacketInfo GetUserInfoGivenRegistrationPacketData(const unsigned char *pData){
     struct LoginRegistrationPacketInfo lPInfo;
     
     
