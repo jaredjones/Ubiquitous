@@ -11,6 +11,7 @@
 #import "ContactListTableViewCell.h"
 #import "DemoMessagesViewController.h"
 #import "NetworkManager.h"
+#import "ProfileViewController.h"
 
 @interface ContactListViewController () <ContactListTableCellDelegate>
 
@@ -38,27 +39,25 @@
 
 -(void)initTableData {
     _contacts = [[NSMutableArray alloc] init];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateContacts:)
+                                                 name:@"ContactsReceived"
+                                               object:nil];
     [[NetworkManager sharedManager] grabContacts];
     
-    User *user = [[User alloc] initWithUser:@"coolkid111" withEmail:@"user1@gmail.com" withFirstName:@"Alisa" withLastName:@"Tucker" withProfileDesc:@"I'm a cool guy." withProfilePic:nil];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"tdik543" withEmail:@"tdik543@gmail.com" withFirstName:@"Tim" withLastName:@"Dickson" withProfileDesc:@"Lost cause..." withProfilePic:nil];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"oatman" withEmail:@"oatman@gmail.com" withFirstName:@"Jared" withLastName:@"Hat" withProfileDesc:@"As long as it looks pretty." withProfilePic:nil ];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"towelie224" withEmail:@"towelie224@gmail.com" withFirstName:@"Faysal" withLastName:@"Hat#2" withProfileDesc:@"Tim do something pointless." withProfilePic:nil];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"coder339" withEmail:@"coder339@gmail.com" withFirstName:@"Aidaly" withLastName:@"Santamaria" withProfileDesc:@" :D " withProfilePic:nil ];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"shipme897" withEmail:@"shipme897@gmail.com" withFirstName:@"Stefan" withLastName:@"Theard" withProfileDesc:@"Just ship it..." withProfilePic:nil ];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"dog678" withEmail:@"dog678@gmail.com" withFirstName:@"Owen" withLastName:@"Mitchell" withProfileDesc:@"idk" withProfilePic:nil ];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"cat876" withEmail:@"cat876@gmail.com" withFirstName:@"Isacc" withLastName:@"Derman" withProfileDesc:@"hi" withProfilePic:nil];
-    [_contacts addObject:user];
-    user = [[User alloc] initWithUser:@"rubberducky" withEmail:@"rubberducky@gmail.com" withFirstName:@"Desirae" withLastName:@"Fleming" withProfileDesc:@"I like ducks." withProfilePic:nil ];
-    [_contacts addObject:user];
+    _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
+    
+}
+
+- (void)updateContacts: (NSNotification *)notification
+{
+    NSDictionary *dic = notification.userInfo;
+    NSArray *userArray = [dic objectForKey:@"Contacts"];
+    _contacts = [[NSMutableArray alloc] init];
+    
+    for (User *u in userArray){
+        [_contacts addObject:u];
+    }
     
     //sort contacts by last name and then first name
     NSSortDescriptor *lnameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lname" ascending:YES];
@@ -67,12 +66,8 @@
     
     [_contacts sortUsingDescriptors:descriptors];
     _searchResults = [[NSMutableArray alloc] initWithArray:_contacts];
-    
-    
     [self setSectionTitles:_contactSectionTitles];
-    
-    _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
-    
+    [_contactTableView reloadData];
 }
 
 -(void)didReceiveMemoryWarning {
@@ -218,6 +213,23 @@
         }
     }
     User *u = [users objectAtIndex:indexPath.row];
+    [cell setUser:u];
+    
+    NSURL *URL = [NSURL URLWithString:[@"http://gaea.uvora.com/sharethought/process.php?o=1&user=" stringByAppendingString:[u username]]];
+    NSError *error;
+    NSString *stringFromFileAtURL = [[NSString alloc]
+                                     initWithContentsOfURL:URL
+                                     encoding:NSUTF8StringEncoding
+                                     error:&error];
+    UIImage *image = nil;
+    
+    if (![stringFromFileAtURL isEqualToString:@""]){
+        NSData *imgData = [ProfileViewController dataFromHexString:stringFromFileAtURL];
+        UIImage *img = [UIImage imageWithData:imgData];
+        image = img;
+        [cell updateUserIcon:image];
+    }
+    
     cell.contactName = [u.fname stringByAppendingFormat:@" %@", u.lname];
     //cell.theLabelColor = [self colorPickerForNameLabel: _colorPicker];
     cell.contactDesc = u.profileDescription;
@@ -229,30 +241,6 @@
     cell.backgroundColor = [UIColor colorWithRed:54/255.0f green:58/255.0f blue:64/255.0f alpha:1.0f];
     return cell;
 }
-/*- (UIColor*)colorPickerForNameLabel:(NSNumber *)theColorChoiceChoosen{
-    UIColor *theColor;
-    if([theColorChoiceChoosen integerValue] == 0){
-        theColor = [UIColor colorWithRed:77/255.0f green:201/255.0f blue:180/255.0f alpha:1.0f];
-    }
-    else if([theColorChoiceChoosen integerValue] == 1){
-        theColor = [UIColor colorWithRed:44/255.0f green:152/255.0f blue:223/255.0f alpha:1.0f];
-    }
-    else if([theColorChoiceChoosen integerValue] == 2){
-        theColor = [UIColor colorWithRed:234/255.0f green:76/255.0f blue:53/255.0f alpha:1.0f];
-    }
-    else if([theColorChoiceChoosen integerValue] == 3){
-        theColor = [UIColor colorWithRed:242/255.0f green:198/255.0f blue:0/255.0f alpha:1.0f];
-    }
-    else{
-        theColor = [UIColor colorWithRed:7/255.0f green:201/255.0f blue:5/255.0f alpha:1.0f];
-    }
-    
-    if([theColorChoiceChoosen integerValue] <  4)
-       _colorPicker = @(theColorChoiceChoosen.integerValue + 1);
-    else
-        _colorPicker = @0;
-    return theColor;
-}*/
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];

@@ -295,7 +295,8 @@ void WorldUpdate(int timeDiff)
                             char *guid = generateguid();
                             resultSet->first();
                             
-                            connections[i]->account = new Account(resultSet->getString("USERNAME"),
+                            connections[i]->account = new Account(resultSet->getInt64("USER_ID"),
+                                                                  resultSet->getString("USERNAME"),
                                                                   resultSet->getString("PASSWORD"),
                                                                   resultSet->getString("EMAIL"),
                                                                   resultSet->getString("FIRST_NAME"),
@@ -346,10 +347,64 @@ void WorldUpdate(int timeDiff)
                     }
                 }
                 break;
+            
             case CMSG_LOGOUT:
                 printf("CMSG_LOGOUT\n");
                 delete connections[i]->account;
                 connections[i]->account = nullptr;
+                break;
+            case CMSG_GRAB_CONTACTS:
+                printf("CMSG_GRAB_CONTACTS\n");
+                if (connections[i]->account != nullptr){
+                    try {
+                        sql::PreparedStatement *pstmt;
+                        pstmt = SQLMGR->conn->prepareStatement("SELECT * FROM `Contacts` LEFT OUTER JOIN `User` ON `CONTACTEE` = User.USER_ID WHERE `OWNER` = ?");
+                        pstmt->setUInt64(1, connections[i]->account->userID);
+                        
+                        sql::ResultSet *resultSet = pstmt->executeQuery();
+                        
+                        char buff[2048];
+                        sprintf(buff, "%c", (char)resultSet->rowsCount());
+                        
+                        resultSet->first();
+                        uint32_t lastLength = 0;
+                        for (int i = 0; i < resultSet->rowsCount(); i++){
+                            
+                            std::string user = resultSet->getString("USERNAME");
+                            std::string firstName = resultSet->getString("FIRST_NAME");
+                            std::string lastName = resultSet->getString("LAST_NAME");
+                            std::string aboutMe = resultSet->getString("ABOUT_ME");
+                            
+                            sprintf(buff+lastLength+1, "%c%s%c%s%c%s%c%s",
+                                    (char)user.length(), user.c_str(),
+                                    (char)firstName.length(), firstName.c_str(),
+                                    (char)lastName.length(), lastName.c_str(),
+                                    (char)aboutMe.length(), aboutMe.c_str());
+                            printf("CONTACT: %s\n", user.c_str());
+                            
+                            lastLength = user.length() + firstName.length() + lastName.length() + aboutMe.length() + 4;
+                            resultSet->next();
+                        }
+                        
+                        packetData = ConstructPacket(SMSG_SEND_CONTACTS, (uint16_t)strlen(buff), buff, &finalSize);
+                        send(connections[i]->SocketID, packetData, finalSize, 0);
+                        free(packetData);
+                        
+                        delete pstmt;
+                        delete resultSet;
+                        
+                    } catch (sql::SQLException &e) {
+                        std::cout << "# ERR: SQLException in " << __FILE__;
+                        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+                        /* what() (derived from std::runtime_error) fetches error message */
+                        std::cout << "# ERR: " << e.what();
+                        std::cout << " (MySQL error code: " << e.getErrorCode();
+                        std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                        
+                        return;
+                    }
+                }
+                
                 break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);

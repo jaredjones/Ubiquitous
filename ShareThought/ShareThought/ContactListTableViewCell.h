@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @protocol ContactListTableCellDelegate <NSObject>
 
@@ -22,6 +23,7 @@
 //@property (nonatomic, strong) UIColor *theLabelColor;
 @property (nonatomic, weak) id <ContactListTableCellDelegate> delegate;
 
+@property (nonatomic, weak) User *user;
 
 - (void)updateUserIcon: (UIImage *)icon;
 

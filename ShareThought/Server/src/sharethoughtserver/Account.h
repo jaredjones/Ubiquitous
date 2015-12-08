@@ -5,6 +5,7 @@ class Account
 {
         
 public:
+    uint64_t userID;
     std::string username;
     std::string password;
     std::string email;
@@ -12,6 +13,7 @@ public:
     std::string lname;
     std::string aboutMe;
     Account(){
+        this->userID = 0;
         this->username = "";
         this->password = "";
         this->email = "";
@@ -19,7 +21,8 @@ public:
         this->lname = "";
         this->aboutMe = "";
     }
-    Account(std::string username, std::string password, std::string email, std::string fname, std::string lname, std::string aboutMe){
+    Account(uint64_t userID, std::string username, std::string password, std::string email, std::string fname, std::string lname, std::string aboutMe){
+        this->userID = userID;
         this->username = username;
         this->password = password;
         this->email = email;

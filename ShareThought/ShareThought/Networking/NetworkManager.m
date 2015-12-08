@@ -210,6 +210,33 @@ Packet *tmp = nil;
             case SMSG_ACCOUNT_ALREADY_EXISTS:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationNotificationAlreadyExists" object:self];
                 break;
+            case SMSG_SEND_CONTACTS:
+                NSLog(@"SMSG_SEND_CONTACTS");
+                //Loool
+                if (true){
+                    char *bytes = (char*)[data bytes];
+                    char numberOfContacts = *(bytes);
+                    bytes+=1;
+                    
+                    arr = [User convertPacketDataToStringArray:[NSData dataWithBytes:bytes length:[data length] - 1]];
+                    
+                    NSMutableArray *userArray = [[NSMutableArray alloc]init];
+                    for (NSUInteger i = 0; i < numberOfContacts*4; i+=4){
+                        User *u = [[User alloc]initWithUser:[arr objectAtIndex:i]
+                                                  withEmail:nil
+                                              withFirstName:[arr objectAtIndex:i+1]
+                                               withLastName:[arr objectAtIndex:i+2]
+                                            withProfileDesc:[arr objectAtIndex:i+3]
+                                             withProfilePic:nil];
+                        [userArray addObject:u];
+                    }
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ContactsReceived"
+                                                                        object:self
+                                                                      userInfo:@{@"Contacts": userArray}];
+                }
+                
+                break;
             default:
                 NSLog(@"Malformed Packet Received!");
                 [sock disconnect];

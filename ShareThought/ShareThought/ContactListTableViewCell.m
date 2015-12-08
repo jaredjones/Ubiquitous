@@ -7,6 +7,7 @@
 //
 
 #import "ContactListTableViewCell.h"
+#import "ProfileViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface ContactListTableViewCell ()
