@@ -364,11 +364,13 @@ void WorldUpdate(int timeDiff)
                         sql::ResultSet *resultSet = pstmt->executeQuery();
                         
                         char buff[2048];
+                        char *cBuff = buff;
+                        
                         char num = (char)resultSet->rowsCount();
                         sprintf(buff, "%c", num);
+                        cBuff += 1;
                         
                         resultSet->first();
-                        uint32_t lastLength = 0;
                         for (int i = 0; i < resultSet->rowsCount(); i++){
                             
                             std::string user = resultSet->getString("USERNAME");
@@ -376,25 +378,23 @@ void WorldUpdate(int timeDiff)
                             std::string lastName = resultSet->getString("LAST_NAME");
                             std::string aboutMe = resultSet->getString("ABOUT_ME");
                             
-                            sprintf(buff+lastLength+1, "%c%s%c%s%c%s%c%s",
+                            sprintf(cBuff, "%c%s%c%s%c%s%c%s",
                                     (char)user.length(), user.c_str(),
                                     (char)firstName.length(), firstName.c_str(),
                                     (char)lastName.length(), lastName.c_str(),
                                     (char)aboutMe.length(), aboutMe.c_str());
                             printf("CONTACT: %s\n", user.c_str());
                             
-                            lastLength = user.length() + firstName.length() + lastName.length() + aboutMe.length() + 4;
+                            cBuff += user.length() + firstName.length() + lastName.length() + aboutMe.length() + 4;
+                            
                             resultSet->next();
                         }
                         
-                        uint16_t buffLen;
-                        if (num == 0)
-                            buffLen = 1;
-                        else
-                            buffLen = (uint16_t)strlen(buff);
+                        uint16_t buffLen = cBuff - buff;
                         
                         packetData = ConstructPacket(SMSG_SEND_CONTACTS, buffLen, buff, &finalSize);
                         send(connections[i]->SocketID, packetData, finalSize, 0);
+                        printf("DATS SENDT\n");
                         free(packetData);
                         
                         delete pstmt;

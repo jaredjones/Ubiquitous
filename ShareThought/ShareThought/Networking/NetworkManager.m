@@ -225,6 +225,7 @@ Packet *tmp = nil;
                 NSLog(@"SMSG_SEND_CONTACTS");
                 //Loool
                 if (true){
+                    
                     char *bytes = (char*)[data bytes];
                     int numberOfContacts = *(bytes);
                     bytes+=1;
