@@ -28,19 +28,6 @@
  *  Do not actually do anything like this.
  */
 
-static NSString * const kJSQDemoAvatarDisplayNameSelf = @"Jared Jones";
-static NSString * const kJSQDemoAvatarDisplayNameStefan = @"Stefan Theard";
-static NSString * const kJSQDemoAvatarDisplayNameTim = @"Timothy Dickson";
-static NSString * const kJSQDemoAvatarDisplayNameFaysal = @"Faysal Sharif";
-static NSString * const kJSQDemoAvatarDisplayNameAidaly = @"Aidaly Santamaria";
-
-static NSString * const kJSQDemoAvatarIdSelf = @"053496-4509-289";
-static NSString * const kJSQDemoAvatarIdStefan = @"468-768355-23123";
-static NSString * const kJSQDemoAvatarIdTim = @"707-8956784-57";
-static NSString * const kJSQDemoAvatarIdFaysal = @"309-41802-93823";
-static NSString * const kJSQDemoAvatarIdAidaly = @"329-41202-23523";
-
-
 
 @interface DemoModelData : NSObject
 
@@ -53,6 +40,11 @@ static NSString * const kJSQDemoAvatarIdAidaly = @"329-41202-23523";
 @property (strong, nonatomic) JSQMessagesBubbleImage *incomingBubbleImageData;
 
 @property (strong, nonatomic) NSDictionary *users;
+
+@property (nonatomic, strong) NSString *displayNameSelf;
+@property (nonatomic, strong) NSString *displayNameOther;
+@property (nonatomic, strong) NSString *idSelf;
+@property (nonatomic, strong) NSString *idOther;
 
 - (void)addPhotoMediaMessage;
 

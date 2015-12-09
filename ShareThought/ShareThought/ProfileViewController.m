@@ -116,13 +116,22 @@
 
 - (IBAction)clickToChatPressed:(id)sender {
     NSLog(@"Click to Chat Pressed");
+    if ([User me] == _user)
+        [self personsFriendsPressed:nil];
+    
     DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    [vc setUser:_user];
+    
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nc animated:YES completion:nil];
 }
 - (IBAction)addFriendPressed:(id)sender {
     NSLog(@"Add Friend Pressed");
-    
+    if ([User me] != _user)
+    {
+        NSLog(@"Cannot add contact from a user page that is not your own!");
+        return;
+    }
     UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Add Friend"
                                                                  message:@"Please type the username of the friend you'd like to add..."
                                                           preferredStyle:UIAlertControllerStyleAlert];

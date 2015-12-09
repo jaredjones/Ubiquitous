@@ -3,7 +3,7 @@
 #import "JSQMessages.h"
 
 #import "DemoModelData.h"
-
+#import "User.h"
 
 @class DemoMessagesViewController;
 
@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) DemoModelData *demoData;
 
-- (void)receiveMessagePressed:(UIBarButtonItem *)sender;
+@property (weak, nonatomic) User *user;
 
 - (void)closePressed:(UIBarButtonItem *)sender;
 

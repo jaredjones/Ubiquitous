@@ -1,29 +1,5 @@
-//
-//  Created by Jesse Squires
-//  http://www.jessesquires.com
-//
-//
-//  Documentation
-//  http://cocoadocs.org/docsets/JSQMessagesViewController
-//
-//
-//  GitHub
-//  https://github.com/jessesquires/JSQMessagesViewController
-//
-//
-//  License
-//  Copyright (c) 2014 Jesse Squires
-//  Released under an MIT license: http://opensource.org/licenses/MIT
-//
 
 #import "DemoModelData.h"
-
-
-/**
- *  This is for demo/testing purposes only.
- *  This object sets up some fake model data.
- *  Do not actually do anything like this.
- */
 
 @implementation DemoModelData
 
@@ -31,8 +7,28 @@
 {
     self = [super init];
     if (self) {
+        _idSelf = @"5812-2891-582";
+        _idOther = @"2850-52-691";
         
-            [self loadFakeMessages];
+        _displayNameSelf = @"Jared Jones";
+        _displayNameOther = @"Stefan Theard";
+        
+        self.messages = [[NSMutableArray alloc]init];
+        
+        /*
+         self.messages = [[NSMutableArray alloc] initWithObjects:
+         [[JSQMessage alloc] initWithSenderId:_idSelf
+         senderDisplayName:_displayNameSelf
+         date:[NSDate distantPast]
+         text:@"This project is amazing, but we need to further improve the UI Design!"],
+         
+         [[JSQMessage alloc] initWithSenderId:_idOther
+         senderDisplayName:_displayNameOther
+         date:[NSDate distantPast]
+         text:@"I agree, we need to improve the design of this application."],
+         nil];
+         */
+        
         
         
         
@@ -85,56 +81,18 @@
     return self;
 }
 
-- (void)loadFakeMessages
-{
-    /**
-     *  Load some fake messages for demo.
-     *
-     *  You should have a mutable array or orderedSet, or something.
-     */
-    self.messages = [[NSMutableArray alloc] initWithObjects:
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdSelf
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameSelf
-                                                     date:[NSDate distantPast]
-                                                     text:@"This project is amazing, but we need to further improve the UI Design!"],
-                     
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdFaysal
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameFaysal
-                                                     date:[NSDate distantPast]
-                                                     text:@"I agree, we need to improve the design of this application."],
-                     
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdTim
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameTim
-                                                     date:[NSDate distantPast]
-                                                     text:@"Meh it doesn't look that bad; seems like a typical Dickson and Jones LLC product."],
-                     
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdStefan
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameStefan
-                                                     date:[NSDate date]
-                                                     text:@"Nah, I say we ship it..."],
-                     
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdAidaly
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameAidaly
-                                                     date:[NSDate date]
-                                                     text:@"<.<"],
-                     nil];
-    
-    
-    
-}
-
 - (void)addPhotoMediaMessage
 {
-    JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:[UIImage imageNamed:@"goldengate"]];
+    /*JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:[UIImage imageNamed:@"goldengate"]];
     JSQMessage *photoMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSelf
                                                    displayName:kJSQDemoAvatarDisplayNameSelf
                                                          media:photoItem];
-    [self.messages addObject:photoMessage];
+    [self.messages addObject:photoMessage];*/
 }
 
 - (void)addLocationMediaMessageCompletion:(JSQLocationMediaItemCompletionBlock)completion
 {
-    CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:37.795313 longitude:-122.393757];
+    /*CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:37.795313 longitude:-122.393757];
     
     JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
     [locationItem setLocation:ferryBuildingInSF withCompletionHandler:completion];
@@ -142,19 +100,19 @@
     JSQMessage *locationMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSelf
                                                       displayName:kJSQDemoAvatarDisplayNameSelf
                                                             media:locationItem];
-    [self.messages addObject:locationMessage];
+    [self.messages addObject:locationMessage];*/
 }
 
 - (void)addVideoMediaMessage
 {
-    // don't have a real video, just pretending
+    /*// don't have a real video, just pretending
     NSURL *videoURL = [NSURL URLWithString:@"file://"];
     
     JSQVideoMediaItem *videoItem = [[JSQVideoMediaItem alloc] initWithFileURL:videoURL isReadyToPlay:YES];
     JSQMessage *videoMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSelf
                                                    displayName:kJSQDemoAvatarDisplayNameSelf
                                                          media:videoItem];
-    [self.messages addObject:videoMessage];
+    [self.messages addObject:videoMessage];*/
 }
 
 @end
