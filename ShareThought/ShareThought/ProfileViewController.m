@@ -12,6 +12,7 @@
 #import "NetworkManager.h"
 #import "NSData+Conversion.h"
 #import "DemoMessagesViewController.h"
+#import "ContactListViewController.h"
 
 @interface ProfileViewController()
 
@@ -104,8 +105,15 @@
         [self presentViewController:msg animated:YES completion:nil];
     }else{
         
+        [[NetworkManager sharedManager] deleteContact:[_user username]];
+        
+        ContactListViewController *vc = (ContactListViewController *)self.presentingViewController;
+        [vc removeContact:[_user username]];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
     }
 }
+
 - (IBAction)clickToChatPressed:(id)sender {
     NSLog(@"Click to Chat Pressed");
     DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];

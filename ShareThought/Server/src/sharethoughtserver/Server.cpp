@@ -503,6 +503,56 @@ void WorldUpdate(int timeDiff)
                     }
                 }
                 break;
+            case CMSG_DELETE_CONTACT:
+                if (connections[i]->account != nullptr){
+                    try {
+                        char len = *op.DATA;
+                        char friendName[50];
+                        memcpy(friendName, (op.DATA + 1), len);
+                        friendName[(int)len] = 0;
+                        
+                        sql::PreparedStatement *pstmt;
+                        pstmt = SQLMGR->conn->prepareStatement("SELECT USERNAME FROM `User` WHERE USERNAME = ?");
+                        pstmt->setString(1, friendName);
+                        sql::ResultSet *resultSet = pstmt->executeQuery();
+                        
+                        bool friendExists = (resultSet->rowsCount() > 0);
+                        bool alreadyContact;
+                        delete pstmt;
+                        delete resultSet;
+                        
+                        if (friendExists){
+                            pstmt = SQLMGR->conn->prepareStatement("SELECT * FROM `Contacts` LEFT JOIN `User` AS owners ON `Contacts`.`OWNER` = owners.`USER_ID` LEFT JOIN `User` AS contactees ON `Contacts`.`CONTACTEE` = contactees.`USER_ID` WHERE owners.`USERNAME` = ? AND contactees.`USERNAME` = ?");
+                            pstmt->setString(1, connections[i]->account->username);
+                            pstmt->setString(2, friendName);
+                            sql::ResultSet *resultSet = pstmt->executeQuery();
+                            
+                            alreadyContact = (resultSet->rowsCount() > 0);
+                            delete pstmt;
+                            delete resultSet;
+                        }
+                        
+                        if (friendExists && alreadyContact){
+                            sql::PreparedStatement *pstmt;
+                            pstmt = SQLMGR->conn->prepareStatement("DELETE FROM `Contacts` WHERE `OWNER` IN (SELECT `USER_ID` FROM `User` WHERE `USERNAME` = ?) AND `CONTACTEE` IN (SELECT `USER_ID` FROM `User` WHERE `USERNAME` = ?)");
+                            pstmt->setString(1, connections[i]->account->username);
+                            pstmt->setString(2, friendName);
+                            pstmt->execute();
+                            delete pstmt;
+                        }
+                        
+                    }catch (sql::SQLException &e) {
+                        std::cout << "# ERR: SQLException in " << __FILE__;
+                        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+                        /* what() (derived from std::runtime_error) fetches error message */
+                        std::cout << "# ERR: " << e.what();
+                        std::cout << " (MySQL error code: " << e.getErrorCode();
+                        std::cout << ", SQLState: " << e.getSQLState() << " )" << std::endl;
+                        
+                        return;
+                    }
+                }
+                break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
                 break;

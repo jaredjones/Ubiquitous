@@ -26,6 +26,8 @@
 @property (nonatomic, strong) NSArray *contactIndexTitles;
 @property (nonatomic, strong) NSNumber *colorPicker;
 
+@property (nonatomic, weak) User *sendingUser;
+
 @end
 
 @implementation ContactListViewController
@@ -47,6 +49,19 @@
     
     _contactIndexTitles = [NSArray arrayWithObjects: UITableViewIndexSearch, @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
     
+}
+
+- (void)removeContact:(NSString *)contact
+{
+    for (User *u in _contacts){
+        if ([u.username isEqualToString:contact]){
+            NSMutableArray *tmp = [_contacts mutableCopy];
+            [tmp removeObject:u];
+            NSNotification *not = [[NSNotification alloc]initWithName:@"" object:nil userInfo:@{@"Contacts": tmp}];
+            [self updateContacts:not];
+            break;
+        }
+    }
 }
 
 - (void)updateContacts: (NSNotification *)notification
@@ -265,6 +280,13 @@
     return [_contactSectionTitles indexOfObject:title];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ContactListTableViewCell *cell = [_contactTableView cellForRowAtIndexPath:indexPath];
+    _sendingUser = cell.user;
+    cell.selected = NO;
+    [self performSegueWithIdentifier:@"contactListToProfile" sender:self];
+}
+
 #pragma Search Methods
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -307,14 +329,16 @@
     [self presentViewController:nc animated:YES completion:nil];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"contactListToProfile"]){
+        ProfileViewController *vc = [segue destinationViewController];
+        [vc changeUser:_sendingUser];
+    }
 }
-*/
+
 
 @end

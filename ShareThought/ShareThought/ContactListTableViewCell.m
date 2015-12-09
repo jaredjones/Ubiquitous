@@ -9,6 +9,7 @@
 #import "ContactListTableViewCell.h"
 #import "ProfileViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NetworkManager.h"
 
 @interface ContactListTableViewCell ()
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
@@ -107,6 +108,7 @@
 
 -(IBAction)buttonClicked:(id)sender {
     if (sender == _deleteButton) {
+        [[NetworkManager sharedManager] deleteContact:[_user username]];
         [_delegate deleteButtonActionForContact:_contactName];
     }
     else if (sender == _chatButton) {

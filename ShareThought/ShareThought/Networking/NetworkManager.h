@@ -17,6 +17,7 @@
 - (void)registerWithEmail: (NSString *)email withPassword: (NSString *)password withFirstName: (NSString *)fName withLastName: (NSString *)lName withAboutYou: (NSString *)aboutYou withUserName: (NSString *)userName;
 - (void)logout;
 - (void)deleteAccount;
+- (void)deleteContact: (NSString *)userName;
 - (void)addContact: (NSString *)userName;
 - (void)grabContacts;
 - (void)connect: (NSString *)host withPort: (NSNumber *)port;
