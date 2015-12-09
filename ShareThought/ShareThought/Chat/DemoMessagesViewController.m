@@ -131,6 +131,26 @@
      *
      *  self.inputToolbar.maximumHeight = 150;
      */
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(messageReceived:)
+                                                 name:@"MessageReceived"
+                                               object:nil];
+}
+
+- (void)messageReceived: (NSNotification *)notification{
+    NSLog(@"Mec rec");
+    NSDictionary *dic = notification.userInfo;
+    NSArray *arr = [dic objectForKey:@"MSG"];
+    self.title = [arr objectAtIndex:0];
+    self.demoData.displayNameOther = [arr objectAtIndex:0];
+    
+    JSQMessage *message = [[JSQMessage alloc] initWithSenderId:self.demoData.idOther
+                                             senderDisplayName:[arr objectAtIndex:0]
+                                                          date:[NSDate date]
+                                                          text:[arr objectAtIndex:1]];
+    
+    [self.demoData.messages addObject:message];
+    [self finishSendingMessageAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated

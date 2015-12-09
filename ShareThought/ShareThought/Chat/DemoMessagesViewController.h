@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) DemoModelData *demoData;
 
-@property (weak, nonatomic) User *user;
+@property (strong, nonatomic) User *user;
 
 - (void)closePressed:(UIBarButtonItem *)sender;
 

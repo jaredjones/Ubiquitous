@@ -112,7 +112,7 @@
         [_delegate deleteButtonActionForContact:_contactName];
     }
     else if (sender == _chatButton) {
-        [_delegate chatButtonAction:sender withContactName:_contactName];
+        [_delegate chatButtonAction:sender withContactName:[_user username]];
     }
 }
 

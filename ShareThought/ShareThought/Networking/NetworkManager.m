@@ -298,6 +298,32 @@ Packet *tmp = nil;
                 }
                 
                 break;
+            case SMSG_SEND_CHAT_MESSAGE:
+                if (true){
+                    NSArray *arr = [User convertPacketDataToStringArray:data];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"MessageReceived"
+                                                                        object:self
+                                                                      userInfo:@{@"MSG": arr}];
+                    
+                    /*
+                     DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+                     User *u = [[User alloc]init];
+                     u.username = [arr objectAtIndex:0];
+                     [vc setUser:u];
+                     
+                     
+                     _chatWin = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+                     _chatWin.rootViewController = [[UINavigationController alloc] initWithRootViewController:vc];
+                     _chatWin.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                     _chatWin.opaque = NO;
+                     _chatWin.windowLevel = UIWindowLevelAlert;
+                     _chatWin.backgroundColor = [UIColor clearColor];
+                     
+                     [_chatWin makeKeyAndVisible];
+                     */
+                }
+                
+                break;
             default:
                 NSLog(@"Malformed Packet Received!");
                 [sock disconnect];

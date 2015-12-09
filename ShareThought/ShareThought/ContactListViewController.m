@@ -39,6 +39,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:74.0/255.0f green:71.0/255.0f blue:79.0/255.0f alpha:1.0f]; // DOES NOTHING
 }
 
+
 -(void)initTableData {
     _contacts = [[NSMutableArray alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -325,6 +326,9 @@
 
 -(void)chatButtonAction:(id)sender withContactName:(NSString *)contactName {
     DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];
+    User *u = [[User alloc]init];
+    [u setUsername:contactName];
+    [vc setUser:u];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nc animated:YES completion:nil];
 }
