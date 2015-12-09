@@ -566,14 +566,25 @@ void WorldUpdate(int timeDiff)
                     memcpy(message, (op.DATA + recLen + 2), msgLen);
                     message[(int)msgLen] = 0;
                     
-                    for (int i = 0; i < SERVER_MAX_CONNECTIONS; i++)
+                    for (int j = 0; j < SERVER_MAX_CONNECTIONS; j++)
                     {
-                        if (connections[i] == nullptr)
+                        if (connections[j] == nullptr)
                             continue;
-                        if (connections[i]->account == nullptr)
+                        if (connections[j]->account == nullptr)
                             continue;
-                        if (connections[i]->account->username.compare(receiverName) == 0){
-                            printf("Sending message to:%s", connections[i]->account->username.c_str());
+                        if (connections[j]->account->username.compare(receiverName) == 0){
+                            
+                            char buff[3072];
+                            sprintf(buff, "%c%s%c%s",
+                                    (char)connections[i]->account->username.length(),
+                                    connections[i]->account->username.c_str(),
+                                    (char)msgLen,
+                                    message);
+                            int buffLen = connections[i]->account->username.length() + msgLen + 2;
+                            
+                            packetData = ConstructPacket(SMSG_SEND_CHAT_MESSAGE, buffLen, (unsigned char*)buff, &finalSize);
+                            send(connections[j]->SocketID, packetData, finalSize, 0);
+                            free(packetData);
                             break;
                         }
                         
