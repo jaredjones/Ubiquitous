@@ -94,6 +94,7 @@
         
         UIAlertAction *yesDeleteAction = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
             [[NetworkManager sharedManager] deleteAccount];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }];
         UIAlertAction *noDeleteAction = [UIAlertAction actionWithTitle:@"Keep Account" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         }];
@@ -113,6 +114,25 @@
 }
 - (IBAction)addFriendPressed:(id)sender {
     NSLog(@"Add Friend Pressed");
+    
+    UIAlertController *msg = [UIAlertController alertControllerWithTitle:@"Add Friend"
+                                                                 message:@"Please type the username of the friend you'd like to add..."
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [msg addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = NSLocalizedString(@"Friend's Name", @"Friend's Name");
+     }];
+    
+    UIAlertAction *yesDeleteAction = [UIAlertAction actionWithTitle:@"Add Friend" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        UITextField *friendTextField = msg.textFields.firstObject;
+        [[NetworkManager sharedManager] addContact:[friendTextField text]];
+    }];
+    UIAlertAction *noDeleteAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {}];
+    
+    [msg addAction:noDeleteAction];
+    [msg addAction:yesDeleteAction];
+    [self presentViewController:msg animated:YES completion:nil];
 }
 - (IBAction)aboutUsOrEditButtonPressed:(id)sender {
     UIAlertController *msg = [UIAlertController alertControllerWithTitle:[@"About " stringByAppendingString:[_user fname]]
@@ -149,6 +169,7 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
     [request setURL:[NSURL URLWithString:@"http://gaea.uvora.com/sharethought/process.php"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -184,6 +205,7 @@
     _user = u;
     NSURL *URL = [NSURL URLWithString:[@"http://gaea.uvora.com/sharethought/process.php?o=1&user=" stringByAppendingString:[_user username]]];
     NSError *error;
+    
     NSString *stringFromFileAtURL = [[NSString alloc]
                                      initWithContentsOfURL:URL
                                      encoding:NSUTF8StringEncoding

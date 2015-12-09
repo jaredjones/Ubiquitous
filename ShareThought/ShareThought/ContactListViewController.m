@@ -222,6 +222,7 @@
                                          initWithContentsOfURL:URL
                                          encoding:NSUTF8StringEncoding
                                          error:&error];
+        
         __block UIImage *image = nil;
         
         if (![stringFromFileAtURL isEqualToString:@""]){

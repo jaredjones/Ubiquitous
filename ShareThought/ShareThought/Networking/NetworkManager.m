@@ -119,6 +119,20 @@
     free(packetData);
 }
 
+- (void)addContact: (NSString *)userName{
+    NSString *packetBody = [NSString stringWithFormat:@"%c%s", (char)userName.length, [userName cStringUsingEncoding:NSUTF8StringEncoding]];
+    NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint64_t finalSize;
+    unsigned char *packetData;
+    NSData *data;
+    packetData = ConstructPacket(CMSG_ADD_CONTACT, packetBody.length, (unsigned char*)[packetBodyData bytes], &finalSize);
+    data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+    
+    [_socket writeData:data withTimeout:-1 tag:0];
+    free(packetData);
+}
+
 - (void)grabContacts{
     uint64_t finalSize;
     unsigned char *packetData;
