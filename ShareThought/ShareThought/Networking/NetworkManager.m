@@ -158,6 +158,27 @@
     free(packetData);
 }
 
+- (void)sendChatMessage: (NSString *)username withMessage: (NSString *)message
+{
+    NSString *packetBody = [NSString stringWithFormat:@"%c%s%c%s",
+                            (char)username.length,
+                            [username cStringUsingEncoding:NSUTF8StringEncoding],
+                            (char)message.length,
+                            [message cStringUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSData *packetBodyData = [packetBody dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint64_t finalSize;
+    unsigned char *packetData;
+    NSData *data;
+    packetData = ConstructPacket(CMSG_SEND_CHAT_MESSAGE, packetBody.length, (unsigned char*)[packetBodyData bytes], &finalSize);
+    data = [NSData dataWithBytes:packetData length:(uint32_t)finalSize];
+    
+    [_socket writeData:data withTimeout:-1 tag:0];
+    free(packetData);
+}
+
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
     NSLog(@"Disconnected");
     

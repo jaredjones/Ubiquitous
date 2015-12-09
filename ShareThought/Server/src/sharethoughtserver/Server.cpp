@@ -553,6 +553,33 @@ void WorldUpdate(int timeDiff)
                     }
                 }
                 break;
+            case CMSG_SEND_CHAT_MESSAGE:
+                if (connections[i]->account != nullptr){
+                    
+                    int recLen = *(op.DATA);
+                    char receiverName[50];
+                    memcpy(receiverName, (op.DATA + 1), recLen);
+                    receiverName[(int)recLen] = 0;
+                    
+                    int msgLen = *(op.DATA + 1 + recLen);
+                    char message[2048];
+                    memcpy(message, (op.DATA + recLen + 2), msgLen);
+                    message[(int)msgLen] = 0;
+                    
+                    for (int i = 0; i < SERVER_MAX_CONNECTIONS; i++)
+                    {
+                        if (connections[i] == nullptr)
+                            continue;
+                        if (connections[i]->account == nullptr)
+                            continue;
+                        if (connections[i]->account->username.compare(receiverName) == 0){
+                            printf("Sending message to:%s", connections[i]->account->username.c_str());
+                            break;
+                        }
+                        
+                    }
+                }
+                break;
             default:
                 printf("Bad Packet:%d From Socket:%d\n", op.OPCODE, connections[i]->SocketID);
                 break;

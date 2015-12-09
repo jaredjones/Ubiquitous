@@ -20,6 +20,7 @@
 - (void)deleteContact: (NSString *)userName;
 - (void)addContact: (NSString *)userName;
 - (void)grabContacts;
+- (void)sendChatMessage: (NSString *)username withMessage: (NSString *)message;
 - (void)connect: (NSString *)host withPort: (NSNumber *)port;
 - (GCDAsyncSocket *)getSocket;
 @end

@@ -214,6 +214,7 @@
     
     [self.demoData.messages addObject:message];
     
+    [[NetworkManager sharedManager] sendChatMessage:[_user username] withMessage:text];
     
     [self finishSendingMessageAnimated:YES];
 }
